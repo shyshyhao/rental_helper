@@ -1387,6 +1387,54 @@
             }).join(''));
         }
 
+        // Short Keys Mapping for URL compression
+        const KEY_MAP = {
+            rooms: 'r', settings: 's', history: 'h',
+            id: 'i', num: 'n', tenant: 't', rent: 'rn',
+            prev_meter: 'pm', current_meter: 'cm', usage: 'u',
+            elec_price: 'ep', personal_elec: 'pe', shared_general: 'sg',
+            shared_heater: 'sh', arrears: 'a', grand_total: 'gt',
+            payment_status: 'ps', is_annual: 'ia', annual_period: 'ap',
+            phone: 'p', line_name: 'ln', notes: 'nt', arrears_amount: 'aa',
+            bank_name: 'bn', bank_account: 'ba', bank_user: 'bu',
+            public_elec_general: 'peg', public_elec_heater: 'peh',
+            msg_template: 'mt', is_passcode_enabled: 'ipe', passcode: 'pc',
+            month: 'm'
+        };
+
+        const REV_KEY_MAP = {};
+        for (const k in KEY_MAP) {
+            REV_KEY_MAP[KEY_MAP[k]] = k;
+        }
+
+        function compressObj(obj) {
+            if (Array.isArray(obj)) {
+                return obj.map(compressObj);
+            } else if (obj !== null && typeof obj === 'object') {
+                const res = {};
+                for (const k in obj) {
+                    const mappedKey = KEY_MAP[k] || k;
+                    res[mappedKey] = compressObj(obj[k]);
+                }
+                return res;
+            }
+            return obj;
+        }
+
+        function decompressObj(obj) {
+            if (Array.isArray(obj)) {
+                return obj.map(decompressObj);
+            } else if (obj !== null && typeof obj === 'object') {
+                const res = {};
+                for (const k in obj) {
+                    const originalKey = REV_KEY_MAP[k] || k;
+                    res[originalKey] = decompressObj(obj[k]);
+                }
+                return res;
+            }
+            return obj;
+        }
+
         // Initialize App
         function initApp() {
             // Load theme
@@ -1399,7 +1447,12 @@
                 try {
                     const encodedData = window.location.hash.substring(6);
                     const decodedJson = b64_to_utf8(encodedData);
-                    const incomingState = JSON.parse(decodedJson);
+                    let incomingState = JSON.parse(decodedJson);
+                    
+                    // Support auto-decompression
+                    if (incomingState && incomingState.r) {
+                        incomingState = decompressObj(incomingState);
+                    }
                     
                     if (incomingState && incomingState.rooms && incomingState.settings) {
                         const confirmLoad = confirm("🔄 偵測到來自家人的同步連結！\n\n這將會【覆蓋】您這台手機目前所有的租屋數據（房客、本月抄表、歷史帳單等）。\n\n確定要載入最新的數據並覆蓋嗎？");
@@ -2510,7 +2563,8 @@
                     settings: state.settings,
                     history: state.history || []
                 };
-                const jsonStr = JSON.stringify(payload);
+                const compressedPayload = compressObj(payload);
+                const jsonStr = JSON.stringify(compressedPayload);
                 const encoded = utf8_to_b64(jsonStr);
                 
                 // Construct sharing URL
