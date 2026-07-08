@@ -949,7 +949,7 @@
             <div class="brand">
                 <span class="brand-logo">🏠</span>
                 <div class="brand-title">
-                    <h1>張爸爸房租助手</h1>
+                    <h1>楊爸爸房租助手</h1>
                     <p>給爸媽最貼心的智能抄表工具</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px;">
                         <div id="globalLastUpdatedText" style="font-size: 0.72rem; color: var(--success); font-weight: 600; transition: color 0.3s; white-space: nowrap;">🟢 存檔狀態：載入中...</div>
@@ -1138,7 +1138,7 @@
                         <li>在左側選單選擇「<b>API 和服務</b>」&gt;「<b>OAuth 同意畫面 (OAuth consent screen)</b>」：
                             <ul style="margin-left: 15px; list-style-type: circle; margin-top: 2px;">
                                 <li>User Type 選擇「<b>外部 (External)</b>」（若使用 Workspace 帳號亦可選內部）。</li>
-                                <li>填寫應用程式名稱（例如 <code>張爸爸房租助手</code>）與您的聯絡信箱。</li>
+                                <li>填寫應用程式名稱（例如 <code>楊爸爸房租助手</code>）與您的聯絡信箱。</li>
                                 <li>在「範圍 (Scopes)」步驟中，點選「新增或移除範圍」，手動在底部貼入並新增：
                                     <br><code>https://www.googleapis.com/auth/drive</code>
                                     <br><code>https://www.googleapis.com/auth/userinfo.email</code>
@@ -1451,26 +1451,26 @@
 
                 <ol style="margin-left: 18px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
                     <li>
-                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">1. 清除暫存與輸入 Client ID</strong>
+                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">清除暫存與輸入 Client ID</strong>
                         <div style="margin-top: 2px;">
                             切換到右下角<b>「系統設定」</b>分頁。如果雲端同步狀態顯示已連線，請先點選 <b>「🔌 中斷 Google 雲端連線」</b>（以防連結到舊的測試檔案）。接著，確認 Client ID 欄位已填入管理者提供的編號，並點選「儲存 Client ID」。
                         </div>
                     </li>
                     <li>
-                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">2. 點選「🔗 登入並啟用同步」</strong>
+                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">點選「🔗 登入並啟用同步」</strong>
                         <div style="margin-top: 2px;">
                             點選按鈕後會彈出 Google 登入視窗，請<b>輸入您自己的 Google 帳號和密碼</b>進行登入。
                         </div>
                     </li>
                     <li>
-                        <strong style="color: var(--danger); font-size: 0.9rem;">3. ⚠️ 重要：略過 Google 安全警告</strong>
+                        <strong style="color: var(--danger); font-size: 0.9rem;">⚠️ 重要：略過 Google 安全警告</strong>
                         <div style="background: var(--bg-base); border: 1px dashed var(--danger); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5;">
                             因為這個 App 是我們家庭獨立開發、未向 Google 申請昂貴的商業付費驗證，因此 Google 會顯示「Google 尚未驗證此應用程式」的警告。這是正常的！<br>
-                            👉 請點選左下角的 <b>「進階 (Advanced)」</b> ➡️ 再點選最下方的 <b>「前往『張爸爸房租助手』（不安全）」</b> 即可安全繼續。
+                            👉 請點選左下角的 <b>「進階 (Advanced)」</b> ➡️ 再點選最下方的 <b>「前往『楊爸爸房租助手』（不安全）」</b> 即可安全繼續。
                         </div>
                     </li>
                     <li>
-                        <strong style="color: var(--danger); font-size: 0.9rem;">4. ⚠️ 關鍵步驟：務必核取雲端硬碟權限</strong>
+                        <strong style="color: var(--danger); font-size: 0.9rem;">⚠️ 關鍵步驟：務必核取雲端硬碟權限</strong>
                         <div style="background: var(--bg-base); border: 1px dashed var(--success); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5;">
                             登入的最後一步，Google 會詢問您是否授權此應用程式。<br>
                             👉 畫面上會出現一個「查看、編輯、建立及刪除您 Google 雲端硬碟中的所有檔案」核取方塊。<b>請務必將它【打勾】</b>（或點選「繼續/Continue」以允許所有要求的權限）！<br>
@@ -1581,7 +1581,7 @@
 💳 轉帳帳號：{bank_account}
 👤 戶名：{bank_user}
 
-繳費完成後，請回傳您的「帳號後五碼」或 LINE 截圖告知，張爸爸感謝您的配合！🙏`
+繳費完成後，請回傳您的「帳號後五碼」或 LINE 截圖告知，楊爸爸感謝您的配合！🙏`
         };
 
         let state = {
@@ -3164,7 +3164,7 @@
             const ticketContent = document.getElementById("receiptTicketContent");
             ticketContent.innerHTML = `
                 <div class="ticket-title">溫馨公寓電子明細${isHistory ? ' (歷史存檔)' : ''}</div>
-                <div class="ticket-subtitle">張爸爸租屋助理 | ${dateText}</div>
+                <div class="ticket-subtitle">楊爸爸租屋助理 | ${dateText}</div>
                 <div class="ticket-divider"></div>
                 <div class="ticket-info-grid">
                     <div class="ticket-row"><span class="label">房間編號</span><span class="val">${num} 房 (${floor}樓)</span></div>
