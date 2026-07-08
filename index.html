@@ -964,6 +964,17 @@
 
         <!-- Tab 1: 抄表計費 View -->
         <div id="viewBilling" class="view-content active">
+            <!-- Family Guide Banner -->
+            <div class="family-guide-banner" style="background: linear-gradient(135deg, var(--primary-light), var(--secondary-light)); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--shadow-subtle);">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.5rem;">👨‍👩‍👧‍👦</span>
+                    <div>
+                        <div style="font-weight: 700; color: var(--primary-dark); font-size: 0.9rem;">首次連線？家人共同編輯與同步教學</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">點擊此處，看家人如何與您連線到同一個雲端資料庫！</div>
+                    </div>
+                </div>
+                <button class="btn btn-outline" style="font-size: 0.75rem; padding: 6px 12px; font-weight: 600; white-space: nowrap; border-color: var(--primary); color: var(--primary-dark); background: var(--bg-card);" onclick="openFamilyGuideModal()">💡 點此查看</button>
+            </div>
             <!-- Stats overview card -->
             <div class="stats-hero">
                 <div class="stats-title" id="currentMonthYear">2026 年 7 月份</div>
@@ -1108,7 +1119,10 @@
                 <div class="input-wrapper mb-3">
                     <label for="settingGDriveClientId" style="display: flex; justify-content: space-between; align-items: center;">
                         <span>OAuth 2.0 用戶端編號 (Client ID)</span>
-                        <a href="javascript:void(0)" onclick="toggleGDriveGuide()" style="font-size: 0.75rem; color: var(--secondary); text-decoration: underline; font-weight: 600;">❓ 如何取得 Client ID？</a>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="javascript:void(0)" onclick="openFamilyGuideModal()" style="font-size: 0.75rem; color: var(--primary-dark); text-decoration: underline; font-weight: 600;">👨‍👩‍👧‍👦 家人同步連線教學</a>
+                            <a href="javascript:void(0)" onclick="toggleGDriveGuide()" style="font-size: 0.75rem; color: var(--secondary); text-decoration: underline; font-weight: 600;">❓ 如何取得 Client ID？</a>
+                        </div>
                     </label>
                     <input type="text" id="settingGDriveClientId" placeholder="請貼上您的 Google OAuth Client ID" style="font-size: 0.8rem;">
                 </div>
@@ -1420,6 +1434,62 @@
         </div>
     </div>
 
+    <!-- Modal 4: Family Guide Dialog -->
+    <div class="overlay" id="familyGuideModal">
+        <div class="dialog-card" style="max-width: 500px;">
+            <div class="dialog-header">
+                <h3 style="display: flex; align-items: center; gap: 6px;">👨‍👩‍👧‍👦 家人同步與連線教學</h3>
+                <button class="btn-close" onclick="closeModal('familyGuideModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="dialog-body" style="line-height: 1.6; font-size: 0.85rem; color: var(--text-main);">
+                <div style="background: var(--primary-light); color: var(--primary-dark); padding: 14px; border-radius: var(--radius-md); font-size: 0.85rem; margin-bottom: 16px; line-height: 1.5; font-weight: 500;">
+                    💡 <strong>親愛的家人，歡迎使用房租助手！</strong><br>
+                    為了讓大家能像編輯同一份 Google Sheet 試算表一樣共用數據，請在第一次使用時，在您的手機或電腦上完成以下 4 個簡單連線步驟：
+                </div>
+
+                <ol style="margin-left: 18px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
+                    <li>
+                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">1. 清除暫存與輸入 Client ID</strong>
+                        <div style="margin-top: 2px;">
+                            切換到右下角<b>「系統設定」</b>分頁。如果雲端同步狀態顯示已連線，請先點選 <b>「🔌 中斷 Google 雲端連線」</b>（以防連結到舊的測試檔案）。接著，確認 Client ID 欄位已填入管理者提供的編號，並點選「儲存 Client ID」。
+                        </div>
+                    </li>
+                    <li>
+                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">2. 點選「🔗 登入並啟用同步」</strong>
+                        <div style="margin-top: 2px;">
+                            點選按鈕後會彈出 Google 登入視窗，請<b>輸入您自己的 Google 帳號和密碼</b>進行登入。
+                        </div>
+                    </li>
+                    <li>
+                        <strong style="color: var(--danger); font-size: 0.9rem;">3. ⚠️ 重要：略過 Google 安全警告</strong>
+                        <div style="background: var(--bg-base); border: 1px dashed var(--danger); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5;">
+                            因為這個 App 是我們家庭獨立開發、未向 Google 申請昂貴的商業付費驗證，因此 Google 會顯示「Google 尚未驗證此應用程式」的警告。這是正常的！<br>
+                            👉 請點選左下角的 <b>「進階 (Advanced)」</b> ➡️ 再點選最下方的 <b>「前往『張爸爸房租助手』（不安全）」</b> 即可安全繼續。
+                        </div>
+                    </li>
+                    <li>
+                        <strong style="color: var(--danger); font-size: 0.9rem;">4. ⚠️ 關鍵步驟：務必核取雲端硬碟權限</strong>
+                        <div style="background: var(--bg-base); border: 1px dashed var(--success); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5;">
+                            登入的最後一步，Google 會詢問您是否授權此應用程式。<br>
+                            👉 畫面上會出現一個「查看、編輯、建立及刪除您 Google 雲端硬碟中的所有檔案」核取方塊。<b>請務必將它【打勾】</b>（或點選「繼續/Continue」以允許所有要求的權限）！<br>
+                            <span style="color: var(--text-muted);">（註：只有核取此方塊，程式才能在您的雲端硬碟中搜尋並讀寫共用的 <code>rental_helper_db.json</code> 檔案，實現多人共用）。</span>
+                        </div>
+                    </li>
+                </ol>
+
+                <div style="background: var(--success-light); color: var(--success-dark); padding: 12px; border-radius: var(--radius-md); font-weight: 600; text-align: center; margin-bottom: 16px; font-size: 0.85rem;">
+                    🎉 完成後，您就可以與全家人隨時同步並共同編輯最新資料囉！
+                </div>
+
+                <div style="display: flex; justify-content: flex-end;">
+                    <button class="btn btn-primary" onclick="closeModal('familyGuideModal')" style="width: 100%;">我知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal 3: Archive Month Wizard Dialog -->
     <div class="overlay" id="archiveModal">
         <div class="dialog-card">
@@ -1623,8 +1693,8 @@
             ensureFloorElecConfigs();
             const config = state.settings.floor_elec[floor];
             if (!config) return 0;
-            const bill = config.bill || 0;
-            const divisor = config.divisor || 1;
+            const bill = parseFloat(config.bill) || 0;
+            const divisor = parseFloat(config.divisor) || 1;
             return Math.round(bill / divisor);
         }
 
@@ -2451,9 +2521,14 @@
             }
         }
 
+        function openFamilyGuideModal() {
+            openModal("familyGuideModal");
+        }
+
         function updateFloorElecBill(floor, val) {
             ensureFloorElecConfigs();
-            state.settings.floor_elec[floor].bill = parseFloat(val) || 0;
+            const cleaned = val.replace(/[^0-9.]/g, '');
+            state.settings.floor_elec[floor].bill = cleaned;
             saveToLocalStorage();
             
             const focus = saveFocus();
@@ -2463,7 +2538,8 @@
 
         function updateFloorElecDivisor(floor, val) {
             ensureFloorElecConfigs();
-            state.settings.floor_elec[floor].divisor = parseFloat(val) || 1;
+            const cleaned = val.replace(/[^0-9]/g, '');
+            state.settings.floor_elec[floor].divisor = cleaned === "" ? "" : parseInt(cleaned, 10);
             saveToLocalStorage();
             
             const focus = saveFocus();
@@ -2472,11 +2548,12 @@
         }
 
         function updateMeterReading(roomId, value) {
-            const parsedVal = value === "" ? null : parseFloat(value);
+            const cleaned = value.replace(/[^0-9.]/g, '');
             const room = state.rooms.find(r => r.id === roomId);
             if (room) {
-                room.current_meter = parsedVal;
-                room.done = (parsedVal !== null && parsedVal >= room.prev_meter);
+                room.current_meter = cleaned === "" ? null : cleaned;
+                const parsedVal = parseFloat(cleaned);
+                room.done = (cleaned !== "" && !isNaN(parsedVal) && parsedVal >= room.prev_meter);
                 saveToLocalStorage();
                 
                 const focus = saveFocus();
@@ -2510,12 +2587,12 @@
                             <span style="font-weight: 700; min-width: 45px; color: var(--primary-dark); font-size: 0.95rem;">${floor} 樓：</span>
                             <div class="input-wrapper" style="margin-bottom: 0; flex: 1;">
                                 <label style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 2px;">本樓總公電</label>
-                                <input type="number" value="${config.bill}" oninput="updateFloorElecBill('${floor}', this.value)" style="padding: 8px 12px; font-size: 0.9rem;" data-floor-bill="${floor}">
+                                <input type="text" inputmode="decimal" value="${config.bill}" oninput="updateFloorElecBill('${floor}', this.value)" style="padding: 8px 12px; font-size: 0.9rem;" data-floor-bill="${floor}">
                                 <span class="input-unit" style="font-size: 0.8rem; right: 8px;">元</span>
                             </div>
                             <div class="input-wrapper" style="margin-bottom: 0; width: 100px;">
                                 <label style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 2px;">平分份數</label>
-                                <input type="number" value="${config.divisor}" oninput="updateFloorElecDivisor('${floor}', this.value)" style="padding: 8px 12px; font-size: 0.9rem;" data-floor-divisor="${floor}">
+                                <input type="text" inputmode="numeric" value="${config.divisor}" oninput="updateFloorElecDivisor('${floor}', this.value)" style="padding: 8px 12px; font-size: 0.9rem;" data-floor-divisor="${floor}">
                                 <span class="input-unit" style="font-size: 0.8rem; right: 8px;">份</span>
                             </div>
                         </div>
@@ -2602,7 +2679,7 @@
                         </div>
                         <div class="input-wrapper">
                             <label style="color: var(--primary); font-weight: 700;">輸入本次電錶 *</label>
-                            <input type="number" class="current-meter-input" data-id="${room.id}" placeholder="請輸入本月數字" value="${room.current_meter !== null ? room.current_meter : ''}" oninput="updateMeterReading('${room.id}', this.value)">
+                            <input type="text" inputmode="decimal" class="current-meter-input" data-id="${room.id}" placeholder="請輸入本月數字" value="${room.current_meter !== null ? room.current_meter : ''}" oninput="updateMeterReading('${room.id}', this.value)">
                             <span class="input-unit">度</span>
                         </div>
                     </div>
@@ -2938,7 +3015,7 @@
                         tenant, rent, arrears_amount, phone, line_name, is_annual, annual_period,
                         tenant2, rent2, arrears_amount2, phone2, line_name2, is_annual2, annual_period2,
                         elec_split, elec_price, prev_meter, notes,
-                        done: current !== null && current >= prev_meter
+                        done: current !== null && parseFloat(current) >= prev_meter
                     };
                 }
             } else {
@@ -3049,7 +3126,7 @@
                 dateText = `${date.getFullYear()}年${date.getMonth() + 1}月`;
                 num = room.num;
                 floor = getRoomFloor(room);
-                usage = room.current_meter !== null ? Math.max(0, room.current_meter - room.prev_meter) : 0;
+                usage = room.current_meter !== null ? Math.max(0, parseFloat(room.current_meter) - room.prev_meter) : 0;
                 personalElec = room.current_meter !== null ? Math.round(usage * room.elec_price) : 0;
                 floorShare = getFloorElecShare(floor);
                 totalRoomElec = personalElec + floorShare;
@@ -3176,7 +3253,7 @@
                 dateText = `${date.getMonth() + 1}`;
                 num = room.num;
                 floor = getRoomFloor(room);
-                usage = room.current_meter !== null ? Math.max(0, room.current_meter - room.prev_meter) : 0;
+                usage = room.current_meter !== null ? Math.max(0, parseFloat(room.current_meter) - room.prev_meter) : 0;
                 personalElec = room.current_meter !== null ? Math.round(usage * room.elec_price) : 0;
                 floorShare = getFloorElecShare(floor);
                 totalRoomElec = personalElec + floorShare;
@@ -3409,7 +3486,7 @@
                 const isDone = room.done && room.current_meter !== null;
                 const floor = getRoomFloor(room);
                 const floorShare = getFloorElecShare(floor);
-                const usage = isDone ? Math.max(0, room.current_meter - room.prev_meter) : 0;
+                const usage = isDone ? Math.max(0, parseFloat(room.current_meter) - room.prev_meter) : 0;
                 const personalElec = isDone ? Math.round(usage * room.elec_price) : 0;
                 const totalRoomElec = personalElec + floorShare;
 
@@ -3465,7 +3542,7 @@
                 });
 
                 if (room.current_meter !== null) {
-                    room.prev_meter = room.current_meter;
+                    room.prev_meter = parseFloat(room.current_meter) || 0;
                 }
                 room.current_meter = null;
                 room.done = false;
