@@ -968,22 +968,13 @@
             <div class="public-elec-card">
                 <div class="card-header-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(24, 95%, 53%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    <h3>第一步：設定本月公共電費</h3>
+                    <h3>第一步：設定各樓層公共電費</h3>
                 </div>
-                <div class="input-group-row mb-3">
-                    <div class="input-wrapper">
-                        <label for="publicElecGeneralInput">💡 一般公共電費</label>
-                        <input type="number" id="publicElecGeneralInput" placeholder="公用走道、照明等" value="0">
-                        <span class="input-unit">元</span>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="publicElecHeaterInput">🔥 電熱爐/熱水器電費</label>
-                        <input type="number" id="publicElecHeaterInput" placeholder="洗澡電熱水器公電" value="0">
-                        <span class="input-unit">元</span>
-                    </div>
+                <div id="floorElecInputsContainer" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 12px;">
+                    <!-- Rendered dynamically -->
                 </div>
                 <div class="meter-info-box" id="publicElecSharingSummary" style="margin-top: 10px; color: var(--success); font-weight: 500; line-height: 1.4;">
-                    公共電費：均攤計算載入中...
+                    公共電費：樓層分攤計算載入中...
                 </div>
             </div>
 
@@ -998,11 +989,11 @@
             </div>
         </div>
 
-        <!-- Tab 2: 房客管理 View -->
+        <!-- Tab 2: 房間管理 View -->
         <div id="viewTenants" class="view-content">
             <div class="section-header">
-                <h2>房客資訊列表</h2>
-                <span>點擊可新增、編輯或撥打電話</span>
+                <h2>房間與房客資訊列表</h2>
+                <span>點擊可新增、編輯房客或撥打電話</span>
             </div>
             
             <div class="room-card-list" id="manageRoomList">
@@ -1137,7 +1128,7 @@
         </button>
         <button class="nav-tab-btn" onclick="switchView('viewTenants', this)">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            房客管理
+            房間管理
         </button>
         <button class="nav-tab-btn" onclick="switchView('viewHistory', this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1177,89 +1168,165 @@
 
     <!-- Modal 2: Edit/Add Room Dialog (Refactored to include Annual and Arrears settings) -->
     <div class="overlay" id="roomEditModal">
-        <div class="dialog-card">
+        <div class="dialog-card" style="max-width: 520px;">
             <div class="dialog-header">
-                <h3 id="roomEditorTitle">編輯房客與房間</h3>
+                <h3 id="roomEditorTitle">編輯房間與房客</h3>
                 <button class="btn-close" onclick="closeModal('roomEditModal')">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
             </div>
             <div class="dialog-body">
                 <input type="hidden" id="editRoomId">
+                
+                <!-- Room & Floor & Type Info -->
                 <div class="room-inputs-grid">
                     <div class="input-wrapper">
                         <label for="editRoomNum">房號 *</label>
-                        <input type="text" id="editRoomNum" placeholder="例如：1A">
+                        <input type="text" id="editRoomNum" placeholder="例如：1A" oninput="autoFillFloor(this.value)">
                     </div>
                     <div class="input-wrapper">
-                        <label for="editTenantName">房客姓名 *</label>
-                        <input type="text" id="editTenantName" placeholder="例如：王小明">
-                    </div>
-                </div>
-                <div class="room-inputs-grid">
-                    <div class="input-wrapper">
-                        <label for="editRent">每月固定租金 *</label>
-                        <input type="number" id="editRent" placeholder="租金金額">
-                        <span class="input-unit">元</span>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="editElecPrice">每度電費單價 *</label>
-                        <input type="number" id="editElecPrice" value="5.0" step="0.1">
-                        <span class="input-unit">元</span>
+                        <label for="editRoomFloor">樓層 *</label>
+                        <input type="text" id="editRoomFloor" placeholder="例如：1">
                     </div>
                 </div>
-                <div class="room-inputs-grid">
-                    <div class="input-wrapper">
-                        <label for="editPrevMeter">上期/初始電表度數 *</label>
-                        <input type="number" id="editPrevMeter" placeholder="例如：2150">
-                        <span class="input-unit">度</span>
+                <div class="input-wrapper mb-3">
+                    <label for="editRoomType">房客模式 *</label>
+                    <select id="editRoomType" onchange="toggleRoomTypeFields(this.value)" style="width: 100%; padding: 12px; border-radius: var(--radius-md); background: var(--bg-base); color: var(--text-main); border: 1px solid var(--border); font-size: 1rem;">
+                        <option value="single">👤 單人房客</option>
+                        <option value="double">👥 雙人房客</option>
+                    </select>
+                </div>
+
+                <!-- Tenant 1 Card -->
+                <div id="tenant1Section" style="background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px;">
+                    <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">👤 房客 1 (主要房客)</h4>
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editTenantName">姓名 *</label>
+                            <input type="text" id="editTenantName" placeholder="例如：王小明">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="editRent">每月固定租金 *</label>
+                            <input type="number" id="editRent" placeholder="金額">
+                            <span class="input-unit">元</span>
+                        </div>
                     </div>
-                    <div class="input-wrapper">
-                        <label for="editArrears">⚠️ 上期欠繳房租/電費</label>
-                        <input type="number" id="editArrears" placeholder="無欠費填 0" value="0">
-                        <span class="input-unit">元</span>
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editArrears">⚠️ 上期欠繳</label>
+                            <input type="number" id="editArrears" placeholder="填 0" value="0">
+                            <span class="input-unit">元</span>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="editPhone">聯絡電話</label>
+                            <input type="tel" id="editPhone" placeholder="聯絡電話">
+                        </div>
+                    </div>
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editLineName">LINE 名稱</label>
+                            <input type="text" id="editLineName" placeholder="LINE 名稱">
+                        </div>
+                        <div class="input-wrapper" style="display: flex; align-items: flex-end;">
+                            <div class="switch-container" style="margin-bottom: 0; width: 100%; padding: 10px;">
+                                <span class="switch-label" style="font-size: 0.75rem;">🔄 年繳模式</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="editIsAnnual" onchange="toggleAnnualPeriodInput(this.checked, 'editAnnualPeriodWrapper')">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper mt-2" id="editAnnualPeriodWrapper" style="display: none;">
+                        <label for="editAnnualPeriod">📅 年繳合約期間</label>
+                        <input type="text" id="editAnnualPeriod" placeholder="例如：2026/07 - 2027/06">
                     </div>
                 </div>
 
-                <!-- Annual Payment Switch Toggle -->
-                <div class="switch-container mt-3">
-                    <div class="switch-label-group">
-                        <span class="switch-label">🔄 年繳模式 (免繳本月房租)</span>
-                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">啟用後本月房租自動計算為 0 元</div>
+                <!-- Tenant 2 Card (Conditional) -->
+                <div id="tenant2FieldsArea" style="display: none; background: var(--bg-base); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px;">
+                    <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--secondary); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">👤 房客 2 (第二房客)</h4>
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editTenantName2">姓名 *</label>
+                            <input type="text" id="editTenantName2" placeholder="例如：李小華">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="editRent2">每月固定租金 *</label>
+                            <input type="number" id="editRent2" placeholder="金額">
+                            <span class="input-unit">元</span>
+                        </div>
                     </div>
-                    <label class="switch">
-                        <input type="checkbox" id="editIsAnnual" onchange="toggleAnnualPeriodInput(this.checked)">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                
-                <div class="input-wrapper mb-3" id="annualPeriodWrapper" style="display: none;">
-                    <label for="editAnnualPeriod">📅 年繳合約期間</label>
-                    <input type="text" id="editAnnualPeriod" placeholder="例如：2026/07 - 2027/06">
-                </div>
-                
-                <!-- Expanded Tenant Fields -->
-                <div style="border-top: 1.5px dashed var(--border); margin: 16px 0; padding-top: 16px;">
-                    <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; color: var(--primary);">👤 聯絡與備註資訊</h4>
-                </div>
-                <div class="room-inputs-grid">
-                    <div class="input-wrapper">
-                        <label for="editPhone">聯絡電話</label>
-                        <input type="tel" id="editPhone" placeholder="例如：0912-345-678">
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editArrears2">⚠️ 上期欠繳</label>
+                            <input type="number" id="editArrears2" placeholder="填 0" value="0">
+                            <span class="input-unit">元</span>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="editPhone2">聯絡電話</label>
+                            <input type="tel" id="editPhone2" placeholder="聯絡電話">
+                        </div>
                     </div>
-                    <div class="input-wrapper">
-                        <label for="editLineName">LINE 名稱</label>
-                        <input type="text" id="editLineName" placeholder="例如：Ming_LINE">
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editLineName2">LINE 名稱</label>
+                            <input type="text" id="editLineName2" placeholder="LINE 名稱">
+                        </div>
+                        <div class="input-wrapper" style="display: flex; align-items: flex-end;">
+                            <div class="switch-container" style="margin-bottom: 0; width: 100%; padding: 10px;">
+                                <span class="switch-label" style="font-size: 0.75rem;">🔄 年繳模式</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="editIsAnnual2" onchange="toggleAnnualPeriodInput(this.checked, 'editAnnualPeriodWrapper2')">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper mt-2" id="editAnnualPeriodWrapper2" style="display: none;">
+                        <label for="editAnnualPeriod2">📅 年繳合約期間</label>
+                        <input type="text" id="editAnnualPeriod2" placeholder="例如：2026/07 - 2027/06">
                     </div>
                 </div>
+
+                <!-- Electricity Split Mode (Conditional) -->
+                <div id="elecSplitArea" style="display: none; background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px;">
+                    <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--success); margin-bottom: 8px;">⚡ 獨立與公共電費分攤設定</h4>
+                    <div class="input-wrapper" style="margin-bottom: 0;">
+                        <label for="editElecSplit">電費拆分比例</label>
+                        <select id="editElecSplit" style="width: 100%; padding: 12px; border-radius: var(--radius-md); background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); font-size: 0.95rem;">
+                            <option value="equal">👥 兩人平分 (50/50)</option>
+                            <option value="tenant1">👤 房客 1 全額支付 (100%)</option>
+                            <option value="tenant2">👤 房客 2 全額支付 (100%)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Shared Electricity Meter Config -->
+                <div style="background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; margin-bottom: 16px;">
+                    <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px;">⚡ 房間電錶設定 (共用一個獨立電錶)</h4>
+                    <div class="room-inputs-grid">
+                        <div class="input-wrapper">
+                            <label for="editElecPrice">每度電費單價 *</label>
+                            <input type="number" id="editElecPrice" value="5.0" step="0.1">
+                            <span class="input-unit">元</span>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="editPrevMeter">上期/初始電表度數 *</label>
+                            <input type="number" id="editPrevMeter" placeholder="例如：2150">
+                            <span class="input-unit">度</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="input-wrapper mb-4">
-                    <label for="editNotes">備註說明</label>
-                    <textarea id="editNotes" rows="2" placeholder="備註房間狀況、家電維護、合約到期日等..."></textarea>
+                    <label for="editNotes">📝 房間備註說明</label>
+                    <textarea id="editNotes" rows="2" placeholder="備註房間狀況、家電維護等..."></textarea>
                 </div>
                 
                 <div style="display: flex; gap: 10px;">
                     <button class="btn btn-secondary" onclick="closeModal('roomEditModal')">取消</button>
-                    <button class="btn btn-primary" onclick="saveRoom()">💾 儲存房客</button>
+                    <button class="btn btn-primary" onclick="saveRoom()">💾 儲存房間</button>
                 </div>
                 <button class="btn btn-outline mt-4" id="btnDeleteRoom" style="color: var(--danger); border-color: var(--danger); display: none;" onclick="deleteRoom()">🗑️ 刪除此房間</button>
             </div>
@@ -1310,28 +1377,19 @@
 
     <!-- Script Logic -->
     <script>
-        // Updated Demo Data with Annual Payment, Arrears, and Payment Status tracking
+        // Updated Demo Data with double-tenant roommate support, floor-level public elec, and arrears
         const DEMO_ROOMS = [
-            { id: "1", num: "1A", tenant: "陳小明", rent: 8500, elec_price: 5.0, prev_meter: 1250, current_meter: 1390, done: true, phone: "0912-345-678", line_name: "Ming_0912", notes: "一樓 A 房，使用電熱水器甲", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "paid" },
-            { id: "2", num: "1B", tenant: "王小美", rent: 7500, elec_price: 5.0, prev_meter: 820, current_meter: 915, done: true, phone: "0923-456-789", line_name: "MayMay_W", notes: "一樓 B 房。年繳租客，房租在 7/1 繳清。", is_annual: true, annual_period: "2026/07 - 2027/06", arrears_amount: 0, payment_status: "paid" },
-            { id: "3", num: "2A", tenant: "李佳玲", rent: 9000, elec_price: 5.0, prev_meter: 3140, current_meter: 3250, done: true, phone: "0934-567-890", line_name: "JiaLing", notes: "二樓 A 房。上個月少匯 1,500 元電費，本月補收。", is_annual: false, annual_period: "", arrears_amount: 1500, payment_status: "unpaid" },
-            { id: "4", num: "2B", tenant: "張阿信", rent: 8000, elec_price: 5.0, prev_meter: 2150, current_meter: 2280, done: true, phone: "0945-678-901", line_name: "Ashin_Rock", notes: "二樓 B 房，吉他手", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "unpaid" },
-            { id: "5", num: "3A", tenant: "林大同", rent: 9500, elec_price: 5.0, prev_meter: 1450, current_meter: null, done: false, phone: "0956-789-012", line_name: "Datong_L", notes: "三樓 A 房", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "unpaid" },
-            { id: "6", num: "3C", tenant: "黃國華", rent: 8200, elec_price: 5.0, prev_meter: 1890, current_meter: null, done: false, phone: "0967-890-123", line_name: "Guohua_H", notes: "三樓 C 房", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "unpaid" }
+            { id: "1", num: "1A", floor: "1", type: "single", tenant: "陳小明", rent: 8500, elec_price: 5.0, prev_meter: 1250, current_meter: 1390, done: true, phone: "0912-345-678", line_name: "Ming_0912", notes: "一樓 A 房", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "paid" },
+            { id: "2", num: "1B", floor: "1", type: "double", tenant: "王小美", rent: 7500, tenant2: "林莉莉", rent2: 7500, elec_split: "equal", elec_price: 5.0, prev_meter: 820, current_meter: 915, done: true, phone: "0923-456-789", line_name: "MayMay_W", phone2: "0934-111-222", line_name2: "Lily_L", notes: "一樓 B 房。兩位合租，電費平分。", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "paid", payment_status2: "unpaid" },
+            { id: "3", num: "2A", floor: "2", type: "single", tenant: "李佳玲", rent: 9000, elec_price: 5.0, prev_meter: 3140, current_meter: 3250, done: true, phone: "0934-567-890", line_name: "JiaLing", notes: "二樓 A 房", is_annual: false, annual_period: "", arrears_amount: 1500, payment_status: "unpaid" },
+            { id: "4", num: "3A", floor: "3", type: "single", tenant: "林大同", rent: 9500, elec_price: 5.0, prev_meter: 1450, current_meter: null, done: false, phone: "0956-789-012", line_name: "Datong_L", notes: "三樓 A 房", is_annual: false, annual_period: "", arrears_amount: 0, payment_status: "unpaid" }
         ];
 
         const DEMO_HISTORY = [
             {
                 month: "2026年6月",
-                public_elec_general: 600,
-                public_elec_heater: 1200,
                 rooms: [
-                    { id: "1", num: "1A", tenant: "陳小明", rent: 8500, prev_meter: 1120, current_meter: 1250, usage: 130, elec_price: 5.0, personal_elec: 650, shared_general: 100, shared_heater: 200, arrears: 0, grand_total: 9450, payment_status: "paid", is_annual: false, annual_period: "" },
-                    { id: "2", num: "1B", tenant: "王小美", rent: 7500, prev_meter: 740, current_meter: 820, usage: 80, elec_price: 5.0, personal_elec: 400, shared_general: 100, shared_heater: 200, arrears: 0, grand_total: 700, payment_status: "paid", is_annual: true, annual_period: "2026/07 - 2027/06" },
-                    { id: "3", num: "2A", tenant: "李佳玲", rent: 9000, prev_meter: 3020, current_meter: 3140, usage: 120, elec_price: 5.0, personal_elec: 600, shared_general: 100, shared_heater: 200, arrears: 0, grand_total: 9900, payment_status: "paid", is_annual: false, annual_period: "" },
-                    { id: "4", num: "2B", tenant: "張阿信", rent: 8000, prev_meter: 2010, current_meter: 2150, usage: 140, elec_price: 5.0, personal_elec: 700, shared_general: 100, shared_heater: 200, arrears: 0, grand_total: 9000, payment_status: "paid", is_annual: false, annual_period: "" },
-                    { id: "5", num: "3A", tenant: "林大同", rent: 9500, prev_meter: 1340, current_meter: 1450, usage: 110, elec_price: 5.0, personal_elec: 550, shared_general: 100, shared_heater: 200, arrears: 0, grand_total: 10350, payment_status: "paid", is_annual: false, annual_period: "" },
-                    { id: "6", num: "3C", tenant: "黃國華", rent: 8200, prev_meter: 1780, current_meter: 1890, usage: 110, elec_price: 5.0, personal_elec: 550, shared_general: 100, shared_heater: 200, arrears: 0, grand_total: 9050, payment_status: "paid", is_annual: false, annual_period: "" }
+                    { id: "1", num: "1A", floor: "1", type: "single", tenant: "陳小明", rent: 8500, prev_meter: 1120, current_meter: 1250, usage: 130, elec_price: 5.0, personal_elec: 650, floor_share: 300, total_room_elec: 950, arrears_amount: 0, t1_elec: 950, t1_total: 9450, payment_status: "paid", is_annual: false, annual_period: "" }
                 ]
             }
         ];
@@ -1340,23 +1398,24 @@
             bank_name: "822 中國信託銀行",
             bank_account: "123-456789-012",
             bank_user: "張大同",
-            public_elec_general: 600,
-            public_elec_heater: 1200,
+            floor_elec: {
+                "1": { bill: 600, divisor: 2 },
+                "2": { bill: 400, divisor: 1 },
+                "3": { bill: 600, divisor: 1 }
+            },
             msg_template: `🏠 溫馨家園 {month} 月份房租明細
 -----------------------------
 親愛的 {tenant} 您好，這是您本期的房租與電費通知明細：
 
 房號：{room} 房
 本月固定租金：$ {rent} 元 {annual_badge}
-個人分電表電費：$ {personal_elec} 元
+個人獨立電費分攤 ({elec_percent})：$ {tenant_elec} 元
+　- 房間總用電：{usage} 度 (每度 {unit_price} 元)
 　- 上月度數：{prev_meter} 度
 　- 本月度數：{current_meter} 度
-　- 用電度數：{usage} 度 (每度 {unit_price} 元)
-
-🏢 樓層公共電費分攤：
-　- 一般公共電費均攤：$ {shared_elec_general} 元
-　- 電熱爐/熱水器均攤：$ {shared_elec_heater} 元
-　- 公電均攤總計：$ {shared_elec_total} 元
+　- 房間分錶電費：$ {personal_elec} 元
+　- 樓層公共電費分攤：$ {floor_elec_share} 元
+　- 房間電費總計：$ {total_room_elec} 元
 {arrears}
 =============================
 💰 本期應付總計：$ {total_amount} 元
@@ -1368,14 +1427,12 @@
 繳費完成後，請回傳您的「帳號後五碼」或 LINE 截圖告知，張爸爸感謝您的配合！🙏`
         };
 
-        // Application State
         let state = {
             rooms: [],
             settings: {},
             history: []
         };
 
-        // UTF-8 safe Base64 Encoder / Decoder for syncing state
         function utf8_to_b64(str) {
             return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
                 return String.fromCharCode('0x' + p1);
@@ -1388,7 +1445,6 @@
             }).join(''));
         }
 
-        // Short Keys Mapping for URL compression
         const KEY_MAP = {
             rooms: 'r', settings: 's', history: 'h',
             id: 'i', num: 'n', tenant: 't', rent: 'rn',
@@ -1400,7 +1456,12 @@
             bank_name: 'bn', bank_account: 'ba', bank_user: 'bu',
             public_elec_general: 'peg', public_elec_heater: 'peh',
             msg_template: 'mt', is_passcode_enabled: 'ipe', passcode: 'pc',
-            month: 'm'
+            month: 'm',
+            
+            tenant2: 't2', rent2: 'rn2', arrears_amount2: 'aa2', payment_status2: 'ps2',
+            phone2: 'p2', line_name2: 'ln2', is_annual2: 'ia2', annual_period2: 'ap2',
+            elec_split: 'es', floor: 'f', type: 'tp', floor_elec: 'fe', bill: 'b', divisor: 'd',
+            floor_share: 'fs', total_room_elec: 'tre', t1_elec: 't1e', t1_total: 't1t', t2_elec: 't2e', t2_total: 't2t'
         };
 
         const REV_KEY_MAP = {};
@@ -1436,40 +1497,112 @@
             return obj;
         }
 
-        // Initialize App
+        function getRoomFloor(room) {
+            if (room.floor !== undefined && room.floor !== null && room.floor !== "") {
+                return room.floor.toString();
+            }
+            const match = room.num.match(/^\d+/);
+            return match ? match[0] : "1";
+        }
+
+        function getActiveFloors() {
+            const floors = new Set();
+            state.rooms.forEach(r => {
+                floors.add(getRoomFloor(r));
+            });
+            return Array.from(floors).sort((a, b) => a.localeCompare(b, undefined, {numeric: true}));
+        }
+
+        function getRoomsCountOnFloor(floor) {
+            return state.rooms.filter(r => getRoomFloor(r) === floor).length;
+        }
+
+        function ensureFloorElecConfigs() {
+            if (!state.settings.floor_elec) {
+                state.settings.floor_elec = {};
+            }
+            const activeFloors = getActiveFloors();
+            activeFloors.forEach(floor => {
+                if (!state.settings.floor_elec[floor]) {
+                    state.settings.floor_elec[floor] = {
+                        bill: 0,
+                        divisor: getRoomsCountOnFloor(floor) || 1
+                    };
+                }
+            });
+        }
+
+        function getFloorElecShare(floor) {
+            ensureFloorElecConfigs();
+            const config = state.settings.floor_elec[floor];
+            if (!config) return 0;
+            const bill = config.bill || 0;
+            const divisor = config.divisor || 1;
+            return Math.round(bill / divisor);
+        }
+
+        function saveFocus() {
+            const activeEl = document.activeElement;
+            if (!activeEl) return null;
+            return {
+                id: activeEl.id,
+                className: activeEl.className,
+                roomId: activeEl.getAttribute("data-id"),
+                floorBill: activeEl.getAttribute("data-floor-bill"),
+                floorDivisor: activeEl.getAttribute("data-floor-divisor"),
+                selectionStart: activeEl.selectionStart,
+                selectionEnd: activeEl.selectionEnd
+            };
+        }
+
+        function restoreFocus(focusState) {
+            if (!focusState) return;
+            let el = null;
+            if (focusState.id) {
+                el = document.getElementById(focusState.id);
+            } else if (focusState.roomId) {
+                el = document.querySelector(`.current-meter-input[data-id="${focusState.roomId}"]`);
+            } else if (focusState.floorBill) {
+                el = document.querySelector(`[data-floor-bill="${focusState.floorBill}"]`);
+            } else if (focusState.floorDivisor) {
+                el = document.querySelector(`[data-floor-divisor="${focusState.floorDivisor}"]`);
+            }
+            
+            if (el) {
+                el.focus();
+                if (focusState.selectionStart !== undefined && focusState.selectionStart !== null) {
+                    try {
+                        el.setSelectionRange(focusState.selectionStart, focusState.selectionEnd);
+                    } catch (e) {}
+                }
+            }
+        }
+
         function initApp() {
-            // Load theme
             const savedTheme = localStorage.getItem("theme") || "light";
             document.documentElement.setAttribute("data-theme", savedTheme);
             updateThemeIcon(savedTheme);
 
-            // Check for Sync Link in URL Hash with Smart Conflict Prevention
             if (window.location.hash.startsWith("#data=")) {
                 try {
                     const encodedData = window.location.hash.substring(6);
                     const decodedJson = b64_to_utf8(encodedData);
                     let incomingState = JSON.parse(decodedJson);
                     
-                    // Support auto-decompression
                     if (incomingState && incomingState.r) {
                         incomingState = decompressObj(incomingState);
                     }
                     
                     if (incomingState && incomingState.rooms && incomingState.settings) {
                         const incomingLastUpdated = incomingState.settings.last_updated || 0;
-                        
                         let localLastUpdated = 0;
                         try {
                             const savedSettings = localStorage.getItem("rental_settings");
                             if (savedSettings) {
-                                const parsedSettings = JSON.parse(savedSettings);
-                                localLastUpdated = parsedSettings.last_updated || 0;
+                                localLastUpdated = JSON.parse(savedSettings).last_updated || 0;
                             }
-                        } catch (err) {
-                            console.error("無法讀取本機存檔時間以比對版本：", err);
-                        }
+                        } catch (err) {}
 
-                        // Formatter helper for timestamps
                         const formatTime = (ts) => {
                             if (!ts) return "無時間記錄";
                             const d = new Date(ts);
@@ -1477,48 +1610,22 @@
                         };
 
                         let shouldLoad = false;
-                        
                         if (localLastUpdated > 0 && incomingLastUpdated > 0) {
                             if (incomingLastUpdated === localLastUpdated) {
-                                // Exactly same version
                                 alert("ℹ️ 數據已是最新：您本機的數據與此連結的內容完全一致，無須重複載入！");
-                                shouldLoad = false;
                             } else if (incomingLastUpdated < localLastUpdated) {
-                                // Warning: trying to overwrite with OLDER data
-                                const localTimeStr = formatTime(localLastUpdated);
-                                const incomingTimeStr = formatTime(incomingLastUpdated);
-                                const diffMs = localLastUpdated - incomingLastUpdated;
-                                const diffMin = Math.round(diffMs / 60000);
-                                let diffStr = "";
-                                if (diffMin >= 60) {
-                                    diffStr = `${Math.floor(diffMin / 60)} 小時 ${diffMin % 60} 分鐘`;
-                                } else if (diffMin > 0) {
-                                    diffStr = `${diffMin} 分鐘`;
-                                } else {
-                                    diffStr = `${Math.round(diffMs / 1000)} 秒`;
-                                }
-                                
                                 shouldLoad = confirm(
                                     `⚠️【安全警告：此連結為較舊的數據】\n\n` +
                                     `偵測到您正試圖點開「較舊」的同步連結！\n\n` +
-                                    `📱 您這台手機上的最新數據更新於：\n${localTimeStr}\n\n` +
-                                    `🔗 點開的 LINE 連結數據更新於：\n${incomingTimeStr}\n(比您手機上的數據「舊了 ${diffStr}」)\n\n` +
-                                    `如果您確定要覆蓋並【退回】到較舊的版本，請按【確定】。\n` +
-                                    `若擔心覆蓋掉辛苦剛改好的內容，請點擊【取消】。點擊取消後，本機的新數據不會受到任何影響。`
+                                    `📱 您這台手機上的最新數據更新於：\n${formatTime(localLastUpdated)}\n\n` +
+                                    `🔗 LINE 連結數據更新於：\n${formatTime(incomingLastUpdated)}\n\n` +
+                                    `確定要退回並覆蓋到較舊的版本嗎？`
                                 );
                             } else {
-                                // Incoming is newer
-                                const incomingTimeStr = formatTime(incomingLastUpdated);
-                                shouldLoad = confirm(
-                                    `🔄【偵測到來自家人的最新更新】\n\n` +
-                                    `家人分享的連結數據更新於：\n${incomingTimeStr}\n\n` +
-                                    `這將會「覆蓋」您這台手機目前的舊數據（房客、抄表、歷史帳單等）。\n\n` +
-                                    `確定要載入最新的數據並進行覆蓋嗎？`
-                                );
+                                shouldLoad = confirm(`🔄【偵測到來自家人的最新更新】\n\n這將會覆蓋您目前的數據，確定載入嗎？`);
                             }
                         } else {
-                            // Fallback if timestamps are missing
-                            shouldLoad = confirm("🔄 偵測到來自家人的同步連結！\n\n這將會【覆蓋】您這台手機目前所有的租屋數據（房客、本月抄表、歷史帳單等）。\n\n確定要載入最新的數據並覆蓋嗎？");
+                            shouldLoad = confirm("🔄 偵測到來自家人的同步連結！確定載入嗎？");
                         }
 
                         if (shouldLoad) {
@@ -1531,13 +1638,11 @@
                     }
                 } catch (e) {
                     console.error(e);
-                    alert("❌ 載入同步連結失敗：數據格式不正確或已毀損。");
+                    alert("❌ 載入同步連結失敗。");
                 }
-                // Clear the hash from address bar to avoid repeated prompts on refresh
                 history.replaceState("", document.title, window.location.pathname + window.location.search);
             }
 
-            // Load data
             const savedRooms = localStorage.getItem("rental_rooms");
             const savedSettings = localStorage.getItem("rental_settings");
             const savedHistory = localStorage.getItem("rental_history");
@@ -1546,8 +1651,11 @@
                 state.rooms = JSON.parse(savedRooms);
                 state.settings = JSON.parse(savedSettings);
                 
-                // Compatibility layer: fill missing properties for older stored objects
                 state.rooms.forEach(r => {
+                    if (r.type === undefined) r.type = "single";
+                    if (r.floor === undefined) r.floor = getRoomFloor(r);
+                    if (r.elec_split === undefined) r.elec_split = "equal";
+                    
                     if (r.phone === undefined) r.phone = "";
                     if (r.line_name === undefined) r.line_name = "";
                     if (r.notes === undefined) r.notes = "";
@@ -1555,60 +1663,45 @@
                     if (r.annual_period === undefined) r.annual_period = "";
                     if (r.arrears_amount === undefined) r.arrears_amount = 0;
                     if (r.payment_status === undefined) r.payment_status = "unpaid";
+                    
+                    if (r.tenant2 === undefined) r.tenant2 = "";
+                    if (r.rent2 === undefined) r.rent2 = 0;
+                    if (r.phone2 === undefined) r.phone2 = "";
+                    if (r.line_name2 === undefined) r.line_name2 = "";
+                    if (r.is_annual2 === undefined) r.is_annual2 = false;
+                    if (r.annual_period2 === undefined) r.annual_period2 = "";
+                    if (r.arrears_amount2 === undefined) r.arrears_amount2 = 0;
+                    if (r.payment_status2 === undefined) r.payment_status2 = "unpaid";
                 });
-                if (state.settings.public_elec_general === undefined) {
-                    state.settings.public_elec_general = state.settings.public_elec || 600;
-                }
-                if (state.settings.public_elec_heater === undefined) {
-                    state.settings.public_elec_heater = 1200;
-                }
+                
+                ensureFloorElecConfigs();
 
                 if (savedHistory) {
                     state.history = JSON.parse(savedHistory);
                 } else {
                     state.history = DEMO_HISTORY;
-                    localStorage.setItem("rental_history", JSON.stringify(state.history));
                 }
             } else {
-                // Initialize with Demo Data
                 state.rooms = DEMO_ROOMS;
                 state.settings = DEFAULT_SETTINGS;
                 state.history = DEMO_HISTORY;
+                ensureFloorElecConfigs();
                 saveToLocalStorage();
             }
 
-            // Sync current date
             const date = new Date();
             document.getElementById("currentMonthYear").innerText = `${date.getFullYear()} 年 ${date.getMonth() + 1} 月份`;
 
-            // Setup Event Listeners for Two Public Electrics
-            document.getElementById("publicElecGeneralInput").value = state.settings.public_elec_general || 0;
-            document.getElementById("publicElecGeneralInput").addEventListener("input", function(e) {
-                state.settings.public_elec_general = parseFloat(e.target.value) || 0;
-                saveToLocalStorage();
-                renderBillingView();
-            });
+            document.getElementById("settingBankName").value = state.settings.bank_name || "";
+            document.getElementById("settingBankAccount").value = state.settings.bank_account || "";
+            document.getElementById("settingBankUser").value = state.settings.bank_user || "";
+            document.getElementById("settingMsgTemplate").value = state.settings.msg_template || "";
 
-            document.getElementById("publicElecHeaterInput").value = state.settings.public_elec_heater || 0;
-            document.getElementById("publicElecHeaterInput").addEventListener("input", function(e) {
-                state.settings.public_elec_heater = parseFloat(e.target.value) || 0;
-                saveToLocalStorage();
-                renderBillingView();
-            });
-
-            // Populate Settings form fields
-            document.getElementById("settingBankName").value = state.settings.bank_name;
-            document.getElementById("settingBankAccount").value = state.settings.bank_account;
-            document.getElementById("settingBankUser").value = state.settings.bank_user;
-            document.getElementById("settingMsgTemplate").value = state.settings.msg_template;
-
-            // Populate Passcode Settings
             const isPasscodeEnabled = state.settings.is_passcode_enabled || false;
             document.getElementById("settingPasscodeEnabled").checked = isPasscodeEnabled;
             document.getElementById("settingPasscodeArea").style.display = isPasscodeEnabled ? "block" : "none";
             document.getElementById("settingPasscodeValue").value = state.settings.passcode || "";
 
-            // Check if passcode is enabled & lock screen
             if (isPasscodeEnabled && state.settings.passcode) {
                 document.getElementById("passcodeOverlay").style.display = "flex";
                 document.querySelector(".app-container").style.display = "none";
@@ -1617,13 +1710,11 @@
                 document.querySelector(".app-container").style.display = "block";
             }
 
-            // Render views
             renderBillingView();
             renderManageView();
             updateLastSavedStatus();
         }
 
-        // Save State
         function saveToLocalStorage() {
             if (!state.settings) state.settings = {};
             state.settings.last_updated = Date.now();
@@ -1636,7 +1727,6 @@
         function updateLastSavedStatus() {
             const el = document.getElementById("globalLastUpdatedText");
             if (!el) return;
-            
             const lastUpdated = state.settings ? (state.settings.last_updated || 0) : 0;
             if (lastUpdated > 0) {
                 const dateObj = new Date(lastUpdated);
@@ -1644,64 +1734,139 @@
                 const m = String(dateObj.getMinutes()).padStart(2, '0');
                 const s = String(dateObj.getSeconds()).padStart(2, '0');
                 el.innerHTML = `🟢 存檔狀態：已安全儲存 (${h}:${m}:${s})`;
-                el.style.color = "var(--success)";
             } else {
                 el.innerHTML = `🟢 存檔狀態：已安全儲存`;
-                el.style.color = "var(--success)";
             }
         }
 
-        // Render: Tab 1 (Billing with payment tracking & arrears support)
+        function updateFloorElecBill(floor, val) {
+            ensureFloorElecConfigs();
+            state.settings.floor_elec[floor].bill = parseFloat(val) || 0;
+            saveToLocalStorage();
+            
+            const focus = saveFocus();
+            renderBillingView();
+            restoreFocus(focus);
+        }
+
+        function updateFloorElecDivisor(floor, val) {
+            ensureFloorElecConfigs();
+            state.settings.floor_elec[floor].divisor = parseFloat(val) || 1;
+            saveToLocalStorage();
+            
+            const focus = saveFocus();
+            renderBillingView();
+            restoreFocus(focus);
+        }
+
+        function updateMeterReading(roomId, value) {
+            const parsedVal = value === "" ? null : parseFloat(value);
+            const room = state.rooms.find(r => r.id === roomId);
+            if (room) {
+                room.current_meter = parsedVal;
+                room.done = (parsedVal !== null && parsedVal >= room.prev_meter);
+                saveToLocalStorage();
+                
+                const focus = saveFocus();
+                renderBillingView();
+                restoreFocus(focus);
+            }
+        }
+
         function renderBillingView() {
             const container = document.getElementById("billingRoomList");
+            if (!container) return;
             container.innerHTML = "";
 
             if (state.rooms.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
                         <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                        <p>目前還沒有任何房客資料，請至「房客管理」分頁新增。</p>
+                        <p>目前還沒有任何房間，請至「房間管理」分頁新增。</p>
                     </div>`;
                 return;
             }
 
-            // Calculate Shared Public Electricity
-            const publicGeneral = state.settings.public_elec_general || 0;
-            const publicHeater = state.settings.public_elec_heater || 0;
-            const activeRoomsCount = state.rooms.length;
-            
-            const sharedGeneralPerRoom = activeRoomsCount > 0 ? Math.round(publicGeneral / activeRoomsCount) : 0;
-            const sharedHeaterPerRoom = activeRoomsCount > 0 ? Math.round(publicHeater / activeRoomsCount) : 0;
-            const sharedTotalPerRoom = sharedGeneralPerRoom + sharedHeaterPerRoom;
-            
-            document.getElementById("publicElecSharingSummary").innerHTML = `
-                💡 一般公電分攤：$ ${sharedGeneralPerRoom.toLocaleString()} 元/房<br>
-                🔥 電熱爐分攤：$ ${sharedHeaterPerRoom.toLocaleString()} 元/房<br>
-                <strong>📊 公共電費總計：每房自動均攤 $ ${sharedTotalPerRoom.toLocaleString()} 元。</strong>
-            `;
+            ensureFloorElecConfigs();
+            const activeFloors = getActiveFloors();
+            const floorContainer = document.getElementById("floorElecInputsContainer");
+            if (floorContainer) {
+                floorContainer.innerHTML = activeFloors.map(floor => {
+                    const config = state.settings.floor_elec[floor] || { bill: 0, divisor: 1 };
+                    return `
+                        <div class="floor-elec-row" style="display: flex; gap: 10px; align-items: center; background: var(--bg-card); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-subtle);">
+                            <span style="font-weight: 700; min-width: 45px; color: var(--primary-dark); font-size: 0.95rem;">${floor} 樓：</span>
+                            <div class="input-wrapper" style="margin-bottom: 0; flex: 1;">
+                                <label style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 2px;">本樓總公電</label>
+                                <input type="number" value="${config.bill}" oninput="updateFloorElecBill('${floor}', this.value)" style="padding: 8px 12px; font-size: 0.9rem;" data-floor-bill="${floor}">
+                                <span class="input-unit" style="font-size: 0.8rem; right: 8px;">元</span>
+                            </div>
+                            <div class="input-wrapper" style="margin-bottom: 0; width: 100px;">
+                                <label style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 2px;">平分份數</label>
+                                <input type="number" value="${config.divisor}" oninput="updateFloorElecDivisor('${floor}', this.value)" style="padding: 8px 12px; font-size: 0.9rem;" data-floor-divisor="${floor}">
+                                <span class="input-unit" style="font-size: 0.8rem; right: 8px;">份</span>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+            }
+
+            let summaryHTML = "";
+            activeFloors.forEach(floor => {
+                const config = state.settings.floor_elec[floor];
+                const share = getFloorElecShare(floor);
+                summaryHTML += `🏢 <b>${floor} 樓分攤</b>：$ ${config.bill.toLocaleString()} 元 ÷ ${config.divisor} 份 = <b>$ ${share.toLocaleString()} 元/房</b><br>`;
+            });
+            document.getElementById("publicElecSharingSummary").innerHTML = summaryHTML || "💡 尚未設定任何樓層公電。";
 
             let completeCount = 0;
-            let paidCount = 0;
+            let totalTenants = 0;
+            let paidTenants = 0;
             let totalRentEstimate = 0;
             let totalArrearsSum = 0;
 
-            // Sort rooms naturally
             const sortedRooms = [...state.rooms].sort((a, b) => a.num.localeCompare(b.num));
 
             sortedRooms.forEach(room => {
-                const isDone = room.done && room.current_meter !== null && room.current_meter !== undefined;
+                const isDone = room.done && room.current_meter !== null;
                 if (isDone) completeCount++;
-                if (room.payment_status === "paid") paidCount++;
-                totalArrearsSum += (room.arrears_amount || 0);
-
-                // Calculations
-                const rentCost = room.is_annual ? 0 : room.rent;
-                const arrearsCost = room.arrears_amount || 0;
-                const usage = isDone ? Math.max(0, room.current_meter - room.prev_meter) : 0;
-                const personalElecCost = isDone ? Math.round(usage * room.elec_price) : 0;
-                const grandTotal = isDone ? (rentCost + personalElecCost + sharedTotalPerRoom + arrearsCost) : (rentCost + sharedTotalPerRoom + arrearsCost);
                 
-                totalRentEstimate += grandTotal;
+                const floor = getRoomFloor(room);
+                const floorShare = getFloorElecShare(floor);
+                const usage = isDone ? Math.max(0, room.current_meter - room.prev_meter) : 0;
+                const personalElec = isDone ? Math.round(usage * room.elec_price) : 0;
+                const totalRoomElec = personalElec + floorShare;
+
+                let t1_ratio = 1.0, t2_ratio = 0.0;
+                if (room.type === "double") {
+                    if (room.elec_split === "equal") { t1_ratio = 0.5; t2_ratio = 0.5; }
+                    else if (room.elec_split === "tenant1") { t1_ratio = 1.0; t2_ratio = 0.0; }
+                    else if (room.elec_split === "tenant2") { t1_ratio = 0.0; t2_ratio = 1.0; }
+                }
+
+                const t1_elec = isDone ? Math.round(totalRoomElec * t1_ratio) : 0;
+                const t2_elec = isDone ? Math.round(totalRoomElec * t2_ratio) : 0;
+
+                const t1_rent = room.is_annual ? 0 : room.rent;
+                const t2_rent = room.is_annual2 ? 0 : room.rent2;
+
+                const t1_arrears = room.arrears_amount || 0;
+                const t2_arrears = room.arrears_amount2 || 0;
+
+                const t1_total = t1_rent + t1_elec + t1_arrears;
+                const t2_total = t2_rent + t2_elec + t2_arrears;
+
+                totalTenants++;
+                if (room.payment_status === "paid") paidTenants++;
+                totalArrearsSum += t1_arrears;
+                totalRentEstimate += t1_total;
+
+                if (room.type === "double") {
+                    totalTenants++;
+                    if (room.payment_status2 === "paid") paidTenants++;
+                    totalArrearsSum += t2_arrears;
+                    totalRentEstimate += t2_total;
+                }
 
                 const card = document.createElement("div");
                 card.className = "room-card";
@@ -1709,8 +1874,10 @@
                     <div class="room-card-top">
                         <div class="room-info-badge">
                             <span class="room-num">${room.num}</span>
-                            <span class="tenant-name">${room.tenant}</span>
-                            ${room.is_annual ? `<span class="status-badge annual" title="年繳期：${room.annual_period}">🔄 年繳</span>` : ''}
+                            <span class="tenant-name">${room.tenant}${room.type === 'double' ? ` & ${room.tenant2}` : ''}</span>
+                            ${room.type === 'double' ? `<span class="status-badge" style="background: var(--secondary-light); color: var(--secondary); font-size: 0.72rem;">👥 雙人房</span>` : ''}
+                            ${room.is_annual ? `<span class="status-badge annual" title="合約：${room.annual_period}">🔄 房客 1 年繳</span>` : ''}
+                            ${room.type === 'double' && room.is_annual2 ? `<span class="status-badge annual" style="background:var(--secondary-light); color:var(--secondary);" title="合約：${room.annual_period2}">🔄 房客 2 年繳</span>` : ''}
                         </div>
                         <span class="status-badge ${isDone ? 'done' : 'pending'}">
                             ${isDone ? '🟢 已算好' : '🔴 未填寫'}
@@ -1729,77 +1896,91 @@
                     </div>
 
                     <div class="room-calc-results" style="${isDone ? 'display: block;' : 'display: none;'}">
-                        <div class="calc-row">
-                            <span class="label">每月固定房租</span>
-                            <span class="val">${room.is_annual ? `<span style="color:var(--secondary); font-weight:600;">$ 0 元 (年繳模式)</span>` : `$ ${room.rent.toLocaleString()} 元`}</span>
+                        <div style="background: var(--bg-base); padding: 10px; border-radius: var(--radius-sm); margin-bottom: 12px; border: 1px solid var(--border); font-size: 0.85rem; line-height: 1.45;">
+                            <div style="font-weight: 700; color: var(--text-main); margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">⚡ 房間電費小計</div>
+                            <div>• 獨立電費：${usage} 度 × ${room.elec_price} 元 = $ ${personalElec.toLocaleString()} 元</div>
+                            <div>• ${floor} 樓公電分攤：$ ${floorShare.toLocaleString()} 元</div>
+                            <div style="font-weight: 600; color: var(--success); margin-top: 2px;">➔ 房間總電費：$ ${totalRoomElec.toLocaleString()} 元 ${room.type === 'double' ? `(拆分：${room.elec_split === 'equal' ? '兩人平分' : room.elec_split === 'tenant1' ? '房客 1 全額' : '房客 2 全額'})` : ''}</div>
                         </div>
-                        <div class="calc-row">
-                            <span class="label">獨立電費 (${usage} 度 * ${room.elec_price}元)</span>
-                            <span class="val">$ ${personalElecCost.toLocaleString()} 元</span>
-                        </div>
-                        <div class="calc-row">
-                            <span class="label">一般公電均攤</span>
-                            <span class="val">$ ${sharedGeneralPerRoom.toLocaleString()} 元</span>
-                        </div>
-                        <div class="calc-row">
-                            <span class="label">電熱爐電費均攤</span>
-                            <span class="val">$ ${sharedHeaterPerRoom.toLocaleString()} 元</span>
-                        </div>
-                        ${arrearsCost > 0 ? `
-                        <div class="calc-row" style="color: var(--danger); font-weight: 600;">
-                            <span class="label">🚨 上期欠繳金額</span>
-                            <span class="val">+ $ ${arrearsCost.toLocaleString()} 元</span>
-                        </div>` : ''}
-                        <div class="calc-row">
-                            <span class="label">本月應收總金額</span>
-                            <span class="val">$ ${grandTotal.toLocaleString()} 元</span>
-                        </div>
-                    </div>
 
-                    <!-- Payment Confirmation toggle bar -->
-                    <div class="payment-status-block" style="${isDone ? 'display: flex;' : 'display: none;'}">
-                        <span class="payment-status-label">💵 房客本月繳款狀態：</span>
-                        <div class="payment-toggle-group">
-                            <button class="payment-toggle-btn unpaid ${room.payment_status === 'unpaid' ? 'active' : ''}" onclick="togglePaymentStatus('${room.id}', 'unpaid')">🟡 待繳</button>
-                            <button class="payment-toggle-btn paid ${room.payment_status === 'paid' ? 'active' : ''}" onclick="togglePaymentStatus('${room.id}', 'paid')">🟢 已收</button>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 10px;">
+                            <div style="font-weight: 700; color: var(--primary); font-size: 0.9rem; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                                <span>👤 房客 1：${room.tenant}</span>
+                                <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">${room.is_annual ? '年繳' : '月繳'}</span>
+                            </div>
+                            <div class="calc-row"><span class="label">每月租金</span><span class="val">${room.is_annual ? '$ 0 元' : `$ ${room.rent.toLocaleString()} 元`}</span></div>
+                            <div class="calc-row"><span class="label">分攤電費</span><span class="val">$ ${t1_elec.toLocaleString()} 元</span></div>
+                            ${t1_arrears > 0 ? `<div class="calc-row" style="color:var(--danger); font-weight:600;"><span class="label">🚨 上期欠繳</span><span class="val">+ $ ${t1_arrears.toLocaleString()} 元</span></div>` : ''}
+                            <div class="calc-divider" style="height:1px; background:var(--border); margin:6px 0;"></div>
+                            <div class="calc-row" style="font-weight:700; color:var(--text-main);"><span class="label">應繳小計</span><span class="val">$ ${t1_total.toLocaleString()} 元</span></div>
+                            
+                            <div class="payment-status-block" style="margin-top: 10px; padding: 0; background: none; border: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span class="payment-status-label" style="font-size: 0.8rem;">💵 繳款狀態：</span>
+                                <div class="payment-toggle-group">
+                                    <button class="payment-toggle-btn unpaid ${room.payment_status === 'unpaid' ? 'active' : ''}" onclick="togglePaymentStatus('${room.id}', 'unpaid', 1)">🟡 待繳</button>
+                                    <button class="payment-toggle-btn paid ${room.payment_status === 'paid' ? 'active' : ''}" onclick="togglePaymentStatus('${room.id}', 'paid', 1)">🟢 已收</button>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 10px; font-size: 0.82rem; padding: 6px;" onclick="showReceipt('${room.id}', 1)">🧾 查看收據與分享</button>
                         </div>
-                    </div>
 
-                    <div class="btn-action-row" style="${isDone ? 'display: flex;' : 'display: none;'}">
-                        <button class="btn btn-outline" style="margin-top: 10px;" onclick="showReceipt('${room.id}')">🧾 查看收據與分享</button>
+                        ${room.type === 'double' ? `
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px;">
+                            <div style="font-weight: 700; color: var(--secondary); font-size: 0.9rem; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                                <span>👤 房客 2：${room.tenant2}</span>
+                                <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">${room.is_annual2 ? '年繳' : '月繳'}</span>
+                            </div>
+                            <div class="calc-row"><span class="label">每月租金</span><span class="val">${room.is_annual2 ? '$ 0 元' : `$ ${room.rent2.toLocaleString()} 元`}</span></div>
+                            <div class="calc-row"><span class="label">分攤電費</span><span class="val">$ ${t2_elec.toLocaleString()} 元</span></div>
+                            ${t2_arrears > 0 ? `<div class="calc-row" style="color:var(--danger); font-weight:600;"><span class="label">🚨 上期欠繳</span><span class="val">+ $ ${t2_arrears.toLocaleString()} 元</span></div>` : ''}
+                            <div class="calc-divider" style="height:1px; background:var(--border); margin:6px 0;"></div>
+                            <div class="calc-row" style="font-weight:700; color:var(--text-main);"><span class="label">應繳小計</span><span class="val">$ ${t2_total.toLocaleString()} 元</span></div>
+                            
+                            <div class="payment-status-block" style="margin-top: 10px; padding: 0; background: none; border: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span class="payment-status-label" style="font-size: 0.8rem;">💵 繳款狀態：</span>
+                                <div class="payment-toggle-group">
+                                    <button class="payment-toggle-btn unpaid ${room.payment_status2 === 'unpaid' ? 'active' : ''}" onclick="togglePaymentStatus('${room.id}', 'unpaid', 2)">🟡 待繳</button>
+                                    <button class="payment-toggle-btn paid ${room.payment_status2 === 'paid' ? 'active' : ''}" onclick="togglePaymentStatus('${room.id}', 'paid', 2)">🟢 已收</button>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 10px; font-size: 0.82rem; padding: 6px;" onclick="showReceipt('${room.id}', 2)">🧾 查看收據與分享</button>
+                        </div>
+                        ` : ''}
                     </div>
                 `;
                 container.appendChild(card);
             });
 
-            // Update stats board
             document.getElementById("statComplete").innerText = `${completeCount} / ${state.rooms.length}`;
-            document.getElementById("statPaidCount").innerText = `${paidCount} 房已收 / ${state.rooms.length - paidCount} 房待收`;
+            document.getElementById("statPaidCount").innerText = `${paidTenants} 人已收 / ${totalTenants - paidTenants} 人待收`;
             document.getElementById("statTotalRent").innerText = `$ ${totalRentEstimate.toLocaleString()}`;
             document.getElementById("statTotalArrears").innerText = `$ ${totalArrearsSum.toLocaleString()}`;
             document.getElementById("roomCountLabel").innerText = `共 ${state.rooms.length} 間房`;
         }
 
-        // Toggle payment status on billing view
-        function togglePaymentStatus(roomId, newStatus) {
+        function togglePaymentStatus(roomId, newStatus, tenantIdx) {
             const room = state.rooms.find(r => r.id === roomId);
             if (room) {
-                room.payment_status = newStatus;
+                if (tenantIdx === 1) {
+                    room.payment_status = newStatus;
+                } else {
+                    room.payment_status2 = newStatus;
+                }
                 saveToLocalStorage();
                 renderBillingView();
             }
         }
 
-        // Render: Tab 2 (Manage Tenants)
         function renderManageView() {
             const container = document.getElementById("manageRoomList");
+            if (!container) return;
             container.innerHTML = "";
 
             if (state.rooms.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-                        <p>目前沒有房客，請點擊右下方 ＋ 號新增房間。</p>
+                        <p>目前沒有房間，請點擊右下方 ＋ 號新增房間。</p>
                     </div>`;
                 return;
             }
@@ -1807,42 +1988,54 @@
             const sortedRooms = [...state.rooms].sort((a, b) => a.num.localeCompare(b.num));
 
             sortedRooms.forEach(room => {
+                const floor = getRoomFloor(room);
                 const card = document.createElement("div");
                 card.className = "room-card";
                 card.innerHTML = `
-                    <div class="room-card-top" style="margin-bottom: 0px; cursor: pointer;" onclick="openRoomEditor('${room.id}')">
+                    <div class="room-card-top" style="margin-bottom: 12px; cursor: pointer;" onclick="openRoomEditor('${room.id}')">
                         <div class="room-info-badge">
                             <span class="room-num">${room.num}</span>
-                            <span class="tenant-name">${room.tenant}</span>
-                            ${room.is_annual ? `<span class="status-badge annual">🔄 年繳</span>` : ''}
+                            <span class="tenant-name">${room.tenant}${room.type === 'double' ? ` & ${room.tenant2}` : ''}</span>
+                            <span class="status-badge" style="background: var(--primary-light); color: var(--primary-dark); font-size: 0.72rem;">${floor} 樓</span>
+                            <span class="status-badge" style="background: var(--secondary-light); color: var(--secondary); font-size: 0.72rem;">${room.type === 'double' ? '👥 雙人房' : '👤 單人房'}</span>
                         </div>
                         <div style="font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
-                            <span>房租: $ ${room.rent.toLocaleString()} 元</span>
+                            <span>編輯房間</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4z"/></svg>
                         </div>
                     </div>
-                    <div class="tenant-detail-box">
-                        <div class="tenant-detail-item">
-                            <strong>📞 聯絡電話：</strong>
-                            ${room.phone ? `<a href="tel:${room.phone}">${room.phone}</a>` : '<span style="color:var(--text-muted); font-style:italic;">未填寫</span>'}
+                    
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 12px; font-size: 0.85rem;">
+                        <div style="background: var(--bg-base); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                            <div style="font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 0.9rem;">👤 房客 1：${room.tenant}</div>
+                            <div class="tenant-detail-box" style="margin-top: 0; padding: 0; border: none; background: none; display: flex; flex-direction: column; gap: 4px;">
+                                <div><strong>💰 固定租金：</strong>$ ${room.rent.toLocaleString()} 元 ${room.is_annual ? '<span class="status-badge annual" style="margin-left:4px;">🔄 年繳</span>' : ''}</div>
+                                ${room.is_annual && room.annual_period ? `<div><strong>📅 年繳期間：</strong>${room.annual_period}</div>` : ''}
+                                <div><strong>📞 聯絡電話：</strong>${room.phone ? `<a href="tel:${room.phone}">${room.phone}</a>` : '<span style="color:var(--text-muted); font-style:italic;">未填寫</span>'}</div>
+                                <div><strong>💬 LINE 名稱：</strong>${room.line_name || '<span style="color:var(--text-muted); font-style:italic;">未填寫</span>'}</div>
+                                ${room.arrears_amount > 0 ? `<div style="color:var(--danger); font-weight:500;"><strong>🚨 上期欠繳：</strong>$ ${room.arrears_amount.toLocaleString()} 元</div>` : ''}
+                            </div>
                         </div>
-                        <div class="tenant-detail-item">
-                            <strong>💬 LINE 名稱：</strong>
-                            <span>${room.line_name || '<span style="color:var(--text-muted); font-style:italic;">未填寫</span>'}</span>
+                        
+                        ${room.type === 'double' ? `
+                        <div style="background: var(--bg-base); padding: 12px; border-radius: var(--radius-md); border: 1px dashed var(--border);">
+                            <div style="font-weight: 700; color: var(--secondary); margin-bottom: 6px; font-size: 0.9rem;">👤 房客 2：${room.tenant2 || '<span style="color:var(--text-muted); font-weight:normal;">無房客</span>'}</div>
+                            ${room.tenant2 ? `
+                            <div class="tenant-detail-box" style="margin-top: 0; padding: 0; border: none; background: none; display: flex; flex-direction: column; gap: 4px;">
+                                <div><strong>💰 固定租金：</strong>$ ${room.rent2.toLocaleString()} 元 ${room.is_annual2 ? '<span class="status-badge annual" style="margin-left:4px;">🔄 年繳</span>' : ''}</div>
+                                ${room.is_annual2 && room.annual_period2 ? `<div><strong>📅 年繳期間：</strong>${room.annual_period2}</div>` : ''}
+                                <div><strong>📞 聯絡電話：</strong>${room.phone2 ? `<a href="tel:${room.phone2}">${room.phone2}</a>` : '<span style="color:var(--text-muted); font-style:italic;">未填寫</span>'}</div>
+                                <div><strong>💬 LINE 名稱：</strong>${room.line_name2 || '<span style="color:var(--text-muted); font-style:italic;">未填寫</span>'}</div>
+                                ${room.arrears_amount2 > 0 ? `<div style="color:var(--danger); font-weight:500;"><strong>🚨 上期欠繳：</strong>$ ${room.arrears_amount2.toLocaleString()} 元</div>` : ''}
+                            </div>
+                            ` : '<div style="color:var(--text-muted); font-style:italic;">尚未設定第二房客資料</div>'}
                         </div>
-                        ${room.is_annual ? `
-                        <div class="tenant-detail-item" style="color: var(--secondary); font-weight: 500;">
-                            <strong>📅 年繳期間：</strong>
-                            <span>${room.annual_period || '未填寫'}</span>
-                        </div>` : ''}
-                        ${room.arrears_amount > 0 ? `
-                        <div class="tenant-detail-item" style="color: var(--danger); font-weight: 500;">
-                            <strong>🚨 上期欠繳：</strong>
-                            <span>$ ${room.arrears_amount.toLocaleString()} 元</span>
-                        </div>` : ''}
-                        <div class="tenant-detail-item" style="grid-column: 1 / -1;">
-                            <strong>📝 房間備註：</strong>
-                            <span>${room.notes || '<span style="color:var(--text-muted); font-style:italic;">無備註</span>'}</span>
+                        ` : ''}
+                        
+                        <div style="background: var(--bg-base); padding: 8px 12px; border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-muted); border: 1px solid var(--border);">
+                            ⚡ <b>獨立電表：</b>上次 ${room.prev_meter} 度 | 單價 $ ${room.elec_price} 元
+                            ${room.type === 'double' ? ` | <b>電費拆分：</b>${room.elec_split === 'equal' ? '兩人平分 (50/50)' : room.elec_split === 'tenant1' ? '房客 1 全額' : '房客 2 全額'}` : ''}
+                            ${room.notes ? `<div style="margin-top:4px;"><b>📝 房間備註：</b>${room.notes}</div>` : ''}
                         </div>
                     </div>
                 `;
@@ -1850,104 +2043,6 @@
             });
         }
 
-        // Action: Update single room meter
-        function updateMeterReading(roomId, value) {
-            const parsedVal = value === "" ? null : parseFloat(value);
-            const room = state.rooms.find(r => r.id === roomId);
-            if (room) {
-                room.current_meter = parsedVal;
-                // If it is valid number and greater or equal to previous meter
-                if (parsedVal !== null && parsedVal >= room.prev_meter) {
-                    room.done = true;
-                } else {
-                    room.done = false;
-                }
-                saveToLocalStorage();
-                
-                // Do not re-render immediately to prevent input field losing focus
-                // Instead, just dynamically update calculation results UI on the card
-                const publicGeneral = state.settings.public_elec_general || 0;
-                const publicHeater = state.settings.public_elec_heater || 0;
-                const activeRoomsCount = state.rooms.length;
-                
-                const sharedGeneralPerRoom = activeRoomsCount > 0 ? Math.round(publicGeneral / activeRoomsCount) : 0;
-                const sharedHeaterPerRoom = activeRoomsCount > 0 ? Math.round(publicHeater / activeRoomsCount) : 0;
-                const sharedTotalPerRoom = sharedGeneralPerRoom + sharedHeaterPerRoom;
-
-                const rentCost = room.is_annual ? 0 : room.rent;
-                const arrearsCost = room.arrears_amount || 0;
-                const usage = parsedVal !== null ? Math.max(0, parsedVal - room.prev_meter) : 0;
-                const personalElecCost = parsedVal !== null ? Math.round(usage * room.elec_price) : 0;
-                const grandTotal = rentCost + personalElecCost + sharedTotalPerRoom + arrearsCost;
-
-                const cardEl = document.querySelector(`.current-meter-input[data-id="${roomId}"]`).closest(".room-card");
-                const badgeEl = cardEl.querySelector(".status-badge");
-                const calcEl = cardEl.querySelector(".room-calc-results");
-                const actionEl = cardEl.querySelector(".btn-action-row");
-                const pBarEl = cardEl.querySelector(".payment-status-block");
-
-                if (room.done) {
-                    badgeEl.className = "status-badge done";
-                    badgeEl.innerText = "🟢 已算好";
-                    calcEl.style.display = "block";
-                    calcEl.innerHTML = `
-                        <div class="calc-row">
-                            <span class="label">每月固定房租</span>
-                            <span class="val">${room.is_annual ? `<span style="color:var(--secondary); font-weight:600;">$ 0 元 (年繳模式)</span>` : `$ ${room.rent.toLocaleString()} 元`}</span>
-                        </div>
-                        <div class="calc-row">
-                            <span class="label">獨立電費 (${usage} 度 * ${room.elec_price}元)</span>
-                            <span class="val">$ ${personalElecCost.toLocaleString()} 元</span>
-                        </div>
-                        <div class="calc-row">
-                            <span class="label">一般公電均攤</span>
-                            <span class="val">$ ${sharedGeneralPerRoom.toLocaleString()} 元</span>
-                        </div>
-                        <div class="calc-row">
-                            <span class="label">電熱爐電費均攤</span>
-                            <span class="val">$ ${sharedHeaterPerRoom.toLocaleString()} 元</span>
-                        </div>
-                        ${arrearsCost > 0 ? `
-                        <div class="calc-row" style="color: var(--danger); font-weight: 600;">
-                            <span class="label">🚨 上期欠繳金額</span>
-                            <span class="val">+ $ ${arrearsCost.toLocaleString()} 元</span>
-                        </div>` : ''}
-                        <div class="calc-row">
-                            <span class="label">本月應收總金額</span>
-                            <span class="val" style="font-weight:700; color:var(--primary-dark);">$ ${grandTotal.toLocaleString()} 元</span>
-                        </div>
-                    `;
-                    actionEl.style.display = "flex";
-                    pBarEl.style.display = "flex";
-                } else {
-                    badgeEl.className = "status-badge pending";
-                    badgeEl.innerText = "🔴 未填寫";
-                    calcEl.style.display = "none";
-                    actionEl.style.display = "none";
-                    pBarEl.style.display = "none";
-                }
-
-                // Recalculate summary totals
-                let completeCount = 0;
-                let paidCount = 0;
-                let totalRentEstimate = 0;
-                state.rooms.forEach(r => {
-                    const rDone = r.done && r.current_meter !== null;
-                    if (rDone) completeCount++;
-                    if (r.payment_status === "paid") paidCount++;
-                    const rRent = r.is_annual ? 0 : r.rent;
-                    const rArrears = r.arrears_amount || 0;
-                    const rUsage = rDone ? Math.max(0, r.current_meter - r.prev_meter) : 0;
-                    const rPersonalElec = rDone ? Math.round(rUsage * r.elec_price) : 0;
-                    totalRentEstimate += rRent + rPersonalElec + sharedTotalPerRoom + rArrears;
-                });
-                document.getElementById("statComplete").innerText = `${completeCount} / ${state.rooms.length}`;
-                document.getElementById("statPaidCount").innerText = `${paidCount} 房已收 / ${state.rooms.length - paidCount} 房待收`;
-                document.getElementById("statTotalRent").innerText = `$ ${totalRentEstimate.toLocaleString()}`;
-            }
-        }
-
-        // Action: Switch Nav Tab
         function switchView(viewId, buttonEl) {
             document.querySelectorAll(".view-content").forEach(el => el.classList.remove("active"));
             document.querySelectorAll(".nav-tab-btn").forEach(el => el.classList.remove("active"));
@@ -1955,7 +2050,6 @@
             document.getElementById(viewId).classList.add("active");
             buttonEl.classList.add("active");
 
-            // Toggle FAB button
             const fab = document.getElementById("fabAddRoom");
             if (viewId === "viewTenants") {
                 fab.style.display = "flex";
@@ -1963,49 +2057,46 @@
                 fab.style.display = "none";
             }
 
-            // Sync rendering on navigation
             if (viewId === "viewBilling") renderBillingView();
             if (viewId === "viewTenants") renderManageView();
             if (viewId === "viewHistory") populateHistorySelector();
         }
 
-        // Action: Open Modal Dialog
         function openModal(modalId) {
             document.getElementById(modalId).classList.add("active");
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove("active");
-            if (modalId === "roomEditModal") {
-                // Clear fields
-                document.getElementById("editRoomId").value = "";
-                document.getElementById("editRoomNum").value = "";
-                document.getElementById("editTenantName").value = "";
-                document.getElementById("editRent").value = "";
-                document.getElementById("editElecPrice").value = "5.0";
-                document.getElementById("editPrevMeter").value = "";
-                document.getElementById("editArrears").value = "0";
-                document.getElementById("editIsAnnual").checked = false;
-                document.getElementById("editAnnualPeriod").value = "";
-                document.getElementById("editPhone").value = "";
-                document.getElementById("editLineName").value = "";
-                document.getElementById("editNotes").value = "";
-                document.getElementById("annualPeriodWrapper").style.display = "none";
-                document.getElementById("btnDeleteRoom").style.display = "none";
+        }
+
+        function autoFillFloor(val) {
+            if (!val) return;
+            const match = val.match(/^\d+/);
+            if (match) {
+                document.getElementById("editRoomFloor").value = match[0];
             }
         }
 
-        // Show/hide annual period input dynamically
-        function toggleAnnualPeriodInput(isChecked) {
-            const wrapper = document.getElementById("annualPeriodWrapper");
-            if (isChecked) {
-                wrapper.style.display = "block";
+        function toggleRoomTypeFields(type) {
+            const t2Area = document.getElementById("tenant2FieldsArea");
+            const splitArea = document.getElementById("elecSplitArea");
+            if (type === "double") {
+                t2Area.style.display = "block";
+                splitArea.style.display = "block";
             } else {
-                wrapper.style.display = "none";
+                t2Area.style.display = "none";
+                splitArea.style.display = "none";
             }
         }
 
-        // Room Editor Dialog
+        function toggleAnnualPeriodInput(isChecked, wrapperId) {
+            const el = document.getElementById(wrapperId);
+            if (el) {
+                el.style.display = isChecked ? "block" : "none";
+            }
+        }
+
         function openRoomEditor(roomId = null) {
             if (roomId) {
                 const room = state.rooms.find(r => r.id === roomId);
@@ -2013,30 +2104,73 @@
                     document.getElementById("roomEditorTitle").innerText = `⚙️ 編輯房間：${room.num}`;
                     document.getElementById("editRoomId").value = room.id;
                     document.getElementById("editRoomNum").value = room.num;
-                    document.getElementById("editTenantName").value = room.tenant;
-                    document.getElementById("editRent").value = room.rent;
-                    document.getElementById("editElecPrice").value = room.elec_price;
-                    document.getElementById("editPrevMeter").value = room.prev_meter;
-                    document.getElementById("editArrears").value = room.arrears_amount || 0;
+                    document.getElementById("editRoomFloor").value = room.floor || getRoomFloor(room);
                     
-                    document.getElementById("editIsAnnual").checked = room.is_annual || false;
-                    if (room.is_annual) {
-                        document.getElementById("annualPeriodWrapper").style.display = "block";
-                        document.getElementById("editAnnualPeriod").value = room.annual_period || "";
-                    } else {
-                        document.getElementById("annualPeriodWrapper").style.display = "none";
-                        document.getElementById("editAnnualPeriod").value = "";
-                    }
-
+                    const type = room.type || "single";
+                    document.getElementById("editRoomType").value = type;
+                    toggleRoomTypeFields(type);
+                    
+                    document.getElementById("editTenantName").value = room.tenant || "";
+                    document.getElementById("editRent").value = room.rent || 0;
+                    document.getElementById("editArrears").value = room.arrears_amount || 0;
                     document.getElementById("editPhone").value = room.phone || "";
                     document.getElementById("editLineName").value = room.line_name || "";
+                    
+                    const isAnnual = room.is_annual || false;
+                    document.getElementById("editIsAnnual").checked = isAnnual;
+                    toggleAnnualPeriodInput(isAnnual, "editAnnualPeriodWrapper");
+                    document.getElementById("editAnnualPeriod").value = room.annual_period || "";
+                    
+                    document.getElementById("editTenantName2").value = room.tenant2 || "";
+                    document.getElementById("editRent2").value = room.rent2 || 0;
+                    document.getElementById("editArrears2").value = room.arrears_amount2 || 0;
+                    document.getElementById("editPhone2").value = room.phone2 || "";
+                    document.getElementById("editLineName2").value = room.line_name2 || "";
+                    
+                    const isAnnual2 = room.is_annual2 || false;
+                    document.getElementById("editIsAnnual2").checked = isAnnual2;
+                    toggleAnnualPeriodInput(isAnnual2, "editAnnualPeriodWrapper2");
+                    document.getElementById("editAnnualPeriod2").value = room.annual_period2 || "";
+                    
+                    document.getElementById("editElecSplit").value = room.elec_split || "equal";
+                    document.getElementById("editElecPrice").value = room.elec_price || 5.0;
+                    document.getElementById("editPrevMeter").value = room.prev_meter || 0;
                     document.getElementById("editNotes").value = room.notes || "";
+                    
                     document.getElementById("btnDeleteRoom").style.display = "block";
                 }
             } else {
-                document.getElementById("roomEditorTitle").innerText = "➕ 新增房客與房間";
+                document.getElementById("roomEditorTitle").innerText = "➕ 新增房間與房客";
+                document.getElementById("editRoomId").value = "";
+                document.getElementById("editRoomNum").value = "";
+                document.getElementById("editRoomFloor").value = "";
+                document.getElementById("editRoomType").value = "single";
+                toggleRoomTypeFields("single");
+                
+                document.getElementById("editTenantName").value = "";
+                document.getElementById("editRent").value = "";
+                document.getElementById("editArrears").value = "0";
+                document.getElementById("editPhone").value = "";
+                document.getElementById("editLineName").value = "";
+                document.getElementById("editIsAnnual").checked = false;
+                toggleAnnualPeriodInput(false, "editAnnualPeriodWrapper");
+                document.getElementById("editAnnualPeriod").value = "";
+                
+                document.getElementById("editTenantName2").value = "";
+                document.getElementById("editRent2").value = "";
+                document.getElementById("editArrears2").value = "0";
+                document.getElementById("editPhone2").value = "";
+                document.getElementById("editLineName2").value = "";
+                document.getElementById("editIsAnnual2").checked = false;
+                toggleAnnualPeriodInput(false, "editAnnualPeriodWrapper2");
+                document.getElementById("editAnnualPeriod2").value = "";
+                
+                document.getElementById("editElecSplit").value = "equal";
+                document.getElementById("editElecPrice").value = "5.0";
+                document.getElementById("editPrevMeter").value = "";
+                document.getElementById("editNotes").value = "";
+                
                 document.getElementById("btnDeleteRoom").style.display = "none";
-                document.getElementById("annualPeriodWrapper").style.display = "none";
             }
             openModal("roomEditModal");
         }
@@ -2044,48 +2178,72 @@
         function saveRoom() {
             const id = document.getElementById("editRoomId").value;
             const num = document.getElementById("editRoomNum").value.trim();
+            let floor = document.getElementById("editRoomFloor").value.trim();
+            const type = document.getElementById("editRoomType").value;
+            
+            if (!floor && num) {
+                const match = num.match(/^\d+/);
+                floor = match ? match[0] : "1";
+            }
+            
             const tenant = document.getElementById("editTenantName").value.trim();
             const rent = parseInt(document.getElementById("editRent").value) || 0;
-            const elec_price = parseFloat(document.getElementById("editElecPrice").value) || 5.0;
-            const prev_meter = parseFloat(document.getElementById("editPrevMeter").value) || 0;
             const arrears_amount = parseInt(document.getElementById("editArrears").value) || 0;
-            
-            const is_annual = document.getElementById("editIsAnnual").checked;
-            const annual_period = is_annual ? document.getElementById("editAnnualPeriod").value.trim() : "";
-
             const phone = document.getElementById("editPhone").value.trim();
             const line_name = document.getElementById("editLineName").value.trim();
+            const is_annual = document.getElementById("editIsAnnual").checked;
+            const annual_period = is_annual ? document.getElementById("editAnnualPeriod").value.trim() : "";
+            
+            const tenant2 = document.getElementById("editTenantName2").value.trim();
+            const rent2 = parseInt(document.getElementById("editRent2").value) || 0;
+            const arrears_amount2 = parseInt(document.getElementById("editArrears2").value) || 0;
+            const phone2 = document.getElementById("editPhone2").value.trim();
+            const line_name2 = document.getElementById("editLineName2").value.trim();
+            const is_annual2 = document.getElementById("editIsAnnual2").checked;
+            const annual_period2 = is_annual2 ? document.getElementById("editAnnualPeriod2").value.trim() : "";
+            
+            const elec_split = document.getElementById("editElecSplit").value;
+            const elec_price = parseFloat(document.getElementById("editElecPrice").value) || 5.0;
+            const prev_meter = parseFloat(document.getElementById("editPrevMeter").value) || 0;
             const notes = document.getElementById("editNotes").value.trim();
-
+            
             if (!num || !tenant || rent <= 0 || prev_meter < 0) {
-                alert("請填寫所有標註 * 的必填欄位，且數值必須為正數！");
+                alert("請填寫房號、主要房客姓名與租金，且數值必須大於等於 0！");
                 return;
             }
-
+            if (type === "double" && (!tenant2 || rent2 <= 0)) {
+                alert("在雙人房客模式下，請填寫房客 2 的姓名與租金！");
+                return;
+            }
+            
             if (id) {
-                // Update Existing
                 const idx = state.rooms.findIndex(r => r.id === id);
                 if (idx !== -1) {
                     const current = state.rooms[idx].current_meter;
                     state.rooms[idx] = {
                         ...state.rooms[idx],
-                        num, tenant, rent, elec_price, prev_meter, phone, line_name, notes,
-                        is_annual, annual_period, arrears_amount,
+                        num, floor, type,
+                        tenant, rent, arrears_amount, phone, line_name, is_annual, annual_period,
+                        tenant2, rent2, arrears_amount2, phone2, line_name2, is_annual2, annual_period2,
+                        elec_split, elec_price, prev_meter, notes,
                         done: current !== null && current >= prev_meter
                     };
                 }
             } else {
-                // Insert New
                 state.rooms.push({
                     id: Date.now().toString(),
-                    num, tenant, rent, elec_price, prev_meter, phone, line_name, notes,
-                    is_annual, annual_period, arrears_amount,
+                    num, floor, type,
+                    tenant, rent, arrears_amount, phone, line_name, is_annual, annual_period,
+                    tenant2, rent2, arrears_amount2, phone2, line_name2, is_annual2, annual_period2,
+                    elec_split, elec_price, prev_meter, notes,
                     current_meter: null,
                     done: false,
-                    payment_status: "unpaid"
+                    payment_status: "unpaid",
+                    payment_status2: "unpaid"
                 });
             }
-
+            
+            ensureFloorElecConfigs();
             saveToLocalStorage();
             closeModal("roomEditModal");
             renderManageView();
@@ -2094,18 +2252,15 @@
 
         function deleteRoom() {
             const id = document.getElementById("editRoomId").value;
-            if (id) {
-                if (confirm("您確定要刪除這間房間的全部資料嗎？這將無法復原。")) {
-                    state.rooms = state.rooms.filter(r => r.id !== id);
-                    saveToLocalStorage();
-                    closeModal("roomEditModal");
-                    renderManageView();
-                    renderBillingView();
-                }
+            if (id && confirm("確定刪除此房間？")) {
+                state.rooms = state.rooms.filter(r => r.id !== id);
+                saveToLocalStorage();
+                closeModal("roomEditModal");
+                renderManageView();
+                renderBillingView();
             }
         }
 
-        // Global Settings
         function saveGlobalSettings() {
             state.settings.bank_name = document.getElementById("settingBankName").value.trim();
             state.settings.bank_account = document.getElementById("settingBankAccount").value.trim();
@@ -2116,68 +2271,142 @@
             alert("✅ 收款設定與訊息模板已安全儲存！");
         }
 
-        // Show Receipt Modal
         let activeReceiptId = null;
+        let activeReceiptTenantIdx = 1;
 
-        function showReceipt(roomId) {
-            activeReceiptId = roomId;
-            const room = state.rooms.find(r => r.id === roomId);
-            if (!room) return;
-
-            const publicGeneral = state.settings.public_elec_general || 0;
-            const publicHeater = state.settings.public_elec_heater || 0;
-            const activeRoomsCount = state.rooms.length;
+        function showReceipt(roomId, tenantIdx) {
+            let room, dateText, isHistory = false;
+            let num, floor, tenantName, rent, isAnnual, annualPeriod, arrears, elecPercent, elecCost;
+            let usage, personalElec, floorShare, totalRoomElec, grandTotal;
             
-            const sharedGeneralPerRoom = activeRoomsCount > 0 ? Math.round(publicGeneral / activeRoomsCount) : 0;
-            const sharedHeaterPerRoom = activeRoomsCount > 0 ? Math.round(publicHeater / activeRoomsCount) : 0;
-            const sharedTotalPerRoom = sharedGeneralPerRoom + sharedHeaterPerRoom;
-
-            const rentCost = room.is_annual ? 0 : room.rent;
-            const arrearsCost = room.arrears_amount || 0;
-            const usage = room.current_meter !== null ? Math.max(0, room.current_meter - room.prev_meter) : 0;
-            const personalElecCost = room.current_meter !== null ? Math.round(usage * room.elec_price) : 0;
-            const grandTotal = rentCost + personalElecCost + sharedTotalPerRoom + arrearsCost;
-
-            const date = new Date();
-            const monthText = `${date.getMonth() + 1}`;
-
+            if (roomId && typeof roomId === "object" && roomId.isHistory) {
+                isHistory = true;
+                const record = state.history.find(h => h.month === roomId.month);
+                if (!record) return;
+                room = record.rooms.find(r => r.id === roomId.roomId);
+                if (!room) return;
+                
+                dateText = record.month;
+                num = room.num;
+                floor = room.floor || "1";
+                usage = room.usage || 0;
+                personalElec = room.personal_elec || 0;
+                floorShare = room.floor_share || 0;
+                totalRoomElec = room.total_room_elec || (personalElec + floorShare);
+                
+                if (tenantIdx === 1) {
+                    tenantName = room.tenant;
+                    rent = room.is_annual ? 0 : room.rent;
+                    isAnnual = room.is_annual;
+                    annualPeriod = room.annual_period;
+                    arrears = room.arrears_amount || room.arrears || 0;
+                    elecCost = room.t1_elec !== undefined ? room.t1_elec : (room.grand_total - rent - arrears);
+                    grandTotal = room.t1_total !== undefined ? room.t1_total : room.grand_total;
+                    
+                    let t1_ratio = 1.0;
+                    if (room.type === "double") {
+                        if (room.elec_split === "equal") t1_ratio = 0.5;
+                        else if (room.elec_split === "tenant1") t1_ratio = 1.0;
+                        else if (room.elec_split === "tenant2") t1_ratio = 0.0;
+                    }
+                    elecPercent = t1_ratio * 100;
+                } else {
+                    tenantName = room.tenant2;
+                    rent = room.is_annual2 ? 0 : room.rent2;
+                    isAnnual = room.is_annual2;
+                    annualPeriod = room.annual_period2;
+                    arrears = room.arrears_amount2 || 0;
+                    elecCost = room.t2_elec || 0;
+                    grandTotal = room.t2_total || 0;
+                    
+                    let t2_ratio = 0.0;
+                    if (room.type === "double") {
+                        if (room.elec_split === "equal") t2_ratio = 0.5;
+                        else if (room.elec_split === "tenant1") t2_ratio = 0.0;
+                        else if (room.elec_split === "tenant2") t2_ratio = 1.0;
+                    }
+                    elecPercent = t2_ratio * 100;
+                }
+                activeReceiptId = roomId;
+                activeReceiptTenantIdx = tenantIdx;
+            } else {
+                room = state.rooms.find(r => r.id === roomId);
+                if (!room) return;
+                
+                const date = new Date();
+                dateText = `${date.getFullYear()}年${date.getMonth() + 1}月`;
+                num = room.num;
+                floor = getRoomFloor(room);
+                usage = room.current_meter !== null ? Math.max(0, room.current_meter - room.prev_meter) : 0;
+                personalElec = room.current_meter !== null ? Math.round(usage * room.elec_price) : 0;
+                floorShare = getFloorElecShare(floor);
+                totalRoomElec = personalElec + floorShare;
+                
+                let t1_ratio = 1.0, t2_ratio = 0.0;
+                if (room.type === "double") {
+                    if (room.elec_split === "equal") { t1_ratio = 0.5; t2_ratio = 0.5; }
+                    else if (room.elec_split === "tenant1") { t1_ratio = 1.0; t2_ratio = 0.0; }
+                    else if (room.elec_split === "tenant2") { t1_ratio = 0.0; t2_ratio = 1.0; }
+                }
+                
+                if (tenantIdx === 1) {
+                    tenantName = room.tenant;
+                    rent = room.is_annual ? 0 : room.rent;
+                    isAnnual = room.is_annual;
+                    annualPeriod = room.annual_period;
+                    arrears = room.arrears_amount || 0;
+                    elecPercent = t1_ratio * 100;
+                    elecCost = Math.round(totalRoomElec * t1_ratio);
+                    grandTotal = rent + elecCost + arrears;
+                } else {
+                    tenantName = room.tenant2;
+                    rent = room.is_annual2 ? 0 : room.rent2;
+                    isAnnual = room.is_annual2;
+                    annualPeriod = room.annual_period2;
+                    arrears = room.arrears_amount2 || 0;
+                    elecPercent = t2_ratio * 100;
+                    elecCost = Math.round(totalRoomElec * t2_ratio);
+                    grandTotal = rent + elecCost + arrears;
+                }
+                activeReceiptId = roomId;
+                activeReceiptTenantIdx = tenantIdx;
+            }
+            
             const ticketContent = document.getElementById("receiptTicketContent");
             ticketContent.innerHTML = `
-                <div class="ticket-title">溫馨公寓電子明細</div>
-                <div class="ticket-subtitle">張爸爸租屋助理 | ${date.getFullYear()}年${monthText}月度</div>
+                <div class="ticket-title">溫馨公寓電子明細${isHistory ? ' (歷史存檔)' : ''}</div>
+                <div class="ticket-subtitle">張爸爸租屋助理 | ${dateText}</div>
                 <div class="ticket-divider"></div>
                 <div class="ticket-info-grid">
-                    <div class="ticket-row"><span class="label">房間編號</span><span class="val">${room.num} 房</span></div>
-                    <div class="ticket-row"><span class="label">承租房客</span><span class="val">${room.tenant} 先生/小姐</span></div>
+                    <div class="ticket-row"><span class="label">房間編號</span><span class="val">${num} 房 (${floor}樓)</span></div>
+                    <div class="ticket-row"><span class="label">承租房客</span><span class="val">${tenantName} 先生/小姐</span></div>
                     <div class="ticket-divider"></div>
                     <div class="ticket-row">
                         <span class="label">每月固定房租</span>
-                        <span class="val">${room.is_annual ? `<span style="color:var(--secondary); font-weight:700;">$ 0 元 (年繳)</span>` : `$ ${room.rent.toLocaleString()} 元`}</span>
+                        <span class="val">${isAnnual ? `<span style="color:var(--secondary); font-weight:700;">$ 0 元 (年繳)</span>` : `$ ${rent.toLocaleString()} 元`}</span>
                     </div>
-                    ${room.is_annual && room.annual_period ? `<div class="ticket-row" style="font-size:0.75rem; color:var(--text-muted); margin-top:-6px;"><span class="label">↳ 年繳期間</span><span class="val">${room.annual_period}</span></div>` : ''}
-                    <div class="ticket-row">
-                        <span class="label">個人獨立電費</span>
-                        <span class="val">$ ${personalElecCost.toLocaleString()} 元</span>
-                    </div>
-                    <div class="ticket-row" style="font-size:0.8rem; padding-left: 10px; color:#64748b;">
-                        <span>(度數: ${room.prev_meter} ➔ ${room.current_meter}，用電: ${usage}度)</span>
-                        <span>(單價: $ ${room.elec_price} 元)</span>
-                    </div>
-                    <div class="ticket-divider" style="margin: 8px 0;"></div>
-                    <div class="ticket-row"><span class="label">💡 一般公電均攤</span><span class="val">$ ${sharedGeneralPerRoom.toLocaleString()} 元</span></div>
-                    <div class="ticket-row"><span class="label">🔥 電熱爐電費均攤</span><span class="val">$ ${sharedHeaterPerRoom.toLocaleString()} 元</span></div>
-                    <div class="ticket-row"><span class="label">🏢 公電均攤總計</span><span class="val">$ ${sharedTotalPerRoom.toLocaleString()} 元</span></div>
+                    ${isAnnual && annualPeriod ? `<div class="ticket-row" style="font-size:0.75rem; color:var(--text-muted); margin-top:-6px;"><span class="label">↳ 年繳期間</span><span class="val">${annualPeriod}</span></div>` : ''}
                     
-                    ${arrearsCost > 0 ? `
+                    <div class="ticket-row">
+                        <span class="label">分攤電費 (${elecPercent}%)</span>
+                        <span class="val">$ ${elecCost.toLocaleString()} 元</span>
+                    </div>
+                    <div class="ticket-row" style="font-size:0.8rem; padding-left: 10px; color:#64748b; line-height: 1.45;">
+                        <span>房間獨立電：${usage} 度 × ${room.elec_price}元 = $ ${personalElec.toLocaleString()} 元</span><br>
+                        <span>樓層公共電：${floor} 樓分攤 = $ ${floorShare.toLocaleString()} 元</span><br>
+                        <span>房間電費總計：$ ${totalRoomElec.toLocaleString()} 元</span>
+                    </div>
+                    
+                    ${arrears > 0 ? `
                     <div class="ticket-divider" style="margin: 8px 0;"></div>
                     <div class="ticket-row" style="color: var(--danger); font-weight:700;">
                         <span class="label" style="color: var(--danger);">🚨 上期欠繳金額</span>
-                        <span class="val">+ $ ${arrearsCost.toLocaleString()} 元</span>
+                        <span class="val">+ $ ${arrears.toLocaleString()} 元</span>
                     </div>` : ''}
                     
                     <div class="ticket-divider"></div>
                     <div class="ticket-row total-amount">
-                        <span class="label" style="color:var(--primary-dark);">本月應繳總額</span>
+                        <span class="label" style="color:var(--primary-dark);">該月應繳總額</span>
                         <span class="val">$ ${grandTotal.toLocaleString()} 元</span>
                     </div>
                 </div>
@@ -2188,103 +2417,136 @@
                     戶名：${state.settings.bank_user}
                 </div>
             `;
-
             openModal("receiptModal");
         }
 
-        // Copy Text & Share functions (added Annual reminders and Arrears strings)
-        function generateShareString(roomId) {
-            let room, record, monthText;
-            let sharedGeneralPerRoom, sharedHeaterPerRoom, sharedTotalPerRoom;
-            let rentCost, arrearsCost, usage, personalElecCost, grandTotal;
-
+        function generateShareString(roomId, tenantIdx) {
+            let room, dateText;
+            let num, floor, tenantName, rent, isAnnual, annualPeriod, arrears, elecPercent, elecCost;
+            let usage, personalElec, floorShare, totalRoomElec, grandTotal;
+            
             if (roomId && typeof roomId === "object" && roomId.isHistory) {
-                record = state.history.find(h => h.month === roomId.month);
+                const record = state.history.find(h => h.month === roomId.month);
                 if (!record) return "";
                 room = record.rooms.find(r => r.id === roomId.roomId);
                 if (!room) return "";
-
-                sharedGeneralPerRoom = room.shared_general;
-                sharedHeaterPerRoom = room.shared_heater;
-                sharedTotalPerRoom = sharedGeneralPerRoom + sharedHeaterPerRoom;
-
-                rentCost = room.is_annual ? 0 : room.rent;
-                arrearsCost = room.arrears || 0;
-                usage = room.usage;
-                personalElecCost = room.personal_elec;
-                grandTotal = room.grand_total;
-                monthText = record.month;
+                
+                dateText = record.month;
+                num = room.num;
+                floor = room.floor || "1";
+                usage = room.usage || 0;
+                personalElec = room.personal_elec || 0;
+                floorShare = room.floor_share || 0;
+                totalRoomElec = room.total_room_elec || (personalElec + floorShare);
+                
+                if (tenantIdx === 1) {
+                    tenantName = room.tenant;
+                    rent = room.is_annual ? 0 : room.rent;
+                    isAnnual = room.is_annual;
+                    annualPeriod = room.annual_period;
+                    arrears = room.arrears_amount || room.arrears || 0;
+                    elecCost = room.t1_elec !== undefined ? room.t1_elec : (room.grand_total - rent - arrears);
+                    grandTotal = room.t1_total !== undefined ? room.t1_total : room.grand_total;
+                } else {
+                    tenantName = room.tenant2;
+                    rent = room.is_annual2 ? 0 : room.rent2;
+                    isAnnual = room.is_annual2;
+                    annualPeriod = room.annual_period2;
+                    arrears = room.arrears_amount2 || 0;
+                    elecCost = room.t2_elec || 0;
+                    grandTotal = room.t2_total || 0;
+                }
             } else {
                 room = state.rooms.find(r => r.id === roomId);
                 if (!room) return "";
-
-                const publicGeneral = state.settings.public_elec_general || 0;
-                const publicHeater = state.settings.public_elec_heater || 0;
-                const activeRoomsCount = state.rooms.length;
                 
-                sharedGeneralPerRoom = activeRoomsCount > 0 ? Math.round(publicGeneral / activeRoomsCount) : 0;
-                sharedHeaterPerRoom = activeRoomsCount > 0 ? Math.round(publicHeater / activeRoomsCount) : 0;
-                sharedTotalPerRoom = sharedGeneralPerRoom + sharedHeaterPerRoom;
-
-                rentCost = room.is_annual ? 0 : room.rent;
-                arrearsCost = room.arrears_amount || 0;
-                usage = room.current_meter !== null ? Math.max(0, room.current_meter - room.prev_meter) : 0;
-                personalElecCost = room.current_meter !== null ? Math.round(usage * room.elec_price) : 0;
-                grandTotal = rentCost + personalElecCost + sharedTotalPerRoom + arrearsCost;
-
                 const date = new Date();
-                monthText = `${date.getMonth() + 1}`;
+                dateText = `${date.getMonth() + 1}`;
+                num = room.num;
+                floor = getRoomFloor(room);
+                usage = room.current_meter !== null ? Math.max(0, room.current_meter - room.prev_meter) : 0;
+                personalElec = room.current_meter !== null ? Math.round(usage * room.elec_price) : 0;
+                floorShare = getFloorElecShare(floor);
+                totalRoomElec = personalElec + floorShare;
+                
+                let t1_ratio = 1.0, t2_ratio = 0.0;
+                if (room.type === "double") {
+                    if (room.elec_split === "equal") { t1_ratio = 0.5; t2_ratio = 0.5; }
+                    else if (room.elec_split === "tenant1") { t1_ratio = 1.0; t2_ratio = 0.0; }
+                    else if (room.elec_split === "tenant2") { t1_ratio = 0.0; t2_ratio = 1.0; }
+                }
+                
+                if (tenantIdx === 1) {
+                    tenantName = room.tenant;
+                    rent = room.is_annual ? 0 : room.rent;
+                    isAnnual = room.is_annual;
+                    annualPeriod = room.annual_period;
+                    arrears = room.arrears_amount || 0;
+                    elecPercent = t1_ratio * 100;
+                    elecCost = Math.round(totalRoomElec * t1_ratio);
+                    grandTotal = rent + elecCost + arrears;
+                } else {
+                    tenantName = room.tenant2;
+                    rent = room.is_annual2 ? 0 : room.rent2;
+                    isAnnual = room.is_annual2;
+                    annualPeriod = room.annual_period2;
+                    arrears = room.arrears_amount2 || 0;
+                    elecPercent = t2_ratio * 100;
+                    elecCost = Math.round(totalRoomElec * t2_ratio);
+                    grandTotal = rent + elecCost + arrears;
+                }
             }
-
-            // Formatting variables
-            const annualBadgeText = room.is_annual ? `(已年繳免收，合約期：${room.annual_period || '合約內'})` : "";
-            const arrearsText = arrearsCost > 0 ? `\n🚨 上期欠繳費用補收：+ $ ${arrearsCost.toLocaleString()} 元` : "";
-
-            // Replace Template variables
+            
+            const annualBadgeText = isAnnual ? `(已年繳免收，合約期：${annualPeriod || '合約內'})` : "";
+            const arrearsText = arrears > 0 ? `\n🚨 上期欠繳費用補收：+ $ ${arrears.toLocaleString()} 元` : "";
+            const percentText = elecPercent !== undefined ? `${elecPercent}%` : "100%";
+            
             let msg = state.settings.msg_template || DEFAULT_SETTINGS.msg_template;
-            msg = msg.replace(/{tenant}/g, room.tenant)
-                     .replace(/{room}/g, room.num)
-                     .replace(/{month}/g, monthText)
-                     .replace(/{rent}/g, rentCost.toLocaleString())
+            msg = msg.replace(/{tenant}/g, tenantName)
+                     .replace(/{room}/g, num)
+                     .replace(/{month}/g, dateText)
+                     .replace(/{rent}/g, rent.toLocaleString())
                      .replace(/{annual_badge}/g, annualBadgeText)
                      .replace(/{prev_meter}/g, room.prev_meter)
                      .replace(/{current_meter}/g, room.current_meter || 0)
                      .replace(/{usage}/g, usage)
                      .replace(/{unit_price}/g, room.elec_price)
-                     .replace(/{personal_elec}/g, personalElecCost.toLocaleString())
-                     .replace(/{shared_elec_general}/g, sharedGeneralPerRoom.toLocaleString())
-                     .replace(/{shared_elec_heater}/g, sharedHeaterPerRoom.toLocaleString())
-                     .replace(/{shared_elec_total}/g, sharedTotalPerRoom.toLocaleString())
+                     .replace(/{personal_elec}/g, personalElec.toLocaleString())
+                     .replace(/{shared_elec_general}/g, "0")
+                     .replace(/{shared_elec_heater}/g, "0")
+                     .replace(/{shared_elec_total}/g, floorShare.toLocaleString())
                      .replace(/{arrears}/g, arrearsText)
                      .replace(/{total_amount}/g, grandTotal.toLocaleString())
-                     .replace(/{bank_name}/g, state.settings.bank_name)
-                     .replace(/{bank_account}/g, state.settings.bank_account)
-                     .replace(/{bank_user}/g, state.settings.bank_user);
+                     .replace(/{bank_name}/g, state.settings.bank_name || "")
+                     .replace(/{bank_account}/g, state.settings.bank_account || "")
+                     .replace(/{bank_user}/g, state.settings.bank_user || "")
+                     .replace(/{elec_percent}/g, percentText)
+                     .replace(/{tenant_elec}/g, elecCost.toLocaleString())
+                     .replace(/{floor_elec_share}/g, floorShare.toLocaleString())
+                     .replace(/{total_room_elec}/g, totalRoomElec.toLocaleString());
             return msg;
         }
 
         function copyReceiptText() {
             if (!activeReceiptId) return;
-            const text = generateShareString(activeReceiptId);
+            const text = generateShareString(activeReceiptId, activeReceiptTenantIdx);
             navigator.clipboard.writeText(text).then(() => {
                 alert("📋 收租明細文字已成功複製到剪貼簿！可直接去 LINE 貼給房客。");
             }).catch(err => {
-                alert("複製失敗，請手動選取文字。錯誤：" + err);
+                fallbackCopySyncLink(text);
             });
         }
 
         function shareToLine() {
             if (!activeReceiptId) return;
-            const text = generateShareString(activeReceiptId);
+            const text = generateShareString(activeReceiptId, activeReceiptTenantIdx);
             const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(text)}`;
             window.open(lineUrl, '_blank');
         }
 
-        // Theme Toggle
         document.getElementById("themeBtn").addEventListener("click", () => {
             const currentTheme = document.documentElement.getAttribute("data-theme");
             const newTheme = currentTheme === "dark" ? "light" : "dark";
-            
             document.documentElement.setAttribute("data-theme", newTheme);
             localStorage.setItem("theme", newTheme);
             updateThemeIcon(newTheme);
@@ -2299,7 +2561,6 @@
             }
         }
 
-        // Export Data (.json)
         function exportData() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({
                 rooms: state.rooms,
@@ -2314,7 +2575,6 @@
             downloadAnchor.remove();
         }
 
-        // Import Data (.json)
         function importData(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -2340,7 +2600,6 @@
             reader.readAsText(file);
         }
 
-        // Reset to Demo Data
         function resetToDemoData() {
             if (confirm("您確定要將資料重設為範例資料嗎？這將清除目前的所有抄表紀錄。")) {
                 state.rooms = DEMO_ROOMS;
@@ -2352,7 +2611,58 @@
             }
         }
 
-        // --- Added Historical Ledger & Month Archiving Methods ---
+        function togglePasscodeSetting(enabled) {
+            document.getElementById("settingPasscodeArea").style.display = enabled ? "block" : "none";
+            if (!enabled) {
+                document.getElementById("settingPasscodeValue").value = "";
+            }
+        }
+
+        function savePasscodeSettings() {
+            const enabled = document.getElementById("settingPasscodeEnabled").checked;
+            const value = document.getElementById("settingPasscodeValue").value.trim();
+            if (enabled && value.length < 4) {
+                alert("❌ 為了系統安全，請設定至少 4 位以上的密碼！");
+                return;
+            }
+            state.settings.is_passcode_enabled = enabled;
+            state.settings.passcode = value;
+            saveToLocalStorage();
+            alert("✅ 密碼鎖設定儲存成功！");
+        }
+
+        let enteredPin = "";
+        function pressPin(char) {
+            const charInput = document.getElementById("passcodeChar");
+            if (char === 'C') {
+                enteredPin = "";
+            } else if (char === 'E') {
+                verifyPasscode();
+                return;
+            } else {
+                if (enteredPin.length < 20) {
+                    enteredPin += char;
+                }
+            }
+            charInput.value = enteredPin;
+        }
+
+        function verifyPasscode() {
+            const inputVal = document.getElementById("passcodeChar").value.trim();
+            if (inputVal === state.settings.passcode) {
+                const overlay = document.getElementById("passcodeOverlay");
+                overlay.style.opacity = 0;
+                overlay.style.transition = "opacity 0.3s ease";
+                setTimeout(() => {
+                    overlay.style.display = "none";
+                    document.querySelector(".app-container").style.display = "block";
+                }, 300);
+            } else {
+                alert("❌ 密碼錯誤，請再試一次！");
+                enteredPin = "";
+                document.getElementById("passcodeChar").value = "";
+            }
+        }
 
         function openArchiveWizard() {
             const unentered = state.rooms.filter(r => !r.done);
@@ -2361,7 +2671,6 @@
                     return;
                 }
             }
-
             const date = new Date();
             document.getElementById("archiveMonthName").value = `${date.getFullYear()}年${date.getMonth() + 1}月`;
             openModal("archiveModal");
@@ -2381,42 +2690,66 @@
                 state.history = state.history.filter(h => h.month !== archiveMonth);
             }
 
-            const publicGeneral = state.settings.public_elec_general || 0;
-            const publicHeater = state.settings.public_elec_heater || 0;
-            const activeRoomsCount = state.rooms.length;
-            
-            const sharedGeneralPerRoom = activeRoomsCount > 0 ? Math.round(publicGeneral / activeRoomsCount) : 0;
-            const sharedHeaterPerRoom = activeRoomsCount > 0 ? Math.round(publicHeater / activeRoomsCount) : 0;
-            const sharedTotalPerRoom = sharedGeneralPerRoom + sharedHeaterPerRoom;
-
             const rollArrears = document.getElementById("archiveRollArrears").checked;
             const archiveRooms = [];
 
             state.rooms.forEach(room => {
                 const isDone = room.done && room.current_meter !== null;
-                const rentCost = room.is_annual ? 0 : room.rent;
-                const arrearsCost = room.arrears_amount || 0;
+                const floor = getRoomFloor(room);
+                const floorShare = getFloorElecShare(floor);
                 const usage = isDone ? Math.max(0, room.current_meter - room.prev_meter) : 0;
-                const personalElecCost = isDone ? Math.round(usage * room.elec_price) : 0;
-                const grandTotal = rentCost + personalElecCost + sharedTotalPerRoom + arrearsCost;
+                const personalElec = isDone ? Math.round(usage * room.elec_price) : 0;
+                const totalRoomElec = personalElec + floorShare;
+
+                let t1_ratio = 1.0, t2_ratio = 0.0;
+                if (room.type === "double") {
+                    if (room.elec_split === "equal") { t1_ratio = 0.5; t2_ratio = 0.5; }
+                    else if (room.elec_split === "tenant1") { t1_ratio = 1.0; t2_ratio = 0.0; }
+                    else if (room.elec_split === "tenant2") { t1_ratio = 0.0; t2_ratio = 1.0; }
+                }
+
+                const t1_elec = isDone ? Math.round(totalRoomElec * t1_ratio) : 0;
+                const t2_elec = isDone ? Math.round(totalRoomElec * t2_ratio) : 0;
+
+                const t1_rent = room.is_annual ? 0 : room.rent;
+                const t2_rent = room.is_annual2 ? 0 : room.rent2;
+
+                const t1_arrears = room.arrears_amount || 0;
+                const t2_arrears = room.arrears_amount2 || 0;
+
+                const t1_total = t1_rent + t1_elec + t1_arrears;
+                const t2_total = t2_rent + t2_elec + t2_arrears;
 
                 archiveRooms.push({
                     id: room.id,
                     num: room.num,
-                    tenant: room.tenant,
-                    rent: room.rent,
+                    floor: floor,
+                    type: room.type || "single",
+                    notes: room.notes,
                     elec_price: room.elec_price,
                     prev_meter: room.prev_meter,
                     current_meter: room.current_meter,
                     usage: usage,
-                    personal_elec: personalElecCost,
-                    shared_general: sharedGeneralPerRoom,
-                    shared_heater: sharedHeaterPerRoom,
-                    arrears: arrearsCost,
-                    grand_total: grandTotal,
+                    personal_elec: personalElec,
+                    floor_share: floorShare,
+                    total_room_elec: totalRoomElec,
+                    elec_split: room.elec_split || "equal",
+                    tenant: room.tenant,
+                    rent: room.rent,
+                    arrears_amount: t1_arrears,
                     payment_status: room.payment_status,
                     is_annual: room.is_annual,
-                    annual_period: room.annual_period
+                    annual_period: room.annual_period,
+                    t1_elec: t1_elec,
+                    t1_total: t1_total,
+                    tenant2: room.tenant2,
+                    rent2: room.rent2,
+                    arrears_amount2: t2_arrears,
+                    payment_status2: room.payment_status2,
+                    is_annual2: room.is_annual2,
+                    annual_period2: room.annual_period2,
+                    t2_elec: t2_elec,
+                    t2_total: t2_total
                 });
 
                 if (room.current_meter !== null) {
@@ -2425,19 +2758,15 @@
                 room.current_meter = null;
                 room.done = false;
 
-                if (rollArrears && room.payment_status === "unpaid") {
-                    room.arrears_amount = grandTotal;
-                } else {
-                    room.arrears_amount = 0;
-                }
+                room.arrears_amount = (rollArrears && room.payment_status === "unpaid") ? t1_total : 0;
+                room.arrears_amount2 = (rollArrears && room.payment_status2 === "unpaid" && room.type === "double") ? t2_total : 0;
 
                 room.payment_status = "unpaid";
+                room.payment_status2 = "unpaid";
             });
 
             state.history.push({
                 month: archiveMonth,
-                public_elec_general: publicGeneral,
-                public_elec_heater: publicHeater,
                 rooms: archiveRooms
             });
 
@@ -2445,7 +2774,7 @@
             closeModal("archiveModal");
             
             initApp();
-            alert(`🎉 ${archiveMonth} 結算完成！\n\n1. 本月紀錄已存入歷史。\n2. 已自動複製本月電錶為下期「上次度數」。\n3. ${rollArrears ? "「待繳」房客的應付金額已自動累計至下期「上期欠繳」！" : "已重設下期欠繳為 0 元。"}`);
+            alert(`🎉 ${archiveMonth} 結算完成！\n\n1. 本月紀錄已存入歷史。\n2. 已自動複製本月電錶為下期「上次度數」。\n3. 未收租金已自動累計為下期欠繳。`);
             
             const historyBtn = document.querySelector('button[onclick*="viewHistory"]');
             if (historyBtn) {
@@ -2470,14 +2799,11 @@
             }
 
             const reversedHistory = [...state.history].reverse();
-
             reversedHistory.forEach((h, index) => {
                 const opt = document.createElement("option");
                 opt.value = h.month;
                 opt.innerText = h.month;
-                if (index === 0) {
-                    opt.selected = true;
-                }
+                if (index === 0) opt.selected = true;
                 select.appendChild(opt);
             });
 
@@ -2496,21 +2822,32 @@
             document.getElementById("historyStatsCard").style.display = "block";
             document.getElementById("historyMonthTitle").innerText = `${record.month} 歷史帳單與繳費紀錄`;
 
+            let totalTenants = 0;
             let paidCount = 0;
             let totalCollected = 0;
             let totalUnpaid = 0;
-            const totalRooms = record.rooms.length;
 
             record.rooms.forEach(room => {
+                totalTenants++;
                 if (room.payment_status === "paid") {
                     paidCount++;
-                    totalCollected += room.grand_total;
+                    totalCollected += room.t1_total || room.grand_total || 0;
                 } else {
-                    totalUnpaid += room.grand_total;
+                    totalUnpaid += room.t1_total || room.grand_total || 0;
+                }
+
+                if (room.type === "double") {
+                    totalTenants++;
+                    if (room.payment_status2 === "paid") {
+                        paidCount++;
+                        totalCollected += room.t2_total || 0;
+                    } else {
+                        totalUnpaid += room.t2_total || 0;
+                    }
                 }
             });
 
-            document.getElementById("historyStatPaidCount").innerText = `${paidCount} / ${totalRooms} 房`;
+            document.getElementById("historyStatPaidCount").innerText = `${paidCount} / ${totalTenants} 人`;
             document.getElementById("historyStatTotalCollected").innerHTML = `
                 <span style="color:#22c55e; font-weight:700;">已收: $ ${totalCollected.toLocaleString()}</span> | 
                 <span style="color:#ef4444; font-weight:700;">待繳: $ ${totalUnpaid.toLocaleString()}</span>
@@ -2528,118 +2865,75 @@
                     <div class="room-card-top" style="margin-bottom: 10px;">
                         <div class="room-info-badge">
                             <span class="room-num" style="background:var(--secondary-light); color:var(--secondary);">${room.num}</span>
-                            <span class="tenant-name">${room.tenant}</span>
-                            ${room.is_annual ? `<span class="status-badge annual" title="年繳期：${room.annual_period}">🔄 年繳</span>` : ''}
-                        </div>
-                        <div class="payment-toggle-group">
-                            <button class="payment-toggle-btn unpaid ${room.payment_status === 'unpaid' ? 'active' : ''}" onclick="toggleHistoryPaymentStatus('${record.month}', '${room.id}', 'unpaid')">🟡 待繳</button>
-                            <button class="payment-toggle-btn paid ${room.payment_status === 'paid' ? 'active' : ''}" onclick="toggleHistoryPaymentStatus('${record.month}', '${room.id}', 'paid')">🟢 已收</button>
+                            <span class="tenant-name">${room.tenant}${room.type === 'double' ? ` & ${room.tenant2}` : ''}</span>
+                            ${room.type === 'double' ? `<span class="status-badge" style="background: var(--secondary-light); color: var(--secondary); font-size: 0.72rem;">👥 雙人房</span>` : ''}
                         </div>
                     </div>
+                    
                     <div class="room-calc-results" style="display: block; margin-bottom: 0px;">
-                        <div class="calc-row">
-                            <span class="label">每月固定房租</span>
-                            <span class="val">${room.is_annual ? `<span style="color:var(--secondary); font-weight:600;">$ 0 元 (年繳模式)</span>` : `$ ${room.rent.toLocaleString()} 元`}</span>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 10px;">
+                            <div style="font-weight: 700; color: var(--primary); font-size: 0.9rem; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                                <span>👤 房客 1：${room.tenant}</span>
+                                <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">${room.is_annual ? '年繳' : '月繳'}</span>
+                            </div>
+                            <div class="calc-row"><span class="label">每月租金</span><span class="val">${room.is_annual ? '$ 0 元' : `$ ${room.rent.toLocaleString()} 元`}</span></div>
+                            <div class="calc-row"><span class="label">分攤電費</span><span class="val">$ ${(room.t1_elec !== undefined ? room.t1_elec : (room.grand_total - room.rent - (room.arrears || 0))).toLocaleString()} 元</span></div>
+                            ${(room.arrears_amount || room.arrears) > 0 ? `<div class="calc-row" style="color:var(--danger); font-weight:600;"><span class="label">🚨 上期欠繳</span><span class="val">+ $ ${(room.arrears_amount || room.arrears).toLocaleString()} 元</span></div>` : ''}
+                            <div class="calc-divider" style="height:1px; background:var(--border); margin:6px 0;"></div>
+                            <div class="calc-row" style="font-weight:700; color:var(--text-main);"><span class="label">應繳小計</span><span class="val">$ ${(room.t1_total !== undefined ? room.t1_total : room.grand_total).toLocaleString()} 元</span></div>
+                            
+                            <div class="payment-status-block" style="margin-top: 10px; padding: 0; background: none; border: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span class="payment-status-label" style="font-size: 0.8rem;">💵 繳款狀態：</span>
+                                <div class="payment-toggle-group">
+                                    <button class="payment-toggle-btn unpaid ${room.payment_status === 'unpaid' ? 'active' : ''}" onclick="toggleHistoryPaymentStatus('${record.month}', '${room.id}', 'unpaid', 1)">🟡 待繳</button>
+                                    <button class="payment-toggle-btn paid ${room.payment_status === 'paid' ? 'active' : ''}" onclick="toggleHistoryPaymentStatus('${record.month}', '${room.id}', 'paid', 1)">🟢 已收</button>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 10px; font-size: 0.82rem; padding: 6px;" onclick="showReceipt({isHistory: true, month: '${record.month}', roomId: '${room.id}'}, 1)">🧾 查看歷史收據與分享</button>
                         </div>
-                        <div class="calc-row">
-                            <span class="label">獨立電費 (${room.usage} 度 * ${room.elec_price}元)</span>
-                            <span class="val">$ ${room.personal_elec.toLocaleString()} 元</span>
+
+                        ${room.type === "double" ? `
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px;">
+                            <div style="font-weight: 700; color: var(--secondary); font-size: 0.9rem; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                                <span>👤 房客 2：${room.tenant2}</span>
+                                <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">${room.is_annual2 ? '年繳' : '月繳'}</span>
+                            </div>
+                            <div class="calc-row"><span class="label">每月租金</span><span class="val">${room.is_annual2 ? '$ 0 元' : `$ ${room.rent2.toLocaleString()} 元`}</span></div>
+                            <div class="calc-row"><span class="label">分攤電費</span><span class="val">$ ${room.t2_elec.toLocaleString()} 元</span></div>
+                            ${room.arrears_amount2 > 0 ? `<div class="calc-row" style="color:var(--danger); font-weight:600;"><span class="label">🚨 上期欠繳</span><span class="val">+ $ ${room.arrears_amount2.toLocaleString()} 元</span></div>` : ''}
+                            <div class="calc-divider" style="height:1px; background:var(--border); margin:6px 0;"></div>
+                            <div class="calc-row" style="font-weight:700; color:var(--text-main);"><span class="label">應繳小計</span><span class="val">$ ${room.t2_total.toLocaleString()} 元</span></div>
+                            
+                            <div class="payment-status-block" style="margin-top: 10px; padding: 0; background: none; border: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span class="payment-status-label" style="font-size: 0.8rem;">💵 繳款狀態：</span>
+                                <div class="payment-toggle-group">
+                                    <button class="payment-toggle-btn unpaid ${room.payment_status2 === 'unpaid' ? 'active' : ''}" onclick="toggleHistoryPaymentStatus('${record.month}', '${room.id}', 'unpaid', 2)">🟡 待繳</button>
+                                    <button class="payment-toggle-btn paid ${room.payment_status2 === 'paid' ? 'active' : ''}" onclick="toggleHistoryPaymentStatus('${record.month}', '${room.id}', 'paid', 2)">🟢 已收</button>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 10px; font-size: 0.82rem; padding: 6px;" onclick="showReceipt({isHistory: true, month: '${record.month}', roomId: '${room.id}'}, 2)">🧾 查看歷史收據與分享</button>
                         </div>
-                        <div class="calc-row" style="font-size:0.75rem; color:var(--text-muted); margin-top:-4px;">
-                            <span>(抄表度數: ${room.prev_meter} ➔ ${room.current_meter})</span>
-                        </div>
-                        <div class="calc-row">
-                            <span class="label">公電均攤 (一般 ${room.shared_general} + 電熱 ${room.shared_heater})</span>
-                            <span class="val">$ ${(room.shared_general + room.shared_heater).toLocaleString()} 元</span>
-                        </div>
-                        ${room.arrears > 0 ? `
-                        <div class="calc-row" style="color: var(--danger); font-weight: 600;">
-                            <span class="label">🚨 上期欠繳金額</span>
-                            <span class="val">+ $ ${room.arrears.toLocaleString()} 元</span>
-                        </div>` : ''}
-                        <div class="calc-row">
-                            <span class="label">該月應繳總金額</span>
-                            <span class="val" style="font-weight:700; color:var(--secondary); font-size:1.05rem;">$ ${room.grand_total.toLocaleString()} 元</span>
-                        </div>
-                    </div>
-                    <div class="btn-action-row" style="margin-top: 10px;">
-                        <button class="btn btn-outline" onclick="showHistoryReceipt('${record.month}', '${room.id}')">🧾 查看歷史收據與分享</button>
+                        ` : ""}
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        function toggleHistoryPaymentStatus(month, roomId, newStatus) {
+        function toggleHistoryPaymentStatus(month, roomId, newStatus, tenantIdx) {
             const record = state.history.find(h => h.month === month);
             if (record) {
                 const room = record.rooms.find(r => r.id === roomId);
                 if (room) {
-                    room.payment_status = newStatus;
+                    if (tenantIdx === 1) {
+                        room.payment_status = newStatus;
+                    } else {
+                        room.payment_status2 = newStatus;
+                    }
                     saveToLocalStorage();
                     renderHistoryForSelectedMonth();
                 }
             }
-        }
-
-        function showHistoryReceipt(month, roomId) {
-            const record = state.history.find(h => h.month === month);
-            if (!record) return;
-            const room = record.rooms.find(r => r.id === roomId);
-            if (!room) return;
-
-            const sharedTotalPerRoom = room.shared_general + room.shared_heater;
-            activeReceiptId = { isHistory: true, month: month, roomId: roomId };
-
-            const ticketContent = document.getElementById("receiptTicketContent");
-            ticketContent.innerHTML = `
-                <div class="ticket-title">溫馨公寓電子明細 (歷史存檔)</div>
-                <div class="ticket-subtitle">張爸爸租屋助理 | ${record.month}</div>
-                <div class="ticket-divider"></div>
-                <div class="ticket-info-grid">
-                    <div class="ticket-row"><span class="label">房間編號</span><span class="val">${room.num} 房</span></div>
-                    <div class="ticket-row"><span class="label">承租房客</span><span class="val">${room.tenant} 先生/小姐</span></div>
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-row">
-                        <span class="label">每月固定房租</span>
-                        <span class="val">${room.is_annual ? `<span style="color:var(--secondary); font-weight:700;">$ 0 元 (年繳)</span>` : `$ ${room.rent.toLocaleString()} 元`}</span>
-                    </div>
-                    ${room.is_annual && room.annual_period ? `<div class="ticket-row" style="font-size:0.75rem; color:var(--text-muted); margin-top:-6px;"><span class="label">↳ 年繳期間</span><span class="val">${room.annual_period}</span></div>` : ''}
-                    <div class="ticket-row">
-                        <span class="label">個人獨立電費</span>
-                        <span class="val">$ ${room.personal_elec.toLocaleString()} 元</span>
-                    </div>
-                    <div class="ticket-row" style="font-size:0.8rem; padding-left: 10px; color:#64748b;">
-                        <span>(度數: ${room.prev_meter} ➔ ${room.current_meter}，用電: ${room.usage}度)</span>
-                        <span>(單價: $ ${room.elec_price} 元)</span>
-                    </div>
-                    <div class="ticket-divider" style="margin: 8px 0;"></div>
-                    <div class="ticket-row"><span class="label">💡 一般公電均攤</span><span class="val">$ ${room.shared_general.toLocaleString()} 元</span></div>
-                    <div class="ticket-row"><span class="label">🔥 電熱爐電費均攤</span><span class="val">$ ${room.shared_heater.toLocaleString()} 元</span></div>
-                    <div class="ticket-row"><span class="label">🏢 公電均攤總計</span><span class="val">$ ${sharedTotalPerRoom.toLocaleString()} 元</span></div>
-                    
-                    ${room.arrears > 0 ? `
-                    <div class="ticket-divider" style="margin: 8px 0;"></div>
-                    <div class="ticket-row" style="color: var(--danger); font-weight:700;">
-                        <span class="label" style="color: var(--danger);">🚨 上期欠繳金額</span>
-                        <span class="val">+ $ ${room.arrears.toLocaleString()} 元</span>
-                    </div>` : ''}
-                    
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-row total-amount">
-                        <span class="label" style="color:var(--primary-dark);">該月應繳總額</span>
-                        <span class="val" style="color:var(--secondary); font-size:1.15rem;">$ ${room.grand_total.toLocaleString()} 元</span>
-                    </div>
-                </div>
-                <div class="ticket-bank-info">
-                    <strong>🏦 房東匯款帳戶資訊</strong><br>
-                    銀行：${state.settings.bank_name}<br>
-                    帳號：${state.settings.bank_account}<br>
-                    戶名：${state.settings.bank_user}
-                </div>
-            `;
-
-            openModal("receiptModal");
         }
 
         // Generate and Copy Sync Link
@@ -2705,65 +2999,6 @@
                 prompt("🔗 請手動複製以下同步連結：", text);
             }
             document.body.removeChild(textarea);
-        }
-
-        // Passcode settings and UI toggle functions
-        function togglePasscodeSetting(enabled) {
-            document.getElementById("settingPasscodeArea").style.display = enabled ? "block" : "none";
-            if (!enabled) {
-                document.getElementById("settingPasscodeValue").value = "";
-            }
-        }
-
-        function savePasscodeSettings() {
-            const enabled = document.getElementById("settingPasscodeEnabled").checked;
-            const value = document.getElementById("settingPasscodeValue").value.trim();
-            
-            if (enabled && value.length < 4) {
-                alert("❌ 為了系統安全，請設定至少 4 位以上的密碼！");
-                return;
-            }
-            
-            state.settings.is_passcode_enabled = enabled;
-            state.settings.passcode = value;
-            saveToLocalStorage();
-            alert("✅ 密碼鎖設定儲存成功！");
-        }
-
-        // Custom PIN Pad and Keyboard UI Interactions
-        let enteredPin = "";
-        function pressPin(char) {
-            const charInput = document.getElementById("passcodeChar");
-            if (char === 'C') {
-                enteredPin = "";
-            } else if (char === 'E') {
-                verifyPasscode();
-                return;
-            } else {
-                if (enteredPin.length < 20) {
-                    enteredPin += char;
-                }
-            }
-            charInput.value = enteredPin;
-        }
-
-        function verifyPasscode() {
-            // Read from input field directly (which supports keyboard typing and PIN pad clicks)
-            const inputVal = document.getElementById("passcodeChar").value.trim();
-            if (inputVal === state.settings.passcode) {
-                // Unlock animation and presentation
-                const overlay = document.getElementById("passcodeOverlay");
-                overlay.style.opacity = 0;
-                overlay.style.transition = "opacity 0.3s ease";
-                setTimeout(() => {
-                    overlay.style.display = "none";
-                    document.querySelector(".app-container").style.display = "block";
-                }, 300);
-            } else {
-                alert("❌ 密碼錯誤，請再試一次！");
-                enteredPin = "";
-                document.getElementById("passcodeChar").value = "";
-            }
         }
 
         // Start App
