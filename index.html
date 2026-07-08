@@ -1913,8 +1913,25 @@
             if (!options.headers) options.headers = {};
             options.headers["Authorization"] = `Bearer ${gdriveState.accessToken}`;
             
-            let res = await fetch(url, options);
-            if (res.status === 401) {
+            let res;
+            try {
+                res = await fetch(url, options);
+            } catch (err) {
+                console.warn("Fetch failed, attempting silent token renewal...", err);
+                const renewed = await refreshGDriveTokenSilent();
+                if (renewed) {
+                    options.headers["Authorization"] = `Bearer ${gdriveState.accessToken}`;
+                    try {
+                        res = await fetch(url, options);
+                    } catch (retryErr) {
+                        throw new Error("無法與 Google 雲端伺服器建立連線 (Failed to fetch)。請檢查您的網路或是否有廣告阻擋外掛。");
+                    }
+                } else {
+                    throw new Error("雲端存取失敗 (Failed to fetch)。這通常是因為瀏覽器阻擋了 Google 的背景自動授權 (第三方 Cookie 限制)。請點擊下方「斷開雲端連線」重新登入。");
+                }
+            }
+            
+            if (res && res.status === 401) {
                 const renewed = await refreshGDriveTokenSilent();
                 if (renewed) {
                     options.headers["Authorization"] = `Bearer ${gdriveState.accessToken}`;
