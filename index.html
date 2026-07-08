@@ -2092,7 +2092,8 @@
             try {
                 // 1. Ensure file ID is found or created
                 if (!gdriveState.fileId) {
-                    const listRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files?q=name='rental_helper_db.json' and trashed=false&fields=files(id, name)`);
+                    const query = encodeURIComponent("name='rental_helper_db.json' and trashed=false");
+                    const listRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files?q=${query}&fields=files(id, name)`);
                     const listData = await listRes.json();
                     
                     if (listData.files && listData.files.length > 0) {
