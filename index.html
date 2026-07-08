@@ -1836,7 +1836,8 @@
             expiresAt: 0,
             userEmail: "",
             fileId: "",
-            isSyncing: false
+            isSyncing: false,
+            lastSyncError: ""
         };
 
         let gdriveSyncTimeout = null;
@@ -1958,6 +1959,7 @@
         async function saveGDriveToken(response) {
             gdriveState.accessToken = response.access_token;
             gdriveState.expiresAt = Date.now() + (parseInt(response.expires_in) * 1000);
+            gdriveState.lastSyncError = ""; // Clear error
             
             localStorage.setItem("gdrive_access_token", gdriveState.accessToken);
             localStorage.setItem("gdrive_expires_at", gdriveState.expiresAt);
@@ -2009,6 +2011,7 @@
             gdriveState.expiresAt = 0;
             gdriveState.userEmail = "";
             gdriveState.fileId = "";
+            gdriveState.lastSyncError = "";
             
             localStorage.removeItem("gdrive_access_token");
             localStorage.removeItem("gdrive_expires_at");
@@ -2090,6 +2093,7 @@
             }
             
             try {
+                gdriveState.lastSyncError = ""; // Clear on starting sync
                 // 1. Ensure file ID is found or created
                 if (!gdriveState.fileId) {
                     const query = encodeURIComponent("name='rental_helper_db.json' and trashed=false");
@@ -2214,6 +2218,7 @@
                 }
             } catch (err) {
                 console.error("GDrive sync error:", err);
+                gdriveState.lastSyncError = err.message || String(err);
                 updateGDriveHeaderStatus("⚠️ 同步失敗");
                 if (interactive) {
                     if (err.message && err.message.includes("Failed to fetch")) {
@@ -2280,18 +2285,38 @@
                 `;
             } else {
                 statusBox.style.display = "block";
-                statusBox.style.background = "var(--success-light)";
-                statusBox.style.color = "var(--success)";
-                statusBox.style.border = "1px solid var(--success)";
                 
-                const accountStr = gdriveState.userEmail ? `（帳號：<b>${gdriveState.userEmail}</b>）` : "";
-                statusBox.innerHTML = `
-                    🟢 <b>已成功連線至您的 Google 雲端硬碟！</b>${accountStr}<br>
-                    <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: block; line-height: 1.4;">
-                        ✅ 檔案庫：<code>rental_helper_db.json</code><br>
-                        ✅ 自動同步中：任何房租變更、房客修改及抄表記錄將即時儲存至雲端，多裝置與家人協作無縫運作。
-                    </span>
-                `;
+                if (gdriveState.lastSyncError) {
+                    statusBox.style.background = "var(--danger-light)";
+                    statusBox.style.color = "var(--danger)";
+                    statusBox.style.border = "1px solid rgba(255, 0, 0, 0.15)";
+                    
+                    const accountStr = gdriveState.userEmail ? `（帳號：<b>${gdriveState.userEmail}</b>）` : "";
+                    statusBox.innerHTML = `
+                        ⚠️ <b>雲端同步失敗！</b>${accountStr}<br>
+                        <span style="font-size: 0.85rem; font-weight: bold; margin-top: 4px; display: block; color: var(--danger-dark);">
+                            錯誤原因：${gdriveState.lastSyncError}
+                        </span>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; display: block; line-height: 1.4;">
+                            💡 建議解決方案：<br>
+                            1. 點擊下方<b>「🔌 斷開雲端連線」</b>清除舊有快取憑證。<br>
+                            2. 再次點擊<b>「🔗 登入並啟用同步」</b>，在 Google 授權彈窗中確認勾選「存取/管理此應用程式建立的雲端硬碟檔案」之權限！
+                        </span>
+                    `;
+                } else {
+                    statusBox.style.background = "var(--success-light)";
+                    statusBox.style.color = "var(--success)";
+                    statusBox.style.border = "1px solid var(--success)";
+                    
+                    const accountStr = gdriveState.userEmail ? `（帳號：<b>${gdriveState.userEmail}</b>）` : "";
+                    statusBox.innerHTML = `
+                        🟢 <b>已成功連線至您的 Google 雲端硬碟！</b>${accountStr}<br>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: block; line-height: 1.4;">
+                            ✅ 檔案庫：<code>rental_helper_db.json</code><br>
+                            ✅ 自動同步中：任何房租變更、房客修改及抄表記錄將即時儲存至雲端，多裝置與家人協作無縫運作。
+                        </span>
+                    `;
+                }
                 
                 actionBtns.innerHTML = `
                     <button class="btn btn-secondary" onclick="logoutGoogleDrive()">🔌 斷開雲端連線</button>
