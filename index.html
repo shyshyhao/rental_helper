@@ -2216,7 +2216,21 @@
                 console.error("GDrive sync error:", err);
                 updateGDriveHeaderStatus("⚠️ 同步失敗");
                 if (interactive) {
-                    alert("❌ 雲端同步失敗：" + err.message);
+                    if (err.message && err.message.includes("Failed to fetch")) {
+                        alert(
+                            "❌ 雲端同步失敗：無法連線至 Google 伺服器 (Failed to fetch)\n\n" +
+                            "這通常是瀏覽器的安全性或來源攔截所導致，請依序檢查以下 3 項：\n\n" +
+                            "1️⃣【最常見：授權來源設定】\n" +
+                            "   請至 Google Cloud Console 憑證設定中，確認您的 Client ID 欄位「已授權的 JavaScript 來源」已確實填入：\n" +
+                            "   👉 網址為：https://shyshyhao.github.io (請確保結尾絕對沒有 / 符號)\n\n" +
+                            "2️⃣【中斷連線並重新授權】\n" +
+                            "   可能先前的權限不完整，請點選下方的「🔌 斷開雲端連線」，然後再次點選「🔗 登入並啟用同步」進行登入與完整授權。\n\n" +
+                            "3️⃣【廣告阻擋與第三方 Cookie】\n" +
+                            "   部分瀏覽器廣告阻擋外掛 (如 AdBlock, Privacy Badger, Brave 盾牌) 或瀏覽器「無痕模式」會阻擋 Google API。請確認暫時關閉後重試。"
+                        );
+                    } else {
+                        alert("❌ 雲端同步失敗：" + err.message);
+                    }
                 }
             } finally {
                 gdriveState.isSyncing = false;
