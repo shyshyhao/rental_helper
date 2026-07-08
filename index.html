@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Identity Services (GIS) SDK -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root {
             /* Warm, Premium Editorial Colors */
@@ -892,6 +894,13 @@
             background: var(--primary-light);
             border-color: var(--primary);
         }
+        
+        /* GDrive Sync Pulsing Icon Animation */
+        @keyframes gdrivePulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.18); opacity: 1; filter: drop-shadow(0 0 8px var(--primary)); }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
     </style>
 </head>
 <body>
@@ -925,6 +934,15 @@
         </div>
     </div>
 
+    <!-- Google Drive Loading Overlay -->
+    <div id="gdriveLoadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.45); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+        <div style="background: var(--bg-card); padding: 32px 24px; border-radius: var(--radius-lg); text-align: center; max-width: 320px; width: 90%; box-shadow: var(--shadow-hover); border: 1px solid var(--border); animation: fadeIn 0.3s ease;">
+            <div id="gdriveSpinner" style="font-size: 3rem; margin-bottom: 16px; display: inline-block; animation: gdrivePulse 1.8s ease-in-out infinite;">☁️</div>
+            <h3 id="gdriveLoadingMsg" style="font-size: 1.15rem; color: var(--text-main); font-weight: 700; margin-bottom: 8px;">正在同步雲端資料...</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">這可能需要幾秒鐘，<br>請勿關閉網頁或中斷網路連接</p>
+        </div>
+    </div>
+
     <div class="app-container">
         <!-- Header -->
         <header>
@@ -933,7 +951,10 @@
                 <div class="brand-title">
                     <h1>張爸爸房租助手</h1>
                     <p>給爸媽最貼心的智能抄表工具</p>
-                    <div id="globalLastUpdatedText" style="font-size: 0.72rem; color: var(--success); font-weight: 600; margin-top: 3px; transition: color 0.3s;">🟢 存檔狀態：載入中...</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px;">
+                        <div id="globalLastUpdatedText" style="font-size: 0.72rem; color: var(--success); font-weight: 600; transition: color 0.3s; white-space: nowrap;">🟢 存檔狀態：載入中...</div>
+                        <div id="gdriveHeaderStatus" style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600; transition: color 0.3s; white-space: nowrap;">☁️ 雲端同步：未啟用</div>
+                    </div>
                 </div>
             </div>
             <button class="theme-toggle" id="themeBtn" title="切換深淺色主題">
@@ -1076,9 +1097,72 @@
                 <button class="btn btn-primary" onclick="saveGlobalSettings()">💾 儲存訊息模板</button>
             </div>
 
+            <!-- Google Drive Sync -->
+            <div class="config-section">
+                <h3>☁️ Google 雲端硬碟同步 (像 Google Sheet 一樣自動雙向存取)</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.45;">
+                    將所有的租屋資料（<code>rental_helper_db.json</code>）儲存在您自有的 Google Drive 雲端硬碟中，安全隱私不外洩給第三方。
+                    任何一台裝置（包含家人的手機）只要登入同一個 Google 帳號，或是<b>由擁有者將雲端硬碟中的該檔案分享給家人的 Google 帳號</b>，就能實現多人共同編輯、自動即時同步！
+                </p>
+                
+                <div class="input-wrapper mb-3">
+                    <label for="settingGDriveClientId" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>OAuth 2.0 用戶端編號 (Client ID)</span>
+                        <a href="javascript:void(0)" onclick="toggleGDriveGuide()" style="font-size: 0.75rem; color: var(--secondary); text-decoration: underline; font-weight: 600;">❓ 如何取得 Client ID？</a>
+                    </label>
+                    <input type="text" id="settingGDriveClientId" placeholder="請貼上您的 Google OAuth Client ID" style="font-size: 0.8rem;">
+                </div>
+
+                <!-- Step-by-Step Guide Hidden by Default -->
+                <div id="gdriveSetupGuide" style="display: none; background: var(--primary-light); border: 1px dashed var(--primary); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 16px; font-size: 0.8rem; line-height: 1.55; color: var(--text-main);">
+                    <div style="font-weight: bold; color: var(--primary-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+                        <span>📋 5 分鐘快速設定教學（100% 個人資料隱私自主）：</span>
+                    </div>
+                    <ol style="margin-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+                        <li>前往 <a href="https://console.cloud.google.com/" target="_blank" style="color:var(--secondary); font-weight:600; text-decoration:underline;">Google Cloud 主控台</a> 並登入您的 Google 帳號（例如 <b>youngyang@17.media</b>）。</li>
+                        <li><b>建立新專案</b>（例如命名為 <code>Rental Helper</code>）。</li>
+                        <li>在左側選單選擇「<b>API 和服務</b>」&gt;「<b>OAuth 同意畫面 (OAuth consent screen)</b>」：
+                            <ul style="margin-left: 15px; list-style-type: circle; margin-top: 2px;">
+                                <li>User Type 選擇「<b>外部 (External)</b>」（若使用 Workspace 帳號亦可選內部）。</li>
+                                <li>填寫應用程式名稱（例如 <code>張爸爸房租助手</code>）與您的聯絡信箱。</li>
+                                <li>在「範圍 (Scopes)」步驟中，點選「新增或移除範圍」，手動在底部貼入並新增：
+                                    <br><code>https://www.googleapis.com/auth/drive.file</code>
+                                    <br><code>https://www.googleapis.com/auth/userinfo.email</code>
+                                    <br>（用於讀寫本程式產生的雲端檔案與確認登入身分，不影響您硬碟中其他私密檔案）。
+                                </li>
+                                <li>在「測試使用者 (Test users)」步驟中，<b>務必新增您與家人的 Google 信箱</b>，這樣大家才能順利登入！</li>
+                            </ul>
+                        </li>
+                        <li>左側選單選擇「<b>憑證 (Credentials)</b>」，點選上方「<b>+ 建立憑證</b>」&gt;「<b>OAuth 2.0 用戶端 ID</b>」：
+                            <ul style="margin-left: 15px; list-style-type: circle; margin-top: 2px;">
+                                <li>應用程式類型選擇「<b>網頁應用程式 (Web application)</b>」。</li>
+                                <li>在 <b>已授權的 JavaScript 來源</b> 中新增兩個網址：
+                                    <br>🔹 本機測試：<code>http://localhost:5000</code> 或 <code>http://127.0.0.1:5000</code> (若有在 local 測試)
+                                    <br>🔹 線上網址：<code>https://shyshyhao.github.io</code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>建立後，複製產生的 <b>用戶端 ID (Client ID)</b> 並貼到上方的輸入框中，點選下方「儲存 Client ID」。</li>
+                        <li><b>👨‍👩‍👧‍👦 家庭協同編輯設定：</b><br>
+                            當您登入並成功同步後，您的雲端硬碟根目錄會自動產生一個 <code>rental_helper_db.json</code> 檔案。
+                            請您登入 Google 雲端硬碟 (Google Drive) 網頁版，將該檔案<b>共用（Share）給您家人的 Google 帳號</b>，並給予「編輯者」權限。<br>
+                            接著家人在他們的手機點開網頁、填入同一個 Client ID 並登入其 Google 帳號，就會自動讀寫這份共用的 JSON 檔案，像 Google Sheet 一樣實現多人即時同步編輯！
+                        </li>
+                    </ol>
+                </div>
+
+                <div id="gdriveStatusBox" class="mb-3" style="display: none; padding: 12px 14px; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 500; line-height: 1.45;">
+                    <!-- Dynamically populated -->
+                </div>
+
+                <div class="backup-btn-grid" id="gdriveActionButtons">
+                    <!-- Loaded dynamically based on auth status -->
+                </div>
+            </div>
+
             <!-- Family Sync -->
             <div class="config-section">
-                <h3>🔗 家人多裝置同步與分享 (iPhone 友善)</h3>
+                <h3>🔗 家人多裝置同步與分享 (舊版 LINE 連結同步)</h3>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.45;">
                     iPhone 開啟本機網頁時，瀏覽器資料常因快取被清除而遺失。本功能可將目前所有的房客、設定、歷史帳單打包成一個<b>同步連結</b>。貼到 LINE 分享給家人，點擊即可一鍵覆蓋同步！
                 </p>
@@ -1713,6 +1797,7 @@
             renderBillingView();
             renderManageView();
             updateLastSavedStatus();
+            initGoogleDriveSync();
         }
 
         function saveToLocalStorage() {
@@ -1722,6 +1807,9 @@
             localStorage.setItem("rental_settings", JSON.stringify(state.settings));
             localStorage.setItem("rental_history", JSON.stringify(state.history || []));
             updateLastSavedStatus();
+            
+            // Trigger automatic background GDrive sync (debounced)
+            triggerGDriveAutoSync();
         }
 
         function updateLastSavedStatus() {
@@ -1736,6 +1824,480 @@
                 el.innerHTML = `🟢 存檔狀態：已安全儲存 (${h}:${m}:${s})`;
             } else {
                 el.innerHTML = `🟢 存檔狀態：已安全儲存`;
+            }
+        }
+
+        // ==========================================
+        // Google Drive Sync & Collaboration Library
+        // ==========================================
+        let gdriveState = {
+            clientId: "",
+            accessToken: "",
+            expiresAt: 0,
+            userEmail: "",
+            fileId: "",
+            isSyncing: false
+        };
+
+        let gdriveSyncTimeout = null;
+
+        function initGoogleDriveSync() {
+            const clientId = state.settings ? state.settings.gdrive_client_id : "";
+            if (!clientId) {
+                updateGDriveUI();
+                return;
+            }
+            
+            gdriveState.clientId = clientId;
+            gdriveState.accessToken = localStorage.getItem("gdrive_access_token") || "";
+            gdriveState.expiresAt = parseInt(localStorage.getItem("gdrive_expires_at") || "0");
+            gdriveState.userEmail = localStorage.getItem("gdrive_user_email") || "";
+            gdriveState.fileId = localStorage.getItem("gdrive_file_id") || "";
+            
+            updateGDriveUI();
+            
+            // Check if token is valid and active
+            if (gdriveState.accessToken && gdriveState.expiresAt > Date.now()) {
+                updateGDriveHeaderStatus("已連線 (自動同步中)");
+                // Run background dual sync on startup to get latest files
+                syncWithGoogleDrive(false);
+            } else if (gdriveState.accessToken) {
+                // Expired but has client id, perform silent refresh
+                updateGDriveHeaderStatus("正在更新授權...");
+                refreshGDriveTokenSilent().then(success => {
+                    if (success) {
+                        syncWithGoogleDrive(false);
+                    } else {
+                        updateGDriveHeaderStatus("雲端授權已過期");
+                    }
+                }).catch(() => {
+                    updateGDriveHeaderStatus("雲端授權已過期");
+                });
+            } else {
+                updateGDriveHeaderStatus("雲端同步：未啟用");
+            }
+        }
+
+        function triggerGDriveAutoSync() {
+            if (!gdriveState.clientId || !gdriveState.accessToken) return;
+            if (gdriveSyncTimeout) clearTimeout(gdriveSyncTimeout);
+            gdriveSyncTimeout = setTimeout(() => {
+                syncWithGoogleDrive(false);
+            }, 3000); // Debounce for 3 seconds to avoid spamming Google Drive API
+        }
+
+        function toggleGDriveGuide() {
+            const el = document.getElementById("gdriveSetupGuide");
+            if (!el) return;
+            if (el.style.display === "none") {
+                el.style.display = "block";
+            } else {
+                el.style.display = "none";
+            }
+        }
+
+        function updateGDriveHeaderStatus(msg) {
+            const el = document.getElementById("gdriveHeaderStatus");
+            if (el) el.innerHTML = `☁️ 雲端同步：${msg}`;
+        }
+
+        async function fetchWithAuth(url, options = {}) {
+            if (!gdriveState.accessToken || gdriveState.expiresAt <= Date.now()) {
+                const renewed = await refreshGDriveTokenSilent();
+                if (!renewed) {
+                    throw new Error("Google Drive 授權已過期，請重新登入！");
+                }
+            }
+            
+            if (!options.headers) options.headers = {};
+            options.headers["Authorization"] = `Bearer ${gdriveState.accessToken}`;
+            
+            let res = await fetch(url, options);
+            if (res.status === 401) {
+                const renewed = await refreshGDriveTokenSilent();
+                if (renewed) {
+                    options.headers["Authorization"] = `Bearer ${gdriveState.accessToken}`;
+                    res = await fetch(url, options);
+                } else {
+                    throw new Error("Google Drive 授權失敗，請重新登入！");
+                }
+            }
+            return res;
+        }
+
+        function refreshGDriveTokenSilent() {
+            return new Promise((resolve) => {
+                if (!window.google || !google.accounts || !google.accounts.oauth2) {
+                    resolve(false);
+                    return;
+                }
+                
+                try {
+                    const client = google.accounts.oauth2.initTokenClient({
+                        client_id: gdriveState.clientId,
+                        scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email',
+                        prompt: '',
+                        callback: async (response) => {
+                            if (response.error) {
+                                console.warn("Silent token refresh failed:", response.error);
+                                resolve(false);
+                                return;
+                            }
+                            await saveGDriveToken(response);
+                            resolve(true);
+                        }
+                    });
+                    client.requestAccessToken({ prompt: '' });
+                } catch (err) {
+                    console.error("Silent refresh error:", err);
+                    resolve(false);
+                }
+            });
+        }
+
+        async function saveGDriveToken(response) {
+            gdriveState.accessToken = response.access_token;
+            gdriveState.expiresAt = Date.now() + (parseInt(response.expires_in) * 1000);
+            
+            localStorage.setItem("gdrive_access_token", gdriveState.accessToken);
+            localStorage.setItem("gdrive_expires_at", gdriveState.expiresAt);
+            
+            try {
+                // Fetch profile details to get user email
+                const userInfoRes = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+                    headers: { "Authorization": `Bearer ${gdriveState.accessToken}` }
+                });
+                if (userInfoRes.ok) {
+                    const userInfo = await userInfoRes.json();
+                    gdriveState.userEmail = userInfo.email || "";
+                    localStorage.setItem("gdrive_user_email", gdriveState.userEmail);
+                }
+            } catch (err) {
+                console.warn("Failed to fetch user email:", err);
+            }
+            
+            updateGDriveUI();
+        }
+
+        function saveGDriveClientId() {
+            const input = document.getElementById("settingGDriveClientId").value.trim();
+            if (!input) {
+                alert("⚠️ 請輸入有效的 Client ID！");
+                return;
+            }
+            if (!state.settings) state.settings = {};
+            state.settings.gdrive_client_id = input;
+            gdriveState.clientId = input;
+            
+            // Save settings locally but without triggering sync (not yet authorized)
+            localStorage.setItem("rental_settings", JSON.stringify(state.settings));
+            alert("✅ Client ID 已儲存！接著請點選「登入並啟用同步」進行 Google 授權。");
+            updateGDriveUI();
+        }
+
+        function clearGDriveSettings() {
+            if (confirm("🔌 確定要清除您的雲端同步設定嗎？")) {
+                if (state.settings) state.settings.gdrive_client_id = "";
+                gdriveState.clientId = "";
+                localStorage.setItem("rental_settings", JSON.stringify(state.settings));
+                logoutGoogleDrive();
+            }
+        }
+
+        function logoutGoogleDrive() {
+            gdriveState.accessToken = "";
+            gdriveState.expiresAt = 0;
+            gdriveState.userEmail = "";
+            gdriveState.fileId = "";
+            
+            localStorage.removeItem("gdrive_access_token");
+            localStorage.removeItem("gdrive_expires_at");
+            localStorage.removeItem("gdrive_user_email");
+            localStorage.removeItem("gdrive_file_id");
+            
+            updateGDriveUI();
+            updateGDriveHeaderStatus("未啟用");
+            alert("🔌 已中斷 Google 雲端連線。");
+        }
+
+        function loginGoogleDrive() {
+            const clientIdInput = document.getElementById("settingGDriveClientId").value.trim();
+            if (!clientIdInput) {
+                alert("⚠️ 請先輸入 Google OAuth Client ID！");
+                return;
+            }
+            
+            gdriveState.clientId = clientIdInput;
+            if (!state.settings) state.settings = {};
+            state.settings.gdrive_client_id = clientIdInput;
+            localStorage.setItem("rental_settings", JSON.stringify(state.settings));
+            
+            if (!window.google || !google.accounts || !google.accounts.oauth2) {
+                alert("⚠️ Google 授權服務載入中，請稍候再試。");
+                return;
+            }
+            
+            try {
+                const client = google.accounts.oauth2.initTokenClient({
+                    client_id: gdriveState.clientId,
+                    scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email',
+                    callback: async (response) => {
+                        if (response.error) {
+                            alert("❌ 授權失敗：" + response.error);
+                            return;
+                        }
+                        
+                        showGDriveLoading("正在與 Google Drive 連線...");
+                        try {
+                            await saveGDriveToken(response);
+                            await syncWithGoogleDrive(true);
+                        } catch (err) {
+                            alert("❌ 雲端初始同步失敗：" + err.message);
+                        } finally {
+                            hideGDriveLoading();
+                        }
+                    }
+                });
+                client.requestAccessToken();
+            } catch (err) {
+                alert("❌ 啟動 Google 授權失敗，請檢查 Client ID 是否正確！");
+                console.error(err);
+            }
+        }
+
+        async function uploadLocalStateToGDrive() {
+            if (!gdriveState.fileId) return;
+            const bodyContent = JSON.stringify(state);
+            const res = await fetchWithAuth(`https://www.googleapis.com/upload/drive/v3/files/${gdriveState.fileId}?uploadType=media`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: bodyContent
+            });
+            if (!res.ok) {
+                const errText = await res.text();
+                throw new Error("上傳雲端失敗：" + errText);
+            }
+        }
+
+        async function syncWithGoogleDrive(interactive = false) {
+            if (!gdriveState.clientId || !gdriveState.accessToken) return;
+            if (gdriveState.isSyncing) return;
+            
+            gdriveState.isSyncing = true;
+            updateGDriveHeaderStatus("同步中...");
+            if (interactive) {
+                showGDriveLoading("正在進行雲端雙向同步，請稍候...");
+            }
+            
+            try {
+                // 1. Ensure file ID is found or created
+                if (!gdriveState.fileId) {
+                    const listRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files?q=name='rental_helper_db.json' and trashed=false&fields=files(id, name)`);
+                    const listData = await listRes.json();
+                    
+                    if (listData.files && listData.files.length > 0) {
+                        gdriveState.fileId = listData.files[0].id;
+                        localStorage.setItem("gdrive_file_id", gdriveState.fileId);
+                    } else {
+                        // File does not exist, create it!
+                        if (interactive) showGDriveLoading("在您的雲端硬碟建立資料庫檔案中...");
+                        const createRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                name: "rental_helper_db.json",
+                                mimeType: "application/json"
+                            })
+                        });
+                        const createData = await createRes.json();
+                        gdriveState.fileId = createData.id;
+                        localStorage.setItem("gdrive_file_id", gdriveState.fileId);
+                        
+                        // Upload current local state to the newly created file
+                        await uploadLocalStateToGDrive();
+                        updateGDriveHeaderStatus("🟢 已連線");
+                        if (interactive) {
+                            alert("✅ 已在您的 Google 雲端硬碟建立 rental_helper_db.json 資料庫，並同步完成！");
+                        }
+                        return;
+                    }
+                }
+                
+                // 2. Fetch remote file content
+                const fileRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files/${gdriveState.fileId}?alt=media`);
+                if (fileRes.status === 404) {
+                    gdriveState.fileId = "";
+                    localStorage.removeItem("gdrive_file_id");
+                    gdriveState.isSyncing = false;
+                    await syncWithGoogleDrive(interactive);
+                    return;
+                }
+                
+                let remoteState;
+                try {
+                    remoteState = await fileRes.json();
+                } catch (err) {
+                    // Empty or malformed file, let's overwrite remote with local
+                    await uploadLocalStateToGDrive();
+                    updateGDriveHeaderStatus("🟢 已連線");
+                    if (interactive) {
+                        alert("✅ 雲端資料庫初始化完成！");
+                    }
+                    return;
+                }
+                
+                const remoteLastUpdated = remoteState.settings ? (remoteState.settings.last_updated || 0) : 0;
+                const localLastUpdated = state.settings ? (state.settings.last_updated || 0) : 0;
+                
+                const formatTime = (ts) => {
+                    if (!ts) return "無時間記錄";
+                    const d = new Date(ts);
+                    return `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+                };
+                
+                if (remoteLastUpdated > localLastUpdated) {
+                    // Remote is newer, load remote data
+                    let proceed = true;
+                    if (interactive) {
+                        proceed = confirm(
+                            `🔄【雲端發現更完整的最新內容】\n\n` +
+                            `☁️ 雲端最後更新時間：${formatTime(remoteLastUpdated)}\n` +
+                            `📱 本機最後儲存時間：${formatTime(localLastUpdated)}\n\n` +
+                            `確定要從雲端載入最新內容，並覆蓋目前此裝置的資料嗎？`
+                        );
+                    }
+                    
+                    if (proceed) {
+                        state.rooms = remoteState.rooms;
+                        state.settings = remoteState.settings;
+                        state.history = remoteState.history || [];
+                        
+                        // Overwrite local storage (skip GDrive trigger inside)
+                        localStorage.setItem("rental_rooms", JSON.stringify(state.rooms));
+                        localStorage.setItem("rental_settings", JSON.stringify(state.settings));
+                        localStorage.setItem("rental_history", JSON.stringify(state.history || []));
+                        
+                        // Sync inputs
+                        document.getElementById("settingBankName").value = state.settings.bank_name || "";
+                        document.getElementById("settingBankAccount").value = state.settings.bank_account || "";
+                        document.getElementById("settingBankUser").value = state.settings.bank_user || "";
+                        document.getElementById("settingMsgTemplate").value = state.settings.msg_template || "";
+                        
+                        const isPasscodeEnabled = state.settings.is_passcode_enabled || false;
+                        document.getElementById("settingPasscodeEnabled").checked = isPasscodeEnabled;
+                        document.getElementById("settingPasscodeArea").style.display = isPasscodeEnabled ? "block" : "none";
+                        document.getElementById("settingPasscodeValue").value = state.settings.passcode || "";
+                        
+                        renderBillingView();
+                        renderManageView();
+                        updateLastSavedStatus();
+                        
+                        updateGDriveHeaderStatus(`🟢 已連線`);
+                        if (interactive) {
+                            alert("✅ 成功下載並載入雲端的最新資料！");
+                        }
+                    }
+                } else if (localLastUpdated > remoteLastUpdated) {
+                    // Local is newer, upload!
+                    await uploadLocalStateToGDrive();
+                    updateGDriveHeaderStatus(`🟢 已連線`);
+                    if (interactive) {
+                        alert("✅ 本機資料較新，已成功更新雲端硬碟檔案！");
+                    }
+                } else {
+                    // Equal
+                    updateGDriveHeaderStatus(`🟢 已連線`);
+                    if (interactive) {
+                        alert("ℹ️ 資料已是最新！雲端與本機完全一致。");
+                    }
+                }
+            } catch (err) {
+                console.error("GDrive sync error:", err);
+                updateGDriveHeaderStatus("⚠️ 同步失敗");
+                if (interactive) {
+                    alert("❌ 雲端同步失敗：" + err.message);
+                }
+            } finally {
+                gdriveState.isSyncing = false;
+                if (interactive) {
+                    hideGDriveLoading();
+                }
+                updateGDriveUI();
+            }
+        }
+
+        function updateGDriveUI() {
+            const statusBox = document.getElementById("gdriveStatusBox");
+            const actionBtns = document.getElementById("gdriveActionButtons");
+            const clientIdInput = document.getElementById("settingGDriveClientId");
+            
+            if (!statusBox || !actionBtns) return;
+            
+            if (clientIdInput) {
+                clientIdInput.value = (state.settings && state.settings.gdrive_client_id) ? state.settings.gdrive_client_id : "";
+            }
+            
+            const hasClientId = state.settings && state.settings.gdrive_client_id;
+            
+            if (!hasClientId) {
+                statusBox.style.display = "block";
+                statusBox.style.background = "var(--danger-light)";
+                statusBox.style.color = "var(--danger)";
+                statusBox.style.border = "1px solid rgba(255, 0, 0, 0.15)";
+                statusBox.innerHTML = `⚠️ 尚未設定 Google Client ID，請點選上方「❓ 如何取得 Client ID？」依照步驟完成設定！`;
+                
+                actionBtns.innerHTML = `
+                    <button class="btn btn-primary" onclick="saveGDriveClientId()" style="grid-column: span 2;">💾 儲存 Client ID</button>
+                `;
+                return;
+            }
+            
+            if (!gdriveState.accessToken) {
+                statusBox.style.display = "block";
+                statusBox.style.background = "var(--primary-light)";
+                statusBox.style.color = "var(--primary-dark)";
+                statusBox.style.border = "1px solid var(--primary)";
+                statusBox.innerHTML = `🔑 <b>已儲存 Client ID。</b>請點選下方按鈕登入您的 Google 帳號，即可啟用像 Google Sheet 一樣的雲端自動雙向同步！`;
+                
+                actionBtns.innerHTML = `
+                    <button class="btn btn-secondary" onclick="clearGDriveSettings()">🔌 清除設定</button>
+                    <button class="btn btn-primary" onclick="loginGoogleDrive()">🔗 登入並啟用同步</button>
+                `;
+            } else {
+                statusBox.style.display = "block";
+                statusBox.style.background = "var(--success-light)";
+                statusBox.style.color = "var(--success)";
+                statusBox.style.border = "1px solid var(--success)";
+                
+                const accountStr = gdriveState.userEmail ? `（帳號：<b>${gdriveState.userEmail}</b>）` : "";
+                statusBox.innerHTML = `
+                    🟢 <b>已成功連線至您的 Google 雲端硬碟！</b>${accountStr}<br>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: block; line-height: 1.4;">
+                        ✅ 檔案庫：<code>rental_helper_db.json</code><br>
+                        ✅ 自動同步中：任何房租變更、房客修改及抄表記錄將即時儲存至雲端，多裝置與家人協作無縫運作。
+                    </span>
+                `;
+                
+                actionBtns.innerHTML = `
+                    <button class="btn btn-secondary" onclick="logoutGoogleDrive()">🔌 斷開雲端連線</button>
+                    <button class="btn btn-primary" onclick="syncWithGoogleDrive(true)">🔄 立即手動同步</button>
+                `;
+            }
+        }
+
+        function showGDriveLoading(msg) {
+            const overlay = document.getElementById("gdriveLoadingOverlay");
+            const text = document.getElementById("gdriveLoadingMsg");
+            if (overlay && text) {
+                text.innerText = msg;
+                overlay.style.display = "flex";
+            }
+        }
+
+        function hideGDriveLoading() {
+            const overlay = document.getElementById("gdriveLoadingOverlay");
+            if (overlay) {
+                overlay.style.display = "none";
             }
         }
 
