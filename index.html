@@ -1126,9 +1126,9 @@
                                 <li>User Type 選擇「<b>外部 (External)</b>」（若使用 Workspace 帳號亦可選內部）。</li>
                                 <li>填寫應用程式名稱（例如 <code>張爸爸房租助手</code>）與您的聯絡信箱。</li>
                                 <li>在「範圍 (Scopes)」步驟中，點選「新增或移除範圍」，手動在底部貼入並新增：
-                                    <br><code>https://www.googleapis.com/auth/drive.file</code>
+                                    <br><code>https://www.googleapis.com/auth/drive</code>
                                     <br><code>https://www.googleapis.com/auth/userinfo.email</code>
-                                    <br>（用於讀寫本程式產生的雲端檔案與確認登入身分，不影響您硬碟中其他私密檔案）。
+                                    <br>（⚠️ <b>重要：請使用此完整雲端權限</b>。由於 Google 安全限制，預設的 <code>drive.file</code> 權限<b>不允許</b>本程式讀寫他人「共用給您」的檔案。升級此權限後，家人才可以連線到同一個檔案進行共同編輯，不影響您硬碟中的其他個人檔案）。
                                 </li>
                                 <li>在「測試使用者 (Test users)」步驟中，<b>務必新增您與家人的 Google 信箱</b>，這樣大家才能順利登入！</li>
                             </ul>
@@ -1144,9 +1144,12 @@
                         </li>
                         <li>建立後，複製產生的 <b>用戶端 ID (Client ID)</b> 並貼到上方的輸入框中，點選下方「儲存 Client ID」。</li>
                         <li><b>👨‍👩‍👧‍👦 家庭協同編輯設定：</b><br>
-                            當您登入並成功同步後，您的雲端硬碟根目錄會自動產生一個 <code>rental_helper_db.json</code> 檔案。
-                            請您登入 Google 雲端硬碟 (Google Drive) 網頁版，將該檔案<b>共用（Share）給您家人的 Google 帳號</b>，並給予「編輯者」權限。<br>
-                            接著家人在他們的手機點開網頁、填入同一個 Client ID 並登入其 Google 帳號，就會自動讀寫這份共用的 JSON 檔案，像 Google Sheet 一樣實現多人即時同步編輯！
+                            當主要管理者 A 登入並成功同步後，雲端硬碟會自動產生一個 <code>rental_helper_db.json</code> 檔案。<br>
+                            <b>家人同步步驟：</b><br>
+                            1. <b>主要管理者 A</b> 登入 Google 雲端硬碟 (Google Drive) 網頁版，將該 <code>rental_helper_db.json</code> <b>共用（Share）給家人的 Google 帳號</b>，並設定權限為<b>「編輯者」</b>。<br>
+                            2. <b>家人</b> 登入自己的雲端硬碟，<b>務必先將自己硬碟中之前因測試重複建立的 <code>rental_helper_db.json</code> 檔案徹底刪除（並清理垃圾桶）</b>，確保硬碟中只留有 A 共享過來的檔案。<br>
+                            3. <b>家人</b> 在他們的手機或瀏覽器開啟此網頁，輸入相同的 Client ID。<br>
+                            4. <b>家人</b> 點選「中斷連線」以清除舊有暫存，接著點選<b>「🔗 登入並啟用同步」</b>並勾選「查看、編輯您的雲端硬碟所有檔案」權限登入。網頁即會自動偵測並連結到 A 共享的同一個資料庫檔案，實現多人即時同步編輯！
                         </li>
                     </ol>
                 </div>
@@ -1965,7 +1968,7 @@
                 try {
                     const client = google.accounts.oauth2.initTokenClient({
                         client_id: gdriveState.clientId,
-                        scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email',
+                        scope: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.email',
                         prompt: '',
                         callback: async (response) => {
                             if (response.error) {
@@ -1974,10 +1977,10 @@
                                 return;
                             }
                             
-                            // Check if the drive.file scope was granted
+                            // Check if the drive scope was granted
                             const hasDriveScope = google.accounts.oauth2.hasGrantedAllScopes(
                                 response, 
-                                'https://www.googleapis.com/auth/drive.file'
+                                'https://www.googleapis.com/auth/drive'
                             );
                             if (!hasDriveScope) {
                                 console.warn("Drive scope not granted in silent refresh.");
@@ -2084,28 +2087,28 @@
             try {
                 const client = google.accounts.oauth2.initTokenClient({
                     client_id: gdriveState.clientId,
-                    scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email',
+                    scope: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.email',
                     callback: async (response) => {
                         if (response.error) {
                             alert("❌ 授權失敗：" + response.error);
                             return;
                         }
                         
-                        // Check if the drive.file scope was granted
+                        // Check if the drive scope was granted
                         if (window.google && google.accounts && google.accounts.oauth2) {
                             const hasDriveScope = google.accounts.oauth2.hasGrantedAllScopes(
                                 response, 
-                                'https://www.googleapis.com/auth/drive.file'
+                                'https://www.googleapis.com/auth/drive'
                             );
                             if (!hasDriveScope) {
                                 alert(
                                     "⚠️ 授權不完整：請「勾選」雲端硬碟權限！\n\n" +
-                                    "您雖然成功登入 Google 帳號，但在授權畫面中【沒有勾選】「查看、編輯、建立及刪除您使用此應用程式開啟或建立的 Google 雲端硬碟檔案」選項。\n\n" +
+                                    "您雖然成功登入 Google 帳號，但在授權畫面中【沒有勾選】「查看、編輯、建立及刪除您 Google 雲端硬碟中的所有檔案」選項。\n\n" +
                                     "💡 解決步驟：\n" +
                                     "1. 請點選「確定」關閉此視窗。\n" +
                                     "2. 再次點選「🔗 登入並啟用同步」按鈕。\n" +
-                                    "3. 在彈出的 Google 授權視窗中，找到「查看、編輯... 雲端硬碟檔案」選項，務必【打勾】核取方塊，再點選「繼續」或「Continue」即可！\n\n" +
-                                    "這樣網頁才能在您的雲端硬碟建立與更新 rental_helper_db.json 資料檔案，實現多人共同編輯！"
+                                    "3. 在彈出的 Google 授權視窗中，找到「查看、編輯... 雲端硬碟所有檔案」選項，務必【打勾】核取方塊（或者點選「繼續」及勾選所有要求的權限）。\n\n" +
+                                    "這樣網頁才能在您的雲端硬碟中搜尋與讀寫共用的 rental_helper_db.json 資料檔案，實現多人共同編輯！"
                                 );
                                 return;
                             }
