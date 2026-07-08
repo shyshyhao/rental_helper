@@ -1797,7 +1797,7 @@
             renderBillingView();
             renderManageView();
             updateLastSavedStatus();
-            initGoogleDriveSync();
+            setTimeout(initGoogleDriveSync, 1000);
         }
 
         function saveToLocalStorage() {
@@ -1865,15 +1865,27 @@
             } else if (gdriveState.accessToken) {
                 // Expired but has client id, perform silent refresh
                 updateGDriveHeaderStatus("正在更新授權...");
-                refreshGDriveTokenSilent().then(success => {
-                    if (success) {
-                        syncWithGoogleDrive(false);
+                
+                let checkCount = 0;
+                const checkAndRefresh = () => {
+                    if (window.google && google.accounts && google.accounts.oauth2) {
+                        refreshGDriveTokenSilent().then(success => {
+                            if (success) {
+                                syncWithGoogleDrive(false);
+                            } else {
+                                updateGDriveHeaderStatus("雲端授權已過期");
+                            }
+                        }).catch(() => {
+                            updateGDriveHeaderStatus("雲端授權已過期");
+                        });
+                    } else if (checkCount < 10) {
+                        checkCount++;
+                        setTimeout(checkAndRefresh, 500); // Retry every 500ms up to 5s
                     } else {
                         updateGDriveHeaderStatus("雲端授權已過期");
                     }
-                }).catch(() => {
-                    updateGDriveHeaderStatus("雲端授權已過期");
-                });
+                };
+                checkAndRefresh();
             } else {
                 updateGDriveHeaderStatus("雲端同步：未啟用");
             }
@@ -1961,6 +1973,18 @@
                                 resolve(false);
                                 return;
                             }
+                            
+                            // Check if the drive.file scope was granted
+                            const hasDriveScope = google.accounts.oauth2.hasGrantedAllScopes(
+                                response, 
+                                'https://www.googleapis.com/auth/drive.file'
+                            );
+                            if (!hasDriveScope) {
+                                console.warn("Drive scope not granted in silent refresh.");
+                                resolve(false);
+                                return;
+                            }
+                            
                             await saveGDriveToken(response);
                             resolve(true);
                         }
@@ -2065,6 +2089,26 @@
                         if (response.error) {
                             alert("❌ 授權失敗：" + response.error);
                             return;
+                        }
+                        
+                        // Check if the drive.file scope was granted
+                        if (window.google && google.accounts && google.accounts.oauth2) {
+                            const hasDriveScope = google.accounts.oauth2.hasGrantedAllScopes(
+                                response, 
+                                'https://www.googleapis.com/auth/drive.file'
+                            );
+                            if (!hasDriveScope) {
+                                alert(
+                                    "⚠️ 授權不完整：請「勾選」雲端硬碟權限！\n\n" +
+                                    "您雖然成功登入 Google 帳號，但在授權畫面中【沒有勾選】「查看、編輯、建立及刪除您使用此應用程式開啟或建立的 Google 雲端硬碟檔案」選項。\n\n" +
+                                    "💡 解決步驟：\n" +
+                                    "1. 請點選「確定」關閉此視窗。\n" +
+                                    "2. 再次點選「🔗 登入並啟用同步」按鈕。\n" +
+                                    "3. 在彈出的 Google 授權視窗中，找到「查看、編輯... 雲端硬碟檔案」選項，務必【打勾】核取方塊，再點選「繼續」或「Continue」即可！\n\n" +
+                                    "這樣網頁才能在您的雲端硬碟建立與更新 rental_helper_db.json 資料檔案，實現多人共同編輯！"
+                                );
+                                return;
+                            }
                         }
                         
                         showGDriveLoading("正在與 Google Drive 連線...");
