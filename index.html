@@ -933,6 +933,7 @@
                 <div class="brand-title">
                     <h1>張爸爸房租助手</h1>
                     <p>給爸媽最貼心的智能抄表工具</p>
+                    <div id="globalLastUpdatedText" style="font-size: 0.72rem; color: var(--success); font-weight: 600; margin-top: 3px; transition: color 0.3s;">🟢 存檔狀態：載入中...</div>
                 </div>
             </div>
             <button class="theme-toggle" id="themeBtn" title="切換深淺色主題">
@@ -1442,7 +1443,7 @@
             document.documentElement.setAttribute("data-theme", savedTheme);
             updateThemeIcon(savedTheme);
 
-            // Check for Sync Link in URL Hash
+            // Check for Sync Link in URL Hash with Smart Conflict Prevention
             if (window.location.hash.startsWith("#data=")) {
                 try {
                     const encodedData = window.location.hash.substring(6);
@@ -1455,8 +1456,72 @@
                     }
                     
                     if (incomingState && incomingState.rooms && incomingState.settings) {
-                        const confirmLoad = confirm("🔄 偵測到來自家人的同步連結！\n\n這將會【覆蓋】您這台手機目前所有的租屋數據（房客、本月抄表、歷史帳單等）。\n\n確定要載入最新的數據並覆蓋嗎？");
-                        if (confirmLoad) {
+                        const incomingLastUpdated = incomingState.settings.last_updated || 0;
+                        
+                        let localLastUpdated = 0;
+                        try {
+                            const savedSettings = localStorage.getItem("rental_settings");
+                            if (savedSettings) {
+                                const parsedSettings = JSON.parse(savedSettings);
+                                localLastUpdated = parsedSettings.last_updated || 0;
+                            }
+                        } catch (err) {
+                            console.error("無法讀取本機存檔時間以比對版本：", err);
+                        }
+
+                        // Formatter helper for timestamps
+                        const formatTime = (ts) => {
+                            if (!ts) return "無時間記錄";
+                            const d = new Date(ts);
+                            return `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+                        };
+
+                        let shouldLoad = false;
+                        
+                        if (localLastUpdated > 0 && incomingLastUpdated > 0) {
+                            if (incomingLastUpdated === localLastUpdated) {
+                                // Exactly same version
+                                alert("ℹ️ 數據已是最新：您本機的數據與此連結的內容完全一致，無須重複載入！");
+                                shouldLoad = false;
+                            } else if (incomingLastUpdated < localLastUpdated) {
+                                // Warning: trying to overwrite with OLDER data
+                                const localTimeStr = formatTime(localLastUpdated);
+                                const incomingTimeStr = formatTime(incomingLastUpdated);
+                                const diffMs = localLastUpdated - incomingLastUpdated;
+                                const diffMin = Math.round(diffMs / 60000);
+                                let diffStr = "";
+                                if (diffMin >= 60) {
+                                    diffStr = `${Math.floor(diffMin / 60)} 小時 ${diffMin % 60} 分鐘`;
+                                } else if (diffMin > 0) {
+                                    diffStr = `${diffMin} 分鐘`;
+                                } else {
+                                    diffStr = `${Math.round(diffMs / 1000)} 秒`;
+                                }
+                                
+                                shouldLoad = confirm(
+                                    `⚠️【安全警告：此連結為較舊的數據】\n\n` +
+                                    `偵測到您正試圖點開「較舊」的同步連結！\n\n` +
+                                    `📱 您這台手機上的最新數據更新於：\n${localTimeStr}\n\n` +
+                                    `🔗 點開的 LINE 連結數據更新於：\n${incomingTimeStr}\n(比您手機上的數據「舊了 ${diffStr}」)\n\n` +
+                                    `如果您確定要覆蓋並【退回】到較舊的版本，請按【確定】。\n` +
+                                    `若擔心覆蓋掉辛苦剛改好的內容，請點擊【取消】。點擊取消後，本機的新數據不會受到任何影響。`
+                                );
+                            } else {
+                                // Incoming is newer
+                                const incomingTimeStr = formatTime(incomingLastUpdated);
+                                shouldLoad = confirm(
+                                    `🔄【偵測到來自家人的最新更新】\n\n` +
+                                    `家人分享的連結數據更新於：\n${incomingTimeStr}\n\n` +
+                                    `這將會「覆蓋」您這台手機目前的舊數據（房客、抄表、歷史帳單等）。\n\n` +
+                                    `確定要載入最新的數據並進行覆蓋嗎？`
+                                );
+                            }
+                        } else {
+                            // Fallback if timestamps are missing
+                            shouldLoad = confirm("🔄 偵測到來自家人的同步連結！\n\n這將會【覆蓋】您這台手機目前所有的租屋數據（房客、本月抄表、歷史帳單等）。\n\n確定要載入最新的數據並覆蓋嗎？");
+                        }
+
+                        if (shouldLoad) {
                             state.rooms = incomingState.rooms;
                             state.settings = incomingState.settings;
                             state.history = incomingState.history || [];
@@ -1555,13 +1620,35 @@
             // Render views
             renderBillingView();
             renderManageView();
+            updateLastSavedStatus();
         }
 
         // Save State
         function saveToLocalStorage() {
+            if (!state.settings) state.settings = {};
+            state.settings.last_updated = Date.now();
             localStorage.setItem("rental_rooms", JSON.stringify(state.rooms));
             localStorage.setItem("rental_settings", JSON.stringify(state.settings));
             localStorage.setItem("rental_history", JSON.stringify(state.history || []));
+            updateLastSavedStatus();
+        }
+
+        function updateLastSavedStatus() {
+            const el = document.getElementById("globalLastUpdatedText");
+            if (!el) return;
+            
+            const lastUpdated = state.settings ? (state.settings.last_updated || 0) : 0;
+            if (lastUpdated > 0) {
+                const dateObj = new Date(lastUpdated);
+                const h = String(dateObj.getHours()).padStart(2, '0');
+                const m = String(dateObj.getMinutes()).padStart(2, '0');
+                const s = String(dateObj.getSeconds()).padStart(2, '0');
+                el.innerHTML = `🟢 存檔狀態：已安全儲存 (${h}:${m}:${s})`;
+                el.style.color = "var(--success)";
+            } else {
+                el.innerHTML = `🟢 存檔狀態：已安全儲存`;
+                el.style.color = "var(--success)";
+            }
         }
 
         // Render: Tab 1 (Billing with payment tracking & arrears support)
@@ -2558,6 +2645,9 @@
         // Generate and Copy Sync Link
         function generateSyncLink() {
             try {
+                // 先強制存檔以更新最後存檔時間（時間戳記）
+                saveToLocalStorage();
+                
                 const payload = {
                     rooms: state.rooms,
                     settings: state.settings,
