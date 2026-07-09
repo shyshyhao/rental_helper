@@ -2235,7 +2235,7 @@
                 if (!gdriveState.fileId) {
                     console.log("🔍 [GDrive Sync] 本機尚未記錄檔案 ID，開始搜尋雲端上的 rental_helper_db.json...");
                     const query = encodeURIComponent("name='rental_helper_db.json' and trashed=false");
-                    const listRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files?q=${query}&fields=files(id, name)`);
+                    const listRes = await fetchWithAuth(`https://www.googleapis.com/drive/v3/files?q=${query}&fields=files(id, name, owners(emailAddress))`);
                     
                     if (!listRes.ok) {
                         const errText = await listRes.text();
@@ -2247,9 +2247,19 @@
                     console.log("🔍 [GDrive Sync] 搜尋雲端檔案回應:", listData);
                     
                     if (listData.files && listData.files.length > 0) {
-                        gdriveState.fileId = listData.files[0].id;
+                        let selectedFile = null;
+                        // 優先選擇自己擁有的檔案，防止多個同名共用檔案衝突
+                        if (gdriveState.userEmail) {
+                            selectedFile = listData.files.find(f => 
+                                f.owners && f.owners.length > 0 && f.owners[0].emailAddress === gdriveState.userEmail
+                            );
+                        }
+                        if (!selectedFile) {
+                            selectedFile = listData.files[0];
+                        }
+                        gdriveState.fileId = selectedFile.id;
                         localStorage.setItem("gdrive_file_id", gdriveState.fileId);
-                        console.log("🔍 [GDrive Sync] 成功找到現有雲端檔案，ID:", gdriveState.fileId);
+                        console.log("🔍 [GDrive Sync] 成功找到現有雲端檔案，ID:", gdriveState.fileId, "擁有者:", selectedFile.owners?.[0]?.emailAddress);
                     } else {
                         // File does not exist, create it!
                         console.log("🔍 [GDrive Sync] 雲端上無此檔案，準備建立新檔案 rental_helper_db.json...");
