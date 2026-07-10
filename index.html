@@ -1119,7 +1119,10 @@
                     可用標籤（會自動替換）：<br>
                     <code>{tenant}</code> 房客名 | <code>{room}</code> 房號 | <code>{month}</code> 月份 | <code>{rent}</code> 租金 | <code>{prev_meter}</code> 上月度數 | <code>{current_meter}</code> 本月度數 | <code>{usage}</code> 用電度數 | <code>{unit_price}</code> 電費單價 | <code>{personal_elec}</code> 個人電費 | <code>{shared_elec_general}</code> 一般公電 | <code>{shared_elec_heater}</code> 電熱爐公電 | <code>{shared_elec_total}</code> 公電總計 | <code>{arrears}</code> 上期欠繳 | <code>{total_amount}</code> 應付總額 | <code>{annual_badge}</code> 年繳提醒 | <code>{bank_name}</code> 銀行 | <code>{bank_account}</code> 帳號 | <code>{bank_user}</code> 戶名
                 </div>
-                <button class="btn btn-primary" onclick="saveGlobalSettings()">💾 儲存訊息模板</button>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="saveGlobalSettings()">💾 儲存訊息模板</button>
+                    <button class="btn btn-secondary" onclick="resetMsgTemplateToDefault()" style="background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); font-weight: 600;">✨ 還原最新預設模板</button>
+                </div>
             </div>
 
             <!-- Google Drive Sync -->
@@ -3429,6 +3432,16 @@
 
             saveToLocalStorage();
             alert("✅ 收款設定與訊息模板已安全儲存！");
+        }
+
+        function resetMsgTemplateToDefault() {
+            if (confirm("您確定要將「LINE 溫馨收租訊息模板」還原為最新的系統預設模板嗎？\n這將會補上「固定水費」標籤，並套用簡潔的單一樓層公電格式。")) {
+                const defaultTemplate = DEFAULT_SETTINGS.msg_template.trim();
+                document.getElementById("settingMsgTemplate").value = defaultTemplate;
+                state.settings.msg_template = defaultTemplate;
+                saveToLocalStorage();
+                alert("✅ 已成功載入並儲存最新預設模板！現在起發送的收據將會包含水費。");
+            }
         }
 
         let activeReceiptId = null;
