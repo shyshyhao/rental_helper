@@ -1041,12 +1041,16 @@
             </div>
 
             <!-- Month Selection Dropdown -->
-            <div class="config-section" style="padding: 16px; margin-bottom: 16px;">
-                <div class="input-wrapper" style="margin-bottom: 0;">
+            <div class="config-section" style="padding: 16px; margin-bottom: 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                <div class="input-wrapper" style="margin-bottom: 0; flex: 1; min-width: 200px;">
                     <label for="historyMonthSelect">選擇要查看的歷史月份：</label>
-                    <select id="historyMonthSelect" onchange="renderHistoryForSelectedMonth()" style="padding: 10px 14px; font-weight: 600;">
+                    <select id="historyMonthSelect" onchange="renderHistoryForSelectedMonth()" style="padding: 10px 14px; font-weight: 600; width: 100%;">
                         <!-- Dynamically filled with archived months -->
                     </select>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-outline" style="padding: 8px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; border-color: var(--primary); color: var(--primary); font-weight: 600;" onclick="renameSelectedHistoryMonth()">✏️ 重新命名</button>
+                    <button class="btn btn-outline" style="padding: 8px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; border-color: var(--danger); color: var(--danger); font-weight: 600;" onclick="deleteSelectedHistoryMonth()">🗑️ 刪除</button>
                 </div>
             </div>
 
@@ -1644,6 +1648,7 @@
                 <div class="input-wrapper mb-3">
                     <label for="archiveMonthName">📅 即將結算的月份名稱：</label>
                     <input type="text" id="archiveMonthName" value="" placeholder="例如：2026年7月">
+                    <div id="archiveMonthHelpers" style="margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap;"></div>
                 </div>
 
                 <!-- Arrears roll over option -->
@@ -3784,7 +3789,31 @@
                 }
             }
             const date = new Date();
-            document.getElementById("archiveMonthName").value = `${date.getFullYear()}年${date.getMonth() + 1}月`;
+            const currYear = date.getFullYear();
+            const currMonth = date.getMonth() + 1;
+            
+            let prevYear = currYear;
+            let prevMonth = currMonth - 1;
+            if (prevMonth === 0) {
+                prevMonth = 12;
+                prevYear -= 1;
+            }
+            
+            const currMonthStr = `${currYear}年${currMonth}月`;
+            const prevMonthStr = `${prevYear}年${prevMonth}月`;
+            
+            // Prefill with the previous month by default (recommended for billing)
+            document.getElementById("archiveMonthName").value = prevMonthStr;
+            
+            // Render quick-apply toggle buttons
+            const helperArea = document.getElementById("archiveMonthHelpers");
+            if (helperArea) {
+                helperArea.innerHTML = `
+                    <button type="button" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem; border-radius: var(--radius-sm); border-color: var(--primary); color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 4px;" onclick="document.getElementById('archiveMonthName').value = '${prevMonthStr}'">👈 套用上個月 (${prevMonthStr})</button>
+                    <button type="button" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px;" onclick="document.getElementById('archiveMonthName').value = '${currMonthStr}'">👉 套用本月 (${currMonthStr})</button>
+                `;
+            }
+            
             openModal("archiveModal");
         }
 
@@ -3936,6 +3965,61 @@
             });
 
             renderHistoryForSelectedMonth();
+        }
+
+        function renameSelectedHistoryMonth() {
+            const select = document.getElementById("historyMonthSelect");
+            if (!select) return;
+            const month = select.value;
+            if (!month) {
+                alert("目前尚無可供重新命名的歷史月份！");
+                return;
+            }
+            if (month.includes("-- 尚無歷史資料 --")) return;
+            
+            const newName = prompt(`請輸入「${month}」的新月份名稱：`, month);
+            if (!newName || !newName.trim()) return;
+            const trimmedNewName = newName.trim();
+            if (trimmedNewName === month) return;
+
+            // Check if the new name already exists
+            if (state.history.some(h => h.month === trimmedNewName)) {
+                alert(`❌ 重新命名失敗：歷史紀錄中已存在「${trimmedNewName}」！\n您可以先將不要的重複月份刪除後，再進行重新命名。`);
+                return;
+            }
+
+            const record = state.history.find(h => h.month === month);
+            if (record) {
+                record.month = trimmedNewName;
+                saveToLocalStorage();
+                populateHistorySelector();
+                
+                // Keep the newly renamed month selected
+                const selectAfter = document.getElementById("historyMonthSelect");
+                if (selectAfter) {
+                    selectAfter.value = trimmedNewName;
+                    renderHistoryForSelectedMonth();
+                }
+                alert(`✅ 已成功將「${month}」重新命名為「${trimmedNewName}」！`);
+            }
+        }
+
+        function deleteSelectedHistoryMonth() {
+            const select = document.getElementById("historyMonthSelect");
+            if (!select) return;
+            const month = select.value;
+            if (!month) {
+                alert("目前尚無可供刪除的歷史月份！");
+                return;
+            }
+            if (month.includes("-- 尚無歷史資料 --")) return;
+
+            if (confirm(`⚠️ 警告：您確定要永久刪除「${month}」的歷史結算紀錄嗎？\n此動作將無法還原，請確認！`)) {
+                state.history = state.history.filter(h => h.month !== month);
+                saveToLocalStorage();
+                populateHistorySelector();
+                alert(`✅ 已刪除「${month}」的歷史結算紀錄！`);
+            }
         }
 
         function renderHistoryForSelectedMonth() {
