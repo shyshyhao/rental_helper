@@ -988,6 +988,16 @@
                         <div class="stat-label">已收清/待收</div>
                     </div>
                 </div>
+                <!-- Visual Rent Collection Progress Bar -->
+                <div style="margin-top: 14px; margin-bottom: 6px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 4px; opacity: 0.9;">
+                        <span>💰 實收租金進度：</span>
+                        <span id="collectionProgressText" style="font-weight: 600;">0% ($ 0 / $ 0)</span>
+                    </div>
+                    <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.25); border-radius: 4px; overflow: hidden;">
+                        <div id="collectionProgressBar" style="width: 0%; height: 100%; background: #22c55e; border-radius: 4px; transition: width 0.4s ease-out;"></div>
+                    </div>
+                </div>
                 <div style="border-top: 1px solid rgba(255,255,255,0.15); margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between; font-size: 0.85rem;">
                     <span>💵 本月收租總估算 (含欠繳): <strong id="statTotalRent" style="font-weight: 700;">$ 0</strong></span>
                     <span>🚨 上期欠繳總額: <strong id="statTotalArrears" style="font-weight: 700;">$ 0</strong></span>
@@ -1896,6 +1906,32 @@
             }
         }
 
+        function getActiveBillingMonth() {
+            if (!state.history || state.history.length === 0) {
+                const date = new Date();
+                return `${date.getFullYear()}年${date.getMonth() + 1}月`;
+            }
+            
+            // Get the latest archived month (it is at the end of state.history)
+            const latest = state.history[state.history.length - 1].month;
+            const match = latest.match(/(\d+)年(\d+)月/);
+            if (!match) {
+                const date = new Date();
+                return `${date.getFullYear()}年${date.getMonth() + 1}月`;
+            }
+            
+            let year = parseInt(match[1]);
+            let month = parseInt(match[2]);
+            
+            // Roll over to the next month
+            month += 1;
+            if (month > 12) {
+                month = 1;
+                year += 1;
+            }
+            return `${year}年${month}月`;
+        }
+
         function initApp() {
             const savedTheme = localStorage.getItem("theme") || "light";
             document.documentElement.setAttribute("data-theme", savedTheme);
@@ -2007,8 +2043,13 @@
                 saveToLocalStorage();
             }
 
-            const date = new Date();
-            document.getElementById("currentMonthYear").innerText = `${date.getFullYear()} 年 ${date.getMonth() + 1} 月份`;
+            const activeMonthStr = getActiveBillingMonth();
+            const matchMonth = activeMonthStr.match(/(\d+)年(\d+)月/);
+            if (matchMonth) {
+                document.getElementById("currentMonthYear").innerText = `${matchMonth[1]} 年 ${matchMonth[2]} 月份`;
+            } else {
+                document.getElementById("currentMonthYear").innerText = activeMonthStr;
+            }
 
             document.getElementById("settingBankName").value = state.settings.bank_name || "";
             document.getElementById("settingBankAccount").value = state.settings.bank_account || "";
@@ -2898,6 +2939,7 @@
             let paidTenants = 0;
             let totalRentEstimate = 0;
             let totalArrearsSum = 0;
+            let paidRentSum = 0;
 
             const sortedRooms = [...state.rooms].sort((a, b) => a.num.localeCompare(b.num));
 
@@ -2934,13 +2976,19 @@
                 const t2_total = t2_rent + t2_elec + t2_arrears + t2_water;
 
                 totalTenants++;
-                if (room.payment_status === "paid") paidTenants++;
+                if (room.payment_status === "paid") {
+                    paidTenants++;
+                    paidRentSum += t1_total;
+                }
                 totalArrearsSum += t1_arrears;
                 totalRentEstimate += t1_total;
 
                 if (room.type === "double") {
                     totalTenants++;
-                    if (room.payment_status2 === "paid") paidTenants++;
+                    if (room.payment_status2 === "paid") {
+                        paidTenants++;
+                        paidRentSum += t2_total;
+                    }
                     totalArrearsSum += t2_arrears;
                     totalRentEstimate += t2_total;
                 }
@@ -3035,6 +3083,15 @@
             document.getElementById("statTotalRent").innerText = `$ ${totalRentEstimate.toLocaleString()}`;
             document.getElementById("statTotalArrears").innerText = `$ ${totalArrearsSum.toLocaleString()}`;
             document.getElementById("roomCountLabel").innerText = `共 ${state.rooms.length} 間房`;
+
+            // Update visual collection progress bar
+            const progressPercent = totalRentEstimate > 0 ? Math.round((paidRentSum / totalRentEstimate) * 100) : 0;
+            const progressTextEl = document.getElementById("collectionProgressText");
+            const progressBarEl = document.getElementById("collectionProgressBar");
+            if (progressTextEl && progressBarEl) {
+                progressTextEl.innerText = `${progressPercent}% ($ ${paidRentSum.toLocaleString()} / $ ${totalRentEstimate.toLocaleString()})`;
+                progressBarEl.style.width = `${progressPercent}%`;
+            }
         }
 
         function togglePaymentStatus(roomId, newStatus, tenantIdx) {
@@ -3574,8 +3631,9 @@
                 room = state.rooms.find(r => r.id === roomId);
                 if (!room) return "";
                 
-                const date = new Date();
-                dateText = `${date.getMonth() + 1}`;
+                const activeMonthStr = getActiveBillingMonth();
+                const matchMonth = activeMonthStr.match(/(\d+)年(\d+)月/);
+                dateText = matchMonth ? matchMonth[2] : `${new Date().getMonth() + 1}`;
                 num = room.num;
                 floor = getRoomFloor(room);
                 usage = room.current_meter !== null ? Math.max(0, parseFloat(room.current_meter) - room.prev_meter) : 0;
