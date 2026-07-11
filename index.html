@@ -975,6 +975,20 @@
                 </div>
                 <button class="btn btn-outline" style="font-size: 0.75rem; padding: 6px 12px; font-weight: 600; white-space: nowrap; border-color: var(--primary); color: var(--primary-dark); background: var(--bg-card);" onclick="openFamilyGuideModal()">💡 點此查看</button>
             </div>
+            <!-- Google Drive Quick Sync Banner -->
+            <div id="billingGDriveSyncCard" class="gdrive-quick-sync-card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--shadow-subtle); transition: all 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1;">
+                    <span id="billingGDriveStatusIcon" style="font-size: 1.5rem; flex-shrink: 0;">⚪</span>
+                    <div style="min-width: 0; flex: 1;">
+                        <div style="font-weight: 700; color: var(--text-main); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                            <span>☁️ Google 雲端雙向同步</span>
+                            <span id="billingGDriveBadge" class="status-badge" style="font-size: 0.68rem; padding: 2px 6px; font-weight: normal; margin-left: auto; flex-shrink: 0;">檢測中</span>
+                        </div>
+                        <div id="billingGDriveStatusText" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">正在讀取雲端連線狀態...</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="billingGDriveSyncBtn" style="font-size: 0.75rem; padding: 6px 12px; font-weight: 600; white-space: nowrap; border-radius: var(--radius-sm);" onclick="triggerBillingTabSync()">🔄 立即同步</button>
+            </div>
             <!-- Stats overview card -->
             <div class="stats-hero">
                 <div class="stats-title" id="currentMonthYear">2026 年 7 月份</div>
@@ -2115,7 +2129,8 @@
             userEmail: "",
             fileId: "",
             isSyncing: false,
-            lastSyncError: ""
+            lastSyncError: "",
+            lastSyncSuccessTime: parseInt(localStorage.getItem("gdrive_last_sync_success_time") || "0")
         };
 
         let gdriveSyncTimeout = null;
@@ -2609,6 +2624,9 @@
                         alert("ℹ️ 資料已是最新！雲端與本機完全一致。");
                     }
                 }
+                
+                gdriveState.lastSyncSuccessTime = Date.now();
+                localStorage.setItem("gdrive_last_sync_success_time", gdriveState.lastSyncSuccessTime);
             } catch (err) {
                 console.error("GDrive sync error:", err);
                 gdriveState.lastSyncError = err.message || String(err);
@@ -2717,6 +2735,131 @@
                     <button class="btn btn-secondary" onclick="logoutGoogleDrive()">🔌 斷開雲端連線</button>
                     <button class="btn btn-primary" onclick="syncWithGoogleDrive(true)">🔄 立即手動同步</button>
                 `;
+            }
+            
+            updateBillingGDriveBar();
+        }
+
+        function updateBillingGDriveBar() {
+            const syncCard = document.getElementById("billingGDriveSyncCard");
+            const iconEl = document.getElementById("billingGDriveStatusIcon");
+            const badgeEl = document.getElementById("billingGDriveBadge");
+            const textEl = document.getElementById("billingGDriveStatusText");
+            const btnEl = document.getElementById("billingGDriveSyncBtn");
+            
+            if (!syncCard || !iconEl || !badgeEl || !textEl || !btnEl) return;
+            
+            const hasClientId = state.settings && state.settings.gdrive_client_id;
+            
+            if (!hasClientId) {
+                iconEl.innerText = "⚪";
+                badgeEl.innerText = "未啟用";
+                badgeEl.className = "status-badge pending";
+                badgeEl.style.background = "var(--border)";
+                badgeEl.style.color = "var(--text-muted)";
+                textEl.innerHTML = "尚未設定 Google 雲端同步。設定後可與家人多裝置即時同步！";
+                btnEl.innerText = "🔑 前往設定";
+                btnEl.className = "btn btn-outline";
+                btnEl.style.borderColor = "var(--primary)";
+                btnEl.style.color = "var(--primary)";
+                btnEl.style.background = "transparent";
+                btnEl.disabled = false;
+                return;
+            }
+            
+            if (!gdriveState.accessToken) {
+                iconEl.innerText = "🟡";
+                badgeEl.innerText = "未登入";
+                badgeEl.className = "status-badge pending";
+                badgeEl.style.background = "#fef3c7";
+                badgeEl.style.color = "#d97706";
+                textEl.innerHTML = "已儲存 Client ID，但尚未授權 Google 帳號！";
+                btnEl.innerText = "🔗 登入並啟用";
+                btnEl.className = "btn btn-primary";
+                btnEl.disabled = false;
+                return;
+            }
+            
+            // If token is expired
+            if (gdriveState.expiresAt <= Date.now()) {
+                iconEl.innerText = "🔴";
+                badgeEl.innerText = "連線已過期";
+                badgeEl.className = "status-badge danger";
+                badgeEl.style.background = "#fee2e2";
+                badgeEl.style.color = "#dc2626";
+                textEl.innerHTML = "雲端授權已過期，請重新登入以恢復自動背景同步！";
+                btnEl.innerText = "🔗 重新登入";
+                btnEl.className = "btn btn-primary";
+                btnEl.disabled = false;
+                return;
+            }
+            
+            if (gdriveState.isSyncing) {
+                iconEl.innerText = "⏳";
+                badgeEl.innerText = "同步中...";
+                badgeEl.className = "status-badge info";
+                badgeEl.style.background = "#e0f2fe";
+                badgeEl.style.color = "#0369a1";
+                textEl.innerHTML = "正在與 Google 雲端硬碟雙向安全同步中...";
+                btnEl.innerText = "⏳ 同步中";
+                btnEl.disabled = true;
+                return;
+            }
+            
+            if (gdriveState.lastSyncError) {
+                iconEl.innerText = "🔴";
+                badgeEl.innerText = "同步失敗";
+                badgeEl.className = "status-badge danger";
+                badgeEl.style.background = "#fee2e2";
+                badgeEl.style.color = "#dc2626";
+                textEl.innerHTML = `錯誤：${gdriveState.lastSyncError}`;
+                btnEl.innerText = "🔧 重新連線";
+                btnEl.className = "btn btn-primary";
+                btnEl.disabled = false;
+                return;
+            }
+            
+            // All green and perfect
+            iconEl.innerText = "🟢";
+            badgeEl.innerText = "已連線";
+            badgeEl.className = "status-badge done";
+            badgeEl.style.background = "#dcfce7";
+            badgeEl.style.color = "#15803d";
+            
+            const lastSuccess = gdriveState.lastSyncSuccessTime;
+            let timeStr = "剛剛";
+            if (lastSuccess > 0) {
+                const dateObj = new Date(lastSuccess);
+                const h = String(dateObj.getHours()).padStart(2, '0');
+                const m = String(dateObj.getMinutes()).padStart(2, '0');
+                const s = String(dateObj.getSeconds()).padStart(2, '0');
+                timeStr = `${h}:${m}:${s} (自動背景同步中)`;
+            }
+            
+            const accountStr = gdriveState.userEmail ? `（帳號：<b>${gdriveState.userEmail}</b>）` : "";
+            textEl.innerHTML = `雲端連線狀態良好${accountStr}。上次同步：<b>${timeStr}</b>`;
+            btnEl.innerText = "🔄 立即同步";
+            btnEl.className = "btn btn-primary";
+            btnEl.disabled = false;
+        }
+
+        function triggerBillingTabSync() {
+            const hasClientId = state.settings && state.settings.gdrive_client_id;
+            if (!hasClientId) {
+                alert("您尚未設定 Google Client ID。將為您切換至設定頁面，請參閱說明完成設定！");
+                switchView("viewSettings");
+                const clientIdInput = document.getElementById("settingGDriveClientId");
+                if (clientIdInput) {
+                    clientIdInput.focus();
+                    clientIdInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+            
+            if (!gdriveState.accessToken || gdriveState.expiresAt <= Date.now()) {
+                loginGoogleDrive();
+            } else {
+                syncWithGoogleDrive(true);
             }
         }
 
