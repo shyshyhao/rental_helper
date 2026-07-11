@@ -973,21 +973,21 @@
                         <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">點擊此處，看家人如何與您連線到同一個雲端資料庫！</div>
                     </div>
                 </div>
-                <button class="btn btn-outline" style="font-size: 0.75rem; padding: 6px 12px; font-weight: 600; white-space: nowrap; border-color: var(--primary); color: var(--primary-dark); background: var(--bg-card);" onclick="openFamilyGuideModal()">💡 點此查看</button>
+                <button class="btn btn-outline" style="font-size: 0.75rem; padding: 6px 12px; font-weight: 600; white-space: nowrap; border-color: var(--primary); color: var(--primary-dark); background: var(--bg-card); width: auto;" onclick="openFamilyGuideModal()">💡 點此查看</button>
             </div>
             <!-- Google Drive Quick Sync Banner -->
-            <div id="billingGDriveSyncCard" class="gdrive-quick-sync-card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--shadow-subtle); transition: all 0.3s ease;">
-                <div style="display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1;">
+            <div id="billingGDriveSyncCard" class="gdrive-quick-sync-card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; box-shadow: var(--shadow-subtle); transition: all 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 10px; min-width: 240px; flex: 1 1 auto;">
                     <span id="billingGDriveStatusIcon" style="font-size: 1.5rem; flex-shrink: 0;">⚪</span>
                     <div style="min-width: 0; flex: 1;">
-                        <div style="font-weight: 700; color: var(--text-main); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                        <div style="font-weight: 700; color: var(--text-main); font-size: 0.9rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
                             <span>☁️ Google 雲端雙向同步</span>
-                            <span id="billingGDriveBadge" class="status-badge" style="font-size: 0.68rem; padding: 2px 6px; font-weight: normal; margin-left: auto; flex-shrink: 0;">檢測中</span>
+                            <span id="billingGDriveBadge" class="status-badge" style="font-size: 0.68rem; padding: 2px 6px; font-weight: normal; flex-shrink: 0;">檢測中</span>
                         </div>
-                        <div id="billingGDriveStatusText" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">正在讀取雲端連線狀態...</div>
+                        <div id="billingGDriveStatusText" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; white-space: normal; line-height: 1.35; word-break: break-all;">正在讀取雲端連線狀態...</div>
                     </div>
                 </div>
-                <button class="btn btn-primary" id="billingGDriveSyncBtn" style="font-size: 0.75rem; padding: 6px 12px; font-weight: 600; white-space: nowrap; border-radius: var(--radius-sm);" onclick="triggerBillingTabSync()">🔄 立即同步</button>
+                <button class="btn btn-primary" id="billingGDriveSyncBtn" style="font-size: 0.75rem; padding: 8px 16px; font-weight: 600; white-space: nowrap; border-radius: var(--radius-sm); width: auto; flex-shrink: 0;" onclick="triggerBillingTabSync()">🔄 立即同步</button>
             </div>
             <!-- Stats overview card -->
             <div class="stats-hero">
@@ -2748,6 +2748,8 @@
             const btnEl = document.getElementById("billingGDriveSyncBtn");
             
             if (!syncCard || !iconEl || !badgeEl || !textEl || !btnEl) return;
+            
+            btnEl.style.width = "auto";
             
             const hasClientId = state.settings && state.settings.gdrive_client_id;
             
