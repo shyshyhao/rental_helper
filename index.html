@@ -1601,7 +1601,7 @@
 
     <!-- Modal 4: Family Guide Dialog -->
     <div class="overlay" id="familyGuideModal">
-        <div class="dialog-card" style="max-width: 500px;">
+        <div class="dialog-card" style="max-width: 600px; width: 95%;">
             <div class="dialog-header">
                 <h3 style="display: flex; align-items: center; gap: 6px;">👨‍👩‍👧‍👦 家人同步與連線教學</h3>
                 <button class="btn-close" onclick="closeModal('familyGuideModal')">
@@ -1611,35 +1611,69 @@
             <div class="dialog-body" style="line-height: 1.6; font-size: 0.85rem; color: var(--text-main);">
                 <div style="background: var(--primary-light); color: var(--primary-dark); padding: 14px; border-radius: var(--radius-md); font-size: 0.85rem; margin-bottom: 16px; line-height: 1.5; font-weight: 500;">
                     💡 <strong>親愛的家人，歡迎使用房租助手！</strong><br>
-                    為了讓大家能像編輯同一份 Google Sheet 試算表一樣共用數據，請在第一次使用時，在您的手機或電腦上完成以下 4 個簡單連線步驟：
+                    為了讓大家能像編輯同一份 Google Sheet 試算表一樣共用數據，請在第一次使用時，在您的手機或電腦上對照以下實作圖片，完成以下 5 個簡單連線步驟：
                 </div>
 
-                <ol style="margin-left: 18px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
-                    <li>
-                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">清除暫存與輸入 Client ID</strong>
-                        <div style="margin-top: 2px;">
-                            切換到右下角<b>「系統設定」</b>分頁。如果雲端同步狀態顯示已連線，請先點選 <b>「🔌 中斷 Google 雲端連線」</b>（以防連結到舊的測試檔案）。接著，確認 Client ID 欄位已填入管理者提供的編號，並點選「儲存 Client ID」。
+                <ol style="margin-left: 18px; display: flex; flex-direction: column; gap: 20px; margin-bottom: 20px; padding: 0;">
+                    <li style="margin-bottom: 10px;">
+                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">1. 清除暫存與輸入 Client ID</strong>
+                        <div style="margin-top: 4px; margin-bottom: 8px;">
+                            切換到右下角<b>「系統設定」</b>分頁。如果雲端同步狀態顯示已連線，請先點選 <b>「🔌 中斷 Google 雲端連線」</b>（以防連結到舊的測試檔案）。接著，在紅框標示的「OAuth 2.0 用戶端編號」欄位中填入管理者提供的編號，並點選<b>「儲存 Client ID」</b>。
+                        </div>
+                        <div style="text-align: center; margin-top: 8px;">
+                            <img src="assets/desktop_step1.png" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="儲存 Client ID 示意圖">
+                            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; font-style: italic;">▲ 「系統設定」分頁中的儲存 Client ID 畫面</div>
                         </div>
                     </li>
-                    <li>
-                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">點選「🔗 登入並啟用同步」</strong>
-                        <div style="margin-top: 2px;">
-                            點選按鈕後會彈出 Google 登入視窗，請<b>輸入您自己的 Google 帳號和密碼</b>進行登入。
+
+                    <li style="margin-bottom: 10px;">
+                        <strong style="color: var(--primary-dark); font-size: 0.9rem;">2. 點選「🔗 登入並啟用同步」與選擇帳號</strong>
+                        <div style="margin-top: 4px; margin-bottom: 8px;">
+                            成功儲存 Client ID 後，點選下方新出現的<b>「🔗 登入並啟用同步」</b>橘色按鈕。在彈出的 Google 帳號選單中，點選選取您自己的 Google 帳號。
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; margin-top: 8px;">
+                            <img src="assets/desktop_step2.png" style="width: 100%; max-height: 180px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="登入按鈕示意圖">
+                            <img src="assets/mobile_step1_account.png" style="width: 70%; max-height: 240px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="選擇帳號示意圖">
+                            <div style="font-size: 0.72rem; color: var(--text-muted); font-style: italic;">▲ 啟用同步並選取您的 Google 帳號</div>
                         </div>
                     </li>
-                    <li>
-                        <strong style="color: var(--danger); font-size: 0.9rem;">⚠️ 重要：略過 Google 安全警告</strong>
-                        <div style="background: var(--bg-base); border: 1px dashed var(--danger); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5;">
+
+                    <li style="margin-bottom: 10px;">
+                        <strong style="color: var(--danger); font-size: 0.9rem;">3. ⚠️ 重要：略過 Google 安全警告</strong>
+                        <div style="background: var(--bg-base); border: 1px dashed var(--danger); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5; margin-bottom: 8px;">
                             因為這個 App 是我們家庭獨立開發、未向 Google 申請昂貴的商業付費驗證，因此 Google 會顯示「Google 尚未驗證此應用程式」的警告。這是正常的！<br>
-                            👉 請點選左下角的 <b>「進階 (Advanced)」</b> ➡️ 再點選最下方的 <b>「前往『楊爸爸房租助手』（不安全）」</b> 即可安全繼續。
+                            👉 <b>在手機上</b>：直接點選紅框標示的 <b>「Continue (繼續)」</b> 即可。<br>
+                            👉 <b>在電腦上</b>：請點選左下角的 <b>「進階 (Advanced)」</b> ➡️ 再點選最下方的 <b>「前往『楊爸爸房租助手』（不安全）」</b>。
+                        </div>
+                        <div style="text-align: center; margin-top: 8px;">
+                            <img src="assets/mobile_step2_warning.png" style="width: 70%; max-height: 240px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="安全警告示意圖">
+                            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; font-style: italic;">▲ 手機版請直接點選 Continue 繼續</div>
                         </div>
                     </li>
-                    <li>
-                        <strong style="color: var(--danger); font-size: 0.9rem;">⚠️ 關鍵步驟：務必核取雲端硬碟權限</strong>
-                        <div style="background: var(--bg-base); border: 1px dashed var(--success); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5;">
-                            登入的最後一步，Google 會詢問您是否授權此應用程式。<br>
-                            👉 畫面上會出現一個「查看、編輯、建立及刪除您 Google 雲端硬碟中的所有檔案」核取方塊。<b>請務必將它【打勾】</b>（或點選「繼續/Continue」以允許所有要求的權限）！<br>
-                            <span style="color: var(--text-muted);">（註：只有核取此方塊，程式才能在您的雲端硬碟中搜尋並讀寫共用的 <code>rental_helper_db.json</code> 檔案，實現多人共用）。</span>
+
+                    <li style="margin-bottom: 10px;">
+                        <strong style="color: var(--danger); font-size: 0.9rem;">4. ⚠️ 關鍵步驟：務必核取雲端硬碟權限</strong>
+                        <div style="background: var(--bg-base); border: 1px dashed var(--success); padding: 10px; border-radius: var(--radius-sm); margin-top: 4px; font-size: 0.82rem; line-height: 1.5; margin-bottom: 8px;">
+                            登入的最後一步，Google 會詢問您是否授權讀寫權限。<br>
+                            👉 畫面上會出現一個「查看、編輯、建立及刪除您 Google 雲端硬碟中的所有檔案」核取方塊。<b>請務必將它【打勾】</b>（如紅框標示），接著再點選 <b>「Continue (繼續)」</b>！<br>
+                            <span style="color: var(--text-muted); font-size: 0.78rem;">（註：若未勾選此方塊，程式就無法連線至家人共用的資料庫檔案 <code>rental_helper_db.json</code> 喔！）</span>
+                        </div>
+                        <div style="text-align: center; margin-top: 8px;">
+                            <img src="assets/mobile_step4_permission.png" style="width: 70%; max-height: 240px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="權限勾選示意圖">
+                            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; font-style: italic;">▲ 務必勾選雲端權限方塊，然後點選 Continue</div>
+                        </div>
+                    </li>
+
+                    <li style="margin-bottom: 10px;">
+                        <strong style="color: var(--success-dark); font-size: 0.9rem;">5. 🎉 成功連線與首頁「一鍵同步」</strong>
+                        <div style="margin-top: 4px; margin-bottom: 8px;">
+                            大功告成！連線成功後，首頁最上方會顯示綠色 <b>「🟢 已連線」</b> 看板。當您想上傳自己的最新抄表記錄，或下載其他家人的修改時，只要在首頁點選<b>「🔄 立即同步」</b>即可！<br>
+                            一陣子沒開 App，若看板變成紅色 <b>「🔴 連線已過期」</b>，可在首頁直接點選 <b>「重新登入」</b> 一鍵快速重新啟用。
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; margin-top: 8px;">
+                            <img src="assets/mobile_success.png" style="width: 85%; max-height: 240px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="成功連線看板">
+                            <img src="assets/mobile_expired.png" style="width: 85%; max-height: 240px; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-subtle); background: #fff;" alt="授權過期看板">
+                            <div style="font-size: 0.72rem; color: var(--text-muted); font-style: italic;">▲ 成功連線與過期一鍵重新登入看板畫面</div>
                         </div>
                     </li>
                 </ol>
