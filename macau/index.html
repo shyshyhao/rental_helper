@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳門4天3夜親子長輩放鬆之旅</title>
+    <style>
+        :root {
+            --primary-color: #8c7853;
+            --secondary-color: #4a3c31;
+            --accent-color: #dc3545;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --map-land: #e2ecd8; /* 澳門陸地顏色 */
+            --map-sea: #d4e6f1;  /* 澳門海洋顏色 */
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 40px; }
+        header { background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: white; text-align: center; padding: 30px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+        header p { font-size: 1rem; opacity: 0.9; }
+        .container { max-width: 600px; margin: 0 auto; padding: 15px; }
+        .section-title { font-size: 1.3rem; color: var(--secondary-color); margin: 25px 0 12px 0; border-left: 5px solid var(--primary-color); padding-left: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .info-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .info-table th, .info-table td { font-size: 0.9rem; padding: 10px; text-align: left; border-bottom: 1px solid #eeeeee; }
+        .info-table th { background-color: #f5f0e6; color: var(--secondary-color); font-weight: bold; }
+        .map-btn { display: inline-flex; align-items: center; background-color: #1a73e8; color: white; text-decoration: none; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-top: 5px; margin-right: 5px; box-shadow: 0 2px 4px rgba(26,115,232,0.2); }
+        .map-btn:hover { opacity: 0.9; }
+        .timeline { position: relative; border-left: 2px solid #e0e0e0; margin-left: 15px; padding-left: 20px; }
+        .timeline-item { position: relative; margin-bottom: 25px; }
+        .timeline-item::before { content: ''; position: absolute; width: 12px; height: 12px; background-color: var(--primary-color); border: 2px solid white; border-radius: 50%; left: -27px; top: 6px; box-shadow: 0 0 0 3px rgba(140,120,83,0.2); }
+        .time-tag { font-weight: bold; color: var(--primary-color); font-size: 0.95rem; display: block; margin-bottom: 4px; }
+        .item-title { font-weight: bold; font-size: 1.05rem; color: #111; }
+        .item-desc { font-size: 0.9rem; color: #666; margin-top: 4px; }
+        .casino-badge { background-color: var(--accent-color); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-left: 6px; vertical-align: middle; }
+        .tips-box { background-color: #fff8e1; border-left: 4px solid #ffb300; padding: 12px; border-radius: 6px; font-size: 0.9rem; margin-top: 10px; }
+        .tips-box ul { padding-left: 15px; margin-top: 5px; }
+        .tips-box li { margin-bottom: 4px; }
+        .sub-list { margin-top: 8px; padding-left: 15px; }
+        .sub-list li { font-size: 0.9rem; margin-bottom: 6px; list-style-type: square; }
+        .backup-box { background-color: #f8f9fa; border: 1px dashed #ccc; padding: 10px; border-radius: 6px; margin-top: 8px; font-size: 0.85rem; }
+        
+        /* 擬真澳門地形互動地圖樣式 */
+        .route-map-container { background: var(--map-sea); border-radius: 12px; padding: 12px; margin-bottom: 15px; border: 1px solid #b9cfe3; text-align: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.05); }
+        .map-title { font-size: 0.9rem; font-weight: bold; color: var(--secondary-color); margin-bottom: 6px; display: flex; justify-content: space-between; text-shadow: 0 1px 0 rgba(255,255,255,0.5); }
+        .map-canvas-box { position: relative; width: 100%; height: 260px; border-radius: 8px; overflow: hidden; background: var(--map-sea); }
+        .map-svg-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .map-interactive-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; }
+        .map-node { position: absolute; width: 12px; height: 12px; background: #1a73e8; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,0.4); transform: translate(-50%, -50%); transition: all 0.2s; }
+        .map-node.hotel { background: #ff9800; width: 14px; height: 14px; animation: pulse 2s infinite; }
+        .map-node.airport { background: #28a745; }
+        .map-node:hover { transform: translate(-50%, -50%) scale(1.3); z-index: 10; }
+        .map-label { position: absolute; font-size: 0.75rem; font-weight: bold; color: #222; background: rgba(255,255,255,0.9); padding: 2px 6px; border-radius: 4px; border: 1px solid #b5cddf; white-space: nowrap; transform: translate(-50%, -140%); pointer-events: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .region-text { position: absolute; font-size: 0.75rem; color: #7f8c8d; font-weight: bold; letter-spacing: 2px; pointer-events: none; }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(255, 152, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🇲🇴 澳門 4天3夜親子長輩放鬆之旅</h1>
+        <p>4大1小・慢步調・夫妻專屬賭場放風</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- 航班與住宿資訊 -->
+        <div class="section-title">✈️ 航班與住宿明細</div>
+        
+        <div class="card">
+            <div class="item-title">長榮航空 (EVA Air) 航班資訊</div>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>班機</th>
+                        <th>航程</th>
+                        <th>時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10/08 (四)</td>
+                        <td>BR801</td>
+                        <td>台北 ➔ 澳門</td>
+                        <td>10:00 - 11:50</td>
+                    </tr>
+                    <tr>
+                        <td>10/11 (日)</td>
+                        <td>BR806</td>
+                        <td>澳門 ➔ 台北</td>
+                        <td>20:10 - 22:05</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="item-title">🏨 入住飯店資訊</div>
+            <div class="item-desc" style="margin-top: 8px;">
+                <strong>澳門雅辰酒店 (Grand Lapa Macau)</strong><br>
+                地址：澳門友誼大馬路956-1110號<br>
+                <span style="color:#666; font-size:0.85rem;">★ 特色：南歐度假風情，其 Kids Co. 兒童俱樂部與溫水池非常適合放電，過行人天橋即達金沙娛樂場。</span>
+            </div>
+            <a href="https://maps.google.com/?q=Grand+Lapa+Macau" target="_blank" class="map-btn">📍 導航到飯店</a>
+        </div>
+
+        <div class="tips-box">
+            <strong>💡 全家出行貼心小叮嚀：</strong>
+            <ul>
+                <li><strong>全程推薦計程車：</strong>4大1小加推車，上下公車極度不便，計程車分攤最劃算且能直達。</li>
+                <li><strong>小倆口進賭場：</strong>需年滿 21 歲，請隨身攜帶護照。服裝切勿穿拖鞋、涼鞋與無袖背心。</li>
+            </ul>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="section-title">📅 Day 1 (10/08) 抵達與海濱放電</div>
+        
+        <!-- Day 1 地圖 -->
+        <div class="route-map-container">
+            <div class="map-title">🗺️ Day 1 澳門地形路線圖 <span style="font-size:0.75rem; font-weight:normal; color:#555;">(新口岸本島活動區)</span></div>
+            <div class="map-canvas-box">
+                <!-- 澳門地形 SVG 背景 -->
+                <svg class="map-svg-layer" viewBox="0 0 300 260">
+                    <!-- 北邊：澳門本島 -->
+                    <path d="M 50 40 Q 40 70 60 90 Q 90 110 140 100 Q 220 110 240 70 Q 210 30 150 20 Q 90 20 50 40 Z" fill="#e2ecd8" stroke="#cbdcb8" stroke-width="2" />
+                    <!-- 南邊：氹仔/路氹城 -->
+                    <path d="M 60 170 Q 50 200 90 240 Q 170 250 230 230 Q 250 180 200 160 Q 120 150 60 170 Z" fill="#f0f4ea" opacity="0.6" stroke="#cbdcb8" stroke-width="1" />
+                    <!-- 跨海大橋 -->
+                    <line x1="130" y1="100" x2="110" y2="160" stroke="#fff" stroke-width="3" />
+                    <line x1="180" y1="95" x2="170" y2="162" stroke="#fff" stroke-width="2" />
+                    <!-- 當日行程路線軌跡連線 -->
+                    <path d="M 225 185 L 175 75 L 135 65 L 190 85 L 175 75" fill="none" stroke="#1a73e8" stroke-width="2.5" stroke-dasharray="4,4" />
+                </svg>
+                
+                <div class="region-text" style="top:30px; left:60px; color:#5c6b50;">澳門本島</div>
+                <div class="region-text" style="bottom:40px; left:60px; color:#bdc3c7;">氹仔/路氹</div>
+
+                <!-- 互動點位標籤層 -->
+                <div class="map-interactive-layer">
+                    <div class="map-node airport" style="top:71%; left:75%;"></div><div class="map-label" style="top:71%; left:75%;">✈️ 澳門機場 (抵達)</div>
+                    <div class="map-node hotel" style="top:29%; left:58%;"></div><div class="map-label" style="top:29%; left:58%;">🏨 雅辰酒店</div>
+                    <div class="map-node" style="top:25%; left:45%;"></div><div class="map-label" style="top:25%; left:45%;">🍴 新口岸葡國餐</div>
+                    <div class="map-node" style="top:33%; left:63%;"></div><div class="map-label" style="top:33%; left:63%;">🎡 漁人碼頭 / 觀音像</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time-tag">11:50</span>
+                <div class="item-title">抵達澳門國際機場</div>
+                <div class="item-desc">下機後直接搭乘計程車前往雅辰酒店辦理 Check-in 並寄放行李。</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">13:30</span>
+                <div class="item-title">午餐：新口岸葡國餐</div>
+                <div class="item-desc">步行前往飯店附近的道地老字號葡菜，品嚐馬介休球、葡國雞。</div>
+                <a href="https://maps.google.com/?q=Restaurante+Porto+Exterior+Macau" target="_blank" class="map-btn">🧭 餐廳導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">15:00</span>
+                <div class="item-title">下午：澳門漁人碼頭 ➔ 觀音像海濱休憩區</div>
+                <div class="item-desc">先在飯店對面的漁人碼頭散步拍古羅馬造景，接著順著海濱推車步行（或搭車2分鐘）前往<strong>觀音像海濱休憩區</strong>。這裡有超大面積的全新兒童遊樂場、滾軸溜冰場與景觀步道，非常適合2歲兒子瘋狂放電，大人也能吹海風看風景。</div>
+                <a href="https://maps.google.com/?q=Macau+Fisherman+Wharf" target="_blank" class="map-btn">🧭 漁人碼頭導航</a>
+                <a href="https://maps.google.com/?q=Kun+Iam+Statue+Waterfront+Leisure+Area+Macau" target="_blank" class="map-btn">🧭 觀音像休憩區導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">18:30</span>
+                <div class="item-title">晚餐：金沙閣（粵菜）</div>
+                <div class="item-desc">步行至隔壁金沙酒店。餐點口味大眾化、環境高雅，長輩接受度極高。</div>
+                <a href="https://maps.google.com/?q=Sands+Macau+Golden+Court" target="_blank" class="map-btn">🧭 餐廳導航</a>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="section-title">📅 Day 2 (10/09) 本島古蹟與豐富下午茶點心</div>
+        
+        <!-- Day 2 地圖 -->
+        <div class="route-map-container">
+            <div class="map-title">🗺️ Day 2 澳門地形路線圖 <span style="font-size:0.75rem; font-weight:normal; color:#555;">(舊城古蹟與本島往返)</span></div>
+            <div class="map-canvas-box">
+                <svg class="map-svg-layer" viewBox="0 0 300 260">
+                    <path d="M 50 40 Q 40 70 60 90 Q 90 110 140 100 Q 220 110 240 70 Q 210 30 150 20 Q 90 20 50 40 Z" fill="#e2ecd8" stroke="#cbdcb8" stroke-width="2" />
+                    <path d="M 60 170 Q 50 200 90 240 Q 170 250 230 230 Q 250 180 200 160 Q 120 150 60 170 Z" fill="#f0f4ea" opacity="0.3" stroke="#cbdcb8" stroke-width="1" />
+                    <line x1="130" y1="100" x2="110" y2="160" stroke="#fff" stroke-width="2" opacity="0.5" />
+                    <!-- 當日行程路線軌跡連線 -->
+                    <path d="M 175 75 L 85 55 L 105 75 L 175 75 L 65 95" fill="none" stroke="#1a73e8" stroke-width="2.5" stroke-dasharray="4,4" />
+                </svg>
+                
+                <div class="region-text" style="top:30px; left:60px; color:#5c6b50;">澳門本島</div>
+
+                <div class="map-interactive-layer">
+                    <div class="map-node hotel" style="top:29%; left:58%;"></div><div class="map-label" style="top:29%; left:58%;">🏨 雅辰酒店</div>
+                    <div class="map-node" style="top:21%; left:28%;"></div><div class="map-label" style="top:21%; left:28%;">🏛️ 大三巴 / 陶陶居</div>
+                    <div class="map-node" style="top:29%; left:35%;"></div><div class="map-label" style="top:29%; left:35%;">🥤 霸王茶姬 / 蛋塔</div>
+                    <div class="map-node" style="top:37%; left:22%;"></div><div class="map-label" style="top:37%; left:22%;">🍲 贏到粥</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time-tag">09:30</span>
+                <div class="item-title">上午：大三巴牌坊、戀愛巷、玫瑰堂</div>
+                <div class="item-desc"><strong>★省力密技：</strong>搭計程車直接在大三巴上方的「大炮台」下車，全家順著坡度「往下走」逛古蹟，長輩最輕鬆。</div>
+                <a href="https://maps.google.com/?q=Ruins+of+St.+Paul+Macau" target="_blank" class="map-btn">🧭 大三巴導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">12:00</span>
+                <div class="item-title">午餐：陶陶居海鮮酒家（或選備案）</div>
+                <div class="item-desc">老字號粵式茶樓，點心極其精緻。</div>
+                <a href="https://maps.google.com/?q=Tou+Tou+Koi+Macau" target="_blank" class="map-btn">🧭 餐廳導航</a>
+                <div class="backup-box">
+                    <strong>💡 陶陶居備案（若無訂位或客滿）：【上葡京 - 茶樓】</strong><br>
+                    同樣主打精緻粵式點心，具備經典懷舊的手推車餐飲體驗。<br>
+                    <a href="https://maps.google.com/?q=Chalou+Grand+Lisboa+Palace" target="_blank" style="color:#1a73e8;">🧭 備案茶樓導航</a>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">13:30</span>
+                <div class="item-title">採買：最香餅家 ＆ 永吉街檸嚀王</div>
+                <div class="item-desc">順路散步帶走最有名流傳的手工炭燒杏仁餅與甘草檸檬。</div>
+                <a href="https://maps.google.com/?q=Pastelaria+Chui+Heong+Macau" target="_blank" class="map-btn">🛍️ 最香餅家</a>
+                <a href="https://maps.google.com/?q=Macau+Lemon+King" target="_blank" class="map-btn">🛍️ 檸檬王</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">14:15</span>
+                <div class="item-title">點心外帶：霸王茶姬 ＆ 安德魯餅店蛋塔（水坑尾店）</div>
+                <div class="item-desc">回飯店前，順路外帶超人氣的<strong>霸王茶姬</strong>鮮奶茶，以及剛出爐、外皮酥脆內餡濃郁的<strong>安德魯葡式蛋塔</strong>回飯店享用。</div>
+                <a href="https://maps.google.com/?q=CHAGEE+Macau" target="_blank" class="map-btn">🥤 霸王茶姬導航</a>
+                <a href="https://maps.google.com/?q=Lord+Stow+Bakery+Macau" target="_blank" class="map-btn">🥧 安德魯蛋塔導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">14:45</span>
+                <div class="item-title">下午：飯店休息 ➔ 享受 Kid co 或泳池設施</div>
+                <div class="item-desc">回飯店一邊享用剛買的奶茶蛋塔一邊休息。長輩可在房間舒適午睡；夫妻可帶兒子去玩雅辰酒店最著名的 <strong>Kids Co. 兒童俱樂部</strong>（有室內外滑梯與沙坑）或是到戶外南歐風溫水泳池玩水放電。</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">18:00</span>
+                <div class="item-title">晚餐：贏到粥（或選備案）</div>
+                <div class="item-desc">澳門必吃神級卜卜蜆與手撕雞。</div>
+                <a href="https://maps.google.com/?q=Ying+Dou+Chuk+Macau" target="_blank" class="map-btn">🧭 餐廳導航</a>
+                <div class="backup-box">
+                    <strong>💡 贏到粥熱門備案（二選一，適合小食量單點）：</strong><br>
+                    1. <strong>喜蓮咖啡</strong>：在地人狂推，必吃乾免治牛肉飯。<br>
+                    2. <strong>誠昌飯店</strong>：位於官也街，招牌水蟹粥鮮甜好消化，極適合長輩。<br>
+                    <a href="https://maps.google.com/?q=Hei+Lin+Cafe+Macau" target="_blank" style="color:#1a73e8; margin-right:8px;">🧭 喜蓮咖啡導航</a>
+                    <a href="https://maps.google.com/?q=Seng+Cheong+Macau" target="_blank" style="color:#1a73e8;">🧭 誠昌飯店導航</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="section-title">📅 Day 3 (10/10) 雙摩天輪纜車 ＆ 夫妻放風夜</div>
+        
+        <!-- Day 3 地圖 -->
+        <div class="route-map-container">
+            <div class="map-title">🗺️ Day 3 澳門地形路線圖 <span style="font-size:0.75rem; font-weight:normal; color:#555;">(跨海前往南邊「路氹城」金光大道)</span></div>
+            <div class="map-canvas-box">
+                <svg class="map-svg-layer" viewBox="0 0 300 260">
+                    <path d="M 50 40 Q 40 70 60 90 Q 90 110 140 100 Q 220 110 240 70 Q 210 30 150 20 Q 90 20 50 40 Z" fill="#e2ecd8" opacity="0.4" stroke="#cbdcb8" stroke-width="1" />
+                    <!-- 氹仔/路氹城高亮 -->
+                    <path d="M 60 170 Q 50 200 90 240 Q 170 250 230 230 Q 250 180 200 160 Q 120 150 60 170 Z" fill="#e2ecd8" stroke="#cbdcb8" stroke-width="2" />
+                    <!-- 主要跨海大橋 -->
+                    <line x1="180" y1="95" x2="170" y2="162" stroke="#1a73e8" stroke-width="2.5" stroke-dasharray="4,4" />
+                    <!-- 當日路氹城內部的移動軌跡線 -->
+                    <path d="M 170 165 L 185 180 L 125 190 L 125 220 L 195 200 L 185 180" fill="none" stroke="#1a73e8" stroke-width="2.5" stroke-dasharray="3,3" />
+                </svg>
+                
+                <div class="region-text" style="bottom:75px; left:135px; color:#5c6b50;">路氹金光大道</div>
+
+                <div class="map-interactive-layer">
+                    <div class="map-node hotel" style="top:29%; left:58%;"></div><div class="map-label" style="top:29%; left:58%;">🏨 本島雅辰酒店 (出發/深夜放風)</div>
+                    <div class="map-node" style="top:69%; left:62%;"></div><div class="map-label" style="top:69%; left:62%;">🏰 上葡京 (花園 / 茶樓)</div>
+                    <div class="map-node" style="top:73%; left:42%;"></div><div class="map-label" style="top:73%; left:42%;">🏛️ 威尼斯人 (北方館)</div>
+                    <div class="map-node" style="top:85%; left:42%;"></div><div class="map-label" style="top:85%; left:42%;">🎡 新濠影滙 (8字摩天輪)</div>
+                    <div class="map-node" style="top:77%; left:65%;"></div><div class="map-label" style="top:77%; left:65%;">🚡 永利皇宮 (水舞纜車)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time-tag">10:30</span>
+                <div class="item-title">上午：上葡京綠茵勝境花園</div>
+                <div class="item-desc">放慢步調，睡飽後搭車前往路氹城。推車漫步上葡京絕美的巴洛克歐風巨型庭園，平坦好走、拍照極美。</div>
+                <a href="https://maps.google.com/?q=Grand+Lisboa+Palace+Macau" target="_blank" class="map-btn">🧭 上葡京導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">12:00</span>
+                <div class="item-title">午餐：威尼斯人 - 北方館</div>
+                <div class="item-desc">前往相連的威尼斯人度假村，午餐享用精緻的手工麵食、水餃與大眾化北方菜，分量好控制，適合食量不大的家庭。</div>
+                <a href="https://maps.google.com/?q=North+The+Venetian+Macao" target="_blank" class="map-btn">🧭 北方館導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">13:30</span>
+                <div class="item-title">下午：新濠影滙 8字摩天輪 ➔ 永利皇宮觀光纜車水舞</div>
+                <div class="item-desc">下午開啟景觀放鬆體驗：先前往新濠影滙，搭乘全球首創的<strong>「8字形摩天輪」</strong>俯瞰金光大道；隨後前往永利皇宮，搭乘高空<strong>「免費空中觀光纜車」</strong>，從空中一邊吹冷氣、一邊欣賞壯觀的巨型音樂噴泉水舞秀，長輩和2歲兒子絕對看得目不轉睛。</div>
+                <a href="https://maps.google.com/?q=Golden+Reel+Studio+City" target="_blank" class="map-btn">🧭 8字摩天輪導航</a>
+                <a href="https://maps.google.com/?q=Wynn+Palace+Macau" target="_blank" class="map-btn">🧭 永利皇宮導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">18:00</span>
+                <div class="item-title">晚餐：上葡京 - 茶樓</div>
+                <div class="item-desc">晚餐拒絕吃到飽！改安排在舒適的上葡京享用經典精緻的粵式點心、小菜。採單點制，吃多少點多少，完全沒有負擔。</div>
+                <a href="https://maps.google.com/?q=Chalou+Grand+Lisboa+Palace" target="_blank" class="map-btn">🧭 餐廳導航</a>
+            </div>
+            <div class="timeline-item" style="border-left: 2px dashed var(--accent-color); padding-left: 20px; margin-left: -2px;">
+                <span class="time-tag" style="color:var(--accent-color);">21:00</span>
+                <div class="item-title">🌌 夫妻放風時間 Round 1 <span class="casino-badge">娛樂場</span></div>
+                <div class="item-desc">
+                    <strong>金孫安頓：</strong>回到雅辰酒店，兒子由長輩在房間照看入睡。<br>
+                    <strong>小倆口放風：</strong>夫妻兩人手牽手步行過天橋，直接到隔壁的 <strong><a href="https://maps.google.com/?q=Sands+Macau" target="_blank" style="color:#1a73e8; font-weight:bold;">金沙娛樂場 (Sands)</a></strong> 或者是搭計程車到路氹城的 <strong><a href="https://maps.google.com/?q=MGM+Cotai" target="_blank" style="color:#1a73e8; font-weight:bold;">美獅美高梅 (MGM Cotai)</a></strong>，喝杯免費珍奶，小試身手享受兩人世界。
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div class="section-title">📅 Day 4 (10/11) 官也街採買 ＆ 二度放風</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time-tag">09:30</span>
+                <div class="item-title">上午：龍環葡韻 ➔ 官也街</div>
+                <div class="item-desc">漫步薄荷綠葡式別墅建築群，再順著平坦的自動步行系統直達美食集中地官也街。</div>
+                <a href="https://maps.google.com/?q=Taipa+Houses+Museum" target="_blank" class="map-btn">🧭 龍環葡韻導航</a>
+                <a href="https://maps.google.com/?q=Rua+do+Cunha+Macau" target="_blank" class="map-btn">🧭 官也街導航</a>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">11:30</span>
+                <div class="item-title">午餐 ＆ 最後伴手禮手信馬拉松</div>
+                <div class="item-desc">在官也街一網打盡熱門美食。</div>
+                <ul class="sub-list">
+                    <li>小吃美食：<a href="https://maps.google.com/?q=Tai+Lei+Loi+Kei+Taipa" target="_blank" style="color:#1a73e8;">大利來記豬扒包</a>、<a href="https://maps.google.com/?q=Lord+Stow+Bakery+Taipa" target="_blank" style="color:#1a73e8;">安德魯蛋塔（官也街店）</a>、<a href="https://maps.google.com/?q=Vitor+Shark+Finch+Soup+Noodle+Taipa" target="_blank" style="color:#1a73e8;">達榮魚翅湯麵</a></li>
+                    <li>手信伴手：<a href="https://maps.google.com/?q=Fong+Kei+Macau" target="_blank" style="color:#1a73e8;">晃記餅家</a>、鉅記手信</li>
+                </ul>
+            </div>
+            <div class="timeline-item" style="border-left: 2px dashed var(--accent-color); padding-left: 20px; margin-left: -2px;">
+                <span class="time-tag" style="color:var(--accent-color);">14:30</span>
+                <div class="item-title">🎰 夫妻放風 Round 2 ＆ 兒子 Kids Co. 放電 <span class="casino-badge">娛樂場</span></div>
+                <div class="item-desc">
+                    <strong>金孫安頓：</strong>回到雅辰酒店，請長輩陪同兒子到飯店極具盛名的 <strong>Kids Co. 兒童俱樂部</strong>玩耍放電，長輩可在池畔躺椅放鬆休息。<br>
+                    <strong>小倆口放風：</strong>夫妻把握最後兩小時，再度過天橋到隔壁 <strong><a href="https://maps.google.com/?q=Sands+Macau" target="_blank" style="color:#1a73e8; font-weight:bold;">金沙娛樂場 (Sands)</a></strong> 享受最後的娛樂時光。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="time-tag">17:40</span>
+                <div class="item-title">領取行李 ➔ 前往機場</div>
+                <div class="item-desc">雅辰酒店大廳取回行李，搭計程車前往機場辦理登機，準備搭乘 20:10 班機返台。</div>
+            </div>
+        </div>
+
+        <!-- 遺珠備案清單 -->
+        <div class="section-title">⭐ 其他私房口袋美食與景點備案</div>
+        <div class="card">
+            <div class="item-title" style="font-size:0.95rem; color:var(--primary-color);">【推薦備案景點】</div>
+            <ul class="sub-list">
+                <li><a href="https://maps.google.com/?q=The+House+of+Dancing+Water+Macau" target="_blank" style="color:#1a73e8; font-weight:bold;">新濠天地 - 水舞間</a>：頂級大型水上匯演。考量 2 歲幼童對大型聲光可能較敏感，適合等孩子大一點再去。</li>
+            </ul>
+
+            <div class="item-title" style="margin-top:15px; font-size:0.95rem; color:var(--primary-color);">【美食小吃備案】</div>
+            <ul class="sub-list">
+                <li><a href="https://maps.google.com/?q=Bamu+Bakery+Macau" target="_blank" style="color:#1a73e8; font-weight:bold;">八目烘焙 (BAMU)</a>：近年網紅爆紅烘焙店，其「焦糖千層蛋塔」外皮超酥脆。</li>
+                <li><a href="https://maps.google.com/?q=Dai+Tong+Gai+Fried+Chicken+Macau" target="_blank" style="color:#1a73e8; font-weight:bold;">大堂街秘方炸雞</a>：外皮多汁帶微甜，適合買回飯店當宵夜。</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

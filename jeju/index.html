@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>濟州島四日遊行程表 ✈️ (含遺珠備案與地圖連結)</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #FFA500;
+            --backup-color: #9B59B6;
+            --bg-color: #F4F7F9;
+            --card-bg: #FFFFFF;
+            --text-color: #333333;
+            --text-muted: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 15px;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #6BA4E8, #4A90E2);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .flight-info {
+            background-color: rgba(255, 255, 255, 0.15);
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .day-section {
+            margin-bottom: 25px;
+        }
+
+        .day-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-title .date {
+            font-size: 0.85rem;
+            font-weight: normal;
+            background-color: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .day-title.backup-title {
+            background-color: var(--backup-color);
+        }
+
+        .card-container {
+            background-color: var(--card-bg);
+            border-radius: 0 0 10px 10px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .spot-card {
+            border-left: 3px solid var(--secondary-color);
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background-color: #FAFBFD;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .spot-card.backup-card {
+            border-left: 3px solid var(--backup-color);
+            background-color: #FCF9FE;
+        }
+
+        .spot-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .time-tag {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .time-tag.backup-tag {
+            color: var(--backup-color);
+        }
+
+        .spot-name {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .spot-name a {
+            color: #222222;
+            text-decoration: none;
+            border-bottom: 2px dashed var(--primary-color);
+        }
+
+        .spot-card.backup-card .spot-name a {
+            border-bottom: 2px dashed var(--backup-color);
+        }
+
+        .spot-name a:hover {
+            color: var(--primary-color);
+        }
+
+        .spot-card.backup-card .spot-name a:hover {
+            color: var(--backup-color);
+        }
+
+        .spot-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .highlight {
+            color: #D9534F;
+            font-weight: bold;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .tag-food { background-color: #FFE6CC; color: #D35400; }
+        .tag-shop { background-color: #E8F8F5; color: #117A65; }
+        .tag-view { background-color: #EAF2F8; color: #2471A3; }
+        .tag-gift { background-color: #EBF5FB; color: #2E86C1; }
+
+        .rain-backup {
+            background-color: #FDF2F2;
+            border: 1px dashed #EC7063;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        .rain-backup-title {
+            color: #C0392B;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>濟州島四日遊行程表 🌴</h1>
+        <p>包含主行程規劃與原始表格遺珠店家 ‧ 點擊名稱開啟 Google Maps</p>
+        <div class="flight-info">
+            <div>🛫 去程：11/13 (五)<br><b>IT654</b> 07:50 - 10:45</div>
+            <div>🛬 回程：11/16 (一)<br><b>IT655</b> 11:40 - 12:55</div>
+        </div>
+    </header>
+
+    <!-- DAY 1 -->
+    <div class="day-section">
+        <div class="day-title">
+            <span>Day 1 ‧ 直奔東門市場與熟成黑豬肉</span>
+            <span class="date">11/13 (五)</span>
+        </div>
+        <div class="card-container">
+            <div class="spot-card">
+                <span class="time-tag">10:45 - 11:45</span>
+                <div class="spot-name">濟州國際機場抵達 & 樂天取車</div>
+                <div class="spot-desc">取車手續完成後，可順便在機場國內線大廳 4 號出口旁購買 <span class="highlight">Umu 海藻布丁</span>。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">11:45 - 14:00</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=4366899934413159669" target="_blank">濟州東門市場</a> & <a href="https://maps.google.com/?cid=4572885829171225304" target="_blank">Abebe Bakery</a><span class="tag tag-food">美食</span><span class="tag tag-shop">甜點</span></div>
+                <div class="spot-desc">直接開吃！午餐在市場內享用鮑魚飯糰、黑豬肉串。隨後步行外帶香濃的 <span class="highlight">Abebe 爆漿鮮奶油麵包</span>、市場 2 號口買橘子麻糬。<i>(順路遺珠可參考下方備案專區)</i></div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">14:15</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=15692385771004240229" target="_blank">Ocean Suites Jeju Hotel</a></div>
+                <div class="spot-desc">前往海景飯店辦理 Check-in 寄放行李與戰利品。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">15:00 - 17:30</span>
+                <div class="spot-name">崖月海岸公路散步 & <a href="https://maps.google.com/?cid=789095604944056850" target="_blank">gyulgyulstore</a> / <a href="https://maps.google.com/?cid=11552712882253971529" target="_blank">my jeju GIFT</a><span class="tag tag-view">海景</span><span class="tag tag-shop">米飛兔</span></div>
+                <div class="spot-desc">西部自駕看海。盡情採買濟州柑橘、海女限定版的超萌<span class="highlight">米飛兔玩偶與特色紀念品</span>！可順路去外帶 Egg Excellent 橘子蛋塔、Haru Film 拍照或停靠遺珠香水店。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">18:00</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=5854162730820845842" target="_blank">熟成到 濟州本店 (숙성도)</a><span class="tag tag-food">大餐</span></div>
+                <div class="spot-desc">晚餐進攻最頂級的<span class="highlight">厚切熟成黑豬肉燒烤</span>。行家專人代烤，搭配名物鯷魚醬、明太子，極致美味！</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">21:00</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=10822184518429188206" target="_blank">E-Mart 濟州店</a> / 蓮洞商圈</div>
+                <div class="spot-desc">回到飯店周邊補貨，採買漢拏山燒酒、Frunack 柑橘巧克力等伴手禮。深夜嘴饞可外帶 BHC 炸雞。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-section">
+        <div class="day-title">
+            <span>Day 2 ‧ 西南部自然壯麗線</span>
+            <span class="date">11/14 (六)</span>
+        </div>
+        <div class="card-container">
+            <div class="spot-card">
+                <span class="time-tag">09:30 - 11:30</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=12140685934529367462" target="_blank">濟州堂 (제주당)</a> & <a href="https://maps.google.com/?cid=8940608552391039864" target="_blank">Saebil 咖啡廳</a><span class="tag tag-view">巨型網美店</span></div>
+                <div class="spot-desc">走訪全島規模最大的綠意咖啡廳，必點牛奶/芝麻軟法、玉米麵包跟鮮橘子汁。隨後在旁邊拍下絕美風光。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">11:50 - 12:50</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=15349503375836473177" target="_blank">O’sulloc 雪綠茶博物館</a><span class="tag tag-shop">抹茶</span></div>
+                <div class="spot-desc">漫步開闊的綠色茶園，在玻璃屋內小憩，採買超強抹茶抹醬。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">13:10 - 14:30</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=3847348981180217066" target="_blank">Galchiwang 白帶魚料理 (갈치왕)</a><span class="tag tag-food">大餐</span></div>
+                <div class="spot-desc">午餐豪邁享用巨無霸整條碳烤白帶魚（專人桌邊細緻去刺），極致浮誇。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">14:45 - 15:45</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=16892243613461625135" target="_blank">山茶花之丘 (Camellia Hill)</a><span class="tag tag-view">景點</span></div>
+                <div class="spot-desc">漫步在森林系唯美庭園中，欣賞豐富的植栽與造景打卡點。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">16:15 - 17:15</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=2996918835848270559" target="_blank">大浦海岸柱狀節理帶【大岩壁】</a><span class="tag tag-view">必訪</span></div>
+                <div class="spot-desc">親眼感受高達數十公尺、熔岩冷卻形成的六角垂直火山大岩壁，驚濤拍岸，無比壯麗。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">18:30</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=14227914488924046200" target="_blank">富平總店 黑豬肉燒烤</a><span class="tag tag-food">炭火烤肉</span></div>
+                <div class="spot-desc">晚餐回市區延續美味，享用炭火風味的烤豬肉大餐。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-section">
+        <div class="day-title">
+            <span>Day 3 ‧ 東部夢幻跳島 & 鮑魚名店</span>
+            <span class="date">11/15 (日)</span>
+        </div>
+        <div class="card-container">
+            <div class="spot-card">
+                <span class="time-tag">07:00 - 08:00</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=17565345719363845014" target="_blank">Audrant Bakery 大蒜麵包</a><span class="tag tag-food">必外帶</span></div>
+                <div class="spot-desc">一大早直接外帶全濟州公認吸滿乳酪與香濃蒜醬的<span class="highlight">超強大蒜麵包</span>！可順便在旁邊白淨的咸德海灘散步。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">08:30 - 09:30</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=4242631562947266657" target="_blank">London Bagel Museum 濟州店</a><span class="tag tag-view">網美</span></div>
+                <div class="spot-desc">一邊看著清晨波光粼粼的東海岸，一邊外帶最熱門的磚牆貝果。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">10:30 - 15:30</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=14093950293113945952" target="_blank">牛島 (Udo) 跳島之旅</a><span class="tag tag-view">跳島</span></div>
+                <div class="spot-desc">從城山港搭船前往（船程 15 分鐘）。島上騎乘電動三輪車，看西濱白沙，且<span class="highlight">必須品嚐灑滿碎花生的牛島花生冰淇淋</span>。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">16:00 - 17:30</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=17537749748087178306" target="_blank">明珍鮑魚 (Myeongjin Jeonbok)</a><span class="tag tag-food">大餐方案A</span></div>
+                <div class="spot-desc">牛島返本島後直奔！老字號鮑魚店，必點帶有微焦鍋巴的<span class="highlight">鮑魚石鍋飯（附送烤鯖魚）</span>、濃郁爆棚的鮑魚粥、烤鮑魚。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">19:00</span>
+                <div class="spot-name">返回 Ocean Suites 飯店</div>
+                <div class="spot-desc">回到飯店洗個熱水澡休息，整理伴手禮行李。</div>
+            </div>
+
+            <!-- 雨天備案 -->
+            <div class="rain-backup">
+                <div class="rain-backup-title">🌧️ Day 3 雨天備案（若牛島因風浪停駛）</div>
+                <div>大蒜麵包 / 倫敦貝果改純外帶 ➔ 轉往精緻室內景點 <a href="https://maps.google.com/?cid=10636848039649514681" target="_blank">Snoopy Garden (史努比庭園)</a> 或不受天氣影響的古老熔岩洞窟 <a href="https://maps.google.com/?cid=891157303031174625" target="_blank">萬丈窟</a> ➔ 下午明珍鮑魚晚餐行程照舊。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-section">
+        <div class="day-title">
+            <span>Day 4 ‧ 悠閒退房與返程</span>
+            <span class="date">11/16 (一)</span>
+        </div>
+        <div class="card-container">
+            <div class="spot-card">
+                <span class="time-tag">08:30 - 09:30</span>
+                <div class="spot-name">海景飯店早餐 & 退房</div>
+                <div class="spot-desc">在 Ocean Suites 享受最後的海景早餐，舒服地整理行李並辦理 Check-out。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">09:45 - 10:20</span>
+                <div class="spot-name">樂天租車還車 ➔ 機場報到</div>
+                <div class="spot-desc">前往樂天機場站還車（手續約 15 分鐘），並於 10:20 前抵達濟州機場報到櫃檯。</div>
+            </div>
+            <div class="spot-card">
+                <span class="time-tag">11:40</span>
+                <div class="spot-name">搭乘虎航 IT655 返台</div>
+                <div class="spot-desc">預計 12:55 抵達台灣，圓滿結束精彩好吃的濟州島四日旅行！</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遺珠備案專區 -->
+    <div class="day-section">
+        <div class="day-title backup-title">
+            <span>🌟 原始表格遺珠與自駕彈性備案</span>
+            <span class="date">彈性調整</span>
+        </div>
+        <div class="card-container">
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">市區逛街順路</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=554316024419515367" target="_blank">Gomimi 韓國馬卡龍</a><span class="tag tag-shop">甜點</span></div>
+                <div class="spot-desc">位於舊濟州市區，靠近東門市場。店面小巧精緻，販售口味濃郁、極具人氣的韓式馬卡龍。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">市區逛街順路</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=1263056073167154312" target="_blank">Jeju Basalt 玄武岩選物咖啡</a><span class="tag tag-gift">質感伴手禮</span></div>
+                <div class="spot-desc">將濟州地標「玄武岩」黑火山石融入糕點設計的人氣名店，包裝極具設計感，是送禮的高級首選。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">市區逛街順路</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=13554160459528651950" target="_blank">The Islander 文創選物店</a><span class="tag tag-shop">文創小物</span></div>
+                <div class="spot-desc">東門市場附近的文創選物店，販售許多在地設計師創作的手工紀念品、代表性海女與柑橘香水香氛。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">Day 1 西部自駕</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=8429184518173491327" target="_blank">Assisi 火山丘香水選物店</a><span class="tag tag-shop">質感香氛</span></div>
+                <div class="spot-desc">位於西部崖月海岸公路旁的質感選物店，其以濟州火山丘地形命名的獨特木質調香水非常出名。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">Day 1 西部自駕</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=12648835848270559357" target="_blank">Pickup Cafe 鹽麵包 (애월점)</a><span class="tag tag-food">下午茶</span></div>
+                <div class="spot-desc">位於西部崖月，主打現烤、帶有濃郁純粹奶油香氣且外皮微酥的招牌鹽麵包。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">正餐替代/宵夜</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=932348981182054947" target="_blank">Mayonnaise Restaurant</a><span class="tag tag-food">炸黑豬肉排</span></div>
+                <div class="spot-desc">市區極受在地年輕人喜愛的洋食館，招牌是外酥內嫩的厚切「炸黑豬肉豬排」與蛋包飯。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">正餐替代/自駕</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=12737749742404620000" target="_blank">Moonsso 螃蟹咖哩 (문쏘)</a><span class="tag tag-food">浮誇視覺</span></div>
+                <div class="spot-desc">位於西部的特色老宅餐廳，最震撼的是在黃咖哩上豪邁放上一整隻大螃蟹的「黃金螃蟹咖哩飯」。</div>
+            </div>
+            <div class="spot-card backup-card">
+                <span class="time-tag backup-tag">每晚深夜宵夜首選</span>
+                <div class="spot-name"><a href="https://maps.google.com/?cid=8422184518429188206" target="_blank">BHC 炸雞 (蓮洞店)</a><span class="tag tag-food">深夜限定</span></div>
+                <div class="spot-desc">營業至深夜。回飯店嘴饞時必外帶原始表格強推、裹上甜辣蒜香醬汁的「Macho King 炸雞」或火山爆發雞。</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
