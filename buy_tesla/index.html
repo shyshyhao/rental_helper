@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>⚡ Tesla Model Y 交付全攻略與任務指南 | RN128258384</title>
+    <meta name="description" content="Tesla Model Y 2026/09/17 交車必備指南：四大任務、匯款帳號、舊車 Wish 報廢二親等 5萬退稅、銀行貸款比較、車險防坑須知與隔熱紙預約。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --tesla-red: #E82127;
+            --tesla-red-glow: rgba(232, 33, 39, 0.4);
+            --tesla-dark: #0B0E14;
+            --tesla-card: rgba(22, 28, 38, 0.85);
+            --tesla-card-hover: rgba(30, 38, 50, 0.95);
+            --tesla-border: rgba(255, 255, 255, 0.12);
+            --tesla-border-active: rgba(232, 33, 39, 0.6);
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --accent-cyan: #00F0FF;
+            --accent-green: #10B981;
+            --accent-amber: #F59E0B;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--tesla-dark);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(232, 33, 39, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(0, 240, 255, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        /* Number font */
+        .num-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Top Hero Header */
+        .hero-header {
+            position: relative;
+            background: linear-gradient(135deg, rgba(30, 35, 48, 0.9), rgba(15, 18, 25, 0.95));
+            border: 1px solid var(--tesla-border);
+            border-radius: var(--radius-lg);
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--tesla-red), var(--accent-cyan));
+        }
+
+        .top-badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .badge-red {
+            background: rgba(232, 33, 39, 0.2);
+            color: #FF6B6B;
+            border: 1px solid rgba(232, 33, 39, 0.4);
+        }
+
+        .badge-cyan {
+            background: rgba(0, 240, 255, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .badge-rn {
+            background: rgba(255, 255, 255, 0.08);
+            color: #E5E7EB;
+            border: 1px solid var(--tesla-border);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .badge-rn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #D1D5DB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-sub {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Countdown Box */
+        .countdown-box {
+            background: rgba(10, 14, 20, 0.7);
+            border: 1px solid var(--tesla-border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .countdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            text-align: center;
+        }
+
+        .time-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 10px 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .time-card .num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            line-height: 1.1;
+        }
+
+        .time-card .label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Overall Progress Bar */
+        .progress-section {
+            background: var(--tesla-card);
+            border: 1px solid var(--tesla-border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(12px);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .progress-bar-bg {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--tesla-red), var(--accent-green));
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 12px var(--tesla-red-glow);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            border: 1px solid var(--tesla-border);
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn.active {
+            background: var(--tesla-red);
+            color: #FFFFFF;
+            border-color: var(--tesla-red);
+            box-shadow: 0 4px 15px var(--tesla-red-glow);
+        }
+
+        /* Section Panels */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--tesla-card);
+            border: 1px solid var(--tesla-border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(12px);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i {
+            color: var(--tesla-red);
+        }
+
+        .task-card {
+            position: relative;
+            padding-left: 54px;
+        }
+
+        .task-checkbox-wrapper {
+            position: absolute;
+            left: 18px;
+            top: 22px;
+        }
+
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 2px solid var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .task-card.completed {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .task-card.completed .custom-checkbox {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: white;
+        }
+
+        .task-card.completed .card-title {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .deadline-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-amber);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* Account Box */
+        .account-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .account-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .account-row .label {
+            color: var(--text-muted);
+        }
+
+        .account-row .value {
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--tesla-border);
+            color: #F3F4F6;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            background: var(--tesla-red);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 12px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px var(--tesla-red-glow);
+        }
+
+        .btn-action:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        /* Timeline View */
+        .timeline-container {
+            position: relative;
+            padding-left: 24px;
+            margin: 10px 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--tesla-red), var(--accent-cyan), var(--accent-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -24px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--tesla-dark);
+            border: 3px solid var(--tesla-red);
+            box-shadow: 0 0 10px var(--tesla-red);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            background: var(--tesla-card);
+            border: 1px solid var(--tesla-border);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        /* Comparison Table */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--tesla-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--tesla-border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Notice Alert Banner */
+        .alert-banner {
+            background: rgba(232, 33, 39, 0.12);
+            border: 1px solid rgba(232, 33, 39, 0.4);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .alert-banner i {
+            color: var(--tesla-red);
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+
+        .alert-content h4 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #FF8F8F;
+        }
+
+        .alert-content p {
+            font-size: 0.88rem;
+            color: #E5E7EB;
+        }
+
+        /* Calculator Card */
+        .calc-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--tesla-border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-group label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .input-group input, .input-group select {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--tesla-border);
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .calc-result {
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .calc-result-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        /* Delivery Day Checklist */
+        .check-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--tesla-border);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        .check-item.done {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: rgba(16, 185, 129, 0.3);
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(22, 28, 38, 0.95);
+            border: 1px solid var(--accent-cyan);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 1.4rem; }
+            .timer-grid { grid-template-columns: repeat(4, 1fr); }
+            .time-card .num { font-size: 1.2rem; }
+            .card { padding: 16px; }
+            .task-card { padding-left: 48px; }
+            .task-checkbox-wrapper { left: 14px; top: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Hero Header -->
+        <header class="hero-header">
+            <div class="top-badge-group">
+                <span class="badge badge-red"><i class="fa-solid fa-car-side"></i> Tesla Model Y</span>
+                <span class="badge badge-cyan"><i class="fa-solid fa-location-dot"></i> 台北內湖交付中心</span>
+                <span class="badge badge-rn" onclick="copyText('RN128258384', '訂單編號 RN128258384')">
+                    <i class="fa-regular fa-copy"></i> 訂單: RN128258384
+                </span>
+            </div>
+
+            <h1 class="hero-title"><i class="fa-solid fa-bolt" style="color:var(--tesla-red);"></i> 交付全攻略與任務指南</h1>
+            <p class="hero-sub"><i class="fa-regular fa-calendar-check"></i> 預約交車：2026/09/17 (週四) 12:00 PM</p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-box">
+                <div class="countdown-header">
+                    <span><i class="fa-solid fa-stopwatch"></i> 距離交車倒數時刻</span>
+                    <span id="target-date-label">2026/09/17 12:00</span>
+                </div>
+                <div class="timer-grid">
+                    <div class="time-card">
+                        <div class="num num-font" id="cd-days">00</div>
+                        <div class="label">天</div>
+                    </div>
+                    <div class="time-card">
+                        <div class="num num-font" id="cd-hours">00</div>
+                        <div class="label">時</div>
+                    </div>
+                    <div class="time-card">
+                        <div class="num num-font" id="cd-mins">00</div>
+                        <div class="label">分</div>
+                    </div>
+                    <div class="time-card">
+                        <div class="num num-font" id="cd-secs">00</div>
+                        <div class="label">秒</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Overall Progress Section -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <span><i class="fa-solid fa-list-check"></i> 交車前四大必辦任務完成度</span>
+                <span id="progress-percent" class="num-font" style="color:var(--accent-cyan);">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('tab-tasks', this)">
+                <i class="fa-solid fa-tasks"></i> 四大任務與匯款
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-timeline', this)">
+                <i class="fa-solid fa-timeline"></i> 時間軸
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-loans', this)">
+                <i class="fa-solid fa-building-columns"></i> 貸款試算
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-scrap', this)">
+                <i class="fa-solid fa-recycle"></i> 舊車報廢退稅
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-insurance', this)">
+                <i class="fa-solid fa-shield-halved"></i> 車險與隔熱紙
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-checklist', this)">
+                <i class="fa-solid fa-clipboard-check"></i> 交車當天清單
+            </button>
+        </nav>
+
+        <!-- PANEL 1: Four Main Tasks -->
+        <div id="tab-tasks" class="tab-panel active">
+            
+            <!-- Task 1 -->
+            <div class="card task-card" id="task-card-1">
+                <div class="task-checkbox-wrapper">
+                    <div class="custom-checkbox" onclick="toggleTask(1)">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>任務 (1)：車輛自備款匯款</span>
+                    </div>
+                    <span class="deadline-tag"><i class="fa-regular fa-clock"></i> 8/27 (週四) 前</span>
+                </div>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:8px;">
+                    銀行專員主動聯繫並審核通過後，提供最終自備款金額。請於期限內完成匯款。<br>
+                    <small>（※ 車輛登記人 ＝ 車貸貸款人 ＝ 被保險人）</small>
+                </p>
+                <div class="account-box">
+                    <div class="account-row">
+                        <span class="label">銀行名稱：</span>
+                        <span class="value">021 花旗(台灣)商業銀行</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">分行代號：</span>
+                        <span class="value">0018 營業部</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">戶名：</span>
+                        <span class="value">台灣特斯拉汽車有限公司</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">匯款帳號：</span>
+                        <span class="value num-font">7606-0128258384</span>
+                        <button class="btn-copy" onclick="copyText('76060128258384', '花旗自備款帳號')">
+                            <i class="fa-regular fa-copy"></i> 複製帳號
+                        </button>
+                    </div>
+                </div>
+                <p style="font-size:0.78rem; color:var(--accent-amber); margin-top:8px;">
+                    <i class="fa-solid fa-circle-info"></i> 花旗銀行企業戶不受合併影響，可正常匯款辦理。
+                </p>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="card task-card" id="task-card-2">
+                <div class="task-checkbox-wrapper">
+                    <div class="custom-checkbox" onclick="toggleTask(2)">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>任務 (2)：支付代辦費用 $8,500</span>
+                    </div>
+                    <span class="deadline-tag"><i class="fa-regular fa-clock"></i> 8/27 (週四) 前</span>
+                </div>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:8px;">
+                    費用包含監理站領牌規費、選號費、第一年強制險與代辦服務費（多退少補）。<br>
+                    <strong style="color:#FF8F8F;">⚠️ 匯款備註請務必填寫「車主姓名」以利核對！</strong>
+                </p>
+                <div class="account-box">
+                    <div class="account-row">
+                        <span class="label">銀行名稱：</span>
+                        <span class="value">822 中國信託商業銀行</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">分行名稱：</span>
+                        <span class="value">中崙分行</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">戶名：</span>
+                        <span class="value">潘耀祖</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">匯款帳號：</span>
+                        <span class="value num-font">093540283912</span>
+                        <button class="btn-copy" onclick="copyText('093540283912', '中信代辦費帳號')">
+                            <i class="fa-regular fa-copy"></i> 複製帳號
+                        </button>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">金額：</span>
+                        <span class="value num-font" style="color:var(--accent-cyan);">$8,500 元</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <div class="card task-card" id="task-card-3">
+                <div class="task-checkbox-wrapper">
+                    <div class="custom-checkbox" onclick="toggleTask(3)">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>任務 (3)：填寫代辦費用表單</span>
+                    </div>
+                    <span class="deadline-tag"><i class="fa-regular fa-clock"></i> 8/27 (週四) 前</span>
+                </div>
+                <p style="font-size:0.9rem; color:var(--text-muted);">
+                    完成代辦費 $8,500 匯款後，請線上填寫表單，以利代辦人員聯繫後續選號流程。
+                </p>
+                <a href="https://myppt.cc/YqACSG" target="_blank" class="btn-action">
+                    <i class="fa-solid fa-file-pen"></i> 前往填寫代辦費用表單 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- Task 4 -->
+            <div class="card task-card" id="task-card-4">
+                <div class="task-checkbox-wrapper">
+                    <div class="custom-checkbox" onclick="toggleTask(4)">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>任務 (4)：寄出車主「身分證正本」</span>
+                    </div>
+                    <span class="deadline-tag"><i class="fa-regular fa-clock"></i> 9/07 (週一) 前</span>
+                </div>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:8px;">
+                    貸款審核通過後 & 交車前 10 天，請使用<strong>郵局快捷或掛號</strong>寄出（勿用平信）。
+                </p>
+                <div class="account-box">
+                    <div class="account-row">
+                        <span class="label">收件人：</span>
+                        <span class="value">Tesla 台北交付辦公室</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">電話：</span>
+                        <span class="value num-font">02-6610-3800 #1</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">地址：</span>
+                        <span class="value" style="font-size:0.85rem;">114 台北市內湖區堤頂大道一段 355 號 4 樓</span>
+                        <button class="btn-copy" onclick="copyText('114台北市內湖區堤頂大道一段355號4樓 Tesla台北交付辦公室', '寄件地址')">
+                            <i class="fa-regular fa-copy"></i> 複製地址
+                        </button>
+                    </div>
+                </div>
+                <p style="font-size:0.85rem; color:#FF8F8F; margin-top:10px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>信封封面請備註訂單號碼【RN128258384】</strong><br>
+                    <small style="color:var(--text-muted);">Tesla 收到後會由 App 自動發送通知，證件將於交車當天同車籍資料歸還。</small>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- PANEL 2: Timeline View -->
+        <div id="tab-timeline" class="tab-panel">
+            <div class="card">
+                <h3 class="card-title" style="margin-bottom:16px;">
+                    <i class="fa-solid fa-timeline"></i> Tesla 交付全流程時間軸
+                </h3>
+                
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2026/08/27 (週四) 前</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">💰 資金與代辦手續完畢</div>
+                            <p style="font-size:0.88rem; color:var(--text-muted);">
+                                1. 完成車輛自備款匯款 (花旗銀行)<br>
+                                2. 完成代辦費 $8,500 匯款 (中信潘耀祖，備註車主姓名)<br>
+                                3. 線上填寫代辦表單 (確認選號)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2026/09/07 (週一) 前</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">✉️ 郵寄身分證正本</div>
+                            <p style="font-size:0.88rem; color:var(--text-muted);">
+                                郵局快捷或掛號寄出車主身分證正本至內湖交付辦公室 4 樓，封面註明 RN128258384。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="border-color:var(--accent-cyan); box-shadow:0 0 10px var(--accent-cyan);"></div>
+                        <div class="timeline-date">交車前 2 ~ 3 個工作日</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">🔢 車牌選號聯繫</div>
+                            <p style="font-size:0.88rem; color:var(--text-muted);">
+                                特斯拉代辦人員會電話聯繫您溝通監理站車牌選號細節。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="border-color:var(--accent-amber); box-shadow:0 0 10px var(--accent-amber);"></div>
+                        <div class="timeline-date">交車前 3 ~ 5 天</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">🛡️ 新車任意險投保</div>
+                            <p style="font-size:0.88rem; color:var(--text-muted);">
+                                取得選號單/強制險證後，轉發給保險專員（陳漢奇），完成新車任意險開單與生效。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="border-color:var(--accent-green); box-shadow:0 0 12px var(--accent-green);"></div>
+                        <div class="timeline-date">2026/09/17 (週四) 12:00 PM</div>
+                        <div class="timeline-content" style="border-color:var(--accent-green);">
+                            <div class="timeline-title" style="color:var(--accent-green);">🎉 歡樂交車日 (12:00 PM)</div>
+                            <p style="font-size:0.88rem; color:var(--text-muted);">
+                                提前 10 分鐘抵達堤頂大道一段 355 號 B4。帶第二證件，現場繳交舊車 Wish 報廢文件申辦 5 萬退稅。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL 3: Loan Options & Calculator -->
+        <div id="tab-loans" class="tab-panel">
+            <div class="card">
+                <h3 class="card-title" style="margin-bottom:14px;">
+                    <i class="fa-solid fa-building-columns"></i> 銀行合作貸款方案比較
+                </h3>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>銀行</th>
+                                <th>利率方案</th>
+                                <th>設定費</th>
+                                <th>最長年限</th>
+                                <th>適合客群</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>台新銀行</strong></td>
+                                <td>本利 2.85%<br><small style="color:var(--accent-green);">車商補貼 2.08%</small></td>
+                                <td class="num-font">$3,500</td>
+                                <td class="num-font">7 年</td>
+                                <td>自營商 / 公司 / 自由業</td>
+                            </tr>
+                            <tr>
+                                <td><strong>元大銀行</strong></td>
+                                <td>本利 2.85%<br><small style="color:var(--accent-green);">車商補貼 2.08%</small></td>
+                                <td class="num-font" style="color:var(--accent-cyan);">$2,000</td>
+                                <td class="num-font">7 年</td>
+                                <td>固定薪轉紀錄客戶</td>
+                            </tr>
+                            <tr>
+                                <td><strong>玉山信貸 (Q3)</strong></td>
+                                <td style="color:var(--accent-cyan);">2.40% 機動</td>
+                                <td class="num-font">$2,000</td>
+                                <td class="num-font" style="color:var(--accent-green);">10 年</td>
+                                <td>全車型通用信貸</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Loan Monthly Calculator -->
+                <div class="calc-box">
+                    <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:10px;">
+                        <i class="fa-solid fa-calculator"></i> 車貸月付額試算器
+                    </h4>
+                    <div class="calc-grid">
+                        <div class="input-group">
+                            <label>貸款金額 (萬)</label>
+                            <input type="number" id="calc-amount" value="100" min="10" max="300" step="10" oninput="calculateLoan()">
+                        </div>
+                        <div class="input-group">
+                            <label>年利率 (%)</label>
+                            <input type="number" id="calc-rate" value="2.08" min="0.1" max="10" step="0.01" oninput="calculateLoan()">
+                        </div>
+                        <div class="input-group">
+                            <label>期數 (年)</label>
+                            <select id="calc-years" onchange="calculateLoan()">
+                                <option value="3">3 年 (36期)</option>
+                                <option value="5">5 年 (60期)</option>
+                                <option value="7" selected>7 年 (84期)</option>
+                                <option value="10">10 年 (120期)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="calc-result">
+                        <div style="font-size:0.8rem; color:var(--text-muted);">預估每月本利攤還金額</div>
+                        <div class="calc-result-num num-font" id="calc-monthly">$12,795 元</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL 4: Scrap & 50k Tax Refund -->
+        <div id="tab-scrap" class="tab-panel">
+            <div class="card">
+                <h3 class="card-title">
+                    <i class="fa-solid fa-recycle"></i> 舊車 (Wish) 報廢與二親等 5 萬退稅
+                </h3>
+                <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:14px;">
+                    舊車名下為<strong>父親</strong>，新 Model Y 在<strong>您名下</strong>。屬二親等直系親屬換購，完全合乎貨物稅減徵 $50,000 資格！
+                </p>
+
+                <div class="timeline-container" style="padding-left:20px;">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-title">步驟 1：聯絡合法回收商拖車</div>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">
+                            取得：<strong>現金車體殘值 (殺肉錢)</strong> + <strong>「廢機動車輛回收管制聯單」</strong>。
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-title">步驟 2：監理站辦理「車籍報廢」</div>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">
+                            帶車牌、行照、父親身分證/印章。取得：<strong>「汽車異動登記書（報廢證明）」</strong>。（監理站同步退還溢繳牌照稅/燃料費）。
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-title">步驟 3：線上領取環境部 $1,000 獎勵金</div>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">
+                            電腦/手機登入環境部「車輛回收服務一站通」，輸入管制聯單號碼與<strong>父親的銀行帳戶</strong>申領。
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="border-color:var(--accent-green);"></div>
+                        <div class="timeline-title" style="color:var(--accent-green);">步驟 4：9/17 交車時交給 Tesla 專員代辦 5 萬退稅</div>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">
+                            國稅局審核通過後，50,000 元直接撥款至指定的父親帳戶！
+                        </p>
+                    </div>
+                </div>
+
+                <div class="account-box" style="margin-top:14px;">
+                    <h4 style="font-size:0.9rem; font-weight:700; color:var(--accent-cyan); margin-bottom:8px;">
+                        <i class="fa-solid fa-folder-open"></i> 9/17 交車當天需帶的二親等退稅文件清單：
+                    </h4>
+                    <ul style="font-size:0.85rem; color:#E5E7EB; padding-left:20px; line-height:1.8;">
+                        <li>「汽車異動登記書 (報廢證明)」正本</li>
+                        <li>「廢機動車輛回收管制聯單」正本</li>
+                        <li>您 (新車主) 與父親 (舊車主) 的身分證影本</li>
+                        <li>戶口名簿影本 或 戶籍謄本正本 (證明父子/父女親屬關係)</li>
+                        <li>二親等退稅切結書 (特斯拉專員現場提供簽名)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL 5: Insurance & Tinting -->
+        <div id="tab-insurance" class="tab-panel">
+            
+            <!-- Insurance Alert -->
+            <div class="alert-banner">
+                <i class="fa-solid fa-shield-virus"></i>
+                <div class="alert-content">
+                    <h4>⚠️ 極重要：舊車保險切勿提前退保！</h4>
+                    <p>
+                        若您舊車的車體險良好係數「不是 0」，且名下只有一台車，<strong>請等 9/17 新車保單生效後，再退掉舊車保險</strong>！不要有空窗期，否則會影響新車以及未來 3 年的保費與折讓係數！
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title" style="margin-bottom:12px;">
+                    <i class="fa-solid fa-user-shield"></i> Tesla 車險專員聯絡資訊
+                </h3>
+                <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:10px;">
+                    交車前 3~5 天拿到選號單/強制險證後，請將資料傳給專員：
+                </p>
+                <div class="account-box">
+                    <div class="account-row">
+                        <span class="label">車險專家：</span>
+                        <span class="value">陳漢奇 (Hunky)</span>
+                    </div>
+                    <div class="account-row">
+                        <span class="label">投保時機：</span>
+                        <span class="value" style="color:var(--accent-cyan);">領牌後轉發「行照」與「強制險證」</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Window Tinting -->
+            <div class="card">
+                <h3 class="card-title" style="margin-bottom:12px;">
+                    <i class="fa-solid fa-sun"></i> 隔熱紙預約服務
+                </h3>
+                <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">
+                    Tesla 官方合作隔熱紙廠商預約：
+                </p>
+
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <a href="https://www.3mxtesla.com.tw/" target="_blank" class="btn-action" style="background:rgba(255,255,255,0.08); border:1px solid var(--tesla-border); box-shadow:none;">
+                        <i class="fa-solid fa-shield-cat"></i> 3M 隔熱紙線上預約 (官方 LINE: @449UPWLT)
+                    </a>
+                    <a href="https://teslamotor.com.tw/vkool-film/" target="_blank" class="btn-action" style="background:rgba(255,255,255,0.08); border:1px solid var(--tesla-border); box-shadow:none;">
+                        <i class="fa-solid fa-car-rear"></i> V-KOOL 隔熱紙線上預約 (專線: 0800-087-888)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PANEL 6: Delivery Day Checklist -->
+        <div id="tab-checklist" class="tab-panel">
+            <div class="card">
+                <h3 class="card-title" style="margin-bottom:14px;">
+                    <i class="fa-solid fa-clipboard-check"></i> 2026/09/17 (12:00 PM) 交車當天帶齊物品
+                </h3>
+
+                <div class="check-grid">
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c1')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>第二證件 (駕照 或 健保卡)</span>
+                    </div>
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c2')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>手機已安裝並登入 Tesla App</span>
+                    </div>
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c3')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>汽車異動登記書 (報廢證明正本)</span>
+                    </div>
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c4')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>廢機動車輛回收管制聯單正本</span>
+                    </div>
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c5')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>雙方身分證影本 (您與父親)</span>
+                    </div>
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c6')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>戶口名簿影本 或 戶籍謄本正本 (父子關係)</span>
+                    </div>
+                    <div class="check-item" onclick="toggleDeliveryCheck(this, 'c7')">
+                        <i class="fa-regular fa-square-check" style="font-size:1.2rem;"></i>
+                        <span>父親的銀行存摺影本 (5萬退稅撥款用)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Tesla Model Y Delivery Guide &copy; 2026 | Managed via <a href="../">rental_helper</a></p>
+        </footer>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check" style="color:var(--accent-cyan);"></i>
+        <span id="toast-msg">已成功複製到剪貼簿！</span>
+    </div>
+
+    <script>
+        // Delivery Date: 2026/09/17 12:00:00 GMT+8
+        const deliveryDate = new Date('2026-09-17T12:00:00+08:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = deliveryDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('cd-days').innerText = "00";
+                document.getElementById('cd-hours').innerText = "00";
+                document.getElementById('cd-mins').innerText = "00";
+                document.getElementById('cd-secs').innerText = "00";
+                document.getElementById('target-date-label').innerText = "🎉 今天是交車日！";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('cd-mins').innerText = String(mins).padStart(2, '0');
+            document.getElementById('cd-secs').innerText = String(secs).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Switch Tabs
+        function switchTab(panelId, btnEl) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+            document.getElementById(panelId).classList.add('active');
+            btnEl.classList.add('active');
+        }
+
+        // Tasks LocalStorage Sync & Progress Bar
+        const taskState = JSON.parse(localStorage.getItem('tesla_tasks_completed') || '{}');
+
+        function initTasks() {
+            [1, 2, 3, 4].forEach(id => {
+                if (taskState[id]) {
+                    document.getElementById(`task-card-${id}`).classList.add('completed');
+                }
+            });
+            updateProgressBar();
+        }
+
+        function toggleTask(id) {
+            taskState[id] = !taskState[id];
+            localStorage.setItem('tesla_tasks_completed', JSON.stringify(taskState));
+            
+            const card = document.getElementById(`task-card-${id}`);
+            if (taskState[id]) {
+                card.classList.add('completed');
+            } else {
+                card.classList.remove('completed');
+            }
+
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const completedCount = [1, 2, 3, 4].filter(id => taskState[id]).length;
+            const pct = Math.round((completedCount / 4) * 100);
+            
+            document.getElementById('progress-percent').innerText = `${pct}%`;
+            document.getElementById('progress-fill').style.width = `${pct}%`;
+        }
+
+        // Delivery Day Checklist Storage
+        const deliveryChecks = JSON.parse(localStorage.getItem('tesla_delivery_checks') || '{}');
+
+        function initDeliveryChecklist() {
+            document.querySelectorAll('.check-item').forEach((item, idx) => {
+                const key = `c${idx + 1}`;
+                if (deliveryChecks[key]) {
+                    item.classList.add('done');
+                    item.querySelector('i').className = 'fa-solid fa-square-check';
+                }
+            });
+        }
+
+        function toggleDeliveryCheck(el, key) {
+            deliveryChecks[key] = !deliveryChecks[key];
+            localStorage.setItem('tesla_delivery_checks', JSON.stringify(deliveryChecks));
+
+            if (deliveryChecks[key]) {
+                el.classList.add('done');
+                el.querySelector('i').className = 'fa-solid fa-square-check';
+            } else {
+                el.classList.remove('done');
+                el.querySelector('i').className = 'fa-regular fa-square-check';
+            }
+        }
+
+        // Loan Calculator
+        function calculateLoan() {
+            const amountWan = parseFloat(document.getElementById('calc-amount').value) || 100;
+            const annualRate = parseFloat(document.getElementById('calc-rate').value) || 2.08;
+            const years = parseInt(document.getElementById('calc-years').value) || 7;
+
+            const principal = amountWan * 10000;
+            const monthlyRate = (annualRate / 100) / 12;
+            const totalMonths = years * 12;
+
+            if (monthlyRate === 0) {
+                const monthly = Math.round(principal / totalMonths);
+                document.getElementById('calc-monthly').innerText = `$${monthly.toLocaleString()} 元`;
+                return;
+            }
+
+            // PMT formula
+            const monthlyPayment = Math.round(
+                (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / 
+                (Math.pow(1 + monthlyRate, totalMonths) - 1)
+            );
+
+            document.getElementById('calc-monthly').innerText = `$${monthlyPayment.toLocaleString()} 元`;
+        }
+
+        // Copy Helper
+        function copyText(text, name) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`已複製【${name}】到剪貼簿！`);
+            }).catch(err => {
+                showToast(`複製失敗，請手動選取：${text}`);
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        // Init
+        initTasks();
+        initDeliveryChecklist();
+        calculateLoan();
+    </script>
+</body>
+</html>
