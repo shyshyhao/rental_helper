@@ -1,5 +1,6 @@
 {
   "date": "2026-06-10",
+  "video_id": "xnznLLQLnig",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-10/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "16:56",
       "start_time_seconds": 1016,
       "title": "不是錢",
-      "video_url": null,
+      "video_id": "xnznLLQLnig",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=xnznLLQLnig&t=1016s",
+      "youtube_short_url": "https://youtu.be/xnznLLQLnig?t=1016",
+      "youtube_embed_url": "https://www.youtube.com/embed/xnznLLQLnig?start=1016",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/xnznLLQLnig?start=1016\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-10/",
       "punchline": "不同尺度，不同時間長短，就會有不同的問題哦。",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "27:37",
       "start_time_seconds": 1657,
       "title": "刀是兩面刃",
-      "video_url": null,
+      "video_id": "xnznLLQLnig",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=xnznLLQLnig&t=1657s",
+      "youtube_short_url": "https://youtu.be/xnznLLQLnig?t=1657",
+      "youtube_embed_url": "https://www.youtube.com/embed/xnznLLQLnig?start=1657",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/xnznLLQLnig?start=1657\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-10/",
       "punchline": "不同角度就有不同思維。所以最後還是取決於你是不是科技樂觀論者。",
       "lines": [
@@ -64,7 +73,11 @@
       "time_stamp": "32:42",
       "start_time_seconds": 1962,
       "title": "誘空 Rap",
-      "video_url": null,
+      "video_id": "xnznLLQLnig",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=xnznLLQLnig&t=1962s",
+      "youtube_short_url": "https://youtu.be/xnznLLQLnig?t=1962",
+      "youtube_embed_url": "https://www.youtube.com/embed/xnznLLQLnig?start=1962",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/xnznLLQLnig?start=1962\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-10/",
       "punchline": "yo～空 yo～空 yo～空。」",
       "lines": [

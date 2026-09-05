@@ -1,5 +1,6 @@
 {
   "date": "2026-08-04",
+  "video_id": "z3pq4kLE5Sw",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-04/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "13:48",
       "start_time_seconds": 828,
       "title": "一發不夠用",
-      "video_url": null,
+      "video_id": "z3pq4kLE5Sw",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=z3pq4kLE5Sw&t=828s",
+      "youtube_short_url": "https://youtu.be/z3pq4kLE5Sw?t=828",
+      "youtube_embed_url": "https://www.youtube.com/embed/z3pq4kLE5Sw?start=828",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/z3pq4kLE5Sw?start=828\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-04/",
       "punchline": "你有能力降低成本嘛。",
       "lines": [
@@ -35,7 +40,11 @@
       "time_stamp": "28:07",
       "start_time_seconds": 1687,
       "title": "薄冰哥",
-      "video_url": null,
+      "video_id": "z3pq4kLE5Sw",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=z3pq4kLE5Sw&t=1687s",
+      "youtube_short_url": "https://youtu.be/z3pq4kLE5Sw?t=1687",
+      "youtube_embed_url": "https://www.youtube.com/embed/z3pq4kLE5Sw?start=1687",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/z3pq4kLE5Sw?start=1687\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-04/",
       "punchline": "不小心分開了，等一下我稍微把它裝起來，連起來了。",
       "lines": [

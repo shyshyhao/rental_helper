@@ -1,5 +1,6 @@
 {
   "date": "2026-02-24",
+  "video_id": "Ys3DAM85J9U",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-24/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "27:51",
       "start_time_seconds": 1671,
       "title": "不可能的三角",
-      "video_url": null,
+      "video_id": "Ys3DAM85J9U",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Ys3DAM85J9U&t=1671s",
+      "youtube_short_url": "https://youtu.be/Ys3DAM85J9U?t=1671",
+      "youtube_embed_url": "https://www.youtube.com/embed/Ys3DAM85J9U?start=1671",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Ys3DAM85J9U?start=1671\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-24/",
       "punchline": "所以我們後續要觀察，你本來就是在本人的 AI 浪潮當中，選擇自己最有利的位置。",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-01-20",
+  "video_id": "kfBoVRk9iKQ",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-20/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "11:09",
       "start_time_seconds": 669,
       "title": "老花眼鏡",
-      "video_url": null,
+      "video_id": "kfBoVRk9iKQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=kfBoVRk9iKQ&t=669s",
+      "youtube_short_url": "https://youtu.be/kfBoVRk9iKQ?t=669",
+      "youtube_embed_url": "https://www.youtube.com/embed/kfBoVRk9iKQ?start=669",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/kfBoVRk9iKQ?start=669\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-20/",
       "punchline": "跌的時候你不敢買它，股價不漲的時候你也不敢買，漲的時候你又捨不得放過，一輩子都在市場後面跑。",
       "lines": [
@@ -27,7 +32,11 @@
       "time_stamp": "15:35",
       "start_time_seconds": 935,
       "title": "男人特徵",
-      "video_url": null,
+      "video_id": "kfBoVRk9iKQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=kfBoVRk9iKQ&t=935s",
+      "youtube_short_url": "https://youtu.be/kfBoVRk9iKQ?t=935",
+      "youtube_embed_url": "https://www.youtube.com/embed/kfBoVRk9iKQ?start=935",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/kfBoVRk9iKQ?start=935\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-20/",
       "punchline": "所以沒有 100% 好的投資方式，也沒有 100% 對的人。",
       "lines": [

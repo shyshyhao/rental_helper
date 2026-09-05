@@ -1,5 +1,6 @@
 {
   "date": "2026-05-21",
+  "video_id": "8C3KAvgydk4",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-21/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "14:44",
       "start_time_seconds": 884,
       "title": "麻將",
-      "video_url": null,
+      "video_id": "8C3KAvgydk4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=8C3KAvgydk4&t=884s",
+      "youtube_short_url": "https://youtu.be/8C3KAvgydk4?t=884",
+      "youtube_embed_url": "https://www.youtube.com/embed/8C3KAvgydk4?start=884",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/8C3KAvgydk4?start=884\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-21/",
       "punchline": "這就差很多。",
       "lines": [
@@ -29,7 +34,11 @@
       "time_stamp": "19:38",
       "start_time_seconds": 1178,
       "title": "胃食道逆流",
-      "video_url": null,
+      "video_id": "8C3KAvgydk4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=8C3KAvgydk4&t=1178s",
+      "youtube_short_url": "https://youtu.be/8C3KAvgydk4?t=1178",
+      "youtube_embed_url": "https://www.youtube.com/embed/8C3KAvgydk4?start=1178",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/8C3KAvgydk4?start=1178\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-21/",
       "punchline": "不能裝太多。",
       "lines": [
@@ -44,7 +53,11 @@
       "time_stamp": "23:33",
       "start_time_seconds": 1413,
       "title": "Beatbox",
-      "video_url": null,
+      "video_id": "8C3KAvgydk4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=8C3KAvgydk4&t=1413s",
+      "youtube_short_url": "https://youtu.be/8C3KAvgydk4?t=1413",
+      "youtube_embed_url": "https://www.youtube.com/embed/8C3KAvgydk4?start=1413",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/8C3KAvgydk4?start=1413\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-21/",
       "punchline": "還是他已經達成了技術的壟斷呢？我覺得這要有所區別。",
       "lines": [

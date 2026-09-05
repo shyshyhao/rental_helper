@@ -1,5 +1,6 @@
 {
   "date": "2026-02-26",
+  "video_id": "46hmTUicOf8",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-26/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "06:39",
       "start_time_seconds": 399,
       "title": "YoYoYo 股神成長路",
-      "video_url": null,
+      "video_id": "46hmTUicOf8",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=46hmTUicOf8&t=399s",
+      "youtube_short_url": "https://youtu.be/46hmTUicOf8?t=399",
+      "youtube_embed_url": "https://www.youtube.com/embed/46hmTUicOf8?start=399",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/46hmTUicOf8?start=399\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-26/",
       "punchline": "你如果心態不對，你怎麼做都會虧了。",
       "lines": [
@@ -30,18 +35,22 @@
       "time_stamp": "19:54",
       "start_time_seconds": 1194,
       "title": "娶對老婆",
-      "video_url": null,
+      "video_id": "46hmTUicOf8",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=46hmTUicOf8&t=1194s",
+      "youtube_short_url": "https://youtu.be/46hmTUicOf8?t=1194",
+      "youtube_embed_url": "https://www.youtube.com/embed/46hmTUicOf8?start=1194",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/46hmTUicOf8?start=1194\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-26/",
       "punchline": "你突然暈倒，他還想說你想要在地上睡一覺。",
       "lines": [
         "有句話說得很好嘛，娶對老婆真的很重要。",
-        "���娶對了欸，你咳嗽一聲，",
+        "你娶對了欸，你咳嗽一聲，",
         "他都以為你感冒了。",
         "你娶錯了，即便你上吊，他都以為你在蕩鞦韆。",
         "你吐血，他還以為你在偷吃火龍果。",
         "你突然暈倒，他還想說你想要在地上睡一覺。"
       ],
-      "content": "有句話說得很好嘛，娶對老婆真的很重要。\n���娶對了欸，你咳嗽一聲，\n他都以為你感冒了。\n你娶錯了，即便你上吊，他都以為你在蕩鞦韆。\n你吐血，他還以為你在偷吃火龍果。\n你突然暈倒，他還想說你想要在地上睡一覺。"
+      "content": "有句話說得很好嘛，娶對老婆真的很重要。\n你娶對了欸，你咳嗽一聲，\n他都以為你感冒了。\n你娶錯了，即便你上吊，他都以為你在蕩鞦韆。\n你吐血，他還以為你在偷吃火龍果。\n你突然暈倒，他還想說你想要在地上睡一覺。"
     }
   ]
 }

@@ -1,5 +1,6 @@
 {
   "date": "2026-08-20",
+  "video_id": "LUGWERSl01s",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-20/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "14:49",
       "start_time_seconds": 889,
       "title": "我男朋友很喜歡",
-      "video_url": null,
+      "video_id": "LUGWERSl01s",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=LUGWERSl01s&t=889s",
+      "youtube_short_url": "https://youtu.be/LUGWERSl01s?t=889",
+      "youtube_embed_url": "https://www.youtube.com/embed/LUGWERSl01s?start=889",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/LUGWERSl01s?start=889\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-20/",
       "punchline": "結果發了幾次文之後不回應了，現在要出史上最高強度的經濟戰狼。",
       "lines": [

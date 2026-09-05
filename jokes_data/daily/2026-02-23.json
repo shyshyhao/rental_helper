@@ -1,5 +1,6 @@
 {
   "date": "2026-02-23",
+  "video_id": "6dhDA_xkS4M",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-23/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "29:46",
       "start_time_seconds": 1786,
       "title": "黃賭毒",
-      "video_url": null,
+      "video_id": "6dhDA_xkS4M",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=6dhDA_xkS4M&t=1786s",
+      "youtube_short_url": "https://youtu.be/6dhDA_xkS4M?t=1786",
+      "youtube_embed_url": "https://www.youtube.com/embed/6dhDA_xkS4M?start=1786",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/6dhDA_xkS4M?start=1786\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-23/",
       "punchline": "也給投資朋友作為一些思考了。",
       "lines": [

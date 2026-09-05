@@ -1,5 +1,6 @@
 {
   "date": "2026-03-25",
+  "video_id": "NL1w3WAVmNU",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-25/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "26:19",
       "start_time_seconds": 1579,
       "title": "忽冷忽熱",
-      "video_url": null,
+      "video_id": "NL1w3WAVmNU",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=NL1w3WAVmNU&t=1579s",
+      "youtube_short_url": "https://youtu.be/NL1w3WAVmNU?t=1579",
+      "youtube_embed_url": "https://www.youtube.com/embed/NL1w3WAVmNU?start=1579",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/NL1w3WAVmNU?start=1579\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-25/",
       "punchline": "- 洗澡的時候，你如果用的熱水，一下子涼、一下子燙，一下子大、一下子小。 - 那肯定是你的家人，同時開了其他水，不管是廚房的水龍頭，還是他在洗衣服。 - 你會發現你的另外一半，對你一會兒冷，一下子又很熱。 - 那八成是有人跟你共享了。 - 所以資金本來就是這樣子，一大一小，忽冷忽熱。",
       "lines": [

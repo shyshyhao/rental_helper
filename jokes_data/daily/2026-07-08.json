@@ -1,5 +1,6 @@
 {
   "date": "2026-07-08",
+  "video_id": "SqtWyR-vASQ",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-08/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "19:53",
       "start_time_seconds": 1193,
       "title": "叫爸爸",
-      "video_url": null,
+      "video_id": "SqtWyR-vASQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=SqtWyR-vASQ&t=1193s",
+      "youtube_short_url": "https://youtu.be/SqtWyR-vASQ?t=1193",
+      "youtube_embed_url": "https://www.youtube.com/embed/SqtWyR-vASQ?start=1193",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/SqtWyR-vASQ?start=1193\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-08/",
       "punchline": "對方談的是另外一個時間的維度哦。",
       "lines": [

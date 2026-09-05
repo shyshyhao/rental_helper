@@ -1,2607 +1,3176 @@
 {
   "total_days": 163,
   "total_jokes": 406,
-  "updated_at": "2026-09-05T00:25:55.697Z",
+  "updated_at": "2026-09-05T14:03:48.261Z",
   "dates": [
     {
       "date": "2026-09-03",
+      "video_id": "R15MWKzLJpE",
       "joke_count": 2,
       "titles": [
         {
           "time": "03:27",
-          "title": "最好的老師"
+          "title": "最好的老師",
+          "video_id": "R15MWKzLJpE"
         },
         {
           "time": "18:05",
-          "title": "花呢？"
+          "title": "花呢？",
+          "video_id": "R15MWKzLJpE"
         }
       ]
     },
     {
       "date": "2026-09-02",
+      "video_id": "fpX071E5yI4",
       "joke_count": 2,
       "titles": [
         {
           "time": "09:52",
-          "title": "肛門科醫生"
+          "title": "肛門科醫生",
+          "video_id": "fpX071E5yI4"
         },
         {
           "time": "30:18",
-          "title": "結過婚了"
+          "title": "結過婚了",
+          "video_id": "fpX071E5yI4"
         }
       ]
     },
     {
       "date": "2026-09-01",
+      "video_id": "XY31kO-V0Q4",
       "joke_count": 2,
       "titles": [
         {
           "time": "24:18",
-          "title": "禽獸不如"
+          "title": "禽獸不如",
+          "video_id": "XY31kO-V0Q4"
         },
         {
           "time": "28:28",
-          "title": "兄弟你真的回來了！"
+          "title": "兄弟你真的回來了！",
+          "video_id": "XY31kO-V0Q4"
         }
       ]
     },
     {
       "date": "2026-08-31",
+      "video_id": "BxtHhc6P1n0",
       "joke_count": 3,
       "titles": [
         {
           "time": "18:50",
-          "title": "沒有娶老婆"
+          "title": "沒有娶老婆",
+          "video_id": "BxtHhc6P1n0"
         },
         {
           "time": "30:48",
-          "title": "靠，又跌了"
+          "title": "靠，又跌了",
+          "video_id": "BxtHhc6P1n0"
         },
         {
           "time": "32:10",
-          "title": "梅毒"
+          "title": "梅毒",
+          "video_id": "BxtHhc6P1n0"
         }
       ]
     },
     {
       "date": "2026-08-28",
+      "video_id": "rTnPsm_gAhA",
       "joke_count": 4,
       "titles": [
         {
           "time": "11:23",
-          "title": "你只有一顆？"
+          "title": "你只有一顆？",
+          "video_id": "rTnPsm_gAhA"
         },
         {
           "time": "17:55",
-          "title": "網友都選 4"
+          "title": "網友都選 4",
+          "video_id": "rTnPsm_gAhA"
         },
         {
           "time": "19:43",
-          "title": "第三張最好看"
+          "title": "第三張最好看",
+          "video_id": "rTnPsm_gAhA"
         },
         {
           "time": "20:43",
-          "title": "七百萬養髮"
+          "title": "七百萬養髮",
+          "video_id": "rTnPsm_gAhA"
         }
       ]
     },
     {
       "date": "2026-08-27",
+      "video_id": "lDeHFopOfIs",
       "joke_count": 1,
       "titles": [
         {
           "time": "28:35",
-          "title": "地獄"
+          "title": "地獄",
+          "video_id": "lDeHFopOfIs"
         }
       ]
     },
     {
       "date": "2026-08-26",
+      "video_id": "KUZC2NyCCCY",
       "joke_count": 2,
       "titles": [
         {
           "time": "15:52",
-          "title": "內褲褪色"
+          "title": "內褲褪色",
+          "video_id": "KUZC2NyCCCY"
         },
         {
           "time": "32:35",
-          "title": "沒有啤酒"
+          "title": "沒有啤酒",
+          "video_id": "KUZC2NyCCCY"
         }
       ]
     },
     {
       "date": "2026-08-25",
+      "video_id": "tLvKGHyxhd8",
       "joke_count": 1,
       "titles": [
         {
           "time": "15:14",
-          "title": "捲髮棒"
+          "title": "捲髮棒",
+          "video_id": "tLvKGHyxhd8"
         }
       ]
     },
     {
       "date": "2026-08-24",
+      "video_id": "dFYqrIQIMvw",
       "joke_count": 1,
       "titles": [
         {
           "time": "26:17",
-          "title": "真相"
+          "title": "真相",
+          "video_id": "dFYqrIQIMvw"
         }
       ]
     },
     {
       "date": "2026-08-21",
+      "video_id": "ajjRvohk-Og",
       "joke_count": 1,
       "titles": [
         {
           "time": "31:14",
-          "title": "光頭"
+          "title": "光頭",
+          "video_id": "ajjRvohk-Og"
         }
       ]
     },
     {
       "date": "2026-08-20",
+      "video_id": "LUGWERSl01s",
       "joke_count": 1,
       "titles": [
         {
           "time": "14:49",
-          "title": "我男朋友很喜歡"
+          "title": "我男朋友很喜歡",
+          "video_id": "LUGWERSl01s"
         }
       ]
     },
     {
       "date": "2026-08-19",
+      "video_id": "9VqNpjPGmbM",
       "joke_count": 4,
       "titles": [
         {
           "time": "00:36",
-          "title": "股票會陪"
+          "title": "股票會陪",
+          "video_id": "9VqNpjPGmbM"
         },
         {
           "time": "19:44",
-          "title": "很規律"
+          "title": "很規律",
+          "video_id": "9VqNpjPGmbM"
         },
         {
           "time": "22:15",
-          "title": "蘇聯是永恆的"
+          "title": "蘇聯是永恆的",
+          "video_id": "9VqNpjPGmbM"
         },
         {
           "time": "30:40",
-          "title": "成本價"
+          "title": "成本價",
+          "video_id": "9VqNpjPGmbM"
         }
       ]
     },
     {
       "date": "2026-08-18",
+      "video_id": "aRPmzQfTLFc",
       "joke_count": 2,
       "titles": [
         {
           "time": "18:17",
-          "title": "句句是車，句句不是車"
+          "title": "句句是車，句句不是車",
+          "video_id": "aRPmzQfTLFc"
         },
         {
           "time": "29:38",
-          "title": "直接睡"
+          "title": "直接睡",
+          "video_id": "aRPmzQfTLFc"
         }
       ]
     },
     {
       "date": "2026-08-17",
+      "video_id": "OJ5vxmwQrE0",
       "joke_count": 1,
       "titles": [
         {
           "time": "27:29",
-          "title": "超過一公尺"
+          "title": "超過一公尺",
+          "video_id": "OJ5vxmwQrE0"
         }
       ]
     },
     {
       "date": "2026-08-14",
+      "video_id": "oLPxNHRAPEI",
       "joke_count": 5,
       "titles": [
         {
           "time": "19:59",
-          "title": "捐款"
+          "title": "捐款",
+          "video_id": "oLPxNHRAPEI"
         },
         {
           "time": "22:16",
-          "title": "負能量"
+          "title": "負能量",
+          "video_id": "oLPxNHRAPEI"
         },
         {
           "time": "28:07",
-          "title": "權謀主母惹不起"
+          "title": "權謀主母惹不起",
+          "video_id": "oLPxNHRAPEI"
         },
         {
           "time": "30:26",
-          "title": "睡過的床"
+          "title": "睡過的床",
+          "video_id": "oLPxNHRAPEI"
         },
         {
           "time": "34:05",
-          "title": "裝豬哥"
+          "title": "裝豬哥",
+          "video_id": "oLPxNHRAPEI"
         }
       ]
     },
     {
       "date": "2026-08-13",
+      "video_id": "KS_BkfqfALI",
       "joke_count": 2,
       "titles": [
         {
           "time": "17:32",
-          "title": "貂蟬"
+          "title": "貂蟬",
+          "video_id": "KS_BkfqfALI"
         },
         {
           "time": "33:14",
-          "title": "人渣"
+          "title": "人渣",
+          "video_id": "KS_BkfqfALI"
         }
       ]
     },
     {
       "date": "2026-08-12",
+      "video_id": "ApykW90PQ58",
       "joke_count": 2,
       "titles": [
         {
           "time": "17:45",
-          "title": "帳篷"
+          "title": "帳篷",
+          "video_id": "ApykW90PQ58"
         },
         {
           "time": "28:37",
-          "title": "計程車司機"
+          "title": "���程車司機",
+          "video_id": "ApykW90PQ58"
         }
       ]
     },
     {
       "date": "2026-08-11",
+      "video_id": "v7TpiWK5DTQ",
       "joke_count": 1,
       "titles": [
         {
           "time": "06:53",
-          "title": "先求有再求好"
+          "title": "先求有再求好",
+          "video_id": "v7TpiWK5DTQ"
         }
       ]
     },
     {
       "date": "2026-08-10",
+      "video_id": "5_poweJsVBA",
       "joke_count": 2,
       "titles": [
         {
           "time": "20:32",
-          "title": "公公"
+          "title": "公公",
+          "video_id": "5_poweJsVBA"
         },
         {
           "time": "32:34",
-          "title": "打熊"
+          "title": "打熊",
+          "video_id": "5_poweJsVBA"
         }
       ]
     },
     {
       "date": "2026-08-07",
+      "video_id": "IHB6xZANLDc",
       "joke_count": 2,
       "titles": [
         {
           "time": "18:07",
-          "title": "形式自由"
+          "title": "形式自由",
+          "video_id": "IHB6xZANLDc"
         },
         {
           "time": "25:20",
-          "title": "國旅"
+          "title": "國旅",
+          "video_id": "IHB6xZANLDc"
         }
       ]
     },
     {
       "date": "2026-08-06",
+      "video_id": "sk7DVOEJpig",
       "joke_count": 2,
       "titles": [
         {
           "time": "13:39",
-          "title": "不在場證明"
+          "title": "不在場證明",
+          "video_id": "sk7DVOEJpig"
         },
         {
           "time": "22:28",
-          "title": "手骨折"
+          "title": "手骨折",
+          "video_id": "sk7DVOEJpig"
         }
       ]
     },
     {
       "date": "2026-08-05",
+      "video_id": "NspN81zjSzw",
       "joke_count": 1,
       "titles": [
         {
           "time": "19:24",
-          "title": "禿鷹"
+          "title": "禿鷹",
+          "video_id": "NspN81zjSzw"
         }
       ]
     },
     {
       "date": "2026-08-04",
+      "video_id": "z3pq4kLE5Sw",
       "joke_count": 2,
       "titles": [
         {
           "time": "13:48",
-          "title": "一發不夠用"
+          "title": "一發不夠用",
+          "video_id": "z3pq4kLE5Sw"
         },
         {
           "time": "28:07",
-          "title": "薄冰哥"
+          "title": "薄冰哥",
+          "video_id": "z3pq4kLE5Sw"
         }
       ]
     },
     {
       "date": "2026-08-03",
+      "video_id": "bi09ZJ7kOC4",
       "joke_count": 2,
       "titles": [
         {
           "time": "26:26",
-          "title": "Beyond"
+          "title": "Beyond",
+          "video_id": "bi09ZJ7kOC4"
         },
         {
           "time": "30:52",
-          "title": "AV"
+          "title": "AV",
+          "video_id": "bi09ZJ7kOC4"
         }
       ]
     },
     {
       "date": "2026-07-31",
+      "video_id": "7RUZWygQDvE",
       "joke_count": 2,
       "titles": [
         {
           "time": "20:19",
-          "title": "子彈"
+          "title": "子彈",
+          "video_id": "7RUZWygQDvE"
         },
         {
           "time": "26:33",
-          "title": "陽台"
+          "title": "陽台",
+          "video_id": "7RUZWygQDvE"
         }
       ]
     },
     {
       "date": "2026-07-30",
+      "video_id": "g4Z6z8cUhBc",
       "joke_count": 4,
       "titles": [
         {
           "time": "15:58",
-          "title": "月光光"
+          "title": "月光光",
+          "video_id": "g4Z6z8cUhBc"
         },
         {
           "time": "17:29",
-          "title": "元曲"
+          "title": "元曲",
+          "video_id": "g4Z6z8cUhBc"
         },
         {
           "time": "24:13",
-          "title": "鼠撥土"
+          "title": "鼠撥土",
+          "video_id": "g4Z6z8cUhBc"
         },
         {
           "time": "29:52",
-          "title": "好笑嗎？無聊！"
+          "title": "好笑嗎？無聊！",
+          "video_id": "g4Z6z8cUhBc"
         }
       ]
     },
     {
       "date": "2026-07-29",
+      "video_id": "C8bYSy7FLIc",
       "joke_count": 4,
       "titles": [
         {
           "time": "14:24",
-          "title": "幽默感"
+          "title": "幽默感",
+          "video_id": "C8bYSy7FLIc"
         },
         {
           "time": "20:26",
-          "title": "借錢"
+          "title": "借錢",
+          "video_id": "C8bYSy7FLIc"
         },
         {
           "time": "23:22",
-          "title": "眼匡濕人"
+          "title": "眼匡濕人",
+          "video_id": "C8bYSy7FLIc"
         },
         {
           "time": "28:20",
-          "title": "降落傘"
+          "title": "降落傘",
+          "video_id": "C8bYSy7FLIc"
         }
       ]
     },
     {
       "date": "2026-07-28",
+      "video_id": "vxCO-f4F3BA",
       "joke_count": 4,
       "titles": [
         {
           "time": "10:17",
-          "title": "丁字褲"
+          "title": "丁字褲",
+          "video_id": "vxCO-f4F3BA"
         },
         {
           "time": "15:12",
-          "title": "朋友一生一起走"
+          "title": "朋友一生一起走",
+          "video_id": "vxCO-f4F3BA"
         },
         {
           "time": "19:08",
-          "title": "乾隆的筷子"
+          "title": "乾隆的筷子",
+          "video_id": "vxCO-f4F3BA"
         },
         {
           "time": "27:59",
-          "title": "皓哥的寶可夢收藏"
+          "title": "皓哥的寶可夢收藏",
+          "video_id": "vxCO-f4F3BA"
         }
       ]
     },
     {
       "date": "2026-07-27",
+      "video_id": "sMSDQyQANIM",
       "joke_count": 2,
       "titles": [
         {
           "time": "26:26",
-          "title": "優勢"
+          "title": "優勢",
+          "video_id": "sMSDQyQANIM"
         },
         {
           "time": "30:35",
-          "title": "弟弟的故事"
+          "title": "弟弟的故事",
+          "video_id": "sMSDQyQANIM"
         }
       ]
     },
     {
       "date": "2026-07-24",
+      "video_id": "_m4TSQiYZi4",
       "joke_count": 3,
       "titles": [
         {
           "time": "18:08",
-          "title": "釣魚"
+          "title": "釣魚",
+          "video_id": "_m4TSQiYZi4"
         },
         {
           "time": "21:11",
-          "title": "悲觀解讀"
+          "title": "悲觀解讀",
+          "video_id": "_m4TSQiYZi4"
         },
         {
           "time": "22:07",
-          "title": "腦補"
+          "title": "腦補",
+          "video_id": "_m4TSQiYZi4"
         }
       ]
     },
     {
       "date": "2026-07-23",
+      "video_id": "HXHxiiYjKFY",
       "joke_count": 2,
       "titles": [
         {
           "time": "23:25",
-          "title": "動情"
+          "title": "動情",
+          "video_id": "HXHxiiYjKFY"
         },
         {
           "time": "28:45",
-          "title": "潔癖"
+          "title": "潔癖",
+          "video_id": "HXHxiiYjKFY"
         }
       ]
     },
     {
       "date": "2026-07-22",
+      "video_id": "NZGYUCHpm0w",
       "joke_count": 2,
       "titles": [
         {
           "time": "18:39",
-          "title": "烘焙師"
+          "title": "烘焙師",
+          "video_id": "NZGYUCHpm0w"
         },
         {
           "time": "30:22",
-          "title": "按讚訂閱加分享"
+          "title": "按讚訂閱加分享",
+          "video_id": "NZGYUCHpm0w"
         }
       ]
     },
     {
       "date": "2026-07-21",
+      "video_id": "u8FPyPqaESA",
       "joke_count": 4,
       "titles": [
         {
           "time": "04:07",
-          "title": "買入國巨"
+          "title": "買入國巨",
+          "video_id": "u8FPyPqaESA"
         },
         {
           "time": "18:09",
-          "title": "黑人海倫"
+          "title": "黑人海倫",
+          "video_id": "u8FPyPqaESA"
         },
         {
           "time": "20:33",
-          "title": "反清復明"
+          "title": "反清復明",
+          "video_id": "u8FPyPqaESA"
         },
         {
           "time": "29:13",
-          "title": "放屁"
+          "title": "放屁",
+          "video_id": "u8FPyPqaESA"
         }
       ]
     },
     {
       "date": "2026-07-20",
+      "video_id": "iE03-xLfFwU",
       "joke_count": 1,
       "titles": [
         {
           "time": "24:37",
-          "title": "因小失大"
+          "title": "因小失大",
+          "video_id": "iE03-xLfFwU"
         }
       ]
     },
     {
       "date": "2026-07-17",
+      "video_id": "rQijt4k7pq4",
       "joke_count": 3,
       "titles": [
         {
           "time": "01:34",
-          "title": "起起落落"
+          "title": "起起落落",
+          "video_id": "rQijt4k7pq4"
         },
         {
           "time": "22:00",
-          "title": "除以二"
+          "title": "除以二",
+          "video_id": "rQijt4k7pq4"
         },
         {
           "time": "23:34",
-          "title": "小蘭叫"
+          "title": "小蘭叫",
+          "video_id": "rQijt4k7pq4"
         }
       ]
     },
     {
       "date": "2026-07-16",
+      "video_id": "EyDBTfobiQk",
       "joke_count": 3,
       "titles": [
         {
           "time": "19:38",
-          "title": "回過頭"
+          "title": "回過頭",
+          "video_id": "EyDBTfobiQk"
         },
         {
           "time": "30:54",
-          "title": "我們一起違約交割"
+          "title": "我們一起違約交割",
+          "video_id": "EyDBTfobiQk"
         },
         {
           "time": "33:46",
-          "title": "公司爆炸了"
+          "title": "公司爆炸��",
+          "video_id": "EyDBTfobiQk"
         }
       ]
     },
     {
       "date": "2026-07-15",
+      "video_id": "raHycpE_6Z4",
       "joke_count": 4,
       "titles": [
         {
           "time": "13:03",
-          "title": "誠實"
+          "title": "誠實",
+          "video_id": "raHycpE_6Z4"
         },
         {
           "time": "24:44",
-          "title": "台大跟 300 億台幣"
+          "title": "台大跟 300 億台幣",
+          "video_id": "raHycpE_6Z4"
         },
         {
           "time": "28:29",
-          "title": "沒冷氣"
+          "title": "沒冷氣",
+          "video_id": "raHycpE_6Z4"
         },
         {
           "time": "31:44",
-          "title": "悲觀的人"
+          "title": "悲觀的人",
+          "video_id": "raHycpE_6Z4"
         }
       ]
     },
     {
       "date": "2026-07-14",
+      "video_id": "K7uzlljSjCc",
       "joke_count": 4,
       "titles": [
         {
           "time": "02:23",
-          "title": "股票會陪"
+          "title": "股票會陪",
+          "video_id": "K7uzlljSjCc"
         },
         {
           "time": "21:11",
-          "title": "衝脫抱概送"
+          "title": "衝脫抱概送",
+          "video_id": "K7uzlljSjCc"
         },
         {
           "time": "22:26",
-          "title": "動不動就生氣"
+          "title": "動不動就生氣",
+          "video_id": "K7uzlljSjCc"
         },
         {
           "time": "25:41",
-          "title": "巨 8 頭"
+          "title": "巨 8 頭",
+          "video_id": "K7uzlljSjCc"
         }
       ]
     },
     {
       "date": "2026-07-13",
+      "video_id": "n0sH57wGfU0",
       "joke_count": 2,
       "titles": [
         {
           "time": "16:09",
-          "title": "老虎"
+          "title": "老虎",
+          "video_id": "n0sH57wGfU0"
         },
         {
           "time": "29:11",
-          "title": "頻尿"
+          "title": "頻尿",
+          "video_id": "n0sH57wGfU0"
         }
       ]
     },
     {
       "date": "2026-07-09",
+      "video_id": "yl-S5OVnu2o",
       "joke_count": 3,
       "titles": [
         {
           "time": "24:26",
-          "title": "量變引起質變"
+          "title": "量變引起質變",
+          "video_id": "yl-S5OVnu2o"
         },
         {
           "time": "25:56",
-          "title": "世界盃"
+          "title": "世界盃",
+          "video_id": "yl-S5OVnu2o"
         },
         {
           "time": "31:52",
-          "title": "黃瓜"
+          "title": "黃瓜",
+          "video_id": "yl-S5OVnu2o"
         }
       ]
     },
     {
       "date": "2026-07-08",
+      "video_id": "SqtWyR-vASQ",
       "joke_count": 1,
       "titles": [
         {
           "time": "19:53",
-          "title": "叫爸爸"
+          "title": "叫爸爸",
+          "video_id": "SqtWyR-vASQ"
         }
       ]
     },
     {
       "date": "2026-07-07",
+      "video_id": "vkwgbSsMB2A",
       "joke_count": 2,
       "titles": [
         {
           "time": "25:37",
-          "title": "馬上風"
+          "title": "馬上風",
+          "video_id": "vkwgbSsMB2A"
         },
         {
           "time": "31:13",
-          "title": "阿 Q"
+          "title": "阿 Q",
+          "video_id": "vkwgbSsMB2A"
         }
       ]
     },
     {
       "date": "2026-07-06",
+      "video_id": "-VFQHTRVBws",
       "joke_count": 4,
       "titles": [
         {
           "time": "16:47",
-          "title": "沒有冷氣"
+          "title": "沒有冷氣",
+          "video_id": "-VFQHTRVBws"
         },
         {
           "time": "24:35",
-          "title": "睪丸"
+          "title": "睪丸",
+          "video_id": "-VFQHTRVBws"
         },
         {
           "time": "26:26",
-          "title": "美光"
+          "title": "美光",
+          "video_id": "-VFQHTRVBws"
         },
         {
           "time": "31:17",
-          "title": "領養"
+          "title": "領養",
+          "video_id": "-VFQHTRVBws"
         }
       ]
     },
     {
       "date": "2026-07-03",
+      "video_id": "wQ9YZ1U2bcY",
       "joke_count": 2,
       "titles": [
         {
           "time": "06:13",
-          "title": "失敗的投資"
+          "title": "失敗的投資",
+          "video_id": "wQ9YZ1U2bcY"
         },
         {
           "time": "21:21",
-          "title": "做做樣子"
+          "title": "做做樣子",
+          "video_id": "wQ9YZ1U2bcY"
         }
       ]
     },
     {
       "date": "2026-07-02",
+      "video_id": "m63qGxdXYz8",
       "joke_count": 5,
       "titles": [
         {
           "time": "02:00",
-          "title": "偷東西"
+          "title": "偷東西",
+          "video_id": "m63qGxdXYz8"
         },
         {
           "time": "10:16",
-          "title": "極限"
+          "title": "極限",
+          "video_id": "m63qGxdXYz8"
         },
         {
           "time": "23:06",
-          "title": "9 個願望"
+          "title": "9 個願望",
+          "video_id": "m63qGxdXYz8"
         },
         {
           "time": "26:08",
-          "title": "賠錢"
+          "title": "賠錢",
+          "video_id": "m63qGxdXYz8"
         },
         {
           "time": "28:55",
-          "title": "林北"
+          "title": "林北",
+          "video_id": "m63qGxdXYz8"
         }
       ]
     },
     {
       "date": "2026-07-01",
+      "video_id": "ENvg_6WIu6Y",
       "joke_count": 2,
       "titles": [
         {
           "time": "06:48",
-          "title": "AV"
+          "title": "AV",
+          "video_id": "ENvg_6WIu6Y"
         },
         {
           "time": "11:55",
-          "title": "還沒數完"
+          "title": "還沒數完",
+          "video_id": "ENvg_6WIu6Y"
         }
       ]
     },
     {
       "date": "2026-06-30",
+      "video_id": "tUJHLVjwvik",
       "joke_count": 2,
       "titles": [
         {
           "time": "08:21",
-          "title": "一個擁抱"
+          "title": "一個擁抱",
+          "video_id": "tUJHLVjwvik"
         },
         {
           "time": "22:39",
-          "title": "打架"
+          "title": "打架",
+          "video_id": "tUJHLVjwvik"
         }
       ]
     },
     {
       "date": "2026-06-29",
+      "video_id": "9_PFi331Vf0",
       "joke_count": 1,
       "titles": [
         {
           "time": "06:49",
-          "title": "車子"
+          "title": "車子",
+          "video_id": "9_PFi331Vf0"
         }
       ]
     },
     {
       "date": "2026-06-26",
+      "video_id": "Z7U5YQRlz68",
       "joke_count": 5,
       "titles": [
         {
           "time": "01:18",
-          "title": "雨下整夜"
+          "title": "雨下整夜",
+          "video_id": "Z7U5YQRlz68"
         },
         {
           "time": "16:47",
-          "title": "多花點錢"
+          "title": "多花點錢",
+          "video_id": "Z7U5YQRlz68"
         },
         {
           "time": "20:23",
-          "title": "教訓"
+          "title": "教訓",
+          "video_id": "Z7U5YQRlz68"
         },
         {
           "time": "22:59",
-          "title": "按摩師"
+          "title": "按摩師",
+          "video_id": "Z7U5YQRlz68"
         },
         {
           "time": "31:03",
-          "title": "問號"
+          "title": "問號",
+          "video_id": "Z7U5YQRlz68"
         }
       ]
     },
     {
       "date": "2026-06-25",
+      "video_id": "IMOmns5Ii4Q",
       "joke_count": 3,
       "titles": [
         {
           "time": "07:49",
-          "title": "手機後 4 碼"
+          "title": "手機後 4 碼",
+          "video_id": "IMOmns5Ii4Q"
         },
         {
           "time": "21:39",
-          "title": "只差一個字"
+          "title": "只差一個字",
+          "video_id": "IMOmns5Ii4Q"
         },
         {
           "time": "29:53",
-          "title": "家族械鬥"
+          "title": "家族械鬥",
+          "video_id": "IMOmns5Ii4Q"
         }
       ]
     },
     {
       "date": "2026-06-24",
+      "video_id": "2Z9hMGktBDU",
       "joke_count": 3,
       "titles": [
         {
           "time": "14:56",
-          "title": "馬斯克還我錢"
+          "title": "馬斯克還我錢",
+          "video_id": "2Z9hMGktBDU"
         },
         {
           "time": "18:10",
-          "title": "這輩子太短了"
+          "title": "這輩子太短了",
+          "video_id": "2Z9hMGktBDU"
         },
         {
           "time": "28:27",
-          "title": "送急診"
+          "title": "送急診",
+          "video_id": "2Z9hMGktBDU"
         }
       ]
     },
     {
       "date": "2026-06-23",
+      "video_id": "ZOaJ61xMrhM",
       "joke_count": 3,
       "titles": [
         {
           "time": "19:30",
-          "title": "硬硬的"
+          "title": "硬硬的",
+          "video_id": "ZOaJ61xMrhM"
         },
         {
           "time": "21:40",
-          "title": "小電影"
+          "title": "小電影",
+          "video_id": "ZOaJ61xMrhM"
         },
         {
           "time": "26:37",
-          "title": "小賭怡情，大賭郭台銘"
+          "title": "小賭怡情，大賭郭台銘",
+          "video_id": "ZOaJ61xMrhM"
         }
       ]
     },
     {
       "date": "2026-06-22",
+      "video_id": "F-aMpfktiog",
       "joke_count": 5,
       "titles": [
         {
           "time": "03:46",
-          "title": "達咩達咩"
+          "title": "達咩達咩",
+          "video_id": "F-aMpfktiog"
         },
         {
           "time": "05:26",
-          "title": "慈禧"
+          "title": "慈禧",
+          "video_id": "F-aMpfktiog"
         },
         {
           "time": "12:00",
-          "title": "破壞之王"
+          "title": "破壞之王",
+          "video_id": "F-aMpfktiog"
         },
         {
           "time": "16:52",
-          "title": "去年的"
+          "title": "去年的",
+          "video_id": "F-aMpfktiog"
         },
         {
           "time": "29:11",
-          "title": "賺小錢賠大錢"
+          "title": "賺小錢賠大錢",
+          "video_id": "F-aMpfktiog"
         }
       ]
     },
     {
       "date": "2026-06-18",
+      "video_id": "eL--HDhT-mo",
       "joke_count": 2,
       "titles": [
         {
           "time": "25:45",
-          "title": "真的有一千塊"
+          "title": "真的有一千塊",
+          "video_id": "eL--HDhT-mo"
         },
         {
           "time": "31:54",
-          "title": "逼越緊"
+          "title": "逼越緊",
+          "video_id": "eL--HDhT-mo"
         }
       ]
     },
     {
       "date": "2026-06-17",
+      "video_id": "Khm3HtdrHQk",
       "joke_count": 4,
       "titles": [
         {
           "time": "01:01",
-          "title": "疲憊"
+          "title": "疲憊",
+          "video_id": "Khm3HtdrHQk"
         },
         {
           "time": "07:04",
-          "title": "翅膀硬了"
+          "title": "翅膀硬了",
+          "video_id": "Khm3HtdrHQk"
         },
         {
           "time": "20:31",
-          "title": "再也沒有快樂過"
+          "title": "再也沒有快樂過",
+          "video_id": "Khm3HtdrHQk"
         },
         {
           "time": "28:52",
-          "title": "阿彌陀佛"
+          "title": "阿彌陀佛",
+          "video_id": "Khm3HtdrHQk"
         }
       ]
     },
     {
       "date": "2026-06-16",
+      "video_id": "hZdQR9FWHWw",
       "joke_count": 3,
       "titles": [
         {
           "time": "11:29",
-          "title": "沒有在怕的"
+          "title": "沒有在怕的",
+          "video_id": "hZdQR9FWHWw"
         },
         {
           "time": "12:02",
-          "title": "我當初也是這麼想的"
+          "title": "我當初也是這麼想的",
+          "video_id": "hZdQR9FWHWw"
         },
         {
           "time": "23:50",
-          "title": "冰箱"
+          "title": "冰箱",
+          "video_id": "hZdQR9FWHWw"
         }
       ]
     },
     {
       "date": "2026-06-15",
+      "video_id": "BOQUeDK0B7I",
       "joke_count": 4,
       "titles": [
         {
           "time": "06:42",
-          "title": "量好再吃"
+          "title": "量好再吃",
+          "video_id": "BOQUeDK0B7I"
         },
         {
           "time": "15:15",
-          "title": "100 度的水"
+          "title": "100 度的水",
+          "video_id": "BOQUeDK0B7I"
         },
         {
           "time": "30:00",
-          "title": "10 年後的新車"
+          "title": "10 年後的新車",
+          "video_id": "BOQUeDK0B7I"
         },
         {
           "time": "33:46",
-          "title": "香蕉"
+          "title": "香蕉",
+          "video_id": "BOQUeDK0B7I"
         }
       ]
     },
     {
       "date": "2026-06-12",
+      "video_id": "LO2G4LmHXVk",
       "joke_count": 5,
       "titles": [
         {
           "time": "09:56",
-          "title": "網紅直播主"
+          "title": "網紅直播主",
+          "video_id": "LO2G4LmHXVk"
         },
         {
           "time": "16:49",
-          "title": "安全套"
+          "title": "安全套",
+          "video_id": "LO2G4LmHXVk"
         },
         {
           "time": "18:20",
-          "title": "十三叔"
+          "title": "十三叔",
+          "video_id": "LO2G4LmHXVk"
         },
         {
           "time": "21:06",
-          "title": "取經"
+          "title": "取經",
+          "video_id": "LO2G4LmHXVk"
         },
         {
           "time": "29:24",
-          "title": "禱告"
+          "title": "禱告",
+          "video_id": "LO2G4LmHXVk"
         }
       ]
     },
     {
       "date": "2026-06-11",
+      "video_id": "LO2G4LmHXVk",
       "joke_count": 3,
       "titles": [
         {
           "time": "01:31",
-          "title": "人格分裂"
+          "title": "人格分裂",
+          "video_id": "LO2G4LmHXVk"
         },
         {
           "time": "28:53",
-          "title": "Bed Knowledge"
+          "title": "Bed Knowledge",
+          "video_id": "LO2G4LmHXVk"
         },
         {
           "time": "30:08",
-          "title": "少婦"
+          "title": "少婦",
+          "video_id": "LO2G4LmHXVk"
         }
       ]
     },
     {
       "date": "2026-06-10",
+      "video_id": "xnznLLQLnig",
       "joke_count": 3,
       "titles": [
         {
           "time": "16:56",
-          "title": "不是錢"
+          "title": "不是錢",
+          "video_id": "xnznLLQLnig"
         },
         {
           "time": "27:37",
-          "title": "刀是兩面刃"
+          "title": "刀是兩面刃",
+          "video_id": "xnznLLQLnig"
         },
         {
           "time": "32:42",
-          "title": "誘空 Rap"
+          "title": "誘空 Rap",
+          "video_id": "xnznLLQLnig"
         }
       ]
     },
     {
       "date": "2026-06-09",
+      "video_id": "8H0D_RYS-zQ",
       "joke_count": 3,
       "titles": [
         {
           "time": "02:16",
-          "title": "不省人事"
+          "title": "不省人事",
+          "video_id": "8H0D_RYS-zQ"
         },
         {
           "time": "23:09",
-          "title": "好爸爸"
+          "title": "好爸爸",
+          "video_id": "8H0D_RYS-zQ"
         },
         {
           "time": "25:52",
-          "title": "好噁心好噁心"
+          "title": "好噁心好噁心",
+          "video_id": "8H0D_RYS-zQ"
         }
       ]
     },
     {
       "date": "2026-06-08",
+      "video_id": "khYmfQdjw7U",
       "joke_count": 4,
       "titles": [
         {
           "time": "16:50",
-          "title": "誘空"
+          "title": "誘空",
+          "video_id": "khYmfQdjw7U"
         },
         {
           "time": "19:38",
-          "title": "肯掐拿"
+          "title": "肯掐拿",
+          "video_id": "khYmfQdjw7U"
         },
         {
           "time": "24:25",
-          "title": "中正紀念堂"
+          "title": "中正紀念堂",
+          "video_id": "khYmfQdjw7U"
         },
         {
           "time": "27:47",
-          "title": "老韭菜"
+          "title": "老韭菜",
+          "video_id": "khYmfQdjw7U"
         }
       ]
     },
     {
       "date": "2026-06-05",
+      "video_id": "L5uss3pVph8",
       "joke_count": 2,
       "titles": [
         {
           "time": "17:41",
-          "title": "有什麼差別"
+          "title": "有什麼差別",
+          "video_id": "L5uss3pVph8"
         },
         {
           "time": "23:16",
-          "title": "眼鏡蛇"
+          "title": "眼鏡蛇",
+          "video_id": "L5uss3pVph8"
         }
       ]
     },
     {
       "date": "2026-06-04",
+      "video_id": "nE4skCdVuU4",
       "joke_count": 2,
       "titles": [
         {
           "time": "18:50",
-          "title": "腎虛"
+          "title": "腎虛",
+          "video_id": "nE4skCdVuU4"
         },
         {
           "time": "32:26",
-          "title": "CoCo"
+          "title": "CoCo",
+          "video_id": "nE4skCdVuU4"
         }
       ]
     },
     {
       "date": "2026-06-03",
+      "video_id": "uQKqbzuhTvA",
       "joke_count": 3,
       "titles": [
         {
           "time": "19:38",
-          "title": "老鷹精"
+          "title": "老鷹精",
+          "video_id": "uQKqbzuhTvA"
         },
         {
           "time": "25:11",
-          "title": "安全套"
+          "title": "安全套",
+          "video_id": "uQKqbzuhTvA"
         },
         {
           "time": "32:39",
-          "title": "法國女孩"
+          "title": "法國女孩",
+          "video_id": "uQKqbzuhTvA"
         }
       ]
     },
     {
       "date": "2026-06-02",
+      "video_id": "TD0fj4qbudw",
       "joke_count": 3,
       "titles": [
         {
           "time": "22:07",
-          "title": "好消息"
+          "title": "好消息",
+          "video_id": "TD0fj4qbudw"
         },
         {
           "time": "27:01",
-          "title": "神積附體"
+          "title": "神積附體",
+          "video_id": "TD0fj4qbudw"
         },
         {
           "time": "27:40",
-          "title": "SK-II"
+          "title": "SK-II",
+          "video_id": "TD0fj4qbudw"
         }
       ]
     },
     {
       "date": "2026-06-01",
+      "video_id": "yHeeo028C5U",
       "joke_count": 4,
       "titles": [
         {
           "time": "13:08",
-          "title": "兩人做事"
+          "title": "兩人做事",
+          "video_id": "yHeeo028C5U"
         },
         {
           "time": "20:56",
-          "title": "Call Me Maybe"
+          "title": "Call Me Maybe",
+          "video_id": "yHeeo028C5U"
         },
         {
           "time": "24:05",
-          "title": "Maybe"
+          "title": "Maybe",
+          "video_id": "yHeeo028C5U"
         },
         {
           "time": "28:39",
-          "title": "神父"
+          "title": "神父",
+          "video_id": "yHeeo028C5U"
         }
       ]
     },
     {
       "date": "2026-05-29",
+      "video_id": "GInmiVMEfj8",
       "joke_count": 2,
       "titles": [
         {
           "time": "13:32",
-          "title": "韓劇跟台灣電影"
+          "title": "韓劇跟台灣電影",
+          "video_id": "GInmiVMEfj8"
         },
         {
           "time": "28:22",
-          "title": "Camry"
+          "title": "Camry",
+          "video_id": "GInmiVMEfj8"
         }
       ]
     },
     {
       "date": "2026-05-28",
+      "video_id": "SfqY8huMo6s",
       "joke_count": 4,
       "titles": [
         {
           "time": "08:06",
-          "title": "相信海力士"
+          "title": "相信海力士",
+          "video_id": "SfqY8huMo6s"
         },
         {
           "time": "17:50",
-          "title": "美光"
+          "title": "美光",
+          "video_id": "SfqY8huMo6s"
         },
         {
           "time": "19:20",
-          "title": "相信魏哲家"
+          "title": "相信魏哲家",
+          "video_id": "SfqY8huMo6s"
         },
         {
           "time": "27:52",
-          "title": "用印"
+          "title": "用印",
+          "video_id": "SfqY8huMo6s"
         }
       ]
     },
     {
       "date": "2026-05-27",
+      "video_id": "HlGuKabtxg8",
       "joke_count": 2,
       "titles": [
         {
           "time": "22:10",
-          "title": "母狗"
+          "title": "母狗",
+          "video_id": "HlGuKabtxg8"
         },
         {
           "time": "30:43",
-          "title": "羊毛出在毛身上"
+          "title": "羊毛出在毛身上",
+          "video_id": "HlGuKabtxg8"
         }
       ]
     },
     {
       "date": "2026-05-26",
+      "video_id": "zRBJKmx5yhc",
       "joke_count": 2,
       "titles": [
         {
           "time": "11:49",
-          "title": "4 個小朋友"
+          "title": "4 個小朋友",
+          "video_id": "zRBJKmx5yhc"
         },
         {
           "time": "23:04",
-          "title": "相信魏哲家"
+          "title": "相信魏哲家",
+          "video_id": "zRBJKmx5yhc"
         }
       ]
     },
     {
       "date": "2026-05-25",
+      "video_id": "vydkp7c0J-I",
       "joke_count": 1,
       "titles": [
         {
           "time": "22:14",
-          "title": "照片"
+          "title": "照片",
+          "video_id": "vydkp7c0J-I"
         }
       ]
     },
     {
       "date": "2026-05-22",
+      "video_id": "_FmlrDycC0Q",
       "joke_count": 3,
       "titles": [
         {
           "time": "19:14",
-          "title": "骨灰罈"
+          "title": "骨灰罈",
+          "video_id": "_FmlrDycC0Q"
         },
         {
           "time": "26:07",
-          "title": "音樂會"
+          "title": "音樂會",
+          "video_id": "_FmlrDycC0Q"
         },
         {
           "time": "31:34",
-          "title": "放不下"
+          "title": "放不下",
+          "video_id": "_FmlrDycC0Q"
         }
       ]
     },
     {
       "date": "2026-05-21",
+      "video_id": "8C3KAvgydk4",
       "joke_count": 3,
       "titles": [
         {
           "time": "14:44",
-          "title": "麻將"
+          "title": "麻將",
+          "video_id": "8C3KAvgydk4"
         },
         {
           "time": "19:38",
-          "title": "胃食道逆流"
+          "title": "胃食道逆流",
+          "video_id": "8C3KAvgydk4"
         },
         {
           "time": "23:33",
-          "title": "Beatbox"
+          "title": "Beatbox",
+          "video_id": "8C3KAvgydk4"
         }
       ]
     },
     {
       "date": "2026-05-20",
+      "video_id": "CLdxlSPzjT0",
       "joke_count": 1,
       "titles": [
         {
           "time": "18:40",
-          "title": "駕駛員"
+          "title": "駕駛員",
+          "video_id": "CLdxlSPzjT0"
         }
       ]
     },
     {
       "date": "2026-05-19",
+      "video_id": "AKvxVsrqgbo",
       "joke_count": 3,
       "titles": [
         {
           "time": "02:30",
-          "title": "再數一次"
+          "title": "再數一次",
+          "video_id": "AKvxVsrqgbo"
         },
         {
           "time": "20:17",
-          "title": "未接來電"
+          "title": "未接來電",
+          "video_id": "AKvxVsrqgbo"
         },
         {
           "time": "24:15",
-          "title": "不要老伴"
+          "title": "不要老伴",
+          "video_id": "AKvxVsrqgbo"
         }
       ]
     },
     {
       "date": "2026-05-18",
+      "video_id": "kWjip9m19Sk",
       "joke_count": 3,
       "titles": [
         {
           "time": "17:10",
-          "title": "公叔比歐"
+          "title": "公叔比歐",
+          "video_id": "kWjip9m19Sk"
         },
         {
           "time": "19:30",
-          "title": "麻將的由來"
+          "title": "麻將的由來",
+          "video_id": "kWjip9m19Sk"
         },
         {
           "time": "20:20",
-          "title": "擎天岡"
+          "title": "擎天岡",
+          "video_id": "kWjip9m19Sk"
         }
       ]
     },
     {
       "date": "2026-05-15",
+      "video_id": "b5a7Uuwj5AY",
       "joke_count": 1,
       "titles": [
         {
           "time": "14:29",
-          "title": "不要抱太高期待"
+          "title": "不要抱太高期待",
+          "video_id": "b5a7Uuwj5AY"
         }
       ]
     },
     {
       "date": "2026-05-14",
+      "video_id": "O7zANiefhvA",
       "joke_count": 2,
       "titles": [
         {
           "time": "25:25",
-          "title": "消除波動與風險"
+          "title": "消除波動與風險",
+          "video_id": "O7zANiefhvA"
         },
         {
           "time": "30:29",
-          "title": "只���朋友"
+          "title": "只是��友",
+          "video_id": "O7zANiefhvA"
         }
       ]
     },
     {
       "date": "2026-05-13",
+      "video_id": "m-MXDX4s6PU",
       "joke_count": 2,
       "titles": [
         {
           "time": "16:33",
-          "title": "九位"
+          "title": "九位",
+          "video_id": "m-MXDX4s6PU"
         },
         {
           "time": "23:48",
-          "title": "水餃"
+          "title": "水餃",
+          "video_id": "m-MXDX4s6PU"
         }
       ]
     },
     {
       "date": "2026-05-12",
+      "video_id": "IBAh1V8tnGw",
       "joke_count": 5,
       "titles": [
         {
           "time": "14:00",
-          "title": "好幾個億"
+          "title": "好幾個億",
+          "video_id": "IBAh1V8tnGw"
         },
         {
           "time": "18:00",
-          "title": "川普變魔術"
+          "title": "川普變魔術",
+          "video_id": "IBAh1V8tnGw"
         },
         {
           "time": "19:01",
-          "title": "站在拜登頭上"
+          "title": "站在拜登頭上",
+          "video_id": "IBAh1V8tnGw"
         },
         {
           "time": "20:00",
-          "title": "Priapism"
+          "title": "Priapism",
+          "video_id": "IBAh1V8tnGw"
         },
         {
           "time": "27:00",
-          "title": "前女友"
+          "title": "前女友",
+          "video_id": "IBAh1V8tnGw"
         }
       ]
     },
     {
       "date": "2026-05-11",
+      "video_id": "hH0bT4xTQGA",
       "joke_count": 3,
       "titles": [
         {
           "time": "25:12",
-          "title": "酒後"
+          "title": "酒後",
+          "video_id": "hH0bT4xTQGA"
         },
         {
           "time": "28:00",
-          "title": "你爸爸是誰"
+          "title": "你爸爸是誰",
+          "video_id": "hH0bT4xTQGA"
         },
         {
           "time": "31:01",
-          "title": "男模會館"
+          "title": "男模會館",
+          "video_id": "hH0bT4xTQGA"
         }
       ]
     },
     {
       "date": "2026-05-08",
+      "video_id": "QO3TRrf-EdU",
       "joke_count": 5,
       "titles": [
         {
           "time": "08:10",
-          "title": "TOTO 馬桶也飛上天"
+          "title": "TOTO 馬桶也飛上天",
+          "video_id": "QO3TRrf-EdU"
         },
         {
           "time": "14:18",
-          "title": "巴菲特的持股哲學"
+          "title": "巴菲特的持股哲學",
+          "video_id": "QO3TRrf-EdU"
         },
         {
           "time": "21:57",
-          "title": "小時候的曹操"
+          "title": "小時候的曹操",
+          "video_id": "QO3TRrf-EdU"
         },
         {
           "time": "28:34",
-          "title": "大一到大四的投資人"
+          "title": "大一到大四的投資人",
+          "video_id": "QO3TRrf-EdU"
         },
         {
           "time": "30:37",
-          "title": "唐僧女兒國"
+          "title": "唐僧女兒國",
+          "video_id": "QO3TRrf-EdU"
         }
       ]
     },
     {
       "date": "2026-05-07",
+      "video_id": "wzSQiSqD5yI",
       "joke_count": 2,
       "titles": [
         {
           "time": "05:21",
-          "title": "法國警察"
+          "title": "法國警察",
+          "video_id": "wzSQiSqD5yI"
         },
         {
           "time": "22:38",
-          "title": "善良的歹囝"
+          "title": "善良的歹囝",
+          "video_id": "wzSQiSqD5yI"
         }
       ]
     },
     {
       "date": "2026-05-06",
+      "video_id": "vw5RhJvVKgw",
       "joke_count": 3,
       "titles": [
         {
           "time": "17:12",
-          "title": "積不擇時"
+          "title": "積不擇時",
+          "video_id": "vw5RhJvVKgw"
         },
         {
           "time": "20:26",
-          "title": "一家之王"
+          "title": "一家之王",
+          "video_id": "vw5RhJvVKgw"
         },
         {
           "time": "25:25",
-          "title": "今年的窮小子"
+          "title": "今年的窮小子",
+          "video_id": "vw5RhJvVKgw"
         }
       ]
     },
     {
       "date": "2026-05-05",
+      "video_id": "EP-5J6-PMiQ",
       "joke_count": 2,
       "titles": [
         {
           "time": "20:00",
-          "title": "毒蘑菇"
+          "title": "毒蘑菇",
+          "video_id": "EP-5J6-PMiQ"
         },
         {
           "time": "32:34",
-          "title": "直接睡"
+          "title": "直接睡",
+          "video_id": "EP-5J6-PMiQ"
         }
       ]
     },
     {
       "date": "2026-05-04",
+      "video_id": "yoeVEC3qw0M",
       "joke_count": 2,
       "titles": [
         {
           "time": "19:52",
-          "title": "有一點泡泡"
+          "title": "有一點泡泡",
+          "video_id": "yoeVEC3qw0M"
         },
         {
           "time": "25:25",
-          "title": "Doctor"
+          "title": "Doctor",
+          "video_id": "yoeVEC3qw0M"
         }
       ]
     },
     {
       "date": "2026-05-01",
+      "video_id": "oGMl5RGg-b4",
       "joke_count": 4,
       "titles": [
         {
           "time": "00:52",
-          "title": "大菁英"
+          "title": "大菁英",
+          "video_id": "oGMl5RGg-b4"
         },
         {
           "time": "19:46",
-          "title": "財富效應"
+          "title": "財富效應",
+          "video_id": "oGMl5RGg-b4"
         },
         {
           "time": "24:44",
-          "title": "時間差"
+          "title": "時間差",
+          "video_id": "oGMl5RGg-b4"
         },
         {
           "time": "31:01",
-          "title": "4 個孩子"
+          "title": "4 個孩子",
+          "video_id": "oGMl5RGg-b4"
         }
       ]
     },
     {
       "date": "2026-04-30",
+      "video_id": "Vv4KxYsP368",
       "joke_count": 3,
       "titles": [
         {
           "time": "15:43",
-          "title": "預判"
+          "title": "預判",
+          "video_id": "Vv4KxYsP368"
         },
         {
           "time": "16:56",
-          "title": "高利率"
+          "title": "高利率",
+          "video_id": "Vv4KxYsP368"
         },
         {
           "time": "29:06",
-          "title": "一封情書"
+          "title": "一封情書",
+          "video_id": "Vv4KxYsP368"
         }
       ]
     },
     {
       "date": "2026-04-29",
+      "video_id": "x8RnWlVlFCk",
       "joke_count": 3,
       "titles": [
         {
           "time": "15:51",
-          "title": "全都是泡沫"
+          "title": "全都是泡沫",
+          "video_id": "x8RnWlVlFCk"
         },
         {
           "time": "20:05",
-          "title": "汽車旅館"
+          "title": "汽車旅館",
+          "video_id": "x8RnWlVlFCk"
         },
         {
           "time": "25:05",
-          "title": "不行也得上"
+          "title": "不行也得上",
+          "video_id": "x8RnWlVlFCk"
         }
       ]
     },
     {
       "date": "2026-04-28",
+      "video_id": "Gr-nE761T1g",
       "joke_count": 3,
       "titles": [
         {
           "time": "15:29",
-          "title": "財富效應"
+          "title": "財富效應",
+          "video_id": "Gr-nE761T1g"
         },
         {
           "time": "21:29",
-          "title": "主動還被動"
+          "title": "主動還被動",
+          "video_id": "Gr-nE761T1g"
         },
         {
           "time": "29:42",
-          "title": "彭楊配"
+          "title": "彭楊配",
+          "video_id": "Gr-nE761T1g"
         }
       ]
     },
     {
       "date": "2026-04-27",
+      "video_id": "zGc7oXv6g2s",
       "joke_count": 1,
       "titles": [
         {
           "time": "23:50",
-          "title": "第 16 個"
+          "title": "第 16 個",
+          "video_id": "zGc7oXv6g2s"
         }
       ]
     },
     {
       "date": "2026-04-24",
+      "video_id": "oiblLZqqC2w",
       "joke_count": 1,
       "titles": [
         {
           "time": "26:06",
-          "title": "休假"
+          "title": "休假",
+          "video_id": "oiblLZqqC2w"
         }
       ]
     },
     {
       "date": "2026-04-23",
+      "video_id": "3A6ESjwPNso",
       "joke_count": 2,
       "titles": [
         {
           "time": "12:42",
-          "title": "盒蛋"
+          "title": "盒蛋",
+          "video_id": "3A6ESjwPNso"
         },
         {
           "time": "25:07",
-          "title": "字宮緊"
+          "title": "字宮緊",
+          "video_id": "3A6ESjwPNso"
         }
       ]
     },
     {
       "date": "2026-04-22",
+      "video_id": "EmO-6c_f3cs",
       "joke_count": 1,
       "titles": [
         {
           "time": "19:26",
-          "title": "不要太貪心"
+          "title": "不要太貪心",
+          "video_id": "EmO-6c_f3cs"
         }
       ]
     },
     {
       "date": "2026-04-21",
+      "video_id": "-0PJCp6vpCM",
       "joke_count": 2,
       "titles": [
         {
           "time": "12:07",
-          "title": "不要停"
+          "title": "不要停",
+          "video_id": "-0PJCp6vpCM"
         },
         {
           "time": "23:04",
-          "title": "走後門"
+          "title": "走後門",
+          "video_id": "-0PJCp6vpCM"
         }
       ]
     },
     {
       "date": "2026-04-20",
+      "video_id": "J7ARFz1MLBs",
       "joke_count": 2,
       "titles": [
         {
           "time": "16:30",
-          "title": "刷一排大火箭"
+          "title": "刷一排大火箭",
+          "video_id": "J7ARFz1MLBs"
         },
         {
           "time": "24:38",
-          "title": "倖存者偏差"
+          "title": "倖存者偏差",
+          "video_id": "J7ARFz1MLBs"
         }
       ]
     },
     {
       "date": "2026-04-17",
+      "video_id": "sRm0n7EBfyI",
       "joke_count": 2,
       "titles": [
         {
           "time": "22:49",
-          "title": "跳蛋"
+          "title": "跳蛋",
+          "video_id": "sRm0n7EBfyI"
         },
         {
           "time": "28:13",
-          "title": "畜生的聲音"
+          "title": "畜生的聲音",
+          "video_id": "sRm0n7EBfyI"
         }
       ]
     },
     {
       "date": "2026-04-16",
+      "video_id": "iUY1Ql7xFFI",
       "joke_count": 1,
       "titles": [
         {
           "time": "23:25",
-          "title": "取經"
+          "title": "取經",
+          "video_id": "iUY1Ql7xFFI"
         }
       ]
     },
     {
       "date": "2026-04-15",
+      "video_id": "x6IUl6C0wrM",
       "joke_count": 1,
       "titles": [
         {
           "time": "29:34",
-          "title": "手會抖"
+          "title": "手會抖",
+          "video_id": "x6IUl6C0wrM"
         }
       ]
     },
     {
       "date": "2026-04-14",
+      "video_id": "_CPEVxMZAe4",
       "joke_count": 4,
       "titles": [
         {
           "time": "02:35",
-          "title": "不愁吃穿"
+          "title": "不愁吃穿",
+          "video_id": "_CPEVxMZAe4"
         },
         {
           "time": "14:29",
-          "title": "自己動"
+          "title": "自己動",
+          "video_id": "_CPEVxMZAe4"
         },
         {
           "time": "29:53",
-          "title": "取悅男人"
+          "title": "取悅男人",
+          "video_id": "_CPEVxMZAe4"
         },
         {
           "time": "31:40",
-          "title": "社會研究"
+          "title": "社會研究",
+          "video_id": "_CPEVxMZAe4"
         }
       ]
     },
     {
       "date": "2026-04-13",
+      "video_id": "_ozNwuGraD0",
       "joke_count": 2,
       "titles": [
         {
           "time": "14:51",
-          "title": "劉德華"
+          "title": "劉德華",
+          "video_id": "_ozNwuGraD0"
         },
         {
           "time": "25:52",
-          "title": "瘋狂的事"
+          "title": "瘋狂的事",
+          "video_id": "_ozNwuGraD0"
         }
       ]
     },
     {
       "date": "2026-04-10",
+      "video_id": "jWZyT9DlJ70",
       "joke_count": 2,
       "titles": [
         {
           "time": "12:03",
-          "title": "犯罪記錄"
+          "title": "犯罪記錄",
+          "video_id": "jWZyT9DlJ70"
         },
         {
           "time": "26:42",
-          "title": "宋朝"
+          "title": "宋朝",
+          "video_id": "jWZyT9DlJ70"
         }
       ]
     },
     {
       "date": "2026-04-09",
+      "video_id": "Anz4p7OoV3s",
       "joke_count": 2,
       "titles": [
         {
           "time": "07:04",
-          "title": "足浴"
+          "title": "足浴",
+          "video_id": "Anz4p7OoV3s"
         },
         {
           "time": "20:17",
-          "title": "鹿鼎記"
+          "title": "鹿鼎記",
+          "video_id": "Anz4p7OoV3s"
         }
       ]
     },
     {
       "date": "2026-04-08",
+      "video_id": "rRD8bYJVme4",
       "joke_count": 1,
       "titles": [
         {
           "time": "30:18",
-          "title": "一個好消息，一個壞消息"
+          "title": "一個好消息，一個壞消息",
+          "video_id": "rRD8bYJVme4"
         }
       ]
     },
     {
       "date": "2026-04-07",
+      "video_id": "KXBIh5xYBkA",
       "joke_count": 1,
       "titles": [
         {
           "time": "28:34",
-          "title": "鹹豬手"
+          "title": "鹹豬手",
+          "video_id": "KXBIh5xYBkA"
         }
       ]
     },
     {
       "date": "2026-04-02",
+      "video_id": "P05QmwN2xxY",
       "joke_count": 3,
       "titles": [
         {
           "time": "17:15",
-          "title": "未命名段子"
+          "title": "未命名段子",
+          "video_id": "P05QmwN2xxY"
         },
         {
           "time": "19:38",
-          "title": "未命名段子"
+          "title": "未命名段子",
+          "video_id": "P05QmwN2xxY"
         },
         {
           "time": "29:48",
-          "title": "未命名段子"
+          "title": "未命名段子",
+          "video_id": "P05QmwN2xxY"
         }
       ]
     },
     {
       "date": "2026-04-01",
+      "video_id": "pAhVKbSUvLo",
       "joke_count": 2,
       "titles": [
         {
           "time": "18:08",
-          "title": "一袋一袋"
+          "title": "一袋一袋",
+          "video_id": "pAhVKbSUvLo"
         },
         {
           "time": "24:45",
-          "title": "兩個孔子"
+          "title": "兩個孔子",
+          "video_id": "pAhVKbSUvLo"
         }
       ]
     },
     {
       "date": "2026-03-31",
+      "video_id": "Xxzj8CA0LDc",
       "joke_count": 1,
       "titles": [
         {
           "time": "29:41",
-          "title": "Oh My God"
+          "title": "Oh My God",
+          "video_id": "Xxzj8CA0LDc"
         }
       ]
     },
     {
       "date": "2026-03-30",
+      "video_id": "_TBaJE6KhiI",
       "joke_count": 1,
       "titles": [
         {
           "time": "28:30",
-          "title": "風險"
+          "title": "風險",
+          "video_id": "_TBaJE6KhiI"
         }
       ]
     },
     {
       "date": "2026-03-27",
+      "video_id": "07H01I-xdr0",
       "joke_count": 1,
       "titles": [
         {
           "time": null,
-          "title": "笑話：游庭皓的財經皓角 2026-03-27"
+          "title": "笑話：游庭皓的財經皓角 2026-03-27",
+          "video_id": "07H01I-xdr0"
         }
       ]
     },
     {
       "date": "2026-03-26",
+      "video_id": "LQKkl82aOCE",
       "joke_count": 2,
       "titles": [
         {
           "time": "19:28",
-          "title": "淹水"
+          "title": "淹水",
+          "video_id": "LQKkl82aOCE"
         },
         {
           "time": "28:13",
-          "title": "馬麗"
+          "title": "馬麗",
+          "video_id": "LQKkl82aOCE"
         }
       ]
     },
     {
       "date": "2026-03-25",
+      "video_id": "NL1w3WAVmNU",
       "joke_count": 1,
       "titles": [
         {
           "time": "26:19",
-          "title": "忽冷忽熱"
+          "title": "忽冷忽熱",
+          "video_id": "NL1w3WAVmNU"
         }
       ]
     },
     {
       "date": "2026-03-24",
+      "video_id": "P60IF6UOgUE",
       "joke_count": 2,
       "titles": [
         {
           "time": "21:35",
-          "title": "買入"
+          "title": "買入",
+          "video_id": "P60IF6UOgUE"
         },
         {
           "time": "24:07",
-          "title": "修女"
+          "title": "修女",
+          "video_id": "P60IF6UOgUE"
         }
       ]
     },
     {
       "date": "2026-03-23",
+      "video_id": "gJpOESKU518",
       "joke_count": 5,
       "titles": [
         {
           "time": "07:59",
-          "title": "上海灘賭聖"
+          "title": "上海灘賭聖",
+          "video_id": "gJpOESKU518"
         },
         {
           "time": "16:06",
-          "title": "三家公司"
+          "title": "三家公司",
+          "video_id": "gJpOESKU518"
         },
         {
           "time": "21:57",
-          "title": "核五"
+          "title": "核五",
+          "video_id": "gJpOESKU518"
         },
         {
           "time": "23:33",
-          "title": "戒酒"
+          "title": "戒酒",
+          "video_id": "gJpOESKU518"
         },
         {
           "time": "31:09",
-          "title": "沉沒成本"
+          "title": "沉沒成本",
+          "video_id": "gJpOESKU518"
         }
       ]
     },
     {
       "date": "2026-03-20",
+      "video_id": "FIC1puOF0O8",
       "joke_count": 3,
       "titles": [
         {
           "time": "02:16",
-          "title": "排檔桿"
+          "title": "排檔桿",
+          "video_id": "FIC1puOF0O8"
         },
         {
           "time": "31:02",
-          "title": "到底"
+          "title": "到底",
+          "video_id": "FIC1puOF0O8"
         },
         {
           "time": "32:50",
-          "title": "金蟲腦"
+          "title": "金蟲腦",
+          "video_id": "FIC1puOF0O8"
         }
       ]
     },
     {
       "date": "2026-03-19",
+      "video_id": "EPUtFFbD_ss",
       "joke_count": 1,
       "titles": [
         {
           "time": "27:00",
-          "title": "阿兵哥比較"
+          "title": "阿兵哥比較",
+          "video_id": "EPUtFFbD_ss"
         }
       ]
     },
     {
       "date": "2026-03-18",
+      "video_id": "lPlp2wd5LTU",
       "joke_count": 4,
       "titles": [
         {
           "time": "03:42",
-          "title": "贖回總統"
+          "title": "贖回總統",
+          "video_id": "lPlp2wd5LTU"
         },
         {
           "time": "22:27",
-          "title": "洗洗車子"
+          "title": "洗洗車子",
+          "video_id": "lPlp2wd5LTU"
         },
         {
           "time": "26:06",
-          "title": "未命名段子"
+          "title": "未命名段子",
+          "video_id": "lPlp2wd5LTU"
         },
         {
           "time": "26:48",
-          "title": "未命名段子"
+          "title": "未命名段子",
+          "video_id": "lPlp2wd5LTU"
         }
       ]
     },
     {
       "date": "2026-03-17",
+      "video_id": "Wuqc3EUtGIg",
       "joke_count": 2,
       "titles": [
         {
           "time": "26:01",
-          "title": "等十個月"
+          "title": "等十個月",
+          "video_id": "Wuqc3EUtGIg"
         },
         {
           "time": "27:31",
-          "title": "現在沒有的，以後都會有"
+          "title": "現在沒有的，以後都會有",
+          "video_id": "Wuqc3EUtGIg"
         }
       ]
     },
     {
       "date": "2026-03-16",
+      "video_id": "YZ-HGEmzJ5k",
       "joke_count": 1,
       "titles": [
         {
           "time": "26:38",
-          "title": "睡一覺就好了"
+          "title": "睡一覺就好了",
+          "video_id": "YZ-HGEmzJ5k"
         }
       ]
     },
     {
       "date": "2026-03-13",
+      "video_id": "nEMF7SQvU8s",
       "joke_count": 5,
       "titles": [
         {
           "time": "07:15",
-          "title": "間諜"
+          "title": "間諜",
+          "video_id": "nEMF7SQvU8s"
         },
         {
           "time": "13:25",
-          "title": "什麼缺點都圓得過去"
+          "title": "什麼缺點都圓得過去",
+          "video_id": "nEMF7SQvU8s"
         },
         {
           "time": "18:12",
-          "title": "搭帳篷"
+          "title": "搭帳篷",
+          "video_id": "nEMF7SQvU8s"
         },
         {
           "time": "23:36",
-          "title": "大驚小怪"
+          "title": "大驚小怪",
+          "video_id": "nEMF7SQvU8s"
         },
         {
           "time": "24:57",
-          "title": "絕交"
+          "title": "絕交",
+          "video_id": "nEMF7SQvU8s"
         }
       ]
     },
     {
       "date": "2026-03-12",
+      "video_id": "rR7ciI7M0pw",
       "joke_count": 1,
       "titles": [
         {
           "time": "11:36",
-          "title": "彎腰撿鑽石"
+          "title": "彎腰撿鑽石",
+          "video_id": "rR7ciI7M0pw"
         }
       ]
     },
     {
       "date": "2026-03-11",
+      "video_id": "Zg_YRHt1JTc",
       "joke_count": 4,
       "titles": [
         {
           "time": "08:13",
-          "title": "不是第一次了"
+          "title": "不是第一次了",
+          "video_id": "Zg_YRHt1JTc"
         },
         {
           "time": "11:25",
-          "title": "燙頭髮"
+          "title": "燙頭髮",
+          "video_id": "Zg_YRHt1JTc"
         },
         {
           "time": "18:36",
-          "title": "好市多"
+          "title": "好市多",
+          "video_id": "Zg_YRHt1JTc"
         },
         {
           "time": "28:49",
-          "title": "PY"
+          "title": "PY",
+          "video_id": "Zg_YRHt1JTc"
         }
       ]
     },
     {
       "date": "2026-03-10",
+      "video_id": "Ap3abhMhHRs",
       "joke_count": 2,
       "titles": [
         {
           "time": "07:28",
-          "title": "彎腰撿肥皂"
+          "title": "彎腰撿肥皂",
+          "video_id": "Ap3abhMhHRs"
         },
         {
           "time": "18:18",
-          "title": "包你發"
+          "title": "包你發",
+          "video_id": "Ap3abhMhHRs"
         }
       ]
     },
     {
       "date": "2026-03-09",
+      "video_id": "HnogXwtaKZo",
       "joke_count": 1,
       "titles": [
         {
           "time": null,
-          "title": "笑話：游庭皓的財經皓角 2026-03-09"
+          "title": "笑話：游庭皓的財經皓角 2026-03-09",
+          "video_id": "HnogXwtaKZo"
         }
       ]
     },
     {
       "date": "2026-03-06",
+      "video_id": "gM-rb0uqmPk",
       "joke_count": 2,
       "titles": [
         {
           "time": "20:07",
-          "title": "重播"
+          "title": "重播",
+          "video_id": "gM-rb0uqmPk"
         },
         {
           "time": "28:14",
-          "title": "有樹硬嗎"
+          "title": "有樹硬嗎",
+          "video_id": "gM-rb0uqmPk"
         }
       ]
     },
     {
       "date": "2026-03-05",
+      "video_id": "BKHfdu5h5Eg",
       "joke_count": 1,
       "titles": [
         {
           "time": "28:39",
-          "title": "軟體股"
+          "title": "軟體股",
+          "video_id": "BKHfdu5h5Eg"
         }
       ]
     },
     {
       "date": "2026-03-04",
+      "video_id": "WuPn7ig2dno",
       "joke_count": 3,
       "titles": [
         {
           "time": "01:29",
-          "title": "亞美跌"
+          "title": "亞美跌",
+          "video_id": "WuPn7ig2dno"
         },
         {
           "time": "25:05",
-          "title": "抄底比特幣"
+          "title": "抄底比特幣",
+          "video_id": "WuPn7ig2dno"
         },
         {
           "time": "28:18",
-          "title": "溫柔的老婆"
+          "title": "溫柔的老婆",
+          "video_id": "WuPn7ig2dno"
         }
       ]
     },
     {
       "date": "2026-03-03",
+      "video_id": "y_JraUE8qLM",
       "joke_count": 4,
       "titles": [
         {
           "time": "07:12",
-          "title": "升天機會"
+          "title": "升天機會",
+          "video_id": "y_JraUE8qLM"
         },
         {
           "time": "17:14",
-          "title": "我是說你"
+          "title": "我是說你",
+          "video_id": "y_JraUE8qLM"
         },
         {
           "time": "18:54",
-          "title": "I Love You"
+          "title": "I Love You",
+          "video_id": "y_JraUE8qLM"
         },
         {
           "time": "19:28",
-          "title": "糕點"
+          "title": "糕點",
+          "video_id": "y_JraUE8qLM"
         }
       ]
     },
     {
       "date": "2026-03-02",
+      "video_id": "ebP-UdL1290",
       "joke_count": 2,
       "titles": [
         {
           "time": "10:55",
-          "title": "冚家鏟"
+          "title": "冚家鏟",
+          "video_id": "ebP-UdL1290"
         },
         {
           "time": "24:26",
-          "title": "諾貝爾和平獎"
+          "title": "諾貝爾和平獎",
+          "video_id": "ebP-UdL1290"
         }
       ]
     },
     {
       "date": "2026-02-26",
+      "video_id": "46hmTUicOf8",
       "joke_count": 2,
       "titles": [
         {
           "time": "06:39",
-          "title": "YoYoYo 股神成長路"
+          "title": "YoYoYo 股神成長路",
+          "video_id": "46hmTUicOf8"
         },
         {
           "time": "19:54",
-          "title": "娶對老婆"
+          "title": "娶對老婆",
+          "video_id": "46hmTUicOf8"
         }
       ]
     },
     {
       "date": "2026-02-25",
+      "video_id": "q1qDEq28hno",
       "joke_count": 3,
       "titles": [
         {
           "time": "11:08",
-          "title": "一個人的想像"
+          "title": "一個人的想像",
+          "video_id": "q1qDEq28hno"
         },
         {
           "time": "24:56",
-          "title": "士兵"
+          "title": "士兵",
+          "video_id": "q1qDEq28hno"
         },
         {
           "time": "29:09",
-          "title": "國破家亡"
+          "title": "國破家亡",
+          "video_id": "q1qDEq28hno"
         }
       ]
     },
     {
       "date": "2026-02-24",
+      "video_id": "Ys3DAM85J9U",
       "joke_count": 1,
       "titles": [
         {
           "time": "27:51",
-          "title": "不可能的三角"
+          "title": "不可能的三角",
+          "video_id": "Ys3DAM85J9U"
         }
       ]
     },
     {
       "date": "2026-02-23",
+      "video_id": "6dhDA_xkS4M",
       "joke_count": 1,
       "titles": [
         {
           "time": "29:46",
-          "title": "黃賭毒"
+          "title": "黃賭毒",
+          "video_id": "6dhDA_xkS4M"
         }
       ]
     },
     {
       "date": "2026-02-13",
+      "video_id": "fck-l2IItxM",
       "joke_count": 5,
       "titles": [
         {
           "time": "25:22",
-          "title": "滷味"
+          "title": "滷味",
+          "video_id": "fck-l2IItxM"
         },
         {
           "time": "28:03",
-          "title": "太久不舒服"
+          "title": "太久不舒服",
+          "video_id": "fck-l2IItxM"
         },
         {
           "time": "29:01",
-          "title": "D 槽"
+          "title": "D 槽",
+          "video_id": "fck-l2IItxM"
         },
         {
           "time": "29:55",
-          "title": "明天"
+          "title": "明天",
+          "video_id": "fck-l2IItxM"
         },
         {
           "time": "30:47",
-          "title": "健康四大秘訣"
+          "title": "健康四大秘訣",
+          "video_id": "fck-l2IItxM"
         }
       ]
     },
     {
       "date": "2026-02-12",
+      "video_id": "kFvdul25GQI",
       "joke_count": 4,
       "titles": [
         {
           "time": "11:47",
-          "title": "房子"
+          "title": "房子",
+          "video_id": "kFvdul25GQI"
         },
         {
           "time": "12:42",
-          "title": "18 歲"
+          "title": "18 歲",
+          "video_id": "kFvdul25GQI"
         },
         {
           "time": "16:09",
-          "title": "先失在差"
+          "title": "先失在差",
+          "video_id": "kFvdul25GQI"
         },
         {
           "time": "31:40",
-          "title": "十三叔"
+          "title": "十三叔",
+          "video_id": "kFvdul25GQI"
         }
       ]
     },
     {
       "date": "2026-02-11",
+      "video_id": "VD2Iei-xdjc",
       "joke_count": 2,
       "titles": [
         {
           "time": "06:07",
-          "title": "上面有想法，下面沒辦法"
+          "title": "上面有想法，下面沒辦法",
+          "video_id": "VD2Iei-xdjc"
         },
         {
           "time": "31:34",
-          "title": "一滴"
+          "title": "一滴",
+          "video_id": "VD2Iei-xdjc"
         }
       ]
     },
     {
       "date": "2026-02-10",
+      "video_id": "cPd2tkBujco",
       "joke_count": 3,
       "titles": [
         {
           "time": "11:29",
-          "title": "ATM"
+          "title": "ATM",
+          "video_id": "cPd2tkBujco"
         },
         {
           "time": "14:51",
-          "title": "亞美跌"
+          "title": "亞美跌",
+          "video_id": "cPd2tkBujco"
         },
         {
           "time": "30:26",
-          "title": "西洋情人節"
+          "title": "西洋情人節",
+          "video_id": "cPd2tkBujco"
         }
       ]
     },
     {
       "date": "2026-02-09",
+      "video_id": "qZ0CRpYDJEQ",
       "joke_count": 1,
       "titles": [
         {
           "time": "27:26",
-          "title": "日本電影"
+          "title": "日本電影",
+          "video_id": "qZ0CRpYDJEQ"
         }
       ]
     },
     {
       "date": "2026-02-06",
+      "video_id": "GtOtp8g6UkY",
       "joke_count": 2,
       "titles": [
         {
           "time": "21:06",
-          "title": "部位很大"
+          "title": "部位很大",
+          "video_id": "GtOtp8g6UkY"
         },
         {
           "time": "27:16",
-          "title": "社會階級"
+          "title": "社會階級",
+          "video_id": "GtOtp8g6UkY"
         }
       ]
     },
     {
       "date": "2026-02-05",
+      "video_id": "Famz01BW0xk",
       "joke_count": 2,
       "titles": [
         {
           "time": "17:20",
-          "title": "愛因斯坦找車票"
+          "title": "愛因斯坦找車票",
+          "video_id": "Famz01BW0xk"
         },
         {
           "time": "25:29",
-          "title": "香港腳"
+          "title": "香港腳",
+          "video_id": "Famz01BW0xk"
         }
       ]
     },
     {
       "date": "2026-02-04",
+      "video_id": "UvmKyXFBvvw",
       "joke_count": 1,
       "titles": [
         {
           "time": null,
-          "title": "笑話：游庭皓的財經皓角 2026-02-04"
+          "title": "笑話：游庭皓的財經皓角 2026-02-04",
+          "video_id": "UvmKyXFBvvw"
         }
       ]
     },
     {
       "date": "2026-02-03",
+      "video_id": "-jRur5z6TPk",
       "joke_count": 2,
       "titles": [
         {
           "time": "12:28",
-          "title": "all in"
+          "title": "all in",
+          "video_id": "-jRur5z6TPk"
         },
         {
           "time": "28:11",
-          "title": "老公偏頭痛"
+          "title": "老公偏頭痛",
+          "video_id": "-jRur5z6TPk"
         }
       ]
     },
     {
       "date": "2026-02-02",
+      "video_id": "DJ_tqDwqAgk",
       "joke_count": 3,
       "titles": [
         {
           "time": "3:48",
-          "title": "金蟲、銀蟲"
+          "title": "金蟲、銀蟲",
+          "video_id": "DJ_tqDwqAgk"
         },
         {
           "time": "19:21",
-          "title": "湖中女神"
+          "title": "湖中女神",
+          "video_id": "DJ_tqDwqAgk"
         },
         {
           "time": "23:51",
-          "title": "捐錢和捐精"
+          "title": "捐錢和捐精",
+          "video_id": "DJ_tqDwqAgk"
         }
       ]
     },
     {
       "date": "2026-01-30",
+      "video_id": "kfWgVNEFz8c",
       "joke_count": 2,
       "titles": [
         {
           "time": "17:30",
-          "title": "裝睡的人叫不醒"
+          "title": "裝睡的人叫不醒",
+          "video_id": "kfWgVNEFz8c"
         },
         {
           "time": "20:08",
-          "title": "年輕年老"
+          "title": "年輕年老",
+          "video_id": "kfWgVNEFz8c"
         }
       ]
     },
     {
       "date": "2026-01-29",
+      "video_id": "UXC-Rz0qfqc",
       "joke_count": 4,
       "titles": [
         {
           "time": "25:02",
-          "title": "一輩子的事"
+          "title": "一輩子的事",
+          "video_id": "UXC-Rz0qfqc"
         },
         {
           "time": "25:19",
-          "title": "誰沒有過去"
+          "title": "誰沒有過去",
+          "video_id": "UXC-Rz0qfqc"
         },
         {
           "time": "29:12",
-          "title": "小孩太多"
+          "title": "小孩太多",
+          "video_id": "UXC-Rz0qfqc"
         },
         {
           "time": "33:08",
-          "title": "喝粥"
+          "title": "喝粥",
+          "video_id": "UXC-Rz0qfqc"
         }
       ]
     },
     {
       "date": "2026-01-28",
+      "video_id": "yjj2YXkgrNk",
       "joke_count": 5,
       "titles": [
         {
           "time": "18:26",
-          "title": "正確的三關"
+          "title": "正確的三關",
+          "video_id": "yjj2YXkgrNk"
         },
         {
           "time": "26:01",
-          "title": "想不出來"
+          "title": "想不出來",
+          "video_id": "yjj2YXkgrNk"
         },
         {
           "time": "30:07",
-          "title": "漲價"
+          "title": "漲價",
+          "video_id": "yjj2YXkgrNk"
         },
         {
           "time": "31:03",
-          "title": "蛀牙"
+          "title": "蛀牙",
+          "video_id": "yjj2YXkgrNk"
         },
         {
           "time": "34:06",
-          "title": "孟母"
+          "title": "孟母",
+          "video_id": "yjj2YXkgrNk"
         }
       ]
     },
     {
       "date": "2026-01-27",
+      "video_id": "Mv7WmNTiJGg",
       "joke_count": 2,
       "titles": [
         {
           "time": "12:25",
-          "title": "小金蟲"
+          "title": "小金蟲",
+          "video_id": "Mv7WmNTiJGg"
         },
         {
           "time": "29:47",
-          "title": "Good Morning"
+          "title": "Good Morning",
+          "video_id": "Mv7WmNTiJGg"
         }
       ]
     },
     {
       "date": "2026-01-26",
+      "video_id": "Dc2ibdXCTXg",
       "joke_count": 1,
       "titles": [
         {
           "time": "19:53",
-          "title": "不敢咳"
+          "title": "不敢咳",
+          "video_id": "Dc2ibdXCTXg"
         }
       ]
     },
     {
       "date": "2026-01-23",
+      "video_id": "qwlP4KhMWKc",
       "joke_count": 5,
       "titles": [
         {
           "time": "17:22",
-          "title": "泰式按摩"
+          "title": "泰式按摩",
+          "video_id": "qwlP4KhMWKc"
         },
         {
           "time": "30:25",
-          "title": "百無一用是書生"
+          "title": "百無一用是書生",
+          "video_id": "qwlP4KhMWKc"
         },
         {
           "time": "31:07",
-          "title": "直播主"
+          "title": "直播主",
+          "video_id": "qwlP4KhMWKc"
         },
         {
           "time": "32:13",
-          "title": "媽祖"
+          "title": "媽祖",
+          "video_id": "qwlP4KhMWKc"
         },
         {
           "time": "34:41",
-          "title": "出賣色相"
+          "title": "出賣色相",
+          "video_id": "qwlP4KhMWKc"
         }
       ]
     },
     {
       "date": "2026-01-22",
+      "video_id": "vvsSlQ9NC20",
       "joke_count": 4,
       "titles": [
         {
           "time": "09:47",
-          "title": "幹得不爽"
+          "title": "幹得不爽",
+          "video_id": "vvsSlQ9NC20"
         },
         {
           "time": "10:36",
-          "title": "Greenland"
+          "title": "Greenland",
+          "video_id": "vvsSlQ9NC20"
         },
         {
           "time": "11:31",
-          "title": "奶奶的兒子"
+          "title": "奶奶的兒子",
+          "video_id": "vvsSlQ9NC20"
         },
         {
           "time": "29:42",
-          "title": "擋中央"
+          "title": "擋中央",
+          "video_id": "vvsSlQ9NC20"
         }
       ]
     },
     {
       "date": "2026-01-21",
+      "video_id": "xs2iEwG1Z4c",
       "joke_count": 4,
       "titles": [
         {
           "time": "06:30",
-          "title": "加藤鷹之手"
+          "title": "加藤鷹之手",
+          "video_id": "xs2iEwG1Z4c"
         },
         {
           "time": "09:32",
-          "title": "小銀蟲"
+          "title": "小銀蟲",
+          "video_id": "xs2iEwG1Z4c"
         },
         {
           "time": "17:11",
-          "title": "未接來電"
+          "title": "未接來電",
+          "video_id": "xs2iEwG1Z4c"
         },
         {
           "time": "28:34",
-          "title": "三上悠亞、啦啦隊"
+          "title": "三上悠亞、啦啦隊",
+          "video_id": "xs2iEwG1Z4c"
         }
       ]
     },
     {
       "date": "2026-01-20",
+      "video_id": "kfBoVRk9iKQ",
       "joke_count": 2,
       "titles": [
         {
           "time": "11:09",
-          "title": "老花眼鏡"
+          "title": "老花眼鏡",
+          "video_id": "kfBoVRk9iKQ"
         },
         {
           "time": "15:35",
-          "title": "男人特徵"
+          "title": "男人特徵",
+          "video_id": "kfBoVRk9iKQ"
         }
       ]
     },
     {
       "date": "2026-01-19",
+      "video_id": "yLTqX_9cMHc",
       "joke_count": 3,
       "titles": [
         {
           "time": "19:43",
-          "title": "盧比獎"
+          "title": "盧比獎",
+          "video_id": "yLTqX_9cMHc"
         },
         {
           "time": "20:52",
-          "title": "我可以學"
+          "title": "我可以學",
+          "video_id": "yLTqX_9cMHc"
         },
         {
           "time": "22:05",
-          "title": "有的地方硬，有的地方軟"
+          "title": "有的地方硬，有的地方軟",
+          "video_id": "yLTqX_9cMHc"
         }
       ]
     },
     {
       "date": "2026-01-16",
+      "video_id": "dssbeeGy_P0",
       "joke_count": 1,
       "titles": [
         {
           "time": "26:50",
-          "title": "朝九晚五"
+          "title": "朝九晚五",
+          "video_id": "dssbeeGy_P0"
         }
       ]
     },
     {
       "date": "2026-01-14",
+      "video_id": "IMPNTeCJ5o0",
       "joke_count": 3,
       "titles": [
         {
           "time": "20:26",
-          "title": "保重身體"
+          "title": "保重身體",
+          "video_id": "IMPNTeCJ5o0"
         },
         {
           "time": "23:21",
-          "title": "多浪費水"
+          "title": "多浪費水",
+          "video_id": "IMPNTeCJ5o0"
         },
         {
           "time": "26:13",
-          "title": "死鬼"
+          "title": "死鬼",
+          "video_id": "IMPNTeCJ5o0"
         }
       ]
     },
     {
       "date": "2026-01-13",
+      "video_id": "GLLhtpxRZyQ",
       "joke_count": 3,
       "titles": [
         {
           "time": "09:43",
-          "title": "踩飛輪收錢"
+          "title": "踩飛輪收錢",
+          "video_id": "GLLhtpxRZyQ"
         },
         {
           "time": "24:50",
-          "title": "我跟國安基金"
+          "title": "我跟國安基金",
+          "video_id": "GLLhtpxRZyQ"
         },
         {
           "time": "27:55",
-          "title": "泌尿科段子"
+          "title": "泌尿科段子",
+          "video_id": "GLLhtpxRZyQ"
         }
       ]
     },
     {
       "date": "2026-01-12",
+      "video_id": "A3v-H6nXkKU",
       "joke_count": 2,
       "titles": [
         {
           "time": "27:15",
-          "title": "不問歲數"
+          "title": "不問歲數",
+          "video_id": "A3v-H6nXkKU"
         },
         {
           "time": "28:55",
-          "title": "石油"
+          "title": "石油",
+          "video_id": "A3v-H6nXkKU"
         }
       ]
     },
     {
       "date": "2026-01-09",
+      "video_id": "6kTbc955pjI",
       "joke_count": 2,
       "titles": [
         {
           "time": "14:15",
-          "title": "一個億"
+          "title": "一個億",
+          "video_id": "6kTbc955pjI"
         },
         {
           "time": "20:15",
-          "title": "義大利老人家"
+          "title": "義大利老人家",
+          "video_id": "6kTbc955pjI"
         }
       ]
     },
     {
       "date": "2026-01-08",
+      "video_id": "2SfCekTyUuI",
       "joke_count": 3,
       "titles": [
         {
           "time": "02:47",
-          "title": "破產三件套"
+          "title": "破產三件套",
+          "video_id": "2SfCekTyUuI"
         },
         {
           "time": "09:24",
-          "title": "公海"
+          "title": "公海",
+          "video_id": "2SfCekTyUuI"
         },
         {
           "time": "30:57",
-          "title": "小明"
+          "title": "小明",
+          "video_id": "2SfCekTyUuI"
         }
       ]
     },
     {
       "date": "2026-01-07",
+      "video_id": "0BqsjngIq-E",
       "joke_count": 2,
       "titles": [
         {
           "time": "12:12",
-          "title": "皓哥的小火箭"
+          "title": "皓哥的小火箭",
+          "video_id": "0BqsjngIq-E"
         },
         {
           "time": "30:59",
-          "title": "多操心愛的人"
+          "title": "多操心愛的人",
+          "video_id": "0BqsjngIq-E"
         }
       ]
     },
     {
       "date": "2026-01-06",
+      "video_id": "j5HI2TOL5a0",
       "joke_count": 2,
       "titles": [
         {
           "time": "16:57",
-          "title": "ETF 界的霸主"
+          "title": "ETF 界的霸主",
+          "video_id": "j5HI2TOL5a0"
         },
         {
           "time": "28:16",
-          "title": "貴婦"
+          "title": "貴婦",
+          "video_id": "j5HI2TOL5a0"
         }
       ]
     },
     {
       "date": "2026-01-02",
+      "video_id": "cvZDXN1_HqA",
       "joke_count": 3,
       "titles": [
         {
           "time": "11:57",
-          "title": "3330 萬"
+          "title": "3330 萬",
+          "video_id": "cvZDXN1_HqA"
         },
         {
           "time": "26:54",
-          "title": "30 年的積蓄"
+          "title": "30 年的積蓄",
+          "video_id": "cvZDXN1_HqA"
         },
         {
           "time": "33:06",
-          "title": "烏龜"
+          "title": "烏龜",
+          "video_id": "cvZDXN1_HqA"
         }
       ]
     }

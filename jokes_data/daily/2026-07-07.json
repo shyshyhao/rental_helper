@@ -1,5 +1,6 @@
 {
   "date": "2026-07-07",
+  "video_id": "vkwgbSsMB2A",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-07/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "25:37",
       "start_time_seconds": 1537,
       "title": "馬上風",
-      "video_url": null,
+      "video_id": "vkwgbSsMB2A",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=vkwgbSsMB2A&t=1537s",
+      "youtube_short_url": "https://youtu.be/vkwgbSsMB2A?t=1537",
+      "youtube_embed_url": "https://www.youtube.com/embed/vkwgbSsMB2A?start=1537",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/vkwgbSsMB2A?start=1537\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-07/",
       "punchline": "OK 好，那不管怎麼說",
       "lines": [
@@ -26,7 +31,11 @@
       "time_stamp": "31:13",
       "start_time_seconds": 1873,
       "title": "阿 Q",
-      "video_url": null,
+      "video_id": "vkwgbSsMB2A",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=vkwgbSsMB2A&t=1873s",
+      "youtube_short_url": "https://youtu.be/vkwgbSsMB2A?t=1873",
+      "youtube_embed_url": "https://www.youtube.com/embed/vkwgbSsMB2A?start=1873",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/vkwgbSsMB2A?start=1873\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-07/",
       "punchline": "這不是阿 Q 是什麼？",
       "lines": [
@@ -39,10 +48,10 @@
         "「不要。」",
         "「臉書呢？」",
         "「不要。」",
-        "「你看那個女的被���問的不要不要的~」",
+        "「你看那個女的��我問的不要不要的~」",
         "這不是阿 Q 是什麼？"
       ],
-      "content": "我覺得如果只相信這一套，那就有點阿 Q 了，\n相信自己覺得沒有問題哦，但其實是貨幣寬鬆惹的禍，\n跟那個路上的噁男一樣：\n「你好，可以跟你要個 LINE 嗎？」\n「不要。」\n「可以跟你要個 IG 嗎？」\n「不要。」\n「臉書呢？」\n「不要。」\n「你看那個女的被���問的不要不要的~」\n這不是阿 Q 是什麼？"
+      "content": "我覺得如果只相信這一套，那就有點阿 Q 了，\n相信自己覺得沒有問題哦，但其實是貨幣寬鬆惹的禍，\n跟那個路上的噁男一樣：\n「你好，可以跟你要個 LINE 嗎？」\n「不要。」\n「可以跟你要個 IG 嗎？」\n「不要。」\n「臉書呢？」\n「不要。」\n「你看那個女的��我問的不要不要的~」\n這不是阿 Q 是什麼？"
     }
   ]
 }

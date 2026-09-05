@@ -1,5 +1,6 @@
 {
   "date": "2026-02-04",
+  "video_id": "UvmKyXFBvvw",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-04/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": null,
       "start_time_seconds": 0,
       "title": "笑話：游庭皓的財經皓角 2026-02-04",
-      "video_url": null,
+      "video_id": "UvmKyXFBvvw",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=UvmKyXFBvvw",
+      "youtube_short_url": "https://youtu.be/UvmKyXFBvvw",
+      "youtube_embed_url": "https://www.youtube.com/embed/UvmKyXFBvvw",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/UvmKyXFBvvw\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-04/",
       "punchline": "24:56 皓哥捏壽司",
       "lines": [

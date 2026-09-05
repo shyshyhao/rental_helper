@@ -1,5 +1,6 @@
 {
   "date": "2026-01-16",
+  "video_id": "dssbeeGy_P0",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-16/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "26:50",
       "start_time_seconds": 1610,
       "title": "朝九晚五",
-      "video_url": null,
+      "video_id": "dssbeeGy_P0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=dssbeeGy_P0&t=1610s",
+      "youtube_short_url": "https://youtu.be/dssbeeGy_P0?t=1610",
+      "youtube_embed_url": "https://www.youtube.com/embed/dssbeeGy_P0?start=1610",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/dssbeeGy_P0?start=1610\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-16/",
       "punchline": "但是人家是真的朝九晚五，才塑造成整個半導體的榮景一路到現在。",
       "lines": [

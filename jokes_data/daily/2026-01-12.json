@@ -1,5 +1,6 @@
 {
   "date": "2026-01-12",
+  "video_id": "A3v-H6nXkKU",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-12/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "27:15",
       "start_time_seconds": 1635,
       "title": "不問歲數",
-      "video_url": null,
+      "video_id": "A3v-H6nXkKU",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=A3v-H6nXkKU&t=1635s",
+      "youtube_short_url": "https://youtu.be/A3v-H6nXkKU?t=1635",
+      "youtube_embed_url": "https://www.youtube.com/embed/A3v-H6nXkKU?start=1635",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/A3v-H6nXkKU?start=1635\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-12/",
       "punchline": "英雄不問出處，少婦不問歲數，投資不問權益數。",
       "lines": [
@@ -23,7 +28,11 @@
       "time_stamp": "28:55",
       "start_time_seconds": 1735,
       "title": "石油",
-      "video_url": null,
+      "video_id": "A3v-H6nXkKU",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=A3v-H6nXkKU&t=1735s",
+      "youtube_short_url": "https://youtu.be/A3v-H6nXkKU?t=1735",
+      "youtube_embed_url": "https://www.youtube.com/embed/A3v-H6nXkKU?start=1735",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/A3v-H6nXkKU?start=1735\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-12/",
       "punchline": "俗話說「食物放久會長黴菌，石油放久會長美軍」。",
       "lines": [

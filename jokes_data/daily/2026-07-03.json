@@ -1,5 +1,6 @@
 {
   "date": "2026-07-03",
+  "video_id": "wQ9YZ1U2bcY",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-03/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "06:13",
       "start_time_seconds": 373,
       "title": "失敗的投資",
-      "video_url": null,
+      "video_id": "wQ9YZ1U2bcY",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=wQ9YZ1U2bcY&t=373s",
+      "youtube_short_url": "https://youtu.be/wQ9YZ1U2bcY?t=373",
+      "youtube_embed_url": "https://www.youtube.com/embed/wQ9YZ1U2bcY?start=373",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/wQ9YZ1U2bcY?start=373\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-03/",
       "punchline": "就覺得是人生失敗的投資。",
       "lines": [
@@ -30,7 +35,11 @@
       "time_stamp": "21:21",
       "start_time_seconds": 1281,
       "title": "做做樣子",
-      "video_url": null,
+      "video_id": "wQ9YZ1U2bcY",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=wQ9YZ1U2bcY&t=1281s",
+      "youtube_short_url": "https://youtu.be/wQ9YZ1U2bcY?t=1281",
+      "youtube_embed_url": "https://www.youtube.com/embed/wQ9YZ1U2bcY?start=1281",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/wQ9YZ1U2bcY?start=1281\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-03/",
       "punchline": "所以做做樣子還是很重要的。",
       "lines": [

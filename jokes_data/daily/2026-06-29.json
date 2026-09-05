@@ -1,5 +1,6 @@
 {
   "date": "2026-06-29",
+  "video_id": "9_PFi331Vf0",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-29/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "06:49",
       "start_time_seconds": 409,
       "title": "車子",
-      "video_url": null,
+      "video_id": "9_PFi331Vf0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=9_PFi331Vf0&t=409s",
+      "youtube_short_url": "https://youtu.be/9_PFi331Vf0?t=409",
+      "youtube_embed_url": "https://www.youtube.com/embed/9_PFi331Vf0?start=409",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/9_PFi331Vf0?start=409\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-29/",
       "punchline": "而是全球原油供給在恢復的過程當中，油價透露出了哪些方向。",
       "lines": [

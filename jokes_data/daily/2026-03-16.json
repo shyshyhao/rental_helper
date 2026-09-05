@@ -1,5 +1,6 @@
 {
   "date": "2026-03-16",
+  "video_id": "YZ-HGEmzJ5k",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-16/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "26:38",
       "start_time_seconds": 1598,
       "title": "睡一覺就好了",
-      "video_url": null,
+      "video_id": "YZ-HGEmzJ5k",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=YZ-HGEmzJ5k&t=1598s",
+      "youtube_short_url": "https://youtu.be/YZ-HGEmzJ5k?t=1598",
+      "youtube_embed_url": "https://www.youtube.com/embed/YZ-HGEmzJ5k?start=1598",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/YZ-HGEmzJ5k?start=1598\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-16/",
       "punchline": "你看我現在昨天沒睡好，所以腦袋不是很清楚，睡覺很重要。",
       "lines": [

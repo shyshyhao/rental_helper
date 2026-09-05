@@ -1,5 +1,6 @@
 {
   "date": "2026-03-05",
+  "video_id": "BKHfdu5h5Eg",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-05/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "28:39",
       "start_time_seconds": 1719,
       "title": "軟體股",
-      "video_url": null,
+      "video_id": "BKHfdu5h5Eg",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=BKHfdu5h5Eg&t=1719s",
+      "youtube_short_url": "https://youtu.be/BKHfdu5h5Eg?t=1719",
+      "youtube_embed_url": "https://www.youtube.com/embed/BKHfdu5h5Eg?start=1719",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/BKHfdu5h5Eg?start=1719\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-05/",
       "punchline": "「因為吸毒看起來還是便宜一點。」",
       "lines": [

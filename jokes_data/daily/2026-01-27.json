@@ -1,5 +1,6 @@
 {
   "date": "2026-01-27",
+  "video_id": "Mv7WmNTiJGg",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-27/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "12:25",
       "start_time_seconds": 745,
       "title": "小金蟲",
-      "video_url": null,
+      "video_id": "Mv7WmNTiJGg",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Mv7WmNTiJGg&t=745s",
+      "youtube_short_url": "https://youtu.be/Mv7WmNTiJGg?t=745",
+      "youtube_embed_url": "https://www.youtube.com/embed/Mv7WmNTiJGg?start=745",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Mv7WmNTiJGg?start=745\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-27/",
       "punchline": "因為小銀蟲比小金蟲好聽一些嘛。",
       "lines": [
@@ -24,7 +29,11 @@
       "time_stamp": "29:47",
       "start_time_seconds": 1787,
       "title": "Good Morning",
-      "video_url": null,
+      "video_id": "Mv7WmNTiJGg",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Mv7WmNTiJGg&t=1787s",
+      "youtube_short_url": "https://youtu.be/Mv7WmNTiJGg?t=1787",
+      "youtube_embed_url": "https://www.youtube.com/embed/Mv7WmNTiJGg?start=1787",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Mv7WmNTiJGg?start=1787\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-27/",
       "punchline": "讓大家有一個儀式感。",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-04-08",
+  "video_id": "rRD8bYJVme4",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-08/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "30:18",
       "start_time_seconds": 1818,
       "title": "一個好消息，一個壞消息",
-      "video_url": null,
+      "video_id": "rRD8bYJVme4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=rRD8bYJVme4&t=1818s",
+      "youtube_short_url": "https://youtu.be/rRD8bYJVme4?t=1818",
+      "youtube_embed_url": "https://www.youtube.com/embed/rRD8bYJVme4?start=1818",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/rRD8bYJVme4?start=1818\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-08/",
       "punchline": "但是投資，時間是不等人的。",
       "lines": [

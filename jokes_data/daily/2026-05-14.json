@@ -1,5 +1,6 @@
 {
   "date": "2026-05-14",
+  "video_id": "O7zANiefhvA",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-14/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "25:25",
       "start_time_seconds": 1525,
       "title": "消除波動與風險",
-      "video_url": null,
+      "video_id": "O7zANiefhvA",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=O7zANiefhvA&t=1525s",
+      "youtube_short_url": "https://youtu.be/O7zANiefhvA?t=1525",
+      "youtube_embed_url": "https://www.youtube.com/embed/O7zANiefhvA?start=1525",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/O7zANiefhvA?start=1525\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-14/",
       "punchline": "所以我們講到市場上最危險的地方，真的不是你的願望有沒有實現，是它真的照你的話給實現了，但是方式不是你以為的那樣。",
       "lines": [
@@ -25,8 +30,12 @@
       "date": "2026-05-14",
       "time_stamp": "30:29",
       "start_time_seconds": 1829,
-      "title": "只���朋友",
-      "video_url": null,
+      "title": "只是��友",
+      "video_id": "O7zANiefhvA",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=O7zANiefhvA&t=1829s",
+      "youtube_short_url": "https://youtu.be/O7zANiefhvA?t=1829",
+      "youtube_embed_url": "https://www.youtube.com/embed/O7zANiefhvA?start=1829",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/O7zANiefhvA?start=1829\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-14/",
       "punchline": "那女生說：「我說的朋友是，我跟你只是朋友。」",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-08-21",
+  "video_id": "ajjRvohk-Og",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-21/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "31:14",
       "start_time_seconds": 1874,
       "title": "光頭",
-      "video_url": null,
+      "video_id": "ajjRvohk-Og",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=ajjRvohk-Og&t=1874s",
+      "youtube_short_url": "https://youtu.be/ajjRvohk-Og?t=1874",
+      "youtube_embed_url": "https://www.youtube.com/embed/ajjRvohk-Og?start=1874",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/ajjRvohk-Og?start=1874\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-21/",
       "punchline": "你也很難決定下一條道路通往哪裡，當你不小心超越他以後。",
       "lines": [

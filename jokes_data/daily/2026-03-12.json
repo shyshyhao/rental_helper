@@ -1,5 +1,6 @@
 {
   "date": "2026-03-12",
+  "video_id": "rR7ciI7M0pw",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-12/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "11:36",
       "start_time_seconds": 696,
       "title": "彎腰撿鑽石",
-      "video_url": null,
+      "video_id": "rR7ciI7M0pw",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=rR7ciI7M0pw&t=696s",
+      "youtube_short_url": "https://youtu.be/rR7ciI7M0pw?t=696",
+      "youtube_embed_url": "https://www.youtube.com/embed/rR7ciI7M0pw?start=696",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/rR7ciI7M0pw?start=696\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-12/",
       "punchline": "但是你要勇敢嘛，捅你的不一定是刀子，進入身體的不一定是睏意，戴上手銬的不一定是罪犯，雙腳跪地不一定是因為求饒，口裡吞嚥的不一定是委屈。",
       "lines": [

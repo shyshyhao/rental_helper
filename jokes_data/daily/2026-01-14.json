@@ -1,5 +1,6 @@
 {
   "date": "2026-01-14",
+  "video_id": "IMPNTeCJ5o0",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-14/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "20:26",
       "start_time_seconds": 1226,
       "title": "保重身體",
-      "video_url": null,
+      "video_id": "IMPNTeCJ5o0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=IMPNTeCJ5o0&t=1226s",
+      "youtube_short_url": "https://youtu.be/IMPNTeCJ5o0?t=1226",
+      "youtube_embed_url": "https://www.youtube.com/embed/IMPNTeCJ5o0?start=1226",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/IMPNTeCJ5o0?start=1226\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-14/",
       "punchline": "所以保重身體是最重要的。",
       "lines": [
@@ -26,7 +31,11 @@
       "time_stamp": "23:21",
       "start_time_seconds": 1401,
       "title": "多浪費水",
-      "video_url": null,
+      "video_id": "IMPNTeCJ5o0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=IMPNTeCJ5o0&t=1401s",
+      "youtube_short_url": "https://youtu.be/IMPNTeCJ5o0?t=1401",
+      "youtube_embed_url": "https://www.youtube.com/embed/IMPNTeCJ5o0?start=1401",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/IMPNTeCJ5o0?start=1401\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-14/",
       "punchline": "你看多浪費水，掌嘴、掌嘴、掌嘴。",
       "lines": [
@@ -44,7 +53,11 @@
       "time_stamp": "26:13",
       "start_time_seconds": 1573,
       "title": "死鬼",
-      "video_url": null,
+      "video_id": "IMPNTeCJ5o0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=IMPNTeCJ5o0&t=1573s",
+      "youtube_short_url": "https://youtu.be/IMPNTeCJ5o0?t=1573",
+      "youtube_embed_url": "https://www.youtube.com/embed/IMPNTeCJ5o0?start=1573",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/IMPNTeCJ5o0?start=1573\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-14/",
       "punchline": "「噢，那叫死鬼。」",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-01-07",
+  "video_id": "0BqsjngIq-E",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-07/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "12:12",
       "start_time_seconds": 732,
       "title": "皓哥的小火箭",
-      "video_url": null,
+      "video_id": "0BqsjngIq-E",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=0BqsjngIq-E&t=732s",
+      "youtube_short_url": "https://youtu.be/0BqsjngIq-E?t=732",
+      "youtube_embed_url": "https://www.youtube.com/embed/0BqsjngIq-E?start=732",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/0BqsjngIq-E?start=732\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-07/",
       "punchline": "@TWCH66 這個去醫院可能不好拿出來 皓哥小心使用",
       "lines": [
@@ -21,7 +26,11 @@
       "time_stamp": "30:59",
       "start_time_seconds": 1859,
       "title": "多操心愛的人",
-      "video_url": null,
+      "video_id": "0BqsjngIq-E",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=0BqsjngIq-E&t=1859s",
+      "youtube_short_url": "https://youtu.be/0BqsjngIq-E?t=1859",
+      "youtube_embed_url": "https://www.youtube.com/embed/0BqsjngIq-E?start=1859",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/0BqsjngIq-E?start=1859\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-07/",
       "punchline": "有能力者吃麥當勞，勞者多死，能力好不如關係好。",
       "lines": [
@@ -29,11 +38,11 @@
         "所以感情其實也一樣嘛，我們一直常講：少操無用的心，多操 心愛的人。",
         "就是你對於心愛的人，你多操心一點，",
         "你多喜歡他一點，管他你要學什麼技巧，你對他好就可以了。",
-        "能者��勞，智者多慮，無能者無憂無慮。",
+        "能���多勞，智者多慮，無能者無憂無慮。",
         "好所以呢，無能就是福，投資朋友，",
         "有能力者吃麥當勞，勞者多死，能力好不如關係好。"
       ],
-      "content": "開始懂取捨，承認自己的偏好和盲點，知道什麼樣的人是適合自己的好。\n所以感情其實也一樣嘛，我們一直常講：少操無用的心，多操 心愛的人。\n就是你對於心愛的人，你多操心一點，\n你多喜歡他一點，管他你要學什麼技巧，你對他好就可以了。\n能者��勞，智者多慮，無能者無憂無慮。\n好所以呢，無能就是福，投資朋友，\n有能力者吃麥當勞，勞者多死，能力好不如關係好。"
+      "content": "開始懂取捨，承認自己的偏好和盲點，知道什麼樣的人是適合自己的好。\n所以感情其實也一樣嘛，我們一直常講：少操無用的心，多操 心愛的人。\n就是你對於心愛的人，你多操心一點，\n你多喜歡他一點，管他你要學什麼技巧，你對他好就可以了。\n能���多勞，智者多慮，無能者無憂無慮。\n好所以呢，無能就是福，投資朋友，\n有能力者吃麥當勞，勞者多死，能力好不如關係好。"
     }
   ]
 }

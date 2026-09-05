@@ -1,5 +1,6 @@
 {
   "date": "2026-08-25",
+  "video_id": "tLvKGHyxhd8",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-25/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "15:14",
       "start_time_seconds": 914,
       "title": "捲髮棒",
-      "video_url": null,
+      "video_id": "tLvKGHyxhd8",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=tLvKGHyxhd8&t=914s",
+      "youtube_short_url": "https://youtu.be/tLvKGHyxhd8?t=914",
+      "youtube_embed_url": "https://www.youtube.com/embed/tLvKGHyxhd8?start=914",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/tLvKGHyxhd8?start=914\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-25/",
       "punchline": "我們知道行情本來就是會有多有空哦。",
       "lines": [

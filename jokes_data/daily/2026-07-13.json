@@ -1,5 +1,6 @@
 {
   "date": "2026-07-13",
+  "video_id": "n0sH57wGfU0",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-13/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "16:09",
       "start_time_seconds": 969,
       "title": "老虎",
-      "video_url": null,
+      "video_id": "n0sH57wGfU0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=n0sH57wGfU0&t=969s",
+      "youtube_short_url": "https://youtu.be/n0sH57wGfU0?t=969",
+      "youtube_embed_url": "https://www.youtube.com/embed/n0sH57wGfU0?start=969",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/n0sH57wGfU0?start=969\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-13/",
       "punchline": "我認為還是比較嚴謹的態度了，包括台積電法說也是了。",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "29:11",
       "start_time_seconds": 1751,
       "title": "頻尿",
-      "video_url": null,
+      "video_id": "n0sH57wGfU0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=n0sH57wGfU0&t=1751s",
+      "youtube_short_url": "https://youtu.be/n0sH57wGfU0?t=1751",
+      "youtube_embed_url": "https://www.youtube.com/embed/n0sH57wGfU0?start=1751",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/n0sH57wGfU0?start=1751\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-13/",
       "punchline": "頻尿的次數，還分叉。",
       "lines": [

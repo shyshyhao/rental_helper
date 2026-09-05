@@ -1,5 +1,6 @@
 {
   "date": "2026-08-18",
+  "video_id": "aRPmzQfTLFc",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-18/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "18:17",
       "start_time_seconds": 1097,
       "title": "句句是車，句句不是車",
-      "video_url": null,
+      "video_id": "aRPmzQfTLFc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=aRPmzQfTLFc&t=1097s",
+      "youtube_short_url": "https://youtu.be/aRPmzQfTLFc?t=1097",
+      "youtube_embed_url": "https://www.youtube.com/embed/aRPmzQfTLFc?start=1097",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/aRPmzQfTLFc?start=1097\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-18/",
       "punchline": "我���的是投資。",
       "lines": [
@@ -33,7 +38,11 @@
       "time_stamp": "29:38",
       "start_time_seconds": 1778,
       "title": "直接睡",
-      "video_url": null,
+      "video_id": "aRPmzQfTLFc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=aRPmzQfTLFc&t=1778s",
+      "youtube_short_url": "https://youtu.be/aRPmzQfTLFc?t=1778",
+      "youtube_embed_url": "https://www.youtube.com/embed/aRPmzQfTLFc?start=1778",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/aRPmzQfTLFc?start=1778\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-18/",
       "punchline": "不是。",
       "lines": [

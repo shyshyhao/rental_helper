@@ -1,5 +1,6 @@
 {
   "date": "2026-01-26",
+  "video_id": "Dc2ibdXCTXg",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-26/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "19:53",
       "start_time_seconds": 1193,
       "title": "不敢咳",
-      "video_url": null,
+      "video_id": "Dc2ibdXCTXg",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Dc2ibdXCTXg&t=1193s",
+      "youtube_short_url": "https://youtu.be/Dc2ibdXCTXg?t=1193",
+      "youtube_embed_url": "https://www.youtube.com/embed/Dc2ibdXCTXg?start=1193",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Dc2ibdXCTXg?start=1193\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-26/",
       "punchline": "但到底是不敢咳／不想咳，不管如何，市場最後只會呈現一個績效、一個數字給你。",
       "lines": [

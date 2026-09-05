@@ -1,5 +1,6 @@
 {
   "date": "2026-06-05",
+  "video_id": "L5uss3pVph8",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-05/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "17:41",
       "start_time_seconds": 1061,
       "title": "有什麼差別",
-      "video_url": null,
+      "video_id": "L5uss3pVph8",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=L5uss3pVph8&t=1061s",
+      "youtube_short_url": "https://youtu.be/L5uss3pVph8?t=1061",
+      "youtube_embed_url": "https://www.youtube.com/embed/L5uss3pVph8?start=1061",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/L5uss3pVph8?start=1061\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-05/",
       "punchline": "你就會發現就是市場情緒而已，而並不是企業價值的改變。",
       "lines": [
@@ -30,7 +35,11 @@
       "time_stamp": "23:16",
       "start_time_seconds": 1396,
       "title": "眼鏡蛇",
-      "video_url": null,
+      "video_id": "L5uss3pVph8",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=L5uss3pVph8&t=1396s",
+      "youtube_short_url": "https://youtu.be/L5uss3pVph8?t=1396",
+      "youtube_embed_url": "https://www.youtube.com/embed/L5uss3pVph8?start=1396",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/L5uss3pVph8?start=1396\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-05/",
       "punchline": "就公司成本暴增，後來亞馬遜又取消這樣的一個制度了。",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-07-24",
+  "video_id": "_m4TSQiYZi4",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-24/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "18:08",
       "start_time_seconds": 1088,
       "title": "釣魚",
-      "video_url": null,
+      "video_id": "_m4TSQiYZi4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=_m4TSQiYZi4&t=1088s",
+      "youtube_short_url": "https://youtu.be/_m4TSQiYZi4?t=1088",
+      "youtube_embed_url": "https://www.youtube.com/embed/_m4TSQiYZi4?start=1088",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/_m4TSQiYZi4?start=1088\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-24/",
       "punchline": "要瞭解自己的初心。",
       "lines": [
@@ -32,7 +37,11 @@
       "time_stamp": "21:11",
       "start_time_seconds": 1271,
       "title": "悲觀解讀",
-      "video_url": null,
+      "video_id": "_m4TSQiYZi4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=_m4TSQiYZi4&t=1271s",
+      "youtube_short_url": "https://youtu.be/_m4TSQiYZi4?t=1271",
+      "youtube_embed_url": "https://www.youtube.com/embed/_m4TSQiYZi4?start=1271",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/_m4TSQiYZi4?start=1271\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-24/",
       "punchline": "你永遠都做腦補的話，那你也很難做投資。",
       "lines": [
@@ -57,7 +66,11 @@
       "time_stamp": "22:07",
       "start_time_seconds": 1327,
       "title": "腦補",
-      "video_url": null,
+      "video_id": "_m4TSQiYZi4",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=_m4TSQiYZi4&t=1327s",
+      "youtube_short_url": "https://youtu.be/_m4TSQiYZi4?t=1327",
+      "youtube_embed_url": "https://www.youtube.com/embed/_m4TSQiYZi4?start=1327",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/_m4TSQiYZi4?start=1327\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-24/",
       "punchline": "可是最後你要回歸一個原則源頭來判斷好。",
       "lines": [

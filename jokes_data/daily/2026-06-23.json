@@ -1,5 +1,6 @@
 {
   "date": "2026-06-23",
+  "video_id": "ZOaJ61xMrhM",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-23/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "19:30",
       "start_time_seconds": 1170,
       "title": "硬硬的",
-      "video_url": null,
+      "video_id": "ZOaJ61xMrhM",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=ZOaJ61xMrhM&t=1170s",
+      "youtube_short_url": "https://youtu.be/ZOaJ61xMrhM?t=1170",
+      "youtube_embed_url": "https://www.youtube.com/embed/ZOaJ61xMrhM?start=1170",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/ZOaJ61xMrhM?start=1170\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-23/",
       "punchline": "就算你的成長故事大家都一樣，可是市場的評價就是可以改變的。",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "21:40",
       "start_time_seconds": 1300,
       "title": "小電影",
-      "video_url": null,
+      "video_id": "ZOaJ61xMrhM",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=ZOaJ61xMrhM&t=1300s",
+      "youtube_short_url": "https://youtu.be/ZOaJ61xMrhM?t=1300",
+      "youtube_embed_url": "https://www.youtube.com/embed/ZOaJ61xMrhM?start=1300",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/ZOaJ61xMrhM?start=1300\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-23/",
       "punchline": "代理型的 AI，記憶體的需求也會因此而爆發。",
       "lines": [
@@ -52,7 +61,11 @@
       "time_stamp": "26:37",
       "start_time_seconds": 1597,
       "title": "小賭怡情，大賭郭台銘",
-      "video_url": null,
+      "video_id": "ZOaJ61xMrhM",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=ZOaJ61xMrhM&t=1597s",
+      "youtube_short_url": "https://youtu.be/ZOaJ61xMrhM?t=1597",
+      "youtube_embed_url": "https://www.youtube.com/embed/ZOaJ61xMrhM?start=1597",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/ZOaJ61xMrhM?start=1597\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-23/",
       "punchline": "讓它來超車用。",
       "lines": [

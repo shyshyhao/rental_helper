@@ -1,5 +1,6 @@
 {
   "date": "2026-05-15",
+  "video_id": "b5a7Uuwj5AY",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-15/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "14:29",
       "start_time_seconds": 869,
       "title": "不要抱太高期待",
-      "video_url": null,
+      "video_id": "b5a7Uuwj5AY",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=b5a7Uuwj5AY&t=869s",
+      "youtube_short_url": "https://youtu.be/b5a7Uuwj5AY?t=869",
+      "youtube_embed_url": "https://www.youtube.com/embed/b5a7Uuwj5AY?start=869",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/b5a7Uuwj5AY?start=869\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-15/",
       "punchline": "- 我也很國際化阿，對，我國際化。 - 我是美國作息嘛，台灣皮膚，俄羅斯脾氣，非洲經濟，杜拜開銷嘛。 - 就如何順應著全球局勢，形成自己的大局觀，還有形成自己的投資觀，我認為是非常重要。",
       "lines": [

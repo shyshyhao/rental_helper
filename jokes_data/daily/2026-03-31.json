@@ -1,5 +1,6 @@
 {
   "date": "2026-03-31",
+  "video_id": "Xxzj8CA0LDc",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-31/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "29:41",
       "start_time_seconds": 1781,
       "title": "Oh My God",
-      "video_url": null,
+      "video_id": "Xxzj8CA0LDc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Xxzj8CA0LDc&t=1781s",
+      "youtube_short_url": "https://youtu.be/Xxzj8CA0LDc?t=1781",
+      "youtube_embed_url": "https://www.youtube.com/embed/Xxzj8CA0LDc?start=1781",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Xxzj8CA0LDc?start=1781\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-31/",
       "punchline": "就很多人，其實就像那小朋友一樣，用自己的經驗去解讀市場。",
       "lines": [

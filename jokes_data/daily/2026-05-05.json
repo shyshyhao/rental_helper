@@ -1,5 +1,6 @@
 {
   "date": "2026-05-05",
+  "video_id": "EP-5J6-PMiQ",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-05/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "20:00",
       "start_time_seconds": 1200,
       "title": "毒蘑菇",
-      "video_url": null,
+      "video_id": "EP-5J6-PMiQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=EP-5J6-PMiQ&t=1200s",
+      "youtube_short_url": "https://youtu.be/EP-5J6-PMiQ?t=1200",
+      "youtube_embed_url": "https://www.youtube.com/embed/EP-5J6-PMiQ?start=1200",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/EP-5J6-PMiQ?start=1200\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-05/",
       "punchline": "所以該來的總會來。",
       "lines": [
@@ -29,7 +34,11 @@
       "time_stamp": "32:34",
       "start_time_seconds": 1954,
       "title": "直接睡",
-      "video_url": null,
+      "video_id": "EP-5J6-PMiQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=EP-5J6-PMiQ&t=1954s",
+      "youtube_short_url": "https://youtu.be/EP-5J6-PMiQ?t=1954",
+      "youtube_embed_url": "https://www.youtube.com/embed/EP-5J6-PMiQ?start=1954",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/EP-5J6-PMiQ?start=1954\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-05/",
       "punchline": "欸不是。",
       "lines": [

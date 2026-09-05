@@ -1,5 +1,6 @@
 {
   "date": "2026-05-20",
+  "video_id": "CLdxlSPzjT0",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-20/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "18:40",
       "start_time_seconds": 1120,
       "title": "駕駛員",
-      "video_url": null,
+      "video_id": "CLdxlSPzjT0",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=CLdxlSPzjT0&t=1120s",
+      "youtube_short_url": "https://youtu.be/CLdxlSPzjT0?t=1120",
+      "youtube_embed_url": "https://www.youtube.com/embed/CLdxlSPzjT0?start=1120",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/CLdxlSPzjT0?start=1120\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-20/",
       "punchline": "它的客戶遲早要賺到錢的。",
       "lines": [

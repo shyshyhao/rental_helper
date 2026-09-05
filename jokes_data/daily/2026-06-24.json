@@ -1,5 +1,6 @@
 {
   "date": "2026-06-24",
+  "video_id": "2Z9hMGktBDU",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-24/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "14:56",
       "start_time_seconds": 896,
       "title": "馬斯克還我錢",
-      "video_url": null,
+      "video_id": "2Z9hMGktBDU",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=2Z9hMGktBDU&t=896s",
+      "youtube_short_url": "https://youtu.be/2Z9hMGktBDU?t=896",
+      "youtube_embed_url": "https://www.youtube.com/embed/2Z9hMGktBDU?start=896",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/2Z9hMGktBDU?start=896\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-24/",
       "punchline": "馬斯克還我錢，馬英九還我牛。",
       "lines": [
@@ -22,7 +27,11 @@
       "time_stamp": "18:10",
       "start_time_seconds": 1090,
       "title": "這輩子太短了",
-      "video_url": null,
+      "video_id": "2Z9hMGktBDU",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=2Z9hMGktBDU&t=1090s",
+      "youtube_short_url": "https://youtu.be/2Z9hMGktBDU?t=1090",
+      "youtube_embed_url": "https://www.youtube.com/embed/2Z9hMGktBDU?start=1090",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/2Z9hMGktBDU?start=1090\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-24/",
       "punchline": "這同樣一句話，同樣一個現象，不同的人他會腦補出完全不同的故事。",
       "lines": [
@@ -41,7 +50,11 @@
       "time_stamp": "28:27",
       "start_time_seconds": 1707,
       "title": "送急診",
-      "video_url": null,
+      "video_id": "2Z9hMGktBDU",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=2Z9hMGktBDU&t=1707s",
+      "youtube_short_url": "https://youtu.be/2Z9hMGktBDU?t=1707",
+      "youtube_embed_url": "https://www.youtube.com/embed/2Z9hMGktBDU?start=1707",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/2Z9hMGktBDU?start=1707\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-24/",
       "punchline": "那護士說：「捐 1,000 cc 那要送急診。」",
       "lines": [

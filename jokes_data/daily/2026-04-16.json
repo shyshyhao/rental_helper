@@ -1,5 +1,6 @@
 {
   "date": "2026-04-16",
+  "video_id": "iUY1Ql7xFFI",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-16/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "23:25",
       "start_time_seconds": 1405,
       "title": "取經",
-      "video_url": null,
+      "video_id": "iUY1Ql7xFFI",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=iUY1Ql7xFFI&t=1405s",
+      "youtube_short_url": "https://youtu.be/iUY1Ql7xFFI?t=1405",
+      "youtube_embed_url": "https://www.youtube.com/embed/iUY1Ql7xFFI?start=1405",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/iUY1Ql7xFFI?start=1405\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-16/",
       "punchline": "你怎麼能夠抱得住呢？",
       "lines": [

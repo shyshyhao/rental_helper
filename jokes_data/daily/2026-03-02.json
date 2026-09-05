@@ -1,5 +1,6 @@
 {
   "date": "2026-03-02",
+  "video_id": "ebP-UdL1290",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-02/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "10:55",
       "start_time_seconds": 655,
       "title": "冚家鏟",
-      "video_url": null,
+      "video_id": "ebP-UdL1290",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=ebP-UdL1290&t=655s",
+      "youtube_short_url": "https://youtu.be/ebP-UdL1290?t=655",
+      "youtube_embed_url": "https://www.youtube.com/embed/ebP-UdL1290?start=655",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/ebP-UdL1290?start=655\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-02/",
       "punchline": "哈梅尼全家「冚家鏟」。",
       "lines": [
@@ -30,7 +35,11 @@
       "time_stamp": "24:26",
       "start_time_seconds": 1466,
       "title": "諾貝爾和平獎",
-      "video_url": null,
+      "video_id": "ebP-UdL1290",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=ebP-UdL1290&t=1466s",
+      "youtube_short_url": "https://youtu.be/ebP-UdL1290?t=1466",
+      "youtube_embed_url": "https://www.youtube.com/embed/ebP-UdL1290?start=1466",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/ebP-UdL1290?start=1466\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-02/",
       "punchline": "過去我們提過的高科技，美軍美元文化霸權。",
       "lines": [

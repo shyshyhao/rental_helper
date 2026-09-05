@@ -1,5 +1,6 @@
 {
   "date": "2026-08-27",
+  "video_id": "lDeHFopOfIs",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-27/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "28:35",
       "start_time_seconds": 1715,
       "title": "地獄",
-      "video_url": null,
+      "video_id": "lDeHFopOfIs",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=lDeHFopOfIs&t=1715s",
+      "youtube_short_url": "https://youtu.be/lDeHFopOfIs?t=1715",
+      "youtube_embed_url": "https://www.youtube.com/embed/lDeHFopOfIs?start=1715",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/lDeHFopOfIs?start=1715\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-27/",
       "punchline": "是因為生活終於給了他足夠具體的證據哦。",
       "lines": [

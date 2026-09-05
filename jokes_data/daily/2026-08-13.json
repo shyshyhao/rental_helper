@@ -1,5 +1,6 @@
 {
   "date": "2026-08-13",
+  "video_id": "KS_BkfqfALI",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-13/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "17:32",
       "start_time_seconds": 1052,
       "title": "貂蟬",
-      "video_url": null,
+      "video_id": "KS_BkfqfALI",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=KS_BkfqfALI&t=1052s",
+      "youtube_short_url": "https://youtu.be/KS_BkfqfALI?t=1052",
+      "youtube_embed_url": "https://www.youtube.com/embed/KS_BkfqfALI?start=1052",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/KS_BkfqfALI?start=1052\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-13/",
       "punchline": "從理想主義一路走向現實主義哦。",
       "lines": [
@@ -29,7 +34,11 @@
       "time_stamp": "33:14",
       "start_time_seconds": 1994,
       "title": "人渣",
-      "video_url": null,
+      "video_id": "KS_BkfqfALI",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=KS_BkfqfALI&t=1994s",
+      "youtube_short_url": "https://youtu.be/KS_BkfqfALI?t=1994",
+      "youtube_embed_url": "https://www.youtube.com/embed/KS_BkfqfALI?start=1994",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/KS_BkfqfALI?start=1994\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-13/",
       "punchline": "就是它的確為中國篩選出了世界級的企業。",
       "lines": [

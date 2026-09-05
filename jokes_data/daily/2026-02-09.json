@@ -1,5 +1,6 @@
 {
   "date": "2026-02-09",
+  "video_id": "qZ0CRpYDJEQ",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-09/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "27:26",
       "start_time_seconds": 1646,
       "title": "日本電影",
-      "video_url": null,
+      "video_id": "qZ0CRpYDJEQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=qZ0CRpYDJEQ&t=1646s",
+      "youtube_short_url": "https://youtu.be/qZ0CRpYDJEQ?t=1646",
+      "youtube_embed_url": "https://www.youtube.com/embed/qZ0CRpYDJEQ?start=1646",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/qZ0CRpYDJEQ?start=1646\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-09/",
       "punchline": "這是一個和諧的國度。",
       "lines": [

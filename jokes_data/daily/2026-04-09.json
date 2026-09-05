@@ -1,5 +1,6 @@
 {
   "date": "2026-04-09",
+  "video_id": "Anz4p7OoV3s",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-09/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "07:04",
       "start_time_seconds": 424,
       "title": "足浴",
-      "video_url": null,
+      "video_id": "Anz4p7OoV3s",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Anz4p7OoV3s&t=424s",
+      "youtube_short_url": "https://youtu.be/Anz4p7OoV3s?t=424",
+      "youtube_embed_url": "https://www.youtube.com/embed/Anz4p7OoV3s?start=424",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Anz4p7OoV3s?start=424\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-09/",
       "punchline": "但是看了就停不下來，發現洗腳的比演戲好看。",
       "lines": [
@@ -30,7 +35,11 @@
       "time_stamp": "20:17",
       "start_time_seconds": 1217,
       "title": "鹿鼎記",
-      "video_url": null,
+      "video_id": "Anz4p7OoV3s",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Anz4p7OoV3s&t=1217s",
+      "youtube_short_url": "https://youtu.be/Anz4p7OoV3s?t=1217",
+      "youtube_embed_url": "https://www.youtube.com/embed/Anz4p7OoV3s?start=1217",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Anz4p7OoV3s?start=1217\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-09/",
       "punchline": "但是川普至少，把大部分我們看到教育水準比較偏低的選民呢，幾乎選票都已經完全給拿下來了。",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-03-17",
+  "video_id": "Wuqc3EUtGIg",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-17/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "26:01",
       "start_time_seconds": 1561,
       "title": "等十個月",
-      "video_url": null,
+      "video_id": "Wuqc3EUtGIg",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Wuqc3EUtGIg&t=1561s",
+      "youtube_short_url": "https://youtu.be/Wuqc3EUtGIg?t=1561",
+      "youtube_embed_url": "https://www.youtube.com/embed/Wuqc3EUtGIg?start=1561",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Wuqc3EUtGIg?start=1561\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-17/",
       "punchline": "其實大部分時間，他都是在懷疑中持續成長的。",
       "lines": [
@@ -28,7 +33,11 @@
       "time_stamp": "27:31",
       "start_time_seconds": 1651,
       "title": "現在沒有的，以後都會有",
-      "video_url": null,
+      "video_id": "Wuqc3EUtGIg",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=Wuqc3EUtGIg&t=1651s",
+      "youtube_short_url": "https://youtu.be/Wuqc3EUtGIg?t=1651",
+      "youtube_embed_url": "https://www.youtube.com/embed/Wuqc3EUtGIg?start=1651",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/Wuqc3EUtGIg?start=1651\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-03-17/",
       "punchline": "這非常重要。",
       "lines": [

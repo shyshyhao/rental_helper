@@ -1,5 +1,6 @@
 {
   "date": "2026-04-10",
+  "video_id": "jWZyT9DlJ70",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-10/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "12:03",
       "start_time_seconds": 723,
       "title": "犯罪記錄",
-      "video_url": null,
+      "video_id": "jWZyT9DlJ70",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=jWZyT9DlJ70&t=723s",
+      "youtube_short_url": "https://youtu.be/jWZyT9DlJ70?t=723",
+      "youtube_embed_url": "https://www.youtube.com/embed/jWZyT9DlJ70?start=723",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/jWZyT9DlJ70?start=723\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-10/",
       "punchline": "市場很常會把過去的邏輯，當成現在的門票。",
       "lines": [
@@ -25,15 +30,19 @@
       "time_stamp": "26:42",
       "start_time_seconds": 1602,
       "title": "宋朝",
-      "video_url": null,
+      "video_id": "jWZyT9DlJ70",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=jWZyT9DlJ70&t=1602s",
+      "youtube_short_url": "https://youtu.be/jWZyT9DlJ70?t=1602",
+      "youtube_embed_url": "https://www.youtube.com/embed/jWZyT9DlJ70?start=1602",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/jWZyT9DlJ70?start=1602\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-10/",
       "punchline": "最早理科生最有優勢的是宋朝嘛，因為宋朝理學。",
       "lines": [
         "以前我們在台灣大家都講說理科生一直都是這個時代天下是沒錯了，但是硬要講，可能更類似於工科生。",
-        "其實以前��科生在以前確實有優勢，現在表現起來，在台灣特別有明顯的落差。",
+        "其實以前文科生在以前確實有優勢，現在表現起來，在台灣特別有明顯的落差。",
         "最早理科生最有優勢的是宋朝嘛，因為宋朝理學。"
       ],
-      "content": "以前我們在台灣大家都講說理科生一直都是這個時代天下是沒錯了，但是硬要講，可能更類似於工科生。\n其實以前��科生在以前確實有優勢，現在表現起來，在台灣特別有明顯的落差。\n最早理科生最有優勢的是宋朝嘛，因為宋朝理學。"
+      "content": "以前我們在台灣大家都講說理科生一直都是這個時代天下是沒錯了，但是硬要講，可能更類似於工科生。\n其實以前文科生在以前確實有優勢，現在表現起來，在台灣特別有明顯的落差。\n最早理科生最有優勢的是宋朝嘛，因為宋朝理學。"
     }
   ]
 }

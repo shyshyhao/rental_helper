@@ -1,5 +1,6 @@
 {
   "date": "2026-06-18",
+  "video_id": "eL--HDhT-mo",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-18/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "25:45",
       "start_time_seconds": 1545,
       "title": "真的有一千塊",
-      "video_url": null,
+      "video_id": "eL--HDhT-mo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=eL--HDhT-mo&t=1545s",
+      "youtube_short_url": "https://youtu.be/eL--HDhT-mo?t=1545",
+      "youtube_embed_url": "https://www.youtube.com/embed/eL--HDhT-mo?start=1545",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/eL--HDhT-mo?start=1545\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-18/",
       "punchline": "你就會介意了。",
       "lines": [
@@ -37,7 +42,11 @@
       "time_stamp": "31:54",
       "start_time_seconds": 1914,
       "title": "逼越緊",
-      "video_url": null,
+      "video_id": "eL--HDhT-mo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=eL--HDhT-mo&t=1914s",
+      "youtube_short_url": "https://youtu.be/eL--HDhT-mo?t=1914",
+      "youtube_embed_url": "https://www.youtube.com/embed/eL--HDhT-mo?start=1914",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/eL--HDhT-mo?start=1914\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-06-18/",
       "punchline": "好像有產業競爭的壓力哦，雙方就有可能達成一定程度的資產配置。",
       "lines": [

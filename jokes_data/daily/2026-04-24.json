@@ -1,5 +1,6 @@
 {
   "date": "2026-04-24",
+  "video_id": "oiblLZqqC2w",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-24/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "26:06",
       "start_time_seconds": 1566,
       "title": "休假",
-      "video_url": null,
+      "video_id": "oiblLZqqC2w",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=oiblLZqqC2w&t=1566s",
+      "youtube_short_url": "https://youtu.be/oiblLZqqC2w?t=1566",
+      "youtube_embed_url": "https://www.youtube.com/embed/oiblLZqqC2w?start=1566",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/oiblLZqqC2w?start=1566\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-24/",
       "punchline": "那師傅說：「拍謝，我們這邊都是純的。」",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-08-07",
+  "video_id": "IHB6xZANLDc",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-07/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "18:07",
       "start_time_seconds": 1087,
       "title": "形式自由",
-      "video_url": null,
+      "video_id": "IHB6xZANLDc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=IHB6xZANLDc&t=1087s",
+      "youtube_short_url": "https://youtu.be/IHB6xZANLDc?t=1087",
+      "youtube_embed_url": "https://www.youtube.com/embed/IHB6xZANLDc?start=1087",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/IHB6xZANLDc?start=1087\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-07/",
       "punchline": "因為台灣核心產品還是以美系科技公司為主嘛",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "25:20",
       "start_time_seconds": 1520,
       "title": "國旅",
-      "video_url": null,
+      "video_id": "IHB6xZANLDc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=IHB6xZANLDc&t=1520s",
+      "youtube_short_url": "https://youtu.be/IHB6xZANLDc?t=1520",
+      "youtube_embed_url": "https://www.youtube.com/embed/IHB6xZANLDc?start=1520",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/IHB6xZANLDc?start=1520\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-07/",
       "punchline": "唉實在太無聊了，還是要花點錢。",
       "lines": [

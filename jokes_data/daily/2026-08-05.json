@@ -1,5 +1,6 @@
 {
   "date": "2026-08-05",
+  "video_id": "NspN81zjSzw",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-05/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "19:24",
       "start_time_seconds": 1164,
       "title": "禿鷹",
-      "video_url": null,
+      "video_id": "NspN81zjSzw",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=NspN81zjSzw&t=1164s",
+      "youtube_short_url": "https://youtu.be/NspN81zjSzw?t=1164",
+      "youtube_embed_url": "https://www.youtube.com/embed/NspN81zjSzw?start=1164",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/NspN81zjSzw?start=1164\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-05/",
       "punchline": "往往都發生在大家最悲觀、最容易放棄判斷的時刻。",
       "lines": [

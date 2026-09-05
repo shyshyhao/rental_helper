@@ -1,5 +1,6 @@
 {
   "date": "2026-07-27",
+  "video_id": "sMSDQyQANIM",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-27/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "26:26",
       "start_time_seconds": 1586,
       "title": "優勢",
-      "video_url": null,
+      "video_id": "sMSDQyQANIM",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=sMSDQyQANIM&t=1586s",
+      "youtube_short_url": "https://youtu.be/sMSDQyQANIM?t=1586",
+      "youtube_embed_url": "https://www.youtube.com/embed/sMSDQyQANIM?start=1586",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/sMSDQyQANIM?start=1586\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-27/",
       "punchline": "也許你年紀再稍微高一點，他更喜歡你了。",
       "lines": [
@@ -30,11 +35,15 @@
       "time_stamp": "30:35",
       "start_time_seconds": 1835,
       "title": "弟弟的故事",
-      "video_url": null,
+      "video_id": "sMSDQyQANIM",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=sMSDQyQANIM&t=1835s",
+      "youtube_short_url": "https://youtu.be/sMSDQyQANIM?t=1835",
+      "youtube_embed_url": "https://www.youtube.com/embed/sMSDQyQANIM?start=1835",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/sMSDQyQANIM?start=1835\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-27/",
       "punchline": "還是算了，太長了，我不想說。",
       "lines": [
-        "對很多人、很多時候，一件事情太新太複��，",
+        "對很多人、很多時候，一件事情太新太複雜，",
         "或者需要花很多時間才能夠解釋清楚，",
         "那多數人又沒有耐心理解的時候，通常的反應就是算了算了，",
         "故事太長了，先不要講。不是因為沒有道理，因為解釋成本太高。",
@@ -42,7 +51,7 @@
         "這麼多年好像觀眾朋友也沒有聽過我弟弟的故事，",
         "還是算了，太長了，我不想說。"
       ],
-      "content": "對很多人、很多時候，一件事情太新太複��，\n或者需要花很多時間才能夠解釋清楚，\n那多數人又沒有耐心理解的時候，通常的反應就是算了算了，\n故事太長了，先不要講。不是因為沒有道理，因為解釋成本太高。\n想到我們直播大概也有六七年了，\n這麼多年好像觀眾朋友也沒有聽過我弟弟的故事，\n還是算了，太長了，我不想說。"
+      "content": "對很多人、很多時候，一件事情太新太複雜，\n或者需要花很多時間才能夠解釋清楚，\n那多數人又沒有耐心理解的時候，通常的反應就是算了算了，\n故事太長了，先不要講。不是因為沒有道理，因為解釋成本太高。\n想到我們直播大概也有六七年了，\n這麼多年好像觀眾朋友也沒有聽過我弟弟的故事，\n還是算了，太長了，我不想說。"
     }
   ]
 }

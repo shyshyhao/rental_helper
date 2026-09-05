@@ -1,5 +1,6 @@
 {
   "date": "2026-04-01",
+  "video_id": "pAhVKbSUvLo",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-01/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "18:08",
       "start_time_seconds": 1088,
       "title": "一袋一袋",
-      "video_url": null,
+      "video_id": "pAhVKbSUvLo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=pAhVKbSUvLo&t=1088s",
+      "youtube_short_url": "https://youtu.be/pAhVKbSUvLo?t=1088",
+      "youtube_embed_url": "https://www.youtube.com/embed/pAhVKbSUvLo?start=1088",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/pAhVKbSUvLo?start=1088\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-01/",
       "punchline": "所以很痛苦，很痛苦。",
       "lines": [
@@ -27,7 +32,11 @@
       "time_stamp": "24:45",
       "start_time_seconds": 1485,
       "title": "兩個孔子",
-      "video_url": null,
+      "video_id": "pAhVKbSUvLo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=pAhVKbSUvLo&t=1485s",
+      "youtube_short_url": "https://youtu.be/pAhVKbSUvLo?t=1485",
+      "youtube_embed_url": "https://www.youtube.com/embed/pAhVKbSUvLo?start=1485",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/pAhVKbSUvLo?start=1485\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-01/",
       "punchline": "所以我還是比較喜歡團契的那個活潑的氛圍。",
       "lines": [

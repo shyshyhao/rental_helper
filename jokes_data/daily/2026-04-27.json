@@ -1,5 +1,6 @@
 {
   "date": "2026-04-27",
+  "video_id": "zGc7oXv6g2s",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-27/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "23:50",
       "start_time_seconds": 1430,
       "title": "第 16 個",
-      "video_url": null,
+      "video_id": "zGc7oXv6g2s",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=zGc7oXv6g2s&t=1430s",
+      "youtube_short_url": "https://youtu.be/zGc7oXv6g2s?t=1430",
+      "youtube_embed_url": "https://www.youtube.com/embed/zGc7oXv6g2s?start=1430",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/zGc7oXv6g2s?start=1430\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-27/",
       "punchline": "其實不要每次都想這次不一樣，終於輪到我了。",
       "lines": [

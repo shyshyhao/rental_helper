@@ -1,5 +1,6 @@
 {
   "date": "2026-07-31",
+  "video_id": "7RUZWygQDvE",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-31/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "20:19",
       "start_time_seconds": 1219,
       "title": "子彈",
-      "video_url": null,
+      "video_id": "7RUZWygQDvE",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=7RUZWygQDvE&t=1219s",
+      "youtube_short_url": "https://youtu.be/7RUZWygQDvE?t=1219",
+      "youtube_embed_url": "https://www.youtube.com/embed/7RUZWygQDvE?start=1219",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/7RUZWygQDvE?start=1219\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-31/",
       "punchline": "可能方式也要稍微謹慎思考一下，這是很值得大家觀察的重點。",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "26:33",
       "start_time_seconds": 1593,
       "title": "陽台",
-      "video_url": null,
+      "video_id": "7RUZWygQDvE",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=7RUZWygQDvE&t=1593s",
+      "youtube_short_url": "https://youtu.be/7RUZWygQDvE?t=1593",
+      "youtube_embed_url": "https://www.youtube.com/embed/7RUZWygQDvE?start=1593",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/7RUZWygQDvE?start=1593\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-07-31/",
       "punchline": "但很抱歉，現在肯定高資本支出已經不再是利多。",
       "lines": [

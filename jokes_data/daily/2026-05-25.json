@@ -1,5 +1,6 @@
 {
   "date": "2026-05-25",
+  "video_id": "vydkp7c0J-I",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-25/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "22:14",
       "start_time_seconds": 1334,
       "title": "照片",
-      "video_url": null,
+      "video_id": "vydkp7c0J-I",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=vydkp7c0J-I&t=1334s",
+      "youtube_short_url": "https://youtu.be/vydkp7c0J-I?t=1334",
+      "youtube_embed_url": "https://www.youtube.com/embed/vydkp7c0J-I?start=1334",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/vydkp7c0J-I?start=1334\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-25/",
       "punchline": "它不像照片，但它更像是一個長期播放的電影。",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-01-30",
+  "video_id": "kfWgVNEFz8c",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-30/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "17:30",
       "start_time_seconds": 1050,
       "title": "裝睡的人叫不醒",
-      "video_url": null,
+      "video_id": "kfWgVNEFz8c",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=kfWgVNEFz8c&t=1050s",
+      "youtube_short_url": "https://youtu.be/kfWgVNEFz8c?t=1050",
+      "youtube_embed_url": "https://www.youtube.com/embed/kfWgVNEFz8c?start=1050",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/kfWgVNEFz8c?start=1050\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-30/",
       "punchline": "連跌就也跌不動，就卡在這樣的位置，裝睡的人叫不醒哦。",
       "lines": [
@@ -27,7 +32,11 @@
       "time_stamp": "20:08",
       "start_time_seconds": 1208,
       "title": "年輕年老",
-      "video_url": null,
+      "video_id": "kfWgVNEFz8c",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=kfWgVNEFz8c&t=1208s",
+      "youtube_short_url": "https://youtu.be/kfWgVNEFz8c?t=1208",
+      "youtube_embed_url": "https://www.youtube.com/embed/kfWgVNEFz8c?start=1208",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/kfWgVNEFz8c?start=1208\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-01-30/",
       "punchline": "你人生不同階段哦，你的投資的規劃都不太一樣",
       "lines": [

@@ -1,5 +1,6 @@
 {
   "date": "2026-05-04",
+  "video_id": "yoeVEC3qw0M",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-04/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "19:52",
       "start_time_seconds": 1192,
       "title": "有一點泡泡",
-      "video_url": null,
+      "video_id": "yoeVEC3qw0M",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=yoeVEC3qw0M&t=1192s",
+      "youtube_short_url": "https://youtu.be/yoeVEC3qw0M?t=1192",
+      "youtube_embed_url": "https://www.youtube.com/embed/yoeVEC3qw0M?start=1192",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/yoeVEC3qw0M?start=1192\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-04/",
       "punchline": "但是有一點泡泡是很正常的，尤其現在巴菲特給予的看法，他也不是對賭一個 100% 的系統性崩盤。",
       "lines": [
@@ -23,7 +28,11 @@
       "time_stamp": "25:25",
       "start_time_seconds": 1525,
       "title": "Doctor",
-      "video_url": null,
+      "video_id": "yoeVEC3qw0M",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=yoeVEC3qw0M&t=1525s",
+      "youtube_short_url": "https://youtu.be/yoeVEC3qw0M?t=1525",
+      "youtube_embed_url": "https://www.youtube.com/embed/yoeVEC3qw0M?start=1525",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/yoeVEC3qw0M?start=1525\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-04/",
       "punchline": "所以一個人真正厲害的地方，往往不是會多少東西，而是他能不能長期地沉浸在自己的專業裡頭，把 1 件事情做到極致，在細節當中維持高度的敬業和紀律。",
       "lines": [

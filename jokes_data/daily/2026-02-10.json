@@ -1,5 +1,6 @@
 {
   "date": "2026-02-10",
+  "video_id": "cPd2tkBujco",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-10/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "11:29",
       "start_time_seconds": 689,
       "title": "ATM",
-      "video_url": null,
+      "video_id": "cPd2tkBujco",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=cPd2tkBujco&t=689s",
+      "youtube_short_url": "https://youtu.be/cPd2tkBujco?t=689",
+      "youtube_embed_url": "https://www.youtube.com/embed/cPd2tkBujco?start=689",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/cPd2tkBujco?start=689\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-10/",
       "punchline": "你只要換一種說法，它到底是利多還是利空，優先順序馬上就會改變了。",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "14:51",
       "start_time_seconds": 891,
       "title": "亞美跌",
-      "video_url": null,
+      "video_id": "cPd2tkBujco",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=cPd2tkBujco&t=891s",
+      "youtube_short_url": "https://youtu.be/cPd2tkBujco?t=891",
+      "youtube_embed_url": "https://www.youtube.com/embed/cPd2tkBujco?start=891",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/cPd2tkBujco?start=891\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-10/",
       "punchline": "不是，我個人是偏好急跌。",
       "lines": [
@@ -48,7 +57,11 @@
       "time_stamp": "30:26",
       "start_time_seconds": 1826,
       "title": "西洋情人節",
-      "video_url": null,
+      "video_id": "cPd2tkBujco",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=cPd2tkBujco&t=1826s",
+      "youtube_short_url": "https://youtu.be/cPd2tkBujco?t=1826",
+      "youtube_embed_url": "https://www.youtube.com/embed/cPd2tkBujco?start=1826",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/cPd2tkBujco?start=1826\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-10/",
       "punchline": "這樣所以重點在於預期管理，有時候現實，往往只是對方在處理他的需求。",
       "lines": [

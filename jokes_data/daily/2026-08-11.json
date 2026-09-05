@@ -1,5 +1,6 @@
 {
   "date": "2026-08-11",
+  "video_id": "v7TpiWK5DTQ",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-11/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "06:53",
       "start_time_seconds": 413,
       "title": "先求有再求好",
-      "video_url": null,
+      "video_id": "v7TpiWK5DTQ",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=v7TpiWK5DTQ&t=413s",
+      "youtube_short_url": "https://youtu.be/v7TpiWK5DTQ?t=413",
+      "youtube_embed_url": "https://www.youtube.com/embed/v7TpiWK5DTQ?start=413",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/v7TpiWK5DTQ?start=413\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-08-11/",
       "punchline": "所以先求有並不代表可以永遠不求好了。",
       "lines": [

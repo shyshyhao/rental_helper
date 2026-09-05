@@ -1,5 +1,6 @@
 {
   "date": "2026-04-17",
+  "video_id": "sRm0n7EBfyI",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-17/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "22:49",
       "start_time_seconds": 1369,
       "title": "跳蛋",
-      "video_url": null,
+      "video_id": "sRm0n7EBfyI",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=sRm0n7EBfyI&t=1369s",
+      "youtube_short_url": "https://youtu.be/sRm0n7EBfyI?t=1369",
+      "youtube_embed_url": "https://www.youtube.com/embed/sRm0n7EBfyI?start=1369",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/sRm0n7EBfyI?start=1369\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-17/",
       "punchline": "但是 AI 帶來的是那種非線性的跳躍。",
       "lines": [
@@ -33,7 +38,11 @@
       "time_stamp": "28:13",
       "start_time_seconds": 1693,
       "title": "畜生的聲音",
-      "video_url": null,
+      "video_id": "sRm0n7EBfyI",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=sRm0n7EBfyI&t=1693s",
+      "youtube_short_url": "https://youtu.be/sRm0n7EBfyI?t=1693",
+      "youtube_embed_url": "https://www.youtube.com/embed/sRm0n7EBfyI?start=1693",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/sRm0n7EBfyI?start=1693\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-17/",
       "punchline": "這你要分清楚，什麼是下雨的聲音，什麼是畜生的聲音，用高低基期來做最後的判斷。",
       "lines": [

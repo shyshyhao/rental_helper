@@ -1,5 +1,6 @@
 {
   "date": "2026-04-20",
+  "video_id": "J7ARFz1MLBs",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-20/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "16:30",
       "start_time_seconds": 990,
       "title": "刷一排大火箭",
-      "video_url": null,
+      "video_id": "J7ARFz1MLBs",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=J7ARFz1MLBs&t=990s",
+      "youtube_short_url": "https://youtu.be/J7ARFz1MLBs?t=990",
+      "youtube_embed_url": "https://www.youtube.com/embed/J7ARFz1MLBs?start=990",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/J7ARFz1MLBs?start=990\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-20/",
       "punchline": "哦，不同局勢的緊張，都會使得避險情緒短期內的升溫呢。",
       "lines": [
@@ -31,7 +36,11 @@
       "time_stamp": "24:38",
       "start_time_seconds": 1478,
       "title": "倖存者偏差",
-      "video_url": null,
+      "video_id": "J7ARFz1MLBs",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=J7ARFz1MLBs&t=1478s",
+      "youtube_short_url": "https://youtu.be/J7ARFz1MLBs?t=1478",
+      "youtube_embed_url": "https://www.youtube.com/embed/J7ARFz1MLBs?start=1478",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/J7ARFz1MLBs?start=1478\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-20/",
       "punchline": "本質上都是活下來的人去說故事。",
       "lines": [

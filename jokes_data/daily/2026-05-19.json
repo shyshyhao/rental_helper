@@ -1,5 +1,6 @@
 {
   "date": "2026-05-19",
+  "video_id": "AKvxVsrqgbo",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-19/",
   "joke_count": 3,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "02:30",
       "start_time_seconds": 150,
       "title": "再數一次",
-      "video_url": null,
+      "video_id": "AKvxVsrqgbo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=AKvxVsrqgbo&t=150s",
+      "youtube_short_url": "https://youtu.be/AKvxVsrqgbo?t=150",
+      "youtube_embed_url": "https://www.youtube.com/embed/AKvxVsrqgbo?start=150",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/AKvxVsrqgbo?start=150\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-19/",
       "punchline": "哎，好像有好幾次最後通牒了，我數 1、2、3，你不理我，那我就再數一次，你觸碰到我的底線，我就後退一步。",
       "lines": [
@@ -22,7 +27,11 @@
       "time_stamp": "20:17",
       "start_time_seconds": 1217,
       "title": "未接來電",
-      "video_url": null,
+      "video_id": "AKvxVsrqgbo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=AKvxVsrqgbo&t=1217s",
+      "youtube_short_url": "https://youtu.be/AKvxVsrqgbo?t=1217",
+      "youtube_embed_url": "https://www.youtube.com/embed/AKvxVsrqgbo?start=1217",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/AKvxVsrqgbo?start=1217\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-19/",
       "punchline": "所以事情的兩面就是這樣子。",
       "lines": [
@@ -39,7 +48,11 @@
       "time_stamp": "24:15",
       "start_time_seconds": 1455,
       "title": "不要老伴",
-      "video_url": null,
+      "video_id": "AKvxVsrqgbo",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=AKvxVsrqgbo&t=1455s",
+      "youtube_short_url": "https://youtu.be/AKvxVsrqgbo?t=1455",
+      "youtube_embed_url": "https://www.youtube.com/embed/AKvxVsrqgbo?start=1455",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/AKvxVsrqgbo?start=1455\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-05-19/",
       "punchline": "他嘴巴上講的是情懷，講的是價值投資，講的是信仰，結果最後一句話才告訴你。",
       "lines": [

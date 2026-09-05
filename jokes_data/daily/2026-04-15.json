@@ -1,5 +1,6 @@
 {
   "date": "2026-04-15",
+  "video_id": "x6IUl6C0wrM",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-15/",
   "joke_count": 1,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "29:34",
       "start_time_seconds": 1774,
       "title": "手會抖",
-      "video_url": null,
+      "video_id": "x6IUl6C0wrM",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=x6IUl6C0wrM&t=1774s",
+      "youtube_short_url": "https://youtu.be/x6IUl6C0wrM?t=1774",
+      "youtube_embed_url": "https://www.youtube.com/embed/x6IUl6C0wrM?start=1774",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/x6IUl6C0wrM?start=1774\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-04-15/",
       "punchline": "所以觀眾朋友手不要亂下單，手一抖就亂下單，下錯單壓力就很大了。",
       "lines": [

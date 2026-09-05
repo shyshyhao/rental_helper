@@ -1,5 +1,6 @@
 {
   "date": "2026-02-11",
+  "video_id": "VD2Iei-xdjc",
   "source_url": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-11/",
   "joke_count": 2,
   "jokes": [
@@ -8,7 +9,11 @@
       "time_stamp": "06:07",
       "start_time_seconds": 367,
       "title": "上面有想法，下面沒辦法",
-      "video_url": null,
+      "video_id": "VD2Iei-xdjc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=VD2Iei-xdjc&t=367s",
+      "youtube_short_url": "https://youtu.be/VD2Iei-xdjc?t=367",
+      "youtube_embed_url": "https://www.youtube.com/embed/VD2Iei-xdjc?start=367",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/VD2Iei-xdjc?start=367\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-11/",
       "punchline": "如果你上面沒部位，過完年之後如果還繼續上漲，你下面也走不動嘛。",
       "lines": [
@@ -22,7 +27,11 @@
       "time_stamp": "31:34",
       "start_time_seconds": 1894,
       "title": "一滴",
-      "video_url": null,
+      "video_id": "VD2Iei-xdjc",
+      "youtube_watch_url": "https://www.youtube.com/watch?v=VD2Iei-xdjc&t=1894s",
+      "youtube_short_url": "https://youtu.be/VD2Iei-xdjc?t=1894",
+      "youtube_embed_url": "https://www.youtube.com/embed/VD2Iei-xdjc?start=1894",
+      "youtube_iframe": "<iframe style=\"width:100%; aspect-ratio:16/9\" src=\"https://www.youtube.com/embed/VD2Iei-xdjc?start=1894\" frameborder=\"0\" allowfullscreen></iframe>",
       "source_page": "https://digitalgarden-five-azure.vercel.app/yutinghao-jokes/2026-02-11/",
       "punchline": "所以不同年齡段有不同的配置。",
       "lines": [
